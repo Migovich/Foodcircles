@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		63DBB625173161FD003A74CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DBB624173161FD003A74CC /* UIKit.framework */; };
+		63DBB627173161FD003A74CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DBB626173161FD003A74CC /* Foundation.framework */; };
+		63DBB629173161FD003A74CC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DBB628173161FD003A74CC /* CoreGraphics.framework */; };
+		63DBB62B173161FD003A74CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DBB62A173161FD003A74CC /* CoreData.framework */; };
+		63DBB631173161FD003A74CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63DBB62F173161FD003A74CC /* InfoPlist.strings */; };
+		63DBB633173161FD003A74CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DBB632173161FD003A74CC /* main.m */; };
+		63DBB637173161FD003A74CC /* FCSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DBB636173161FD003A74CC /* FCSAppDelegate.m */; };
+		63DBB639173161FD003A74CC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DBB638173161FD003A74CC /* Default.png */; };
+		63DBB63B173161FD003A74CC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DBB63A173161FD003A74CC /* Default@2x.png */; };
+		63DBB63D173161FD003A74CC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DBB63C173161FD003A74CC /* Default-568h@2x.png */; };
+		63DBB640173161FD003A74CC /* FoodCircles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63DBB63E173161FD003A74CC /* FoodCircles.xcdatamodeld */; };
+		63DBB648173161FE003A74CC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DBB647173161FE003A74CC /* SenTestingKit.framework */; };
+		63DBB649173161FE003A74CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DBB624173161FD003A74CC /* UIKit.framework */; };
+		63DBB64A173161FE003A74CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DBB626173161FD003A74CC /* Foundation.framework */; };
+		63DBB64B173161FE003A74CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DBB62A173161FD003A74CC /* CoreData.framework */; };
+		63DBB653173161FE003A74CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63DBB651173161FE003A74CC /* InfoPlist.strings */; };
+		63DBB656173161FE003A74CC /* FoodCirclesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DBB655173161FE003A74CC /* FoodCirclesTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		63DBB64C173161FE003A74CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63DBB619173161FD003A74CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63DBB620173161FD003A74CC;
+			remoteInfo = FoodCircles;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		63DBB621173161FD003A74CC /* FoodCircles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodCircles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63DBB624173161FD003A74CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		63DBB626173161FD003A74CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		63DBB628173161FD003A74CC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		63DBB62A173161FD003A74CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		63DBB62E173161FD003A74CC /* FoodCircles-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FoodCircles-Info.plist"; sourceTree = "<group>"; };
+		63DBB630173161FD003A74CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		63DBB632173161FD003A74CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		63DBB634173161FD003A74CC /* FoodCircles-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FoodCircles-Prefix.pch"; sourceTree = "<group>"; };
+		63DBB635173161FD003A74CC /* FCSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCSAppDelegate.h; sourceTree = "<group>"; };
+		63DBB636173161FD003A74CC /* FCSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCSAppDelegate.m; sourceTree = "<group>"; };
+		63DBB638173161FD003A74CC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		63DBB63A173161FD003A74CC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		63DBB63C173161FD003A74CC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		63DBB63F173161FD003A74CC /* FoodCircles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodCircles.xcdatamodel; sourceTree = "<group>"; };
+		63DBB646173161FE003A74CC /* FoodCirclesTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodCirclesTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		63DBB647173161FE003A74CC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		63DBB650173161FE003A74CC /* FoodCirclesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FoodCirclesTests-Info.plist"; sourceTree = "<group>"; };
+		63DBB652173161FE003A74CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		63DBB654173161FE003A74CC /* FoodCirclesTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodCirclesTests.h; sourceTree = "<group>"; };
+		63DBB655173161FE003A74CC /* FoodCirclesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodCirclesTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		63DBB61E173161FD003A74CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63DBB625173161FD003A74CC /* UIKit.framework in Frameworks */,
+				63DBB627173161FD003A74CC /* Foundation.framework in Frameworks */,
+				63DBB629173161FD003A74CC /* CoreGraphics.framework in Frameworks */,
+				63DBB62B173161FD003A74CC /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63DBB642173161FE003A74CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63DBB648173161FE003A74CC /* SenTestingKit.framework in Frameworks */,
+				63DBB649173161FE003A74CC /* UIKit.framework in Frameworks */,
+				63DBB64A173161FE003A74CC /* Foundation.framework in Frameworks */,
+				63DBB64B173161FE003A74CC /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		63DBB618173161FD003A74CC = {
+			isa = PBXGroup;
+			children = (
+				63DBB62C173161FD003A74CC /* FoodCircles */,
+				63DBB64E173161FE003A74CC /* FoodCirclesTests */,
+				63DBB623173161FD003A74CC /* Frameworks */,
+				63DBB622173161FD003A74CC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		63DBB622173161FD003A74CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63DBB621173161FD003A74CC /* FoodCircles.app */,
+				63DBB646173161FE003A74CC /* FoodCirclesTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		63DBB623173161FD003A74CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63DBB624173161FD003A74CC /* UIKit.framework */,
+				63DBB626173161FD003A74CC /* Foundation.framework */,
+				63DBB628173161FD003A74CC /* CoreGraphics.framework */,
+				63DBB62A173161FD003A74CC /* CoreData.framework */,
+				63DBB647173161FE003A74CC /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		63DBB62C173161FD003A74CC /* FoodCircles */ = {
+			isa = PBXGroup;
+			children = (
+				63DBB635173161FD003A74CC /* FCSAppDelegate.h */,
+				63DBB636173161FD003A74CC /* FCSAppDelegate.m */,
+				63DBB63E173161FD003A74CC /* FoodCircles.xcdatamodeld */,
+				63DBB62D173161FD003A74CC /* Supporting Files */,
+			);
+			path = FoodCircles;
+			sourceTree = "<group>";
+		};
+		63DBB62D173161FD003A74CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				63DBB62E173161FD003A74CC /* FoodCircles-Info.plist */,
+				63DBB62F173161FD003A74CC /* InfoPlist.strings */,
+				63DBB632173161FD003A74CC /* main.m */,
+				63DBB634173161FD003A74CC /* FoodCircles-Prefix.pch */,
+				63DBB638173161FD003A74CC /* Default.png */,
+				63DBB63A173161FD003A74CC /* Default@2x.png */,
+				63DBB63C173161FD003A74CC /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63DBB64E173161FE003A74CC /* FoodCirclesTests */ = {
+			isa = PBXGroup;
+			children = (
+				63DBB654173161FE003A74CC /* FoodCirclesTests.h */,
+				63DBB655173161FE003A74CC /* FoodCirclesTests.m */,
+				63DBB64F173161FE003A74CC /* Supporting Files */,
+			);
+			path = FoodCirclesTests;
+			sourceTree = "<group>";
+		};
+		63DBB64F173161FE003A74CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				63DBB650173161FE003A74CC /* FoodCirclesTests-Info.plist */,
+				63DBB651173161FE003A74CC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		63DBB620173161FD003A74CC /* FoodCircles */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63DBB659173161FE003A74CC /* Build configuration list for PBXNativeTarget "FoodCircles" */;
+			buildPhases = (
+				63DBB61D173161FD003A74CC /* Sources */,
+				63DBB61E173161FD003A74CC /* Frameworks */,
+				63DBB61F173161FD003A74CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FoodCircles;
+			productName = FoodCircles;
+			productReference = 63DBB621173161FD003A74CC /* FoodCircles.app */;
+			productType = "com.apple.product-type.application";
+		};
+		63DBB645173161FE003A74CC /* FoodCirclesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63DBB65C173161FE003A74CC /* Build configuration list for PBXNativeTarget "FoodCirclesTests" */;
+			buildPhases = (
+				63DBB641173161FE003A74CC /* Sources */,
+				63DBB642173161FE003A74CC /* Frameworks */,
+				63DBB643173161FE003A74CC /* Resources */,
+				63DBB644173161FE003A74CC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				63DBB64D173161FE003A74CC /* PBXTargetDependency */,
+			);
+			name = FoodCirclesTests;
+			productName = FoodCirclesTests;
+			productReference = 63DBB646173161FE003A74CC /* FoodCirclesTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		63DBB619173161FD003A74CC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FCS;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = FoodCircles;
+			};
+			buildConfigurationList = 63DBB61C173161FD003A74CC /* Build configuration list for PBXProject "FoodCircles" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 63DBB618173161FD003A74CC;
+			productRefGroup = 63DBB622173161FD003A74CC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				63DBB620173161FD003A74CC /* FoodCircles */,
+				63DBB645173161FE003A74CC /* FoodCirclesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		63DBB61F173161FD003A74CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63DBB631173161FD003A74CC /* InfoPlist.strings in Resources */,
+				63DBB639173161FD003A74CC /* Default.png in Resources */,
+				63DBB63B173161FD003A74CC /* Default@2x.png in Resources */,
+				63DBB63D173161FD003A74CC /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63DBB643173161FE003A74CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63DBB653173161FE003A74CC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		63DBB644173161FE003A74CC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		63DBB61D173161FD003A74CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63DBB633173161FD003A74CC /* main.m in Sources */,
+				63DBB637173161FD003A74CC /* FCSAppDelegate.m in Sources */,
+				63DBB640173161FD003A74CC /* FoodCircles.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63DBB641173161FE003A74CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63DBB656173161FE003A74CC /* FoodCirclesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		63DBB64D173161FE003A74CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63DBB620173161FD003A74CC /* FoodCircles */;
+			targetProxy = 63DBB64C173161FE003A74CC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		63DBB62F173161FD003A74CC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63DBB630173161FD003A74CC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		63DBB651173161FE003A74CC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63DBB652173161FE003A74CC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		63DBB657173161FE003A74CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		63DBB658173161FE003A74CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		63DBB65A173161FE003A74CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
+				INFOPLIST_FILE = "FoodCircles/FoodCircles-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		63DBB65B173161FE003A74CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
+				INFOPLIST_FILE = "FoodCircles/FoodCircles-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		63DBB65D173161FE003A74CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FoodCircles.app/FoodCircles";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
+				INFOPLIST_FILE = "FoodCirclesTests/FoodCirclesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		63DBB65E173161FE003A74CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FoodCircles.app/FoodCircles";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
+				INFOPLIST_FILE = "FoodCirclesTests/FoodCirclesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		63DBB61C173161FD003A74CC /* Build configuration list for PBXProject "FoodCircles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63DBB657173161FE003A74CC /* Debug */,
+				63DBB658173161FE003A74CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63DBB659173161FE003A74CC /* Build configuration list for PBXNativeTarget "FoodCircles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63DBB65A173161FE003A74CC /* Debug */,
+				63DBB65B173161FE003A74CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		63DBB65C173161FE003A74CC /* Build configuration list for PBXNativeTarget "FoodCirclesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63DBB65D173161FE003A74CC /* Debug */,
+				63DBB65E173161FE003A74CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		63DBB63E173161FD003A74CC /* FoodCircles.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				63DBB63F173161FD003A74CC /* FoodCircles.xcdatamodel */,
+			);
+			currentVersion = 63DBB63F173161FD003A74CC /* FoodCircles.xcdatamodel */;
+			path = FoodCircles.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 63DBB619173161FD003A74CC /* Project object */;
+}
