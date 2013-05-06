@@ -64,8 +64,24 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"signUp"]) {
-    [[FCSRemoteAPI sharedInstance] authorizeEmail:self.emailTextField.text password:self.passwordTextField.text];
+   
   }
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+  if ([identifier isEqualToString:@"signUp"]) {
+    if ([[FCSRemoteAPI sharedInstance] authorizeEmail:self.emailTextField.text password:self.passwordTextField.text] == NO) {
+      UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                    message:@"Invalid email or password"
+                                                  delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+      [av show];
+      return NO;
+    }
+  }
+  
+  return YES;
 }
 
 #pragma mark UITextFieldDelegate

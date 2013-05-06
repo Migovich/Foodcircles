@@ -10,6 +10,8 @@
 
 @interface FCSAuthorizer : NSObject
 
+@property (strong, nonatomic) NSString *userEmail;
+
 - (BOOL)authorizeEmail:(NSString *)email password:(NSString *)password;
 
 @end

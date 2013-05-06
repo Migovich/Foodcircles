@@ -23,4 +23,5 @@
 
 + (BOOL)loadVenues;
 
+- (NSString *)currentUser;
 @end

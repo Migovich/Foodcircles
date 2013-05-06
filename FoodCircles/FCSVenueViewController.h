@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FCSVenue.h"
+
 @interface FCSVenueViewController : UIViewController
+
+@property FCSVenue *venue;
 
 @end

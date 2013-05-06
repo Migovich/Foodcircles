@@ -8,6 +8,8 @@
 
 #import "FCSStubAdapter.h"
 #import "FCSAppDelegate.h"
+#import "FCSVenue.h"
+#import "FCSSpecial.h"
 
 @interface FCSStubAdapter ()
 
@@ -28,19 +30,37 @@
 
 - (void)defaults {
   self.venues = @[
-                  @{@"id" : @1, @"name" : @"Bartertown"},
-                  @{@"id" : @2, @"name" : @"Stella's"},
-                  @{@"id" : @3, @"name" : @"HopCat"}
+                  @{@"id" : @1, @"name" : @"Georgio's", @"foodType" : @"Pizza", @"image" : @"georgios",
+                    @"offer" : @{@"id" : @1, @"title" : @"2 Free Desserts", @"details" : @"With purchase of at least 2 slices of pizza per person"} },
+                  @{@"id" : @2, @"name" : @"Stella's", @"foodType" : @"So much whiskey", @"image" : @"stellas",
+                    @"offer" : @{@"id" : @2, @"title" : @"1 free Chronic", @"details" : @"Perk does not apply on the burger special."} },
+                  @{@"id" : @3, @"name" : @"HopCat", @"foodType" : @"So much beer", @"image" : @"hopcat",
+                    @"offer" : @{@"id" : @3, @"title" : @"2 free appetizers", @"details" : @""} }
                   ];
 }
 
 - (BOOL)loadVenues {
   NSEntityDescription *venueEntity = [NSEntityDescription entityForName:@"Venue" inManagedObjectContext:self.moc];
-  for ( NSDictionary *venue in self.venues ) {
-    NSManagedObject *mo = [[NSManagedObject alloc] initWithEntity:venueEntity insertIntoManagedObjectContext:self.moc];
-    [mo setValue:[venue objectForKey:@"id"] forKey:@"id"];
-    [mo setValue:[venue objectForKey:@"name"] forKey:@"name"];
+  NSEntityDescription *specialEntity = [NSEntityDescription entityForName:@"Special" inManagedObjectContext:self.moc];
+  
+  for ( NSDictionary *venueDictionary in self.venues ) {
+    FCSVenue *venue = (FCSVenue *)[[NSManagedObject alloc] initWithEntity:venueEntity insertIntoManagedObjectContext:self.moc];
+    venue.id_number = [venueDictionary objectForKey:@"id"];
+    venue.name = [venueDictionary objectForKey:@"name"];
+    venue.foodType = [venueDictionary objectForKey:@"foodType"];
+    NSString *imageFilename = [venueDictionary valueForKey:@"image"];
+    NSString *imagePath = [[NSBundle mainBundle] pathForResource:imageFilename ofType:@"png" inDirectory:@"images"];
+    venue.thumbnail = [UIImage imageWithContentsOfFile:imagePath];
+    
+    FCSSpecial *special = (FCSSpecial *)[[NSManagedObject alloc] initWithEntity:specialEntity insertIntoManagedObjectContext:self.moc];
+    NSDictionary *offer = [venueDictionary objectForKey:@"offer"];
+    special.id_number = [offer objectForKey:@"id"];
+    special.title = [offer objectForKey:@"title"];
+    special.details = [offer objectForKey:@"details"];
+    
+    venue.special = special;
   }
+  
   return YES;
 }
 

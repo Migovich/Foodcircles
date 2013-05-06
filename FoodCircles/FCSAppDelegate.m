@@ -16,9 +16,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  // Force the Core data stack to initialize here
-//  self.managedObjectContext;
-  
   return YES;
 }
 

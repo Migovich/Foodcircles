@@ -51,4 +51,8 @@ static FCSRemoteAPI *sharedFCSRemoteAPI;
   return [[FCSRemoteAPI sharedInstance] loadVenues];
 }
 
+- (NSString *)currentUser {
+  return self.authorizer.userEmail;
+}
+
 @end
