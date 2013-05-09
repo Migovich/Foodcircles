@@ -31,11 +31,23 @@
 - (void)defaults {
   self.venues = @[
                   @{@"id" : @1, @"name" : @"Georgio's", @"foodType" : @"Pizza", @"image" : @"georgios",
-                    @"offer" : @{@"id" : @1, @"title" : @"2 Free Desserts", @"details" : @"With purchase of at least 2 slices of pizza per person"} },
+                    @"offer" : @{@"id" : @1,
+                                 @"name" : @"2 Free Desserts",
+                                 @"details" : @"With purchase of at least 2 slices of pizza per person",
+                                 @"minimumPrice" : @1,
+                                 @"retailPrice" : @2} },
                   @{@"id" : @2, @"name" : @"Stella's", @"foodType" : @"So much whiskey", @"image" : @"stellas",
-                    @"offer" : @{@"id" : @2, @"title" : @"1 free Chronic", @"details" : @"Perk does not apply on the burger special."} },
+                    @"offer" : @{@"id" : @2,
+                                 @"name" : @"1 Free Chronic",
+                                 @"details" : @"Perk does not apply on the burger special.",
+                                 @"minimumPrice" : @1,
+                                 @"retailPrice" : @5} },
                   @{@"id" : @3, @"name" : @"HopCat", @"foodType" : @"So much beer", @"image" : @"hopcat",
-                    @"offer" : @{@"id" : @3, @"title" : @"2 free appetizers", @"details" : @""} }
+                    @"offer" : @{@"id" : @3,
+                                 @"name" : @"2 free appetizers",
+                                 @"details" : @"",
+                                 @"minimumPrice" : @1,
+                                 @"retailPrice" : @4} }
                   ];
 }
 
@@ -55,8 +67,10 @@
     FCSSpecial *special = (FCSSpecial *)[[NSManagedObject alloc] initWithEntity:specialEntity insertIntoManagedObjectContext:self.moc];
     NSDictionary *offer = [venueDictionary objectForKey:@"offer"];
     special.id_number = [offer objectForKey:@"id"];
-    special.title = [offer objectForKey:@"title"];
+    special.name = [offer objectForKey:@"name"];
     special.details = [offer objectForKey:@"details"];
+    special.minimumPrice = [offer objectForKey:@"minimumPrice"];
+    special.retailPrice = [offer objectForKey:@"retailPrice"];
     
     venue.special = special;
   }
