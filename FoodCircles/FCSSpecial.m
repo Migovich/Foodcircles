@@ -11,8 +11,10 @@
 @implementation FCSSpecial
 
 @synthesize id_number;
-@synthesize title;
+@synthesize name;
 @synthesize details;
 @synthesize venue;
+@synthesize minimumPrice;
+@synthesize retailPrice;
 
 @end

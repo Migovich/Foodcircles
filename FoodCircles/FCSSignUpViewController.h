@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FCSSignUpViewController : UIViewController
+#import "FCSStyledViewController.h" 
+
+@interface FCSSignUpViewController : FCSStyledViewController
 <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;

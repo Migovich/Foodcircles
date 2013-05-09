@@ -13,10 +13,12 @@
 
 @interface FCSVenueViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *specialTitleLabel;
-@property (weak, nonatomic) IBOutlet UITextField *specialDetailsTextField;
+@property (weak, nonatomic) IBOutlet UILabel *specialNameLabel;
+@property (weak, nonatomic) IBOutlet UITextView *specialDetailsTextView;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UISlider *priceSlider;
+@property (weak, nonatomic) IBOutlet UIButton *iWantThisButton;
+
 
 @end
 
@@ -38,8 +40,8 @@
 {
   [super viewDidLoad];
 
-  self.specialTitleLabel.text = venue.special.title;
-  self.specialDetailsTextField.text = venue.special.details;
+  self.specialNameLabel.text = venue.special.name;
+  self.specialDetailsTextView.text = venue.special.details;
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,9 +56,9 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"showBuy"]) {
-     //((FCSPurchaseViewController *)segue.destinationViewController).navigationController.backItem.text = @"WTF";
-    NSLog(@"showBuy transition");
-    ((FCSPurchaseViewController *)segue.destinationViewController).description = venue.special.title;
+    FCSPurchaseViewController *destinationViewController = (FCSPurchaseViewController *)segue.destinationViewController;
+    destinationViewController.special = venue.special;
+    destinationViewController.title = venue.special.name;
   }
 }
 
