@@ -13,6 +13,9 @@
 #import "FCSVenueViewController.h"
 #import "FCSVenue.h"
 #import "FCSSpecial.h"
+#import "FCSVenueCell.h"
+
+NSString *kVenueId = @"venueListViewID";
 
 @interface FCSVenueListViewController ()
 
@@ -31,6 +34,8 @@
   // Force the load immediately. Move later if perforamnce issues
   NSError *e;
   [self.fetchedResultsController performFetch:&e];
+  
+  self.collectionView.backgroundColor = [UIColor colorWithRed:0.9375 green:0.910156 blue:0.86718 alpha:1.0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,40 +45,59 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  if ([segue.identifier isEqualToString:@"showVenue"]) {
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    FCSVenue *venue = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    FCSVenueViewController *destinationViewController = (FCSVenueViewController *)segue.destinationViewController;
-    destinationViewController.venue = venue;
-    destinationViewController.title = venue.name;
-  }
+//  if ([segue.identifier isEqualToString:@"showVenue"]) {
+//    NSIndexPath *indexPath = [self.collectionView indexPathForSelectedRow];
+//    FCSVenue *venue = [self.fetchedResultsController objectAtIndexPath:indexPath];
+//    FCSVenueViewController *destinationViewController = (FCSVenueViewController *)segue.destinationViewController;
+//    destinationViewController.venue = venue;
+//    destinationViewController.title = venue.name;
+//  }
 }
 
 
 #pragma mark -
-#pragma mark UITableViewDataSource
+#pragma mark UICollectionViewDataSoure
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-  return [[self.fetchedResultsController sections] count];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
   NSArray *sections = [self.fetchedResultsController sections];
   id<NSFetchedResultsSectionInfo> sectionInfo = nil;
   sectionInfo = [sections objectAtIndex:section];
   return sectionInfo.numberOfObjects;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *venueCell = nil;
-  FCSVenue *venue = nil;
-  venue = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-  venueCell = [self.tableView dequeueReusableCellWithIdentifier:@"VenueTableCell"];
-  venueCell.textLabel.text = venue.name;
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+  FCSVenue *venue = [self.fetchedResultsController objectAtIndexPath:indexPath];
+  FCSVenueCell *venueCell = [collectionView dequeueReusableCellWithReuseIdentifier:kVenueId forIndexPath:indexPath];
+  venueCell.productImage.image = venue.thumbnail;
+  venueCell.productName.text = [venue.name uppercaseString];
   venueCell.detailTextLabel.text = venue.foodType;
-  venueCell.imageView.image = venue.thumbnail;
   return venueCell;
 }
+
+#pragma mark -
+#pragma mark UITableViewDataSource
+
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//  return [[self.fetchedResultsController sections] count];
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//  NSArray *sections = [self.fetchedResultsController sections];
+//  id<NSFetchedResultsSectionInfo> sectionInfo = nil;
+//  sectionInfo = [sections objectAtIndex:section];
+//  return sectionInfo.numberOfObjects;
+//}
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//  UITableViewCell *venueCell = nil;
+//  FCSVenue *venue = nil;
+//  venue = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+//  venueCell = [self.collectionView dequeueReusableCellWithIdentifier:@"VenueTableCell"];
+//  venueCell.textLabel.text = venue.name;
+//  venueCell.detailTextLabel.text = venue.foodType;
+//  venueCell.imageView.image = venue.thumbnail;
+//  return venueCell;
+//}
 
 
 #pragma mark -
@@ -98,14 +122,6 @@
   }
 	
 	return fetchedResultsController;
-}
-
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-  [[self tableView] beginUpdates];
-}
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-  [[self tableView] endUpdates];
 }
 
 @end

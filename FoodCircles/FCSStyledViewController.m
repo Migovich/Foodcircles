@@ -28,8 +28,8 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.buttonImage = [[UIImage imageNamed:@"orangeButton.png"]
-                      resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+  self.view.backgroundColor = [UIColor colorWithRed:0.9375 green:0.910156 blue:0.86718 alpha:1.0];
+  
 }
 
 - (void)didReceiveMemoryWarning {

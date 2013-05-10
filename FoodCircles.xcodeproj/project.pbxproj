@@ -56,6 +56,12 @@
 		6323574A17384F3B0068A2F5 /* orangeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6323574817384F3B0068A2F5 /* orangeButton.png */; };
 		6323574B17384F3B0068A2F5 /* orangeButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6323574917384F3B0068A2F5 /* orangeButton@2x.png */; };
 		6323574E173850800068A2F5 /* FCSStyledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6323574D1738507F0068A2F5 /* FCSStyledViewController.m */; };
+		63DB6381173D23C800B2DF41 /* FCSVenueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DB6380173D23C800B2DF41 /* FCSVenueCell.m */; };
+		63DB6385173D2DDF00B2DF41 /* FCSVenueListLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DB6384173D2DDF00B2DF41 /* FCSVenueListLabel.m */; };
+		63DB6388173D2EC600B2DF41 /* FCSStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DB6387173D2EC600B2DF41 /* FCSStyles.m */; };
+		63DB638F173D331D00B2DF41 /* Brownie.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63DB6389173D32A900B2DF41 /* Brownie.jpg */; };
+		63DB6390173D331D00B2DF41 /* Crack Fries.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63DB638A173D32AA00B2DF41 /* Crack Fries.jpg */; };
+		63DB6391173D331D00B2DF41 /* Fountain Drinks.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63DB638B173D32AA00B2DF41 /* Fountain Drinks.jpg */; };
 		63DBB625173161FD003A74CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DBB624173161FD003A74CC /* UIKit.framework */; };
 		63DBB627173161FD003A74CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DBB626173161FD003A74CC /* Foundation.framework */; };
 		63DBB629173161FD003A74CC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DBB628173161FD003A74CC /* CoreGraphics.framework */; };
@@ -90,6 +96,9 @@
 			dstPath = images;
 			dstSubfolderSpec = 7;
 			files = (
+				63DB638F173D331D00B2DF41 /* Brownie.jpg in CopyFiles */,
+				63DB6390173D331D00B2DF41 /* Crack Fries.jpg in CopyFiles */,
+				63DB6391173D331D00B2DF41 /* Fountain Drinks.jpg in CopyFiles */,
 				631C6D581732EB1700151EFA /* hopcat.png in CopyFiles */,
 				631C6D591732EB1700151EFA /* georgios.png in CopyFiles */,
 				631C6D5A1732EB1700151EFA /* stellas.png in CopyFiles */,
@@ -174,6 +183,15 @@
 		6323574C1738507F0068A2F5 /* FCSStyledViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSStyledViewController.h; sourceTree = "<group>"; };
 		6323574D1738507F0068A2F5 /* FCSStyledViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSStyledViewController.m; sourceTree = "<group>"; };
 		63504A6317393170009DE323 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = /Library/Frameworks/FacebookSDK.framework; sourceTree = "<absolute>"; };
+		63DB637F173D23C800B2DF41 /* FCSVenueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSVenueCell.h; sourceTree = "<group>"; };
+		63DB6380173D23C800B2DF41 /* FCSVenueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSVenueCell.m; sourceTree = "<group>"; };
+		63DB6383173D2DDF00B2DF41 /* FCSVenueListLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSVenueListLabel.h; sourceTree = "<group>"; };
+		63DB6384173D2DDF00B2DF41 /* FCSVenueListLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSVenueListLabel.m; sourceTree = "<group>"; };
+		63DB6386173D2EC600B2DF41 /* FCSStyles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSStyles.h; sourceTree = "<group>"; };
+		63DB6387173D2EC600B2DF41 /* FCSStyles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSStyles.m; sourceTree = "<group>"; };
+		63DB6389173D32A900B2DF41 /* Brownie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Brownie.jpg; sourceTree = "<group>"; };
+		63DB638A173D32AA00B2DF41 /* Crack Fries.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Crack Fries.jpg"; sourceTree = "<group>"; };
+		63DB638B173D32AA00B2DF41 /* Fountain Drinks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Fountain Drinks.jpg"; sourceTree = "<group>"; };
 		63DBB621173161FD003A74CC /* FoodCircles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodCircles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63DBB624173161FD003A74CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		63DBB626173161FD003A74CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -237,6 +255,8 @@
 		6312D7E1173BCBB4009B8E6D /* UI Styles */ = {
 			isa = PBXGroup;
 			children = (
+				63DB6386173D2EC600B2DF41 /* FCSStyles.h */,
+				63DB6387173D2EC600B2DF41 /* FCSStyles.m */,
 				6312D7F6173BDFFD009B8E6D /* Labels */,
 				6305D52D17345D1C0021482B /* FCSNavigationController.h */,
 				6305D52E17345D1C0021482B /* FCSNavigationController.m */,
@@ -259,6 +279,8 @@
 				6312D7F8173BE30E009B8E6D /* FCSHeaderLabel.m */,
 				6312D7FA173BE368009B8E6D /* FCSCopyTextView.h */,
 				6312D7FB173BE368009B8E6D /* FCSCopyTextView.m */,
+				63DB6383173D2DDF00B2DF41 /* FCSVenueListLabel.h */,
+				63DB6384173D2DDF00B2DF41 /* FCSVenueListLabel.m */,
 			);
 			name = Labels;
 			sourceTree = "<group>";
@@ -290,12 +312,11 @@
 		631C6D281731E09800151EFA /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				63DB6382173D254400B2DF41 /* VenueList */,
 				6323574C1738507F0068A2F5 /* FCSStyledViewController.h */,
 				6323574D1738507F0068A2F5 /* FCSStyledViewController.m */,
 				63DBB661173164CD003A74CC /* FCSSignUpViewController.h */,
 				63DBB662173164CD003A74CC /* FCSSignUpViewController.m */,
-				631C6D2C1731E20F00151EFA /* FCSVenueListViewController.h */,
-				631C6D2D1731E20F00151EFA /* FCSVenueListViewController.m */,
 				631C6D481732B50A00151EFA /* FCSVenueViewController.h */,
 				631C6D491732B50A00151EFA /* FCSVenueViewController.m */,
 				6323572A173818A20068A2F5 /* FCSPurchaseViewController.h */,
@@ -372,6 +393,9 @@
 		63235729173815790068A2F5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				63DB6389173D32A900B2DF41 /* Brownie.jpg */,
+				63DB638A173D32AA00B2DF41 /* Crack Fries.jpg */,
+				63DB638B173D32AA00B2DF41 /* Fountain Drinks.jpg */,
 				6312D7EE173BD9C9009B8E6D /* heart.png */,
 				6312D7EA173BD70F009B8E6D /* button.png */,
 				6323574817384F3B0068A2F5 /* orangeButton.png */,
@@ -383,6 +407,17 @@
 				632357251738156A0068A2F5 /* kids.tiff */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		63DB6382173D254400B2DF41 /* VenueList */ = {
+			isa = PBXGroup;
+			children = (
+				631C6D2C1731E20F00151EFA /* FCSVenueListViewController.h */,
+				631C6D2D1731E20F00151EFA /* FCSVenueListViewController.m */,
+				63DB637F173D23C800B2DF41 /* FCSVenueCell.h */,
+				63DB6380173D23C800B2DF41 /* FCSVenueCell.m */,
+			);
+			name = VenueList;
 			sourceTree = "<group>";
 		};
 		63DBB618173161FD003A74CC = {
@@ -620,6 +655,9 @@
 				6312D7F5173BDFB9009B8E6D /* FCSHighlightLabel.m in Sources */,
 				6312D7F9173BE30E009B8E6D /* FCSHeaderLabel.m in Sources */,
 				6312D7FC173BE368009B8E6D /* FCSCopyTextView.m in Sources */,
+				63DB6381173D23C800B2DF41 /* FCSVenueCell.m in Sources */,
+				63DB6385173D2DDF00B2DF41 /* FCSVenueListLabel.m in Sources */,
+				63DB6388173D2EC600B2DF41 /* FCSStyles.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

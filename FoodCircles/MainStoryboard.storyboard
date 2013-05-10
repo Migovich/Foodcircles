@@ -57,7 +57,6 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94117647058823528" green="0.9137254901960784" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="2VN-fJ-vkn" firstAttribute="bottom" secondItem="UPT-ml-ZA4" secondAttribute="bottom" type="default" id="LlS-sr-VyD"/>
                             <constraint firstItem="2VN-fJ-vkn" firstAttribute="top" secondItem="UPT-ml-ZA4" secondAttribute="top" type="default" id="Zc9-wr-Pq4"/>
@@ -75,6 +74,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sus-R5-FFO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-530" y="259"/>
+        </scene>
+        <!--Venue List View Controller - Restaurants-->
+        <scene sceneID="nOf-85-EsP">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="sX4-Qn-3GA" customClass="FCSVenueListViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="OvD-UB-9AB">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vpm-wf-Hmh">
+                            <size key="itemSize" width="151" height="126"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="venueListViewID" id="poy-ep-Y0T" customClass="FCSVenueCell">
+                                <rect key="frame" x="0.0" y="0.0" width="151" height="126"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="151" height="126"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="SpB-Ig-fhW">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="84" id="z55-FQ-0mq"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usu-xp-kHf">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="CIE-Vd-p8j"/>
+                                                <constraint firstAttribute="height" constant="14" id="J1m-zc-pVH"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdc-UC-EKy" customClass="FCSSecondaryCopyLabel">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="125" id="etN-fe-QW0"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="Usu-xp-kHf" firstAttribute="top" secondItem="poy-ep-Y0T" secondAttribute="top" constant="6" id="1N9-VF-BlJ"/>
+                                    <constraint firstItem="SpB-Ig-fhW" firstAttribute="leading" secondItem="Fdc-UC-EKy" secondAttribute="leading" type="default" id="BTh-hf-Kz6"/>
+                                    <constraint firstItem="Fdc-UC-EKy" firstAttribute="bottom" secondItem="poy-ep-Y0T" secondAttribute="bottom" type="user" id="JOH-Rr-PoT"/>
+                                    <constraint firstItem="Usu-xp-kHf" firstAttribute="leading" secondItem="poy-ep-Y0T" secondAttribute="leading" constant="16" id="MHy-uH-58E"/>
+                                    <constraint firstAttribute="bottom" secondItem="SpB-Ig-fhW" secondAttribute="bottom" constant="20" type="user" id="TaR-1j-bFH"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fdc-UC-EKy" secondAttribute="trailing" constant="20" type="default" id="UCC-mo-B5l"/>
+                                    <constraint firstItem="Fdc-UC-EKy" firstAttribute="top" secondItem="SpB-Ig-fhW" secondAttribute="bottom" constant="-1" type="user" id="o4S-Z1-dY7"/>
+                                    <constraint firstItem="SpB-Ig-fhW" firstAttribute="centerX" secondItem="poy-ep-Y0T" secondAttribute="centerX" type="default" id="yYF-ls-EMh"/>
+                                    <constraint firstItem="Fdc-UC-EKy" firstAttribute="bottom" secondItem="poy-ep-Y0T" secondAttribute="bottom" type="user" id="yhs-cx-wpT"/>
+                                </constraints>
+                                <size key="customSize" width="151" height="126"/>
+                                <connections>
+                                    <outlet property="detailTextLabel" destination="Fdc-UC-EKy" id="YBG-s9-qTj"/>
+                                    <outlet property="productImage" destination="SpB-Ig-fhW" id="uwC-qV-unn"/>
+                                    <outlet property="productName" destination="Usu-xp-kHf" id="bJA-ui-8iY"/>
+                                    <segue destination="Wv4-fd-RiF" kind="push" id="QFW-cc-ogr"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="sX4-Qn-3GA" id="lKt-dW-J3i"/>
+                            <outlet property="delegate" destination="sX4-Qn-3GA" id="6NF-XG-L0X"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Restaurants" id="6Yh-ou-4Bn"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="32x-iV-fgH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="367" y="322"/>
         </scene>
         <!--Venue View Controller-->
         <scene sceneID="e7s-CV-boG">
@@ -127,6 +203,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="apv-UE-IaB" kind="push" id="swi-ww-0wj"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="heart.png" translatesAutoresizingMaskIntoConstraints="NO" id="S7o-96-gz8">
                                 <constraints>
@@ -185,14 +264,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KvC-gO-rSH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="817" y="302"/>
+            <point key="canvasLocation" x="833" y="322"/>
         </scene>
         <!--Purchase View Controller-->
         <scene sceneID="5G0-wC-c8n">
             <objects>
                 <viewController id="apv-UE-IaB" customClass="FCSPurchaseViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o4a-H2-QFo">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="Hh8-VI-fEs">
@@ -332,51 +411,6 @@
             </objects>
             <point key="canvasLocation" x="1233" y="259"/>
         </scene>
-        <!--Venue List View Controller - Venues-->
-        <scene sceneID="c0f-Zi-GMf">
-            <objects>
-                <tableViewController storyboardIdentifier="VenueListViewController" id="HOt-bq-H5S" customClass="FCSVenueListViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="67" sectionHeaderHeight="22" sectionFooterHeight="22" id="4jL-Nq-5UZ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="Venue" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VenueTableCell" textLabel="SfS-BN-2Fn" detailTextLabel="JTC-mn-wz1" rowHeight="67" style="IBUITableViewCellStyleSubtitle" id="Dwe-zo-Mib">
-                                <rect key="frame" x="0.0" y="22" width="320" height="67"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="66"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SfS-BN-2Fn">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTC-mn-wz1">
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <connections>
-                                    <segue destination="Wv4-fd-RiF" kind="push" identifier="showVenue" id="bLk-y8-4yG"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="HOt-bq-H5S" id="s0n-58-kIL"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Venues" id="E35-5h-hZR"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dJf-D7-Uuf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="349" y="259"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="QIl-gU-T81">
             <objects>
@@ -393,7 +427,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="HOt-bq-H5S" kind="relationship" relationship="rootViewController" id="oOc-sb-Rgl"/>
+                        <segue destination="sX4-Qn-3GA" kind="relationship" relationship="rootViewController" id="gRW-kb-rOV"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zxe-Og-Sfm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -452,7 +486,15 @@
         <class className="FCSStyledViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSStyledViewController.h"/>
         </class>
-        <class className="FCSVenueListViewController" superclassName="UITableViewController">
+        <class className="FCSVenueCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSVenueCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="productImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="productName" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FCSVenueListViewController" superclassName="UICollectionViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSVenueListViewController.h"/>
         </class>
         <class className="FCSVenueViewController" superclassName="FCSStyledViewController">
@@ -467,6 +509,18 @@
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

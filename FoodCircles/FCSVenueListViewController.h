@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FCSVenueListViewController : UITableViewController
-<NSFetchedResultsControllerDelegate, UITableViewDataSource>
+@interface FCSVenueListViewController : UICollectionViewController
+<UICollectionViewDelegate, UICollectionViewDataSource, NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
