@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FCSAuthorizer.h"
+
 @interface FCSAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
