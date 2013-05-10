@@ -35,8 +35,6 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  
-  [self.buyButton setBackgroundImage:self.buttonImage forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

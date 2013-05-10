@@ -11,25 +11,24 @@
 @implementation FCSButton
 
 - (id)initWithCoder:(NSCoder *)decoder {
-    self = [super initWithCoder:decoder];
-    if (self) {
-      [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-      UIImage *baseImage = [UIImage imageNamed:@"button.png"];
-      UIImage *resizeableImage = [baseImage resizableImageWithCapInsets:UIEdgeInsetsMake(7, 7, 7, 7)];
-      [self setBackgroundImage:resizeableImage forState:UIControlStateNormal];
-      self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:22];
-//        [self.signUpButton setBackgroundImage:self.buttonImage forState:UIControlStateNormal];
-    }
-    return self;
+  self = [super initWithCoder:decoder];
+  if (self) {
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    UIImage *baseImage = [UIImage imageNamed:@"button.png"];
+    UIImage *resizeableImage = [baseImage resizableImageWithCapInsets:UIEdgeInsetsMake(7, 7, 7, 7)];
+    [self setBackgroundImage:resizeableImage forState:UIControlStateNormal];
+    self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:22];
+  }
+  return self;
 }
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
 
 @end

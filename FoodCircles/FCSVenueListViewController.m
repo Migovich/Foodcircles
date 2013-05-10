@@ -14,6 +14,7 @@
 #import "FCSVenue.h"
 #import "FCSSpecial.h"
 #import "FCSVenueCell.h"
+#import "FCSStyles.h"
 
 NSString *kVenueId = @"venueListViewID";
 
@@ -35,7 +36,12 @@ NSString *kVenueId = @"venueListViewID";
   NSError *e;
   [self.fetchedResultsController performFetch:&e];
   
-  self.collectionView.backgroundColor = [UIColor colorWithRed:0.9375 green:0.910156 blue:0.86718 alpha:1.0];
+  self.collectionView.backgroundColor = [FCSStyles backgroundColor];
+  
+  
+  UICollectionViewFlowLayout *flow = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+  flow.sectionInset = UIEdgeInsetsMake(10, 5, 0, 5);
+  flow.minimumInteritemSpacing = 1;
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,13 +51,13 @@ NSString *kVenueId = @"venueListViewID";
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//  if ([segue.identifier isEqualToString:@"showVenue"]) {
-//    NSIndexPath *indexPath = [self.collectionView indexPathForSelectedRow];
-//    FCSVenue *venue = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//    FCSVenueViewController *destinationViewController = (FCSVenueViewController *)segue.destinationViewController;
-//    destinationViewController.venue = venue;
-//    destinationViewController.title = venue.name;
-//  }
+  if ([segue.identifier isEqualToString:@"showVenue"]) {
+    NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
+    FCSVenue *venue = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    FCSVenueViewController *destinationViewController = (FCSVenueViewController *)segue.destinationViewController;
+    destinationViewController.venue = venue;
+    destinationViewController.title = venue.name;
+  }
 }
 
 

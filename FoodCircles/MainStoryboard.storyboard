@@ -137,7 +137,7 @@
                                     <outlet property="detailTextLabel" destination="Fdc-UC-EKy" id="YBG-s9-qTj"/>
                                     <outlet property="productImage" destination="SpB-Ig-fhW" id="uwC-qV-unn"/>
                                     <outlet property="productName" destination="Usu-xp-kHf" id="bJA-ui-8iY"/>
-                                    <segue destination="Wv4-fd-RiF" kind="push" id="QFW-cc-ogr"/>
+                                    <segue destination="Wv4-fd-RiF" kind="push" identifier="showVenue" id="QFW-cc-ogr"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -351,7 +351,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yj3-Nl-hzT">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yj3-Nl-hzT" customClass="FCSButton">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -521,6 +521,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

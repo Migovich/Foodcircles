@@ -340,6 +340,9 @@
 		631C6D3D1731EB7500151EFA /* Fixture Data */ = {
 			isa = PBXGroup;
 			children = (
+				63DB6389173D32A900B2DF41 /* Brownie.jpg */,
+				63DB638A173D32AA00B2DF41 /* Crack Fries.jpg */,
+				63DB638B173D32AA00B2DF41 /* Fountain Drinks.jpg */,
 				631C6D511732E91D00151EFA /* hopcat.png */,
 				631C6D521732E91D00151EFA /* georgios.png */,
 				631C6D531732E91D00151EFA /* stellas.png */,
@@ -393,9 +396,6 @@
 		63235729173815790068A2F5 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				63DB6389173D32A900B2DF41 /* Brownie.jpg */,
-				63DB638A173D32AA00B2DF41 /* Crack Fries.jpg */,
-				63DB638B173D32AA00B2DF41 /* Fountain Drinks.jpg */,
 				6312D7EE173BD9C9009B8E6D /* heart.png */,
 				6312D7EA173BD70F009B8E6D /* button.png */,
 				6323574817384F3B0068A2F5 /* orangeButton.png */,

@@ -10,6 +10,4 @@
 
 @interface FCSStyledViewController : UIViewController
 
-@property (strong, nonatomic) UIImage *buttonImage;
-
 @end
