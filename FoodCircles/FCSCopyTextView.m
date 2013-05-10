@@ -7,13 +7,14 @@
 //
 
 #import "FCSCopyTextView.h"
+#import "FCSStyles.h"
 
 @implementation FCSCopyTextView
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
   self = [super initWithCoder:aDecoder];
   if (self) {
-    self.textColor = [UIColor colorWithRed:0.3046 green:0.24218 blue:0.1328 alpha:1.0];
+    self.textColor = [FCSStyles primaryTextColor];
   }
   return self;
 }
