@@ -30,19 +30,19 @@
 
 - (void)defaults {
   self.venues = @[
-                  @{@"id" : @1, @"name" : @"Georgio's", @"foodType" : @"Pizza", @"image" : @"georgios",
+                  @{@"id" : @1, @"name" : @"Georgio's", @"foodType" : @"Pizza", @"image" : @"Brownie",
                     @"offer" : @{@"id" : @1,
                                  @"name" : @"2 Free Desserts",
                                  @"details" : @"With purchase of at least 2 slices of pizza per person",
                                  @"minimumPrice" : @1,
                                  @"retailPrice" : @2} },
-                  @{@"id" : @2, @"name" : @"Stella's", @"foodType" : @"So much whiskey", @"image" : @"stellas",
+                  @{@"id" : @2, @"name" : @"Stella's", @"foodType" : @"So much whiskey", @"image" : @"Crack Fries",
                     @"offer" : @{@"id" : @2,
                                  @"name" : @"1 Free Chronic",
                                  @"details" : @"Perk does not apply on the burger special.",
                                  @"minimumPrice" : @1,
                                  @"retailPrice" : @5} },
-                  @{@"id" : @3, @"name" : @"HopCat", @"foodType" : @"So much beer", @"image" : @"hopcat",
+                  @{@"id" : @3, @"name" : @"HopCat", @"foodType" : @"So much beer", @"image" : @"Fountain Drinks",
                     @"offer" : @{@"id" : @3,
                                  @"name" : @"2 free appetizers",
                                  @"details" : @"",
@@ -61,7 +61,7 @@
     venue.name = [venueDictionary objectForKey:@"name"];
     venue.foodType = [venueDictionary objectForKey:@"foodType"];
     NSString *imageFilename = [venueDictionary valueForKey:@"image"];
-    NSString *imagePath = [[NSBundle mainBundle] pathForResource:imageFilename ofType:@"png" inDirectory:@"images"];
+    NSString *imagePath = [[NSBundle mainBundle] pathForResource:imageFilename ofType:@"jpg" inDirectory:@"images"];
     venue.thumbnail = [UIImage imageWithContentsOfFile:imagePath];
     
     FCSSpecial *special = (FCSSpecial *)[[NSManagedObject alloc] initWithEntity:specialEntity insertIntoManagedObjectContext:self.moc];
