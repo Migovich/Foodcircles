@@ -299,14 +299,14 @@
                                     <constraint firstAttribute="height" constant="120" id="TPI-gd-fZR"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Kid's Food Basket (Local)" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="93" translatesAutoresizingMaskIntoConstraints="NO" id="EOk-fn-8bo">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Kid's Food Basket (Local)" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="94" translatesAutoresizingMaskIntoConstraints="NO" id="EOk-fn-8bo">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="JvP-77-Cfu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="World Vision (International)" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="93" translatesAutoresizingMaskIntoConstraints="NO" id="YwN-WX-v46">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="World Vision (International)" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="94" translatesAutoresizingMaskIntoConstraints="NO" id="YwN-WX-v46">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="Gjl-aa-z6Q"/>
                                 </constraints>
@@ -601,7 +601,7 @@
             </objects>
             <point key="canvasLocation" x="-89" y="259"/>
         </scene>
-        <!--Landing Page View Controller-->
+        <!--Landing Page View Controller - FoodCircles-->
         <scene sceneID="Oew-sD-GrV">
             <objects>
                 <viewController id="XcD-QN-USc" customClass="FCSLandingPageViewController" sceneMemberID="viewController">
@@ -649,10 +649,10 @@
                                 <color key="backgroundColor" red="0.42745098039215684" green="0.43137254901960786" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="o60-T1-cdQ" firstAttribute="leading" secondItem="dBk-FG-DDr" secondAttribute="leading" constant="90" id="GiO-JX-7yc"/>
-                                    <constraint firstItem="fiZ-ab-SjZ" firstAttribute="leading" secondItem="o60-T1-cdQ" secondAttribute="trailing" constant="20" type="user" id="K8I-AR-4aQ"/>
                                     <constraint firstItem="Osj-CH-yRr" firstAttribute="leading" secondItem="dBk-FG-DDr" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="KVh-1Z-vSN"/>
                                     <constraint firstItem="fiZ-ab-SjZ" firstAttribute="top" secondItem="QKi-mb-psV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Lx3-2l-Gwz"/>
                                     <constraint firstItem="QKi-mb-psV" firstAttribute="centerX" secondItem="Osj-CH-yRr" secondAttribute="centerX" type="default" id="O5u-5B-8p0"/>
+                                    <constraint firstItem="fiZ-ab-SjZ" firstAttribute="trailing" secondItem="QKi-mb-psV" secondAttribute="trailing" type="default" id="Vbi-Ue-EI9"/>
                                     <constraint firstItem="o60-T1-cdQ" firstAttribute="top" secondItem="QKi-mb-psV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WuA-Yz-eSm"/>
                                     <constraint firstItem="fiZ-ab-SjZ" firstAttribute="bottom" secondItem="o60-T1-cdQ" secondAttribute="bottom" type="default" id="eCn-ww-pdu"/>
                                     <constraint firstItem="Osj-CH-yRr" firstAttribute="top" secondItem="dBk-FG-DDr" secondAttribute="top" type="default" id="gHy-df-rEO"/>
@@ -660,36 +660,43 @@
                                     <constraint firstItem="QKi-mb-psV" firstAttribute="top" secondItem="dBk-FG-DDr" secondAttribute="top" constant="59" id="uaA-tK-leV"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPo-hI-7JL" customClass="iCarousel">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="XcD-QN-USc" id="bob-Xd-D84"/>
-                                    <outlet property="delegate" destination="XcD-QN-USc" id="rYw-hw-NfZ"/>
-                                </connections>
-                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOo-Tf-pb3"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CVK-AZ-r5c" firstAttribute="centerX" secondItem="dBk-FG-DDr" secondAttribute="centerX" type="default" id="7xW-Ie-3c8"/>
-                            <constraint firstItem="CVK-AZ-r5c" firstAttribute="top" secondItem="xbY-I2-FV5" secondAttribute="top" constant="180" id="90T-iJ-Rdl"/>
                             <constraint firstItem="dBk-FG-DDr" firstAttribute="top" secondItem="CVK-AZ-r5c" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="BlF-0H-awd"/>
-                            <constraint firstItem="BPo-hI-7JL" firstAttribute="leading" secondItem="xbY-I2-FV5" secondAttribute="leading" type="default" id="FgN-k5-ixe"/>
+                            <constraint firstItem="CVK-AZ-r5c" firstAttribute="top" secondItem="xbY-I2-FV5" secondAttribute="top" constant="180" id="CmO-d5-Rcc"/>
                             <constraint firstAttribute="trailing" secondItem="ShU-uO-cMM" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Iua-mE-DCC"/>
+                            <constraint firstItem="CVK-AZ-r5c" firstAttribute="top" secondItem="yOo-Tf-pb3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="LuX-IP-CF3"/>
+                            <constraint firstItem="yOo-Tf-pb3" firstAttribute="leading" secondItem="xbY-I2-FV5" secondAttribute="leading" type="default" id="UZ3-gV-lzt"/>
                             <constraint firstItem="dBk-FG-DDr" firstAttribute="trailing" secondItem="xbY-I2-FV5" secondAttribute="trailing" type="default" id="Wva-D2-rCl"/>
                             <constraint firstItem="ShU-uO-cMM" firstAttribute="top" secondItem="dBk-FG-DDr" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="YGR-92-zA9"/>
-                            <constraint firstItem="CVK-AZ-r5c" firstAttribute="top" secondItem="BPo-hI-7JL" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aBe-kP-eHF"/>
-                            <constraint firstItem="BPo-hI-7JL" firstAttribute="top" secondItem="xbY-I2-FV5" secondAttribute="top" type="default" id="cjL-Nr-9QX"/>
+                            <constraint firstItem="yOo-Tf-pb3" firstAttribute="top" secondItem="xbY-I2-FV5" secondAttribute="top" type="default" id="euh-bY-Ph3"/>
                             <constraint firstItem="ShU-uO-cMM" firstAttribute="leading" secondItem="xbY-I2-FV5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ihT-ku-CBz"/>
-                            <constraint firstItem="BPo-hI-7JL" firstAttribute="trailing" secondItem="xbY-I2-FV5" secondAttribute="trailing" type="default" id="jKn-En-sle"/>
+                            <constraint firstItem="yOo-Tf-pb3" firstAttribute="trailing" secondItem="xbY-I2-FV5" secondAttribute="trailing" type="default" id="j1d-kt-Pkk"/>
                             <constraint firstItem="dBk-FG-DDr" firstAttribute="leading" secondItem="xbY-I2-FV5" secondAttribute="leading" type="default" id="tJn-ew-cLd"/>
+                            <constraint firstItem="CVK-AZ-r5c" firstAttribute="centerX" secondItem="dBk-FG-DDr" secondAttribute="centerX" type="default" id="wvq-AT-MhP"/>
                             <constraint firstAttribute="bottom" secondItem="ShU-uO-cMM" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="yE2-yP-QV5"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="cxI-2x-eMe" appends="YES" id="ZDu-pO-xJN"/>
+                        </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="heu-ES-XUP"/>
+                    <navigationItem key="navigationItem" title="FoodCircles" id="heu-ES-XUP"/>
+                    <connections>
+                        <outlet property="carouselView" destination="yOo-Tf-pb3" id="jE5-Yd-gvU"/>
+                        <outlet property="view" destination="xbY-I2-FV5" id="4t9-5l-g68"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkA-R0-cMs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="cxI-2x-eMe" userLabel="swipToLeft">
+                    <connections>
+                        <action selector="swipeRecognized:" destination="XcD-QN-USc" id="XlA-Xs-NJ2"/>
+                        <segue destination="sX4-Qn-3GA" kind="push" identifier="showVenueList" id="s6v-km-mTd"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="404" y="217"/>
+            <point key="canvasLocation" x="482" y="211"/>
         </scene>
     </scenes>
     <resources>
@@ -714,6 +721,10 @@
         </class>
         <class className="FCSLandingPageViewController" superclassName="FCSStyledViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSLandingPageViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="swipeRecognized:"/>
+                <relationship kind="outlet" name="carouselView" candidateClass="UIScrollView"/>
+            </relationships>
         </class>
         <class className="FCSNavigationController" superclassName="UINavigationController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSNavigationController.h"/>
@@ -792,13 +803,6 @@
         </class>
         <class className="UICollectionViewLayout" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
-        <class className="iCarousel" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/iCarousel.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dataSource"/>
-                <relationship kind="outlet" name="delegate"/>
-            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

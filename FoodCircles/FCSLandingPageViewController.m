@@ -19,11 +19,13 @@
 @implementation FCSLandingPageViewController
 
 @synthesize carouselImageArray;
+@synthesize carouselView;
+
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-
-  self.carouselImageArray = [FCSRemoteAPI landingImages];
+  
+  carouselImageArray = [FCSRemoteAPI landingImages];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,12 +33,19 @@
   // Dispose of any resources that can be recreated.
 }
 
-- (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel {
-  return [self.carouselImageArray count];
+
+- (IBAction)swipeRecognized:(id)sender {
+  NSLog(@"Swipe detected");
 }
 
-- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view {
-  return [[UIImageView alloc] initWithImage:carouselImageArray[index]];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  if ([segue.identifier isEqualToString:@"showVenueList"]) {
+//    NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
+//    FCSVenue *venue = [self.fetchedResultsController objectAtIndexPath:indexPath];
+//    FCSVenueViewController *destinationViewController = (FCSVenueViewController *)segue.destinationViewController;
+//    destinationViewController.venue = venue;
+//    destinationViewController.title = venue.name;
+    NSLog(@"preparing segue showVenueList");
+  }
 }
-
 @end

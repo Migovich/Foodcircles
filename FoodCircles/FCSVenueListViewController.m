@@ -80,31 +80,6 @@ NSString *kVenueId = @"venueListViewID";
   return venueCell;
 }
 
-#pragma mark -
-#pragma mark UITableViewDataSource
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//  return [[self.fetchedResultsController sections] count];
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//  NSArray *sections = [self.fetchedResultsController sections];
-//  id<NSFetchedResultsSectionInfo> sectionInfo = nil;
-//  sectionInfo = [sections objectAtIndex:section];
-//  return sectionInfo.numberOfObjects;
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//  UITableViewCell *venueCell = nil;
-//  FCSVenue *venue = nil;
-//  venue = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-//  venueCell = [self.collectionView dequeueReusableCellWithIdentifier:@"VenueTableCell"];
-//  venueCell.textLabel.text = venue.name;
-//  venueCell.detailTextLabel.text = venue.foodType;
-//  venueCell.imageView.image = venue.thumbnail;
-//  return venueCell;
-//}
-
 
 #pragma mark -
 #pragma mark NSFetchedResultsControllerDelegate

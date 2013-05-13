@@ -345,6 +345,8 @@
 		631C6D281731E09800151EFA /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				63F89780174065FF00FB8391 /* FCSLandingPageViewController.h */,
+				63F89781174065FF00FB8391 /* FCSLandingPageViewController.m */,
 				63520BEA173D623200D32223 /* FCSVoucherViewController.h */,
 				63520BEB173D623200D32223 /* FCSVoucherViewController.m */,
 				63DB6382173D254400B2DF41 /* VenueList */,
@@ -356,8 +358,6 @@
 				631C6D491732B50A00151EFA /* FCSVenueViewController.m */,
 				6323572A173818A20068A2F5 /* FCSPurchaseViewController.h */,
 				6323572B173818A20068A2F5 /* FCSPurchaseViewController.m */,
-				63F89780174065FF00FB8391 /* FCSLandingPageViewController.h */,
-				63F89781174065FF00FB8391 /* FCSLandingPageViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";

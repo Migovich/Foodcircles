@@ -19,6 +19,8 @@
 
 @implementation FCSStubAdapter
 
+@synthesize moc;
+
 - (id)init {
   self = [super init];
   if (self) {
@@ -52,6 +54,15 @@
 }
 
 - (BOOL)loadVenues {
+  // Drop the existing venues first
+  NSFetchRequest *fetchAllVenues = [NSFetchRequest fetchRequestWithEntityName:@"Venue"];
+  NSError *error;
+  NSArray *venues = [moc executeFetchRequest:fetchAllVenues error:&error];
+  for (FCSVenue *venue in venues) {
+    [moc deleteObject:venue];
+  }
+  [moc save:&error];
+  
   NSEntityDescription *venueEntity = [NSEntityDescription entityForName:@"Venue" inManagedObjectContext:self.moc];
   NSEntityDescription *specialEntity = [NSEntityDescription entityForName:@"Special" inManagedObjectContext:self.moc];
   
@@ -79,7 +90,7 @@
 }
 
 - (NSArray *)landingImages {
-  NSMutableArray *images;
+  NSMutableArray *images = [[NSMutableArray alloc] init];
   NSArray *imageNames = @[@"pa1.jpg", @"pa2.jpg", @"pa3.jpg", @"pa4.jpg"];
   for (NSString *imageName in imageNames) {
     [images addObject:[UIImage imageNamed:imageName]];

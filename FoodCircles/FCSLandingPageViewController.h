@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "FCSStyledViewController.h"
-#import "iCarousel.h"
+
 
 @interface FCSLandingPageViewController : FCSStyledViewController
-<iCarouselDataSource, iCarouselDelegate>
+
+@property (weak, nonatomic) IBOutlet UIScrollView *carouselView;
+
+- (IBAction)swipeRecognized:(id)sender;
 
 @end
