@@ -18,5 +18,6 @@
 - (void)defaults;
 
 - (BOOL)loadVenues;
+- (NSArray *)landingImages;
 
 @end

@@ -11,5 +11,6 @@
 @protocol FCSAPIAdapter <NSObject>
 
 - (BOOL)loadVenues;
+- (NSArray *)landingImages;
 
 @end

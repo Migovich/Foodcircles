@@ -78,4 +78,14 @@
   return YES;
 }
 
+- (NSArray *)landingImages {
+  NSMutableArray *images;
+  NSArray *imageNames = @[@"pa1.jpg", @"pa2.jpg", @"pa3.jpg", @"pa4.jpg"];
+  for (NSString *imageName in imageNames) {
+    [images addObject:[UIImage imageNamed:imageName]];
+  }
+  
+  return images;
+}
+
 @end

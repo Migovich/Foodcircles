@@ -21,20 +21,13 @@
 
 @implementation FCSPurchaseViewController
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-  self = [super initWithCoder:aDecoder];
-  if (self) {
-    self.usdFormatter = [[NSNumberFormatter alloc] init];
-    [self.usdFormatter setCurrencySymbol:@"$"];
-    [self.usdFormatter setNumberStyle: NSNumberFormatterCurrencyStyle];
-    self.selectedCharityColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0];
-    self.unselectedCharityColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
-  }
-  return self;
-}
-
 - (void)viewDidLoad {
   [super viewDidLoad];
+  self.usdFormatter = [[NSNumberFormatter alloc] init];
+  [self.usdFormatter setCurrencySymbol:@"$"];
+  [self.usdFormatter setNumberStyle: NSNumberFormatterCurrencyStyle];
+  self.selectedCharityColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0];
+  self.unselectedCharityColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

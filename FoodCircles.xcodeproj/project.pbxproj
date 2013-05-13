@@ -82,6 +82,12 @@
 		63DBB653173161FE003A74CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63DBB651173161FE003A74CC /* InfoPlist.strings */; };
 		63DBB6601731634B003A74CC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63DBB65F1731634B003A74CC /* MainStoryboard.storyboard */; };
 		63DBB663173164CD003A74CC /* FCSSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DBB662173164CD003A74CC /* FCSSignUpViewController.m */; };
+		63F89782174065FF00FB8391 /* FCSLandingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F89781174065FF00FB8391 /* FCSLandingPageViewController.m */; };
+		63F8978617406E9800FB8391 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F8978517406E9800FB8391 /* iCarousel.m */; };
+		63F8978F17407A0800FB8391 /* pa1.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63F897871740744C00FB8391 /* pa1.jpg */; };
+		63F8979017407A0800FB8391 /* pa2.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63F897881740744C00FB8391 /* pa2.jpg */; };
+		63F8979117407A0800FB8391 /* pa3.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63F897891740744C00FB8391 /* pa3.jpg */; };
+		63F8979217407A0800FB8391 /* pa4.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63F8978A1740744C00FB8391 /* pa4.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +107,10 @@
 			dstPath = images;
 			dstSubfolderSpec = 7;
 			files = (
+				63F8978F17407A0800FB8391 /* pa1.jpg in CopyFiles */,
+				63F8979017407A0800FB8391 /* pa2.jpg in CopyFiles */,
+				63F8979117407A0800FB8391 /* pa3.jpg in CopyFiles */,
+				63F8979217407A0800FB8391 /* pa4.jpg in CopyFiles */,
 				63DB638F173D331D00B2DF41 /* Brownie.jpg in CopyFiles */,
 				63DB6390173D331D00B2DF41 /* Crack Fries.jpg in CopyFiles */,
 				63DB6391173D331D00B2DF41 /* Fountain Drinks.jpg in CopyFiles */,
@@ -223,6 +233,14 @@
 		63DBB65F1731634B003A74CC /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		63DBB661173164CD003A74CC /* FCSSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSSignUpViewController.h; sourceTree = "<group>"; };
 		63DBB662173164CD003A74CC /* FCSSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSSignUpViewController.m; sourceTree = "<group>"; };
+		63F89780174065FF00FB8391 /* FCSLandingPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSLandingPageViewController.h; sourceTree = "<group>"; };
+		63F89781174065FF00FB8391 /* FCSLandingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSLandingPageViewController.m; sourceTree = "<group>"; };
+		63F8978417406E9800FB8391 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		63F8978517406E9800FB8391 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		63F897871740744C00FB8391 /* pa1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pa1.jpg; sourceTree = "<group>"; };
+		63F897881740744C00FB8391 /* pa2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pa2.jpg; sourceTree = "<group>"; };
+		63F897891740744C00FB8391 /* pa3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pa3.jpg; sourceTree = "<group>"; };
+		63F8978A1740744C00FB8391 /* pa4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pa4.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +320,7 @@
 		631C6D201731DC8600151EFA /* RemoteAPI */ = {
 			isa = PBXGroup;
 			children = (
+				631C6D3D1731EB7500151EFA /* Fixture Data */,
 				631C6D431731EDA700151EFA /* API Adapters */,
 				631C6D1D1731DC7200151EFA /* FCSRemoteAPI.h */,
 				631C6D1E1731DC7200151EFA /* FCSRemoteAPI.m */,
@@ -337,6 +356,8 @@
 				631C6D491732B50A00151EFA /* FCSVenueViewController.m */,
 				6323572A173818A20068A2F5 /* FCSPurchaseViewController.h */,
 				6323572B173818A20068A2F5 /* FCSPurchaseViewController.m */,
+				63F89780174065FF00FB8391 /* FCSLandingPageViewController.h */,
+				63F89781174065FF00FB8391 /* FCSLandingPageViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -356,6 +377,10 @@
 		631C6D3D1731EB7500151EFA /* Fixture Data */ = {
 			isa = PBXGroup;
 			children = (
+				63F897871740744C00FB8391 /* pa1.jpg */,
+				63F897881740744C00FB8391 /* pa2.jpg */,
+				63F897891740744C00FB8391 /* pa3.jpg */,
+				63F8978A1740744C00FB8391 /* pa4.jpg */,
 				63DB6389173D32A900B2DF41 /* Brownie.jpg */,
 				63DB638A173D32AA00B2DF41 /* Crack Fries.jpg */,
 				63DB638B173D32AA00B2DF41 /* Fountain Drinks.jpg */,
@@ -486,8 +511,8 @@
 		63DBB62C173161FD003A74CC /* FoodCircles */ = {
 			isa = PBXGroup;
 			children = (
+				63F8978317406E7000FB8391 /* vendor */,
 				6312D7E1173BCBB4009B8E6D /* UI Styles */,
-				631C6D3D1731EB7500151EFA /* Fixture Data */,
 				631C6D391731E90300151EFA /* Data Model */,
 				631C6D281731E09800151EFA /* View Controllers */,
 				631C6D201731DC8600151EFA /* RemoteAPI */,
@@ -530,6 +555,15 @@
 				63DBB651173161FE003A74CC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63F8978317406E7000FB8391 /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				63F8978417406E9800FB8391 /* iCarousel.h */,
+				63F8978517406E9800FB8391 /* iCarousel.m */,
+			);
+			name = vendor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -682,6 +716,8 @@
 				63DB6388173D2EC600B2DF41 /* FCSStyles.m in Sources */,
 				63520BE9173D5D2F00D32223 /* FCSCodeLabel.m in Sources */,
 				63520BEC173D623200D32223 /* FCSVoucherViewController.m in Sources */,
+				63F89782174065FF00FB8391 /* FCSLandingPageViewController.m in Sources */,
+				63F8978617406E9800FB8391 /* iCarousel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,9 +19,12 @@
 + (FCSRemoteAPI *)sharedInstance;
 
 - (BOOL)authorizeEmail:(NSString *)email password:(NSString *)password;
-- (BOOL)loadVenues;
 
+- (BOOL)loadVenues;
 + (BOOL)loadVenues;
+
+- (NSArray *)landingImages;
++ (NSArray *)landingImages;
 
 - (NSString *)currentUser;
 @end

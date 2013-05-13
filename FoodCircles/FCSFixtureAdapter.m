@@ -14,4 +14,8 @@
   return NO;
 }
 
+- (NSArray *)landingImages {
+  return nil;
+}
+
 @end

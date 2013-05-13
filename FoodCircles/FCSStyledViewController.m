@@ -16,15 +16,6 @@
 @implementation FCSStyledViewController
 
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-  
-  self = [super initWithCoder:aDecoder];
-  if (self) {
-    // Custom initialization
-  }
-  return self;
-}
-
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.view.backgroundColor = [FCSStyles backgroundColor];

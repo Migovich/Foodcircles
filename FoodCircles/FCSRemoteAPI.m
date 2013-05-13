@@ -51,6 +51,14 @@ static FCSRemoteAPI *sharedFCSRemoteAPI;
   return [[FCSRemoteAPI sharedInstance] loadVenues];
 }
 
+- (NSArray *)landingImages {
+  return [self.apiAdapter landingImages];
+}
+
++ (NSArray *)landingImages {
+  return [[FCSRemoteAPI sharedInstance] landingImages];
+}
+
 - (NSString *)currentUser {
   return self.authorizer.userEmail;
 }

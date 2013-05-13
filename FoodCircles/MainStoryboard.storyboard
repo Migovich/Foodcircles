@@ -80,7 +80,7 @@
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="sX4-Qn-3GA" customClass="FCSVenueListViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="OvD-UB-9AB">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vpm-wf-Hmh">
                             <size key="itemSize" width="151" height="126"/>
@@ -150,14 +150,14 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32x-iV-fgH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="367" y="322"/>
+            <point key="canvasLocation" x="1039" y="259"/>
         </scene>
         <!--Venue View Controller-->
         <scene sceneID="e7s-CV-boG">
             <objects>
                 <viewController id="Wv4-fd-RiF" customClass="FCSVenueViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mok-qs-LrR">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Special Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWL-bh-5lQ" customClass="FCSHeaderLabel">
@@ -264,14 +264,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KvC-gO-rSH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833" y="322"/>
+            <point key="canvasLocation" x="1505" y="259"/>
         </scene>
         <!--Purchase View Controller-->
         <scene sceneID="5G0-wC-c8n">
             <objects>
                 <viewController id="apv-UE-IaB" customClass="FCSPurchaseViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o4a-H2-QFo">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="Hh8-VI-fEs">
@@ -299,14 +299,14 @@
                                     <constraint firstAttribute="height" constant="120" id="TPI-gd-fZR"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Kid's Food Basket (Local)" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="94" translatesAutoresizingMaskIntoConstraints="NO" id="EOk-fn-8bo">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Kid's Food Basket (Local)" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="93" translatesAutoresizingMaskIntoConstraints="NO" id="EOk-fn-8bo">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="JvP-77-Cfu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="World Vision (International)" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="94" translatesAutoresizingMaskIntoConstraints="NO" id="YwN-WX-v46">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="World Vision (International)" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="93" translatesAutoresizingMaskIntoConstraints="NO" id="YwN-WX-v46">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="Gjl-aa-z6Q"/>
                                 </constraints>
@@ -412,14 +412,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZyN-MQ-aim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1320" y="322"/>
+            <point key="canvasLocation" x="1992" y="259"/>
         </scene>
         <!--Voucher View Controller - Your Reciept-->
         <scene sceneID="AAh-R1-5HN">
             <objects>
                 <viewController id="IuN-at-r6q" customClass="FCSVoucherViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yIA-q8-Ww4">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BXS-4v-8ju">
@@ -576,7 +576,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZs-eA-xbn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1779" y="322"/>
+            <point key="canvasLocation" x="2451" y="259"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QIl-gU-T81">
@@ -594,12 +594,102 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="sX4-Qn-3GA" kind="relationship" relationship="rootViewController" id="gRW-kb-rOV"/>
+                        <segue destination="XcD-QN-USc" kind="relationship" relationship="rootViewController" id="BoM-qg-bZd"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zxe-Og-Sfm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-89" y="259"/>
+        </scene>
+        <!--Landing Page View Controller-->
+        <scene sceneID="Oew-sD-GrV">
+            <objects>
+                <viewController id="XcD-QN-USc" customClass="FCSLandingPageViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xbY-I2-FV5">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Buy One, Feed One." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVK-AZ-r5c" customClass="FCSHeaderLabel">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="swipe right to view restaurants ⟶" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShU-uO-cMM">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBk-FG-DDr">
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You can feed a child but your network can feed a classroom" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="281" translatesAutoresizingMaskIntoConstraints="NO" id="Osj-CH-yRr">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Jng-n8-cqa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Share the mission" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKi-mb-psV">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="o60-T1-cdQ">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="HZo-u8-hNn"/>
+                                            <constraint firstAttribute="width" constant="60" type="user" id="WRt-o0-7s9"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Twitter.png" translatesAutoresizingMaskIntoConstraints="NO" id="fiZ-ab-SjZ">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="GlI-D8-Pqq"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.42745098039215684" green="0.43137254901960786" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="o60-T1-cdQ" firstAttribute="leading" secondItem="dBk-FG-DDr" secondAttribute="leading" constant="90" id="GiO-JX-7yc"/>
+                                    <constraint firstItem="fiZ-ab-SjZ" firstAttribute="leading" secondItem="o60-T1-cdQ" secondAttribute="trailing" constant="20" type="user" id="K8I-AR-4aQ"/>
+                                    <constraint firstItem="Osj-CH-yRr" firstAttribute="leading" secondItem="dBk-FG-DDr" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="KVh-1Z-vSN"/>
+                                    <constraint firstItem="fiZ-ab-SjZ" firstAttribute="top" secondItem="QKi-mb-psV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Lx3-2l-Gwz"/>
+                                    <constraint firstItem="QKi-mb-psV" firstAttribute="centerX" secondItem="Osj-CH-yRr" secondAttribute="centerX" type="default" id="O5u-5B-8p0"/>
+                                    <constraint firstItem="o60-T1-cdQ" firstAttribute="top" secondItem="QKi-mb-psV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WuA-Yz-eSm"/>
+                                    <constraint firstItem="fiZ-ab-SjZ" firstAttribute="bottom" secondItem="o60-T1-cdQ" secondAttribute="bottom" type="default" id="eCn-ww-pdu"/>
+                                    <constraint firstItem="Osj-CH-yRr" firstAttribute="top" secondItem="dBk-FG-DDr" secondAttribute="top" type="default" id="gHy-df-rEO"/>
+                                    <constraint firstItem="QKi-mb-psV" firstAttribute="centerX" secondItem="dBk-FG-DDr" secondAttribute="centerX" type="default" id="suL-77-zE2"/>
+                                    <constraint firstItem="QKi-mb-psV" firstAttribute="top" secondItem="dBk-FG-DDr" secondAttribute="top" constant="59" id="uaA-tK-leV"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPo-hI-7JL" customClass="iCarousel">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="XcD-QN-USc" id="bob-Xd-D84"/>
+                                    <outlet property="delegate" destination="XcD-QN-USc" id="rYw-hw-NfZ"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CVK-AZ-r5c" firstAttribute="centerX" secondItem="dBk-FG-DDr" secondAttribute="centerX" type="default" id="7xW-Ie-3c8"/>
+                            <constraint firstItem="CVK-AZ-r5c" firstAttribute="top" secondItem="xbY-I2-FV5" secondAttribute="top" constant="180" id="90T-iJ-Rdl"/>
+                            <constraint firstItem="dBk-FG-DDr" firstAttribute="top" secondItem="CVK-AZ-r5c" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="BlF-0H-awd"/>
+                            <constraint firstItem="BPo-hI-7JL" firstAttribute="leading" secondItem="xbY-I2-FV5" secondAttribute="leading" type="default" id="FgN-k5-ixe"/>
+                            <constraint firstAttribute="trailing" secondItem="ShU-uO-cMM" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Iua-mE-DCC"/>
+                            <constraint firstItem="dBk-FG-DDr" firstAttribute="trailing" secondItem="xbY-I2-FV5" secondAttribute="trailing" type="default" id="Wva-D2-rCl"/>
+                            <constraint firstItem="ShU-uO-cMM" firstAttribute="top" secondItem="dBk-FG-DDr" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="YGR-92-zA9"/>
+                            <constraint firstItem="CVK-AZ-r5c" firstAttribute="top" secondItem="BPo-hI-7JL" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aBe-kP-eHF"/>
+                            <constraint firstItem="BPo-hI-7JL" firstAttribute="top" secondItem="xbY-I2-FV5" secondAttribute="top" type="default" id="cjL-Nr-9QX"/>
+                            <constraint firstItem="ShU-uO-cMM" firstAttribute="leading" secondItem="xbY-I2-FV5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ihT-ku-CBz"/>
+                            <constraint firstItem="BPo-hI-7JL" firstAttribute="trailing" secondItem="xbY-I2-FV5" secondAttribute="trailing" type="default" id="jKn-En-sle"/>
+                            <constraint firstItem="dBk-FG-DDr" firstAttribute="leading" secondItem="xbY-I2-FV5" secondAttribute="leading" type="default" id="tJn-ew-cLd"/>
+                            <constraint firstAttribute="bottom" secondItem="ShU-uO-cMM" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="yE2-yP-QV5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="heu-ES-XUP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hkA-R0-cMs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="404" y="217"/>
         </scene>
     </scenes>
     <resources>
@@ -621,6 +711,9 @@
         </class>
         <class className="FCSHighlightLabel" superclassName="UILabel">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSHighlightLabel.h"/>
+        </class>
+        <class className="FCSLandingPageViewController" superclassName="FCSStyledViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSLandingPageViewController.h"/>
         </class>
         <class className="FCSNavigationController" superclassName="UINavigationController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSNavigationController.h"/>
@@ -699,6 +792,13 @@
         </class>
         <class className="UICollectionViewLayout" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
+        <class className="iCarousel" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/iCarousel.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

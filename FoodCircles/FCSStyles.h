@@ -12,5 +12,6 @@
 
 + (UIColor *)primaryTextColor;
 + (UIColor *)backgroundColor;
++ (UIColor *)greyBackgroundColor;
 
 @end
