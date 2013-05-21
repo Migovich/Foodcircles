@@ -16,6 +16,9 @@
 
 @implementation FCSSignUpViewController
 
+@synthesize emailTextField;
+@synthesize passwordTextField;
+
 - (id)initWithCoder:(NSCoder *)aCoder;
 {
   self = [super initWithCoder:aCoder];

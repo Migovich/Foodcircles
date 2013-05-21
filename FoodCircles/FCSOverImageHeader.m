@@ -1,21 +1,20 @@
 //
-//  FCSCopyLabel.m
+//  FCSOverImageHeader.m
 //  FoodCircles
 //
-//  Created by David Groulx on 5/9/13.
+//  Created by David Groulx on 5/21/13.
 //  Copyright (c) 2013 FoodCircles. All rights reserved.
 //
 
-#import "FCSCopyLabel.h"
-#import "FCSStyles.h"
+#import "FCSOverImageHeader.h"
 
-@implementation FCSCopyLabel
+@implementation FCSOverImageHeader
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
+- (id)initWithCoder:(NSCoder *)aDecoder {
   self = [super initWithCoder:aDecoder];
   if (self) {
-    self.textColor = [FCSStyles primaryTextColor];
+    self.font = [UIFont fontWithName:@"Neutraface Slab Text" size:28];
+    self.textColor = [UIColor whiteColor];
   }
   return self;
 }

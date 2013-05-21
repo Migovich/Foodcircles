@@ -38,10 +38,11 @@ NSString *kVenueId = @"venueListViewID";
   
   self.collectionView.backgroundColor = [FCSStyles backgroundColor];
   
-  
   UICollectionViewFlowLayout *flow = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
   flow.sectionInset = UIEdgeInsetsMake(10, 5, 0, 5);
   flow.minimumInteritemSpacing = 1;
+  
+  self.title = @"Restaurants";
 }
 
 - (void)didReceiveMemoryWarning

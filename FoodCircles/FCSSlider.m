@@ -1,21 +1,24 @@
 //
-//  FCSCopyLabel.m
+//  FCSSlider.m
 //  FoodCircles
 //
-//  Created by David Groulx on 5/9/13.
+//  Created by David Groulx on 5/20/13.
 //  Copyright (c) 2013 FoodCircles. All rights reserved.
 //
 
-#import "FCSCopyLabel.h"
+#import "FCSSlider.h"
+
 #import "FCSStyles.h"
 
-@implementation FCSCopyLabel
+@implementation FCSSlider
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
   self = [super initWithCoder:aDecoder];
   if (self) {
-    self.textColor = [FCSStyles primaryTextColor];
+    [self setThumbImage:[UIImage imageNamed:@"Slider_Knob.png"] forState:UIControlStateNormal];
+//    [self setMinimumTrackTintColor:[FCSStyles darkRed]];
+    [self setMinimumTrackImage:[UIImage imageNamed:@"Slider_fill.png"] forState:UIControlStateNormal];
   }
   return self;
 }

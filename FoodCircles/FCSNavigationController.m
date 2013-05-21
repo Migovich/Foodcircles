@@ -7,11 +7,13 @@
 //
 
 #import "FCSNavigationController.h"
+#import "FCSStyles.h"
 
 @implementation FCSNavigationController
 
 - (void)viewWillAppear:(BOOL)animated {
-  self.navigationBar.tintColor = [UIColor colorWithRed:0.4375 green:0.1019 blue:0.1019 alpha:1.0];
+  self.navigationBar.tintColor = [FCSStyles darkRed];
+  self.navigationBar.titleTextAttributes = @{ UITextAttributeFont : [UIFont fontWithName:@"Neutraface Slab Text" size:22] };
 }
 
 @end

@@ -13,5 +13,6 @@
 + (UIColor *)primaryTextColor;
 + (UIColor *)backgroundColor;
 + (UIColor *)greyBackgroundColor;
++ (UIColor *)darkRed;
 
 @end

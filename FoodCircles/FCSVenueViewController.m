@@ -46,7 +46,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  if ([segue.identifier isEqualToString:@"showBuy"]) {
+  if ([segue.identifier isEqualToString:@"showOptions"]) {
     FCSPurchaseViewController *destinationViewController = (FCSPurchaseViewController *)segue.destinationViewController;
     destinationViewController.special = venue.special;
     destinationViewController.title = venue.special.name;

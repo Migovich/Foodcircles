@@ -68,11 +68,6 @@ const int CAROUSEL_DELAY = 5; // seconds
   // Dispose of any resources that can be recreated.
 }
 
-
-- (IBAction)swipeRecognized:(id)sender {
-  NSLog(@"Swipe detected");
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"showVenueList"]) {
   }
