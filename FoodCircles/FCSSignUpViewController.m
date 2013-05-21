@@ -82,7 +82,6 @@
       return NO;
     }
   }
-  
   return YES;
 }
 
