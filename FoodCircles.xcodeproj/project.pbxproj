@@ -84,6 +84,24 @@
 		635FE0F1174BFF73004E8D6B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 635FE0EE174BFF73004E8D6B /* Default.png */; };
 		635FE0F2174BFF73004E8D6B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 635FE0EF174BFF73004E8D6B /* Default@2x.png */; };
 		635FE0F3174BFF73004E8D6B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 635FE0F0174BFF73004E8D6B /* Default-568h@2x.png */; };
+		635FE0F6174C0439004E8D6B /* FCSRestaurantListTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 635FE0F5174C0439004E8D6B /* FCSRestaurantListTitle.m */; };
+		635FE0F9174C0996004E8D6B /* FCSRestaurantInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635FE0F8174C0996004E8D6B /* FCSRestaurantInfoViewController.m */; };
+		635FE100174C0A8C004E8D6B /* call_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 635FE0FA174C0A8B004E8D6B /* call_icon.png */; };
+		635FE101174C0A8C004E8D6B /* contact_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 635FE0FB174C0A8B004E8D6B /* contact_button.png */; };
+		635FE102174C0A8C004E8D6B /* Facebook_Follow-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 635FE0FC174C0A8B004E8D6B /* Facebook_Follow-Icon.png */; };
+		635FE103174C0A8C004E8D6B /* Twitter_Follow-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 635FE0FD174C0A8B004E8D6B /* Twitter_Follow-Icon.png */; };
+		635FE104174C0A8C004E8D6B /* website_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 635FE0FE174C0A8B004E8D6B /* website_icon.png */; };
+		635FE105174C0A8C004E8D6B /* Yelp_Follow-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 635FE0FF174C0A8C004E8D6B /* Yelp_Follow-Icon.png */; };
+		635FE10C174C0A97004E8D6B /* call_button@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 635FE106174C0A96004E8D6B /* call_button@2X.png */; };
+		635FE10D174C0A97004E8D6B /* contact_button@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 635FE107174C0A96004E8D6B /* contact_button@2X.png */; };
+		635FE10E174C0A97004E8D6B /* Facebook_Follow-Icon@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 635FE108174C0A96004E8D6B /* Facebook_Follow-Icon@2X.png */; };
+		635FE10F174C0A97004E8D6B /* Twitter_Follow-Icon@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 635FE109174C0A96004E8D6B /* Twitter_Follow-Icon@2X.png */; };
+		635FE110174C0A97004E8D6B /* website_icon@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 635FE10A174C0A96004E8D6B /* website_icon@2X.png */; };
+		635FE111174C0A97004E8D6B /* Yelp_Follow-Icon@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 635FE10B174C0A96004E8D6B /* Yelp_Follow-Icon@2X.png */; };
+		635FE114174C0B31004E8D6B /* FCSContactButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 635FE113174C0B31004E8D6B /* FCSContactButton.m */; };
+		635FE117174C0D08004E8D6B /* FCSCallButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 635FE116174C0D08004E8D6B /* FCSCallButton.m */; };
+		635FE11A174C0D10004E8D6B /* FCSWebsiteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 635FE119174C0D10004E8D6B /* FCSWebsiteButton.m */; };
+		635FE11C174C0EBB004E8D6B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635FE11B174C0EBB004E8D6B /* MapKit.framework */; };
 		63DB6381173D23C800B2DF41 /* FCSVenueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DB6380173D23C800B2DF41 /* FCSVenueCell.m */; };
 		63DB6385173D2DDF00B2DF41 /* FCSVenueListLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DB6384173D2DDF00B2DF41 /* FCSVenueListLabel.m */; };
 		63DB6388173D2EC600B2DF41 /* FCSStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DB6387173D2EC600B2DF41 /* FCSStyles.m */; };
@@ -261,6 +279,29 @@
 		635FE0EE174BFF73004E8D6B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		635FE0EF174BFF73004E8D6B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		635FE0F0174BFF73004E8D6B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		635FE0F4174C0439004E8D6B /* FCSRestaurantListTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSRestaurantListTitle.h; sourceTree = "<group>"; };
+		635FE0F5174C0439004E8D6B /* FCSRestaurantListTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSRestaurantListTitle.m; sourceTree = "<group>"; };
+		635FE0F7174C0996004E8D6B /* FCSRestaurantInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSRestaurantInfoViewController.h; sourceTree = "<group>"; };
+		635FE0F8174C0996004E8D6B /* FCSRestaurantInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSRestaurantInfoViewController.m; sourceTree = "<group>"; };
+		635FE0FA174C0A8B004E8D6B /* call_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call_icon.png; sourceTree = "<group>"; };
+		635FE0FB174C0A8B004E8D6B /* contact_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contact_button.png; sourceTree = "<group>"; };
+		635FE0FC174C0A8B004E8D6B /* Facebook_Follow-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Facebook_Follow-Icon.png"; sourceTree = "<group>"; };
+		635FE0FD174C0A8B004E8D6B /* Twitter_Follow-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Twitter_Follow-Icon.png"; sourceTree = "<group>"; };
+		635FE0FE174C0A8B004E8D6B /* website_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = website_icon.png; sourceTree = "<group>"; };
+		635FE0FF174C0A8C004E8D6B /* Yelp_Follow-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Yelp_Follow-Icon.png"; sourceTree = "<group>"; };
+		635FE106174C0A96004E8D6B /* call_button@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call_button@2X.png"; sourceTree = "<group>"; };
+		635FE107174C0A96004E8D6B /* contact_button@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contact_button@2X.png"; sourceTree = "<group>"; };
+		635FE108174C0A96004E8D6B /* Facebook_Follow-Icon@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Facebook_Follow-Icon@2X.png"; sourceTree = "<group>"; };
+		635FE109174C0A96004E8D6B /* Twitter_Follow-Icon@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Twitter_Follow-Icon@2X.png"; sourceTree = "<group>"; };
+		635FE10A174C0A96004E8D6B /* website_icon@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "website_icon@2X.png"; sourceTree = "<group>"; };
+		635FE10B174C0A96004E8D6B /* Yelp_Follow-Icon@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Yelp_Follow-Icon@2X.png"; sourceTree = "<group>"; };
+		635FE112174C0B31004E8D6B /* FCSContactButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSContactButton.h; sourceTree = "<group>"; };
+		635FE113174C0B31004E8D6B /* FCSContactButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSContactButton.m; sourceTree = "<group>"; };
+		635FE115174C0D08004E8D6B /* FCSCallButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSCallButton.h; sourceTree = "<group>"; };
+		635FE116174C0D08004E8D6B /* FCSCallButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSCallButton.m; sourceTree = "<group>"; };
+		635FE118174C0D10004E8D6B /* FCSWebsiteButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSWebsiteButton.h; sourceTree = "<group>"; };
+		635FE119174C0D10004E8D6B /* FCSWebsiteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSWebsiteButton.m; sourceTree = "<group>"; };
+		635FE11B174C0EBB004E8D6B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		63DB637F173D23C800B2DF41 /* FCSVenueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSVenueCell.h; sourceTree = "<group>"; };
 		63DB6380173D23C800B2DF41 /* FCSVenueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSVenueCell.m; sourceTree = "<group>"; };
 		63DB6383173D2DDF00B2DF41 /* FCSVenueListLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSVenueListLabel.h; sourceTree = "<group>"; };
@@ -303,6 +344,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				635FE11C174C0EBB004E8D6B /* MapKit.framework in Frameworks */,
 				632357451738349A0068A2F5 /* Social.framework in Frameworks */,
 				631C6D6E173303E000151EFA /* AudioToolbox.framework in Frameworks */,
 				631C6D6F173303E000151EFA /* AVFoundation.framework in Frameworks */,
@@ -373,6 +415,8 @@
 				634E7A0F174BA0B500114E56 /* FCSOverImageHeader.m */,
 				635FE0D4174BE95D004E8D6B /* FCSOverImageSecondary.h */,
 				635FE0D5174BE95D004E8D6B /* FCSOverImageSecondary.m */,
+				635FE0F4174C0439004E8D6B /* FCSRestaurantListTitle.h */,
+				635FE0F5174C0439004E8D6B /* FCSRestaurantListTitle.m */,
 			);
 			name = Labels;
 			sourceTree = "<group>";
@@ -420,6 +464,8 @@
 				631C6D491732B50A00151EFA /* FCSVenueViewController.m */,
 				6323572A173818A20068A2F5 /* FCSPurchaseViewController.h */,
 				6323572B173818A20068A2F5 /* FCSPurchaseViewController.m */,
+				635FE0F7174C0996004E8D6B /* FCSRestaurantInfoViewController.h */,
+				635FE0F8174C0996004E8D6B /* FCSRestaurantInfoViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -500,6 +546,18 @@
 		63235729173815790068A2F5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				635FE106174C0A96004E8D6B /* call_button@2X.png */,
+				635FE107174C0A96004E8D6B /* contact_button@2X.png */,
+				635FE108174C0A96004E8D6B /* Facebook_Follow-Icon@2X.png */,
+				635FE109174C0A96004E8D6B /* Twitter_Follow-Icon@2X.png */,
+				635FE10A174C0A96004E8D6B /* website_icon@2X.png */,
+				635FE10B174C0A96004E8D6B /* Yelp_Follow-Icon@2X.png */,
+				635FE0FA174C0A8B004E8D6B /* call_icon.png */,
+				635FE0FB174C0A8B004E8D6B /* contact_button.png */,
+				635FE0FC174C0A8B004E8D6B /* Facebook_Follow-Icon.png */,
+				635FE0FD174C0A8B004E8D6B /* Twitter_Follow-Icon.png */,
+				635FE0FE174C0A8B004E8D6B /* website_icon.png */,
+				635FE0FF174C0A8C004E8D6B /* Yelp_Follow-Icon.png */,
 				635FE0DF174BEAFD004E8D6B /* Facebook_button.png */,
 				635FE0E0174BEAFD004E8D6B /* facebook-icon.png */,
 				635FE0E1174BEAFD004E8D6B /* Twitter_button.png */,
@@ -549,6 +607,12 @@
 				635FE0E9174BEB4A004E8D6B /* FCSFacebookButton.m */,
 				635FE0EB174BEB52004E8D6B /* FCSTwitterButton.h */,
 				635FE0EC174BEB52004E8D6B /* FCSTwitterButton.m */,
+				635FE112174C0B31004E8D6B /* FCSContactButton.h */,
+				635FE113174C0B31004E8D6B /* FCSContactButton.m */,
+				635FE115174C0D08004E8D6B /* FCSCallButton.h */,
+				635FE116174C0D08004E8D6B /* FCSCallButton.m */,
+				635FE118174C0D10004E8D6B /* FCSWebsiteButton.h */,
+				635FE119174C0D10004E8D6B /* FCSWebsiteButton.m */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -586,6 +650,7 @@
 		63DBB623173161FD003A74CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				635FE11B174C0EBB004E8D6B /* MapKit.framework */,
 				63504A6317393170009DE323 /* FacebookSDK.framework */,
 				632357441738349A0068A2F5 /* Social.framework */,
 				631C6D64173303DB00151EFA /* AudioToolbox.framework */,
@@ -757,6 +822,18 @@
 				635FE0F1174BFF73004E8D6B /* Default.png in Resources */,
 				635FE0F2174BFF73004E8D6B /* Default@2x.png in Resources */,
 				635FE0F3174BFF73004E8D6B /* Default-568h@2x.png in Resources */,
+				635FE100174C0A8C004E8D6B /* call_icon.png in Resources */,
+				635FE101174C0A8C004E8D6B /* contact_button.png in Resources */,
+				635FE102174C0A8C004E8D6B /* Facebook_Follow-Icon.png in Resources */,
+				635FE103174C0A8C004E8D6B /* Twitter_Follow-Icon.png in Resources */,
+				635FE104174C0A8C004E8D6B /* website_icon.png in Resources */,
+				635FE105174C0A8C004E8D6B /* Yelp_Follow-Icon.png in Resources */,
+				635FE10C174C0A97004E8D6B /* call_button@2X.png in Resources */,
+				635FE10D174C0A97004E8D6B /* contact_button@2X.png in Resources */,
+				635FE10E174C0A97004E8D6B /* Facebook_Follow-Icon@2X.png in Resources */,
+				635FE10F174C0A97004E8D6B /* Twitter_Follow-Icon@2X.png in Resources */,
+				635FE110174C0A97004E8D6B /* website_icon@2X.png in Resources */,
+				635FE111174C0A97004E8D6B /* Yelp_Follow-Icon@2X.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -826,6 +903,11 @@
 				635FE0D6174BE95D004E8D6B /* FCSOverImageSecondary.m in Sources */,
 				635FE0EA174BEB4A004E8D6B /* FCSFacebookButton.m in Sources */,
 				635FE0ED174BEB52004E8D6B /* FCSTwitterButton.m in Sources */,
+				635FE0F6174C0439004E8D6B /* FCSRestaurantListTitle.m in Sources */,
+				635FE0F9174C0996004E8D6B /* FCSRestaurantInfoViewController.m in Sources */,
+				635FE114174C0B31004E8D6B /* FCSContactButton.m in Sources */,
+				635FE117174C0D08004E8D6B /* FCSCallButton.m in Sources */,
+				635FE11A174C0D10004E8D6B /* FCSWebsiteButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

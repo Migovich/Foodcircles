@@ -9,6 +9,7 @@
 #import "FCSVenueViewController.h"
 #import "FCSSpecial.h"
 #import "FCSPurchaseViewController.h"
+#import "FCSRestaurantInfoViewController.h"
 
 
 @interface FCSVenueViewController ()
@@ -16,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *specialNameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *specialDetailsTextView;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
-@property (weak, nonatomic) IBOutlet UISlider *priceSlider;
 @property (weak, nonatomic) IBOutlet UIButton *iWantThisButton;
 
 
@@ -43,6 +43,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
   self.navigationController.title = self.venue.name;
+  
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -50,6 +52,9 @@
     FCSPurchaseViewController *destinationViewController = (FCSPurchaseViewController *)segue.destinationViewController;
     destinationViewController.special = venue.special;
     destinationViewController.title = venue.special.name;
+  } else if ([segue.identifier isEqualToString:@"showRestaurantDetails"]) {
+    FCSRestaurantInfoViewController *destinationViewController = (FCSRestaurantInfoViewController *)segue.destinationViewController;
+    destinationViewController.venue = venue;
   }
 }
 

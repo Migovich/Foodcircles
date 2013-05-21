@@ -21,7 +21,7 @@ const int FACEBOOK_BUTTON_HEIGHT = 44;
     self.titleEdgeInsets = UIEdgeInsetsMake(0,-10,0,0);
     
     UIImage *baseImage = [UIImage imageNamed:@"Facebook_button.png"];
-    UIImage *resizeableImage = [baseImage resizableImageWithCapInsets:UIEdgeInsetsMake(7, 7, 7, 7)];
+    UIImage *resizeableImage = [baseImage resizableImageWithCapInsets:UIEdgeInsetsMake(20, 20, 20, 20)];
     [self setBackgroundImage:resizeableImage forState:UIControlStateNormal];
 
     UIImage *icon = [UIImage imageNamed:@"facebook-icon.png"];
