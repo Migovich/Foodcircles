@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface FCSAccountSettingsViewController : UITableViewController
+<UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UISwitch *facebookConnectionSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *twitterConnectionSwitch;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 
 @end

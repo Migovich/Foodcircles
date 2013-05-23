@@ -73,4 +73,8 @@ const int CAROUSEL_DELAY = 5; // seconds
   }
 }
 
+- (IBAction)swipeRecognized:(id)sender {
+  NSLog(@"swip is a go");
+}
+
 @end

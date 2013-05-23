@@ -7,7 +7,6 @@
 //
 
 #import "FCSRemoteAPI.h"
-#import "FCSFixtureAdapter.h"
 #import "FCSStubAdapter.h"
 
 static FCSRemoteAPI *sharedFCSRemoteAPI;

@@ -17,5 +17,7 @@
 @property (strong, nonatomic) NSString *foodType;
 @property (strong, nonatomic) UIImage *thumbnail;
 @property (strong, nonatomic) FCSSpecial *special;
+@property (strong, nonatomic) NSNumber *lat;
+@property (strong, nonatomic) NSNumber *lon;
 
 @end

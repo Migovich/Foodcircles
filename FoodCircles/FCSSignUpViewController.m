@@ -23,7 +23,6 @@
 {
   self = [super initWithCoder:aCoder];
   if (self) {
-    // Observe keyboard show and hide to slide the scroll view up
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
                                                  name:UIKeyboardDidShowNotification object:nil];
@@ -49,7 +48,8 @@
   // Dispose of any resources that can be recreated.
 }
 
-- (void)keyboardWasShown:(NSNotification*)aNotification {
+
+- (void)keyboardWasShown:(NSNotification *)aNotification {
   NSDictionary* info = [aNotification userInfo];
   CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
   
@@ -66,7 +66,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"signUp"]) {
-   
+    
   }
 }
 
@@ -74,10 +74,10 @@
   if ([identifier isEqualToString:@"signUp"]) {
     if ([[FCSRemoteAPI sharedInstance] authorizeEmail:self.emailTextField.text password:self.passwordTextField.text] == NO) {
       UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                    message:@"Invalid email or password"
+                                                   message:@"Invalid email or password"
                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
+                                         cancelButtonTitle:@"OK"
+                                         otherButtonTitles:nil];
       [av show];
       return NO;
     }

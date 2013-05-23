@@ -25,5 +25,7 @@
 - (IBAction)followFacebook:(id)sender;
 - (IBAction)followTwitter:(id)sender;
 - (IBAction)followYelp:(id)sender;
+- (IBAction)visitWebsite:(id)sender;
+- (IBAction)getPhoneInfo:(id)sender;
 
 @end

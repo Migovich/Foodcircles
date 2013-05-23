@@ -11,12 +11,14 @@
     <entity name="Venue" representedClassName="FCSVenue" syncable="YES">
         <attribute name="foodType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_number" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="lat" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lon" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnail" optional="YES" attributeType="Transformable" valueTransformerName="" syncable="YES"/>
         <relationship name="special" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Special" inverseName="venue" inverseEntity="Special" syncable="YES"/>
     </entity>
     <elements>
         <element name="Special" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="Venue" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Venue" positionX="160" positionY="192" width="128" height="150"/>
     </elements>
 </model>

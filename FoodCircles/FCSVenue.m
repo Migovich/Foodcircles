@@ -15,5 +15,7 @@
 @dynamic foodType;
 @dynamic thumbnail;
 @dynamic special;
+@dynamic lat;
+@dynamic lon;
 
 @end
