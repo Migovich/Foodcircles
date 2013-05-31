@@ -16,7 +16,7 @@
 {
   self = [super initWithCoder:aDecoder];
   if (self) {
-    [self setThumbImage:[UIImage imageNamed:@"Slider_Knob.png"] forState:UIControlStateNormal];
+    [self setThumbImage:[UIImage imageNamed:@"slider_knob.png"] forState:UIControlStateNormal];
     [self setMinimumTrackImage:[[UIImage imageNamed:@"Track-Min.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 15, 0, 0)] forState:UIControlStateNormal];
     [self setMaximumTrackImage:[[UIImage imageNamed:@"Track-Max.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0,0,0,15)] forState:UIControlStateNormal];
   }
