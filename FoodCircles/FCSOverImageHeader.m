@@ -13,7 +13,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
   self = [super initWithCoder:aDecoder];
   if (self) {
-    self.font = [UIFont fontWithName:@"Neutraface Slab Text" size:28];
+    self.font = [UIFont fontWithName:@"Neutraface Slab Text" size:24];
     self.textColor = [UIColor whiteColor];
   }
   return self;

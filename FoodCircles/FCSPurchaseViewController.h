@@ -12,10 +12,9 @@
 #import "FCSStyledViewController.h"
 #import "PayPalMobile.h"
 
-@interface FCSPurchaseViewController : FCSStyledViewController
-<PayPalPaymentDelegate>
+@interface FCSPurchaseViewController : FCSStyledViewController <PayPalPaymentDelegate>
 
-@property (strong, nonatomic) FCSSpecial *special;
+@property int selectedVenueIndex;
 
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mealsProvidedLabel;
@@ -29,10 +28,4 @@
 - (IBAction)updatePrice:(UISlider *)sender;
 - (IBAction)donationChanged:(UISwitch *)sender;
 
-
-# pragma mark -
-# pragma mark PayPalPaymentDelegate
-
-- (void)payPalPaymentDidCancel;
-- (void)payPalPaymentDidComplete:(PayPalPayment *)completedPayment;
 @end

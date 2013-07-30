@@ -14,7 +14,7 @@
 
 @interface FCSRestaurantInfoViewController : FCSStyledViewController
 
-@property FCSVenue *venue;
+@property int selectedVenueIndex;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *contactByPhone;
 @property (weak, nonatomic) IBOutlet UIButton *conactByWebsite;

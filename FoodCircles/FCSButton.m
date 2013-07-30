@@ -14,21 +14,12 @@
   self = [super initWithCoder:decoder];
   if (self) {
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:18];
     UIImage *baseImage = [UIImage imageNamed:@"button.png"];
     UIImage *resizeableImage = [baseImage resizableImageWithCapInsets:UIEdgeInsetsMake(7, 7, 7, 7)];
     [self setBackgroundImage:resizeableImage forState:UIControlStateNormal];
-    self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:22];
   }
   return self;
 }
-
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect
- {
- // Drawing code
- }
- */
 
 @end

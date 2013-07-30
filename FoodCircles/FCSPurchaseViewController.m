@@ -7,12 +7,9 @@
 //
 
 #import "FCSPurchaseViewController.h"
-#import "FCSRemoteAPI.h"
-
 
 @interface FCSPurchaseViewController ()
 
-@property (strong, atomic) PayPalPaymentViewController *paypalView;
 @property (strong, atomic) NSNumberFormatter *usdFormatter;
 @property (strong, nonatomic) UIColor *selectedCharityColor;
 @property (strong, nonatomic) UIColor *unselectedCharityColor;
@@ -46,32 +43,39 @@
 }
 
 - (IBAction)buy:(id)sender {
-  PayPalPayment *payment = [[PayPalPayment alloc] init];
-  payment.amount = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%0.2f", self.priceSlider.value]];
-  payment.currencyCode = @"USD";
-  payment.shortDescription = self.special.name;
-  
-  if (!payment.processable) {
-    // Really should bail out here
-  }
-  
-  // Start out working with the test environment! When you are ready, remove this line to switch to live.
-  [PayPalPaymentViewController setEnvironment:PayPalEnvironmentNoNetwork];
-  
-  // Provide a payerId that uniquely identifies a user within the scope of your system,
-  // such as an email address or user ID.
-  NSString *aPayerId = [[FCSRemoteAPI sharedInstance] currentUser];
-  
-  // Create a PayPalPaymentViewController with the credentials and payerId, the PayPalPayment
-  // from the previous step, and a PayPalPaymentDelegate to handle the results.
-  self.paypalView = [[PayPalPaymentViewController alloc] initWithClientId:@"AevvhRDE-Ip2geQw3kMw5WS_e9t1oN09d_d70addhLxn2RXBCbFAytSNBX_T"
-                                                            receiverEmail:@"david@sandbendersoftware.com"
-                                                                  payerId:aPayerId
-                                                                  payment:payment
-                                                                 delegate:self];
-  
-  // Present the PayPalPaymentViewController.
-  [self presentViewController:self.paypalView animated:YES completion:nil];
+    // Create a PayPalPayment
+    PayPalPayment *payment = [[PayPalPayment alloc] init];
+    payment.amount = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%0.2f", self.priceSlider.value]];
+    payment.amount = [NSDecimalNumber decimalNumberWithString:@"10.0"];
+    payment.currencyCode = @"USD";
+    payment.shortDescription = @"desc";//self.special.name;
+    
+    // Check whether payment is processable.
+    if (!payment.processable) {
+        // If, for example, the amount was negative or the shortDescription was empty, then
+        // this payment would not be processable. You would want to handle that here.
+    }
+    
+    // Start out working with the test environment! When you are ready, remove this line to switch to live.
+    [PayPalPaymentViewController setEnvironment:PayPalEnvironmentNoNetwork];
+    
+    // Provide a payerId that uniquely identifies a user within the scope of your system,
+    // such as an email address or user ID.
+    
+#warning this should be the user's email
+    NSString *aPayerId = @"someuser@somedomain.com";
+    
+    // Create a PayPalPaymentViewController with the credentials and payerId, the PayPalPayment
+    // from the previous step, and a PayPalPaymentDelegate to handle the results.
+    PayPalPaymentViewController *paymentViewController;
+    paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:@"ATpY8BAwAkcjGxyOJ9IjArCzDNfrqdQV3FaADv-iWszrCOxpjQ_I2elLntHS"
+                                                                    receiverEmail:@"jtkumario@gmail.com"
+                                                                          payerId:aPayerId
+                                                                          payment:payment
+                                                                         delegate:self];
+    
+    // Present the PayPalPaymentViewController.
+    [self presentViewController:paymentViewController animated:YES completion:nil];
 }
 
 - (IBAction)updatePrice:(UISlider *)sender {
@@ -97,15 +101,22 @@
   return (int)self.priceSlider.value;
 }
 
-# pragma mark -
-# pragma mark PayPalPaymentDelegate
-
-- (void)payPalPaymentDidCancel {
-  [self.paypalView dismissViewControllerAnimated:YES completion:nil];
-}
+#pragma mark - PayPalPaymentDelegate methods
 
 - (void)payPalPaymentDidComplete:(PayPalPayment *)completedPayment {
-  [self.paypalView dismissViewControllerAnimated:YES completion:nil];
+    // Payment was processed successfully; send to server for verification and fulfillment.
+    //[self verifyCompletedPayment:completedPayment];
+#warning need to verify payment!
+    
+    // Dismiss the PayPalPaymentViewController.
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)payPalPaymentDidCancel {
+    // The payment was canceled; dismiss the PayPalPaymentViewController.
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 @end

@@ -1,11 +1,3 @@
-//
-//  FCSNavigationController.m
-//  FoodCircles
-//
-//  Created by David Groulx on 5/3/13.
-//  Copyright (c) 2013 FoodCircles. All rights reserved.
-//
-
 #import "FCSNavigationController.h"
 #import "FCSStyles.h"
 

@@ -8,6 +8,8 @@
 
 #import "FCSRestaurantInfoViewController.h"
 #import "FCSVenueAnnotation.h"
+#import "FCSAppDelegate.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface FCSRestaurantInfoViewController ()
 
@@ -15,38 +17,36 @@
 
 @implementation FCSRestaurantInfoViewController
 
-@synthesize venue;
+@synthesize selectedVenueIndex;
 @synthesize restaurantName;
 @synthesize restaurantAmenities;
 @synthesize imageView;
 @synthesize mapView;
 
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-  self = [super initWithCoder:aDecoder];
-  if (self) {
-    // Custom initialization
-  }
-  return self;
-}
-
-- (void)viewDidLoad
-{
-  [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
+
+    self.restaurantName.text = [[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"name"];
+    
+    [imageView setImageWithURLRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[@"http://foodcircles.net" stringByAppendingString:[[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"image"]]]]
+                                  placeholderImage:[UIImage imageNamed:@"transparent_box.png"]
+                                           success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
+                                               imageView.image = image;
+                                               [imageView setNeedsLayout];
+                                           }
+                                           failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
+                                               
+                                           }];
+    
+  //imageView.image = venue.thumbnail;
   
-  restaurantName.text = venue.name;
-  imageView.image = venue.thumbnail;
-  
-  CLLocationCoordinate2D restaurantCoord = CLLocationCoordinate2DMake([venue.lat doubleValue], [venue.lon doubleValue]);
+  CLLocationCoordinate2D restaurantCoord = CLLocationCoordinate2DMake([[[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"lat"] doubleValue], [[[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"lon"] doubleValue]);
   MKCoordinateSpan restaurantSpan = MKCoordinateSpanMake(0.1, 0.1);
   MKCoordinateRegion restaurantRegion = MKCoordinateRegionMake(restaurantCoord, restaurantSpan);
-  [mapView addAnnotation:[[FCSVenueAnnotation alloc] initWithVenue:venue]];
+  //[mapView addAnnotation:[[FCSVenueAnnotation alloc] initWithVenue:venue]];
   mapView.region = restaurantRegion;
+   
 }
 
 - (void)didReceiveMemoryWarning

@@ -10,6 +10,7 @@
 #import "FCSSpecial.h"
 #import "FCSPurchaseViewController.h"
 #import "FCSRestaurantInfoViewController.h"
+#import "FCSAppDelegate.h"
 
 
 @interface FCSVenueViewController ()
@@ -24,37 +25,24 @@
 
 @implementation FCSVenueViewController
 
-@synthesize venue;
+@synthesize selectedVenueIndex;
 
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-
-  self.specialNameLabel.text = venue.special.name;
-  self.specialDetailsTextView.text = venue.special.details;
-}
-
-- (void)didReceiveMemoryWarning
-{
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-  self.navigationController.title = self.venue.name;
-  
-
+    self.title = [[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"name"];
+    self.specialNameLabel.text = [[[[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"title"];
+    self.specialDetailsTextView.text = [[[[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"details"];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"showOptions"]) {
     FCSPurchaseViewController *destinationViewController = (FCSPurchaseViewController *)segue.destinationViewController;
-    destinationViewController.special = venue.special;
-    destinationViewController.title = venue.special.name;
+    destinationViewController.selectedVenueIndex = selectedVenueIndex;
   } else if ([segue.identifier isEqualToString:@"showRestaurantDetails"]) {
     FCSRestaurantInfoViewController *destinationViewController = (FCSRestaurantInfoViewController *)segue.destinationViewController;
-    destinationViewController.venue = venue;
+    destinationViewController.selectedVenueIndex = selectedVenueIndex;
   }
 }
 

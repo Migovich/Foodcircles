@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface FCSVenueListViewController : UICollectionViewController
-<UICollectionViewDelegate, UICollectionViewDataSource, NSFetchedResultsControllerDelegate>
-
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end

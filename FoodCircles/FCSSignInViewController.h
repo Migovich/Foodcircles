@@ -8,21 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FCSStyledViewController.h"
+#import "FCSStyledViewController.h" 
 #import "MBProgressHUD.h"
 
 @class MBProgressHUD;
 
-@interface FCSSignUpViewController : FCSStyledViewController{
+@interface FCSSignInViewController : FCSStyledViewController{
     MBProgressHUD *HUD;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (weak, nonatomic) IBOutlet UIButton *signUpButton;
+@property (weak, nonatomic) IBOutlet UIButton *signInButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UILabel *countLabel;
-@property (weak, nonatomic) IBOutlet UILabel *countCopyLabel;
-- (IBAction)clickSignUp:(id)sender;
+- (IBAction)clickSignIn:(id)sender;
 
 @end

@@ -13,6 +13,6 @@
 
 @interface FCSVenueViewController : FCSStyledViewController
 
-@property FCSVenue *venue;
+@property int selectedVenueIndex;
 
 @end
