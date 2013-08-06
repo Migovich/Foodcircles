@@ -3,7 +3,6 @@
 @implementation UILabel (Boldify)
 - (void) boldRange: (NSRange) range {
     if (![self respondsToSelector:@selector(setAttributedText:)]) {
-        NSLog(@"no bold");
         return;
     }
     NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:self.text];
@@ -14,7 +13,6 @@
 
 - (void) boldSubstring: (NSString*) substring {
     NSRange range = [self.text rangeOfString:substring];
-    NSLog(@"bold:%lu", (unsigned long)range.length);
     [self boldRange:range];
 }
 @end
