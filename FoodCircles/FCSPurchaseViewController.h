@@ -27,5 +27,8 @@
 - (IBAction)buy:(id)sender;
 - (IBAction)updatePrice:(UISlider *)sender;
 - (IBAction)donationChanged:(UISwitch *)sender;
+- (IBAction)selectOffer:(id)sender;
+- (IBAction)selectCharity:(id)sender;
+- (void) update;
 
 @end

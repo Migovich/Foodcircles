@@ -8,6 +8,7 @@
 #import "constants.h"
 #import "AFJSONRequestOperation.h"
 #import "AFHTTPClient.h"
+#import "FCSAppDelegate.h"
 
 #import "FCSSignUpViewController.h"
 
@@ -60,9 +61,8 @@
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                                                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                                                                                             [HUD hide:YES];
-                                                                                            NSLog(@"Success");
-                                                                                            NSLog(@"%@",JSON);
-                                                                                            NSLog(@"%@", [JSON valueForKeyPath:@"auth_token"]);
+                                                                                            UIAppDelegate.user_email = self.emailTextField.text;
+                                                                                            UIAppDelegate.user_token = [JSON valueForKeyPath:@"auth_token"];
                                                                                             [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
 
                                                                                         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {

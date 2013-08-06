@@ -1,12 +1,6 @@
-//
-//  FCSPurchaseViewController.m
-//  FoodCircles
-//
-//  Created by David Groulx on 5/6/13.
-//  Copyright (c) 2013 FoodCircles. All rights reserved.
-//
-
+#import "FCSAppDelegate.h"
 #import "FCSPurchaseViewController.h"
+
 
 @interface FCSPurchaseViewController ()
 
@@ -28,19 +22,10 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-  //  self.priceLabel.text = [self.usdFormatter stringFromNumber:[NSNumber numberWithFloat:self.priceSlider.value]];
-  [self updatePrice:self.priceSlider];
-  
-  // Start with the local charity selected, set text styles apppropiraetly
   self.charitySelectorSwitch.on = NO;
   [self donationChanged:self.charitySelectorSwitch];
-  self.navigationItem.leftBarButtonItem.title = @"Acknowledge Briefings Read";
 }
 
-- (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
-}
 
 - (IBAction)buy:(id)sender {
     // Create a PayPalPayment
@@ -48,39 +33,26 @@
     payment.amount = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%0.2f", self.priceSlider.value]];
     payment.amount = [NSDecimalNumber decimalNumberWithString:@"10.0"];
     payment.currencyCode = @"USD";
-    payment.shortDescription = @"desc";//self.special.name;
+    payment.shortDescription = @"desc";
     
-    // Check whether payment is processable.
-    if (!payment.processable) {
-        // If, for example, the amount was negative or the shortDescription was empty, then
-        // this payment would not be processable. You would want to handle that here.
-    }
+    if (!payment.processable) {}
     
-    // Start out working with the test environment! When you are ready, remove this line to switch to live.
     [PayPalPaymentViewController setEnvironment:PayPalEnvironmentNoNetwork];
     
-    // Provide a payerId that uniquely identifies a user within the scope of your system,
-    // such as an email address or user ID.
+    NSString *aPayerId = UIAppDelegate.user_email;
     
-#warning this should be the user's email
-    NSString *aPayerId = @"someuser@somedomain.com";
-    
-    // Create a PayPalPaymentViewController with the credentials and payerId, the PayPalPayment
-    // from the previous step, and a PayPalPaymentDelegate to handle the results.
     PayPalPaymentViewController *paymentViewController;
     paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:@"ATpY8BAwAkcjGxyOJ9IjArCzDNfrqdQV3FaADv-iWszrCOxpjQ_I2elLntHS"
                                                                     receiverEmail:@"jtkumario@gmail.com"
                                                                           payerId:aPayerId
                                                                           payment:payment
                                                                          delegate:self];
-    
-    // Present the PayPalPaymentViewController.
+
     [self presentViewController:paymentViewController animated:YES completion:nil];
 }
 
 - (IBAction)updatePrice:(UISlider *)sender {
-  self.priceLabel.text = [self.usdFormatter stringFromNumber:[NSNumber numberWithFloat:sender.value]];
-  self.mealsProvidedLabel.text = [NSString stringWithFormat:@"%d meals provided", [self mealsProvided]];
+    [self update];
 }
 
 - (IBAction)donationChanged:(UISwitch *)sender {
@@ -91,6 +63,24 @@
     self.localCharityLabel.textColor = self.selectedCharityColor;
     self.internationalCharityLabel.textColor = self.unselectedCharityColor;
   }
+}
+
+- (IBAction)selectOffer:(id)sender {
+}
+
+- (IBAction)selectCharity:(id)sender {
+}
+
+- (void) update {
+    int fullPrice = 9;
+    
+    NSNumber *cost = [NSNumber numberWithShort:10];
+    self.priceLabel.text = [self.usdFormatter stringFromNumber:cost];
+    
+    if(cost > [NSNumber numberWithShort:1])
+        self.mealsProvidedLabel.text = [NSString stringWithFormat:@"%@ meals ", cost];
+    else
+        self.mealsProvidedLabel.text = [NSString stringWithFormat:@"%@ meal ", cost];
 }
 
 - (NSString *)priceAsString {
@@ -104,16 +94,13 @@
 #pragma mark - PayPalPaymentDelegate methods
 
 - (void)payPalPaymentDidComplete:(PayPalPayment *)completedPayment {
-    // Payment was processed successfully; send to server for verification and fulfillment.
     //[self verifyCompletedPayment:completedPayment];
 #warning need to verify payment!
     
-    // Dismiss the PayPalPaymentViewController.
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)payPalPaymentDidCancel {
-    // The payment was canceled; dismiss the PayPalPaymentViewController.
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
