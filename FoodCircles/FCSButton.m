@@ -15,7 +15,7 @@
   if (self) {
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:18];
-    UIImage *baseImage = [UIImage imageNamed:@"button.png"];
+    UIImage *baseImage = [UIImage imageNamed:@"red_button.png"];
     UIImage *resizeableImage = [baseImage resizableImageWithCapInsets:UIEdgeInsetsMake(7, 7, 7, 7)];
     [self setBackgroundImage:resizeableImage forState:UIControlStateNormal];
   }

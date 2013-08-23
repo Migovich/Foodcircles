@@ -23,12 +23,16 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  if ([segue.identifier isEqualToString:@"showVenueList"]) {
-  }
+    NSLog(@"%@",segue.identifier);
+    if ([segue.identifier isEqualToString:@"showVenueList"]) {
+        NSLog(@"VenueList");
+    } else {
+        NSLog(@"Timeline");
+    }
 }
 
 - (IBAction)swipeRecognized:(id)sender {
-  NSLog(@"swipe is a go");
+    NSLog(@"swipe is a go");
 }
 
 @end

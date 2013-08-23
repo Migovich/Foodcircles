@@ -18,9 +18,9 @@
 
 - (void)viewDidLoad
 {
-  [super viewDidLoad];
+    [super viewDidLoad];
   
-  self.receiptView.layer.shadowOpacity = 0.5f;
+    self.receiptView.layer.shadowOpacity = 0.5f;
 }
 
 - (void)didReceiveMemoryWarning
@@ -29,4 +29,8 @@
   // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)accountButtonClicked:(id)sender {
+    //[self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
+    [self performSegueWithIdentifier:@"TimelineSegue" sender:self];
+}
 @end

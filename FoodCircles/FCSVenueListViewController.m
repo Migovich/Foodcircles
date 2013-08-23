@@ -17,6 +17,8 @@
 #import "constants.h"
 #import "JSONKit.h"
 #import "UIImageView+AFNetworking.h"
+#import "AFJSONRequestOperation.h"
+#import "FCSCharity.h"
 
 NSString *kVenueId = @"venueListViewID";
 
@@ -28,7 +30,51 @@ NSString *kVenueId = @"venueListViewID";
 
 - (void)viewDidLoad
 {
-  [super viewDidLoad];
+    [super viewDidLoad];
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    [HUD show:YES];
+    
+    #warning set a better place
+    FCSCharity *charities = [[FCSCharity alloc] init];
+    [charities getCharities];
+    
+    #warning Mock data
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:VENUES_URL,@"42.962924",@"-85.669713"]];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
+    
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"" parameters:nil];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                                                            [HUD hide:YES];
+                                                                                            
+                                                                                            NSLog(@"%@",[JSON JSONString]);
+                                                                                            
+                                                                                            UIAppDelegate.venues = [JSON objectForKey:@"content"];
+                                                            
+                                                                                            [self.collectionView reloadData];
+                                                                                            
+                                                                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                                                                            [HUD hide:YES];
+                                                                                            
+                                                                                            #warning message if venues dont load
+                                                                                            NSLog(@"Error: %@", error);
+                                                                                            
+                                                                                        }];
+    
+    [operation start];
+    
+    self.collectionView.backgroundColor = [FCSStyles backgroundColor];
+    
+    UICollectionViewFlowLayout *flow = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+    flow.sectionInset = UIEdgeInsetsMake(10, 5, 0, 5);
+    flow.minimumInteritemSpacing = 1;
+    
+    self.title = @"Restaurants";
+    
+    /*
     ILHTTPClient *client = [ILHTTPClient clientWithBaseURL:@"http://foodcircles.net"
                                           showingHUDInView:self.view];
 
@@ -46,15 +92,7 @@ NSString *kVenueId = @"venueListViewID";
 #warning message if venues dont load
         NSLog(@"Error: %@", error);
     }];
-    
-  
-  self.collectionView.backgroundColor = [FCSStyles backgroundColor];
-  
-  UICollectionViewFlowLayout *flow = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
-  flow.sectionInset = UIEdgeInsetsMake(10, 5, 0, 5);
-  flow.minimumInteritemSpacing = 1;
-  
-  self.title = @"Restaurants";
+     */
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,18 +118,18 @@ NSString *kVenueId = @"venueListViewID";
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  FCSVenueCell *venueCell = [collectionView dequeueReusableCellWithReuseIdentifier:kVenueId forIndexPath:indexPath];
+    FCSVenueCell *venueCell = [collectionView dequeueReusableCellWithReuseIdentifier:kVenueId forIndexPath:indexPath];
+
     venueCell.productName.text = [[[UIAppDelegate.venues objectAtIndex:[indexPath row]] objectForKey:@"name"] uppercaseString];
+    [venueCell.productImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"timeline_image"]]] placeholderImage:[UIImage imageNamed:@"transparent_box.png"]];
+
+    NSArray *tags = [NSArray arrayWithArray:[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"tags"]];
     
-    [venueCell.productImage setImageWithURLRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[@"http://foodcircles.net" stringByAppendingString:[[UIAppDelegate.venues objectAtIndex:[indexPath row]] objectForKey:@"image"]]]]
-                          placeholderImage:[UIImage imageNamed:@"transparent_box.png"]
-                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
-                                       venueCell.productImage.image = image;
-                                       [venueCell setNeedsLayout];
-                                   }
-                                   failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
-                                       
-                                   }];
+    if (tags.count > 0) {
+        venueCell.detailTextLabel.text = [[tags objectAtIndex:0] objectForKey:@"name"];
+    } else {
+        venueCell.detailTextLabel.text = @"";
+    }
     
   return venueCell;
 }

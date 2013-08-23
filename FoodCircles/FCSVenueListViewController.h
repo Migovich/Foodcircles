@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
+
+@class MBProgressHUD;
 
 @interface FCSVenueListViewController : UICollectionViewController
-<UICollectionViewDelegate, UICollectionViewDataSource>
+<UICollectionViewDelegate, UICollectionViewDataSource> {
+    MBProgressHUD *HUD;
+}
 
 @end

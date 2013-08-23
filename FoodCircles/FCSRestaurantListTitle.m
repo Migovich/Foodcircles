@@ -14,7 +14,7 @@
   self = [super initWithCoder:aDecoder];
   if (self) {
     self.textColor = [UIColor blackColor];
-    self.font = [UIFont fontWithName:@"Neutraface Slab Text" size:17];
+    self.font = [UIFont fontWithName:@"Neutraface Slab Text" size:15];
   }
   return self;
 }

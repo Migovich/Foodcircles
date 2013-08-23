@@ -9,7 +9,17 @@
 #import <UIKit/UIKit.h>
 
 #import "FCSStyledViewController.h"
+#import "MBProgressHUD.h"
 
-@interface FCSTimelineViewController : FCSStyledViewController
+@class MBProgressHUD;
+
+@interface FCSTimelineViewController : FCSStyledViewController <UITableViewDelegate, UITableViewDataSource> {
+    MBProgressHUD *HUD;
+}
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *timelineData;
+@property (assign, nonatomic) int lastMonth;
+@property (assign, nonatomic) int monthCount;
 
 @end

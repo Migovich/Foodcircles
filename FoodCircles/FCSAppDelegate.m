@@ -7,16 +7,31 @@
 //
 
 #import "FCSAppDelegate.h"
+#import <Parse/Parse.h>
 
 @implementation FCSAppDelegate
 
 @synthesize user_email;
 @synthesize user_token;
 @synthesize venues;
+@synthesize charities;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  return YES;
+    [Parse setApplicationId:@"kOy6fgxIymc6fp3Z6FaYdkTaMy6F41hYX3SgAltZ"
+                  clientKey:@"dq206qPaYrhf2WnFOeuA4n1gTDvKIa3PFLQ7qt3i"];
+    
+    [PFTwitterUtils initializeWithConsumerKey:@"XmAxvWUI8aFgI7QlliTfCw"
+                               consumerSecret:@"ipOQjEZ876e0qWexIOLKOV99TllNPC9LBcMEzCZ4"];
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [PFFacebookUtils handleOpenURL:url];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

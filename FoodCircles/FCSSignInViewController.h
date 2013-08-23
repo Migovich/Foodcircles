@@ -22,5 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *signInButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 - (IBAction)clickSignIn:(id)sender;
+- (IBAction)clickFacebookSignIn:(id)sender;
+- (IBAction)clickTwitterSignIn:(id)sender;
 
 @end

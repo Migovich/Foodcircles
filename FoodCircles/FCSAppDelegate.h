@@ -16,5 +16,6 @@
 @property (strong, nonatomic) NSString *user_email;
 @property (strong, nonatomic) NSString *user_token;
 @property (strong, nonatomic) NSArray *venues;
+@property (strong, nonatomic) NSArray *charities;
 
 @end

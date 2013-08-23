@@ -12,5 +12,7 @@
 @interface FCSVoucherViewController : FCSStyledViewController
 
 @property (weak, nonatomic) IBOutlet UIView *receiptView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *accountButton;
+- (IBAction)accountButtonClicked:(id)sender;
 
 @end

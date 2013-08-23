@@ -7,21 +7,16 @@
 //
 
 #import "FCSVenueAnnotation.h"
+#import "FCSAppDelegate.h"
 
 @implementation FCSVenueAnnotation
 
-@synthesize venue;
-@synthesize coordinate;
-@synthesize title;
-@synthesize subtitle;
-
--(id)initWithVenue:(FCSVenue *)theVenue {
+-(id)initWithVenueIndex:(NSInteger)venueIndex {
   self = [super init];
   if (self) {
-    venue = theVenue;
-    coordinate = CLLocationCoordinate2DMake([venue.lat doubleValue], [venue.lon doubleValue]);
-    title = @"RestaurantName";
-    subtitle = @"";
+      _coordinate = CLLocationCoordinate2DMake([[[UIAppDelegate.venues objectAtIndex:venueIndex] objectForKey:@"lat"] doubleValue], [[[UIAppDelegate.venues objectAtIndex:venueIndex] objectForKey:@"lon"] doubleValue]);
+      _title = [[UIAppDelegate.venues objectAtIndex:venueIndex] objectForKey:@"name"];;
+      _subtitle = @"";
   }
 
   return self;

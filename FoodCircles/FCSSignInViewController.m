@@ -9,6 +9,9 @@
 #import "AFJSONRequestOperation.h"
 #import "AFHTTPClient.h"
 #import "FCSAppDelegate.h"
+#import "FCSLoginProvider.h"
+
+#import <Parse/Parse.h>
 
 #import "FCSSignInViewController.h"
 
@@ -33,10 +36,12 @@
     NSURL *url = [NSURL URLWithString:SIGN_IN_URL];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
+    
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                             self.emailTextField.text, @"user_email",
                             self.passwordTextField.text, @"user_password",
                             nil];
+    
     
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"" parameters:params];
     
@@ -68,5 +73,27 @@
     
     [operation start];
     
+}
+
+- (IBAction)clickFacebookSignIn:(id)sender {
+    [HUD show:YES];
+    FCSLoginProvider *login = [[FCSLoginProvider alloc] init];
+    [login loginWithFacebook:^(BOOL success) {
+        [HUD hide:YES];
+        if (success) {
+            [self performSegueWithIdentifier:@"SignInSegue" sender:self];
+        }
+    }];
+}
+
+- (IBAction)clickTwitterSignIn:(id)sender {
+    [HUD show:YES];
+    FCSLoginProvider *login = [[FCSLoginProvider alloc] init];
+    [login loginWithTwitter:^(BOOL success) {
+        [HUD hide:YES];
+        if (success) {
+            [self performSegueWithIdentifier:@"SignInSegue" sender:self];
+        }
+    }];
 }
 @end

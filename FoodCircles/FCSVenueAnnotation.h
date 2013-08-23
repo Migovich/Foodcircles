@@ -10,16 +10,13 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-#import "FCSVenue.h"
-
 @interface FCSVenueAnnotation : NSObject
 <MKAnnotation>
 
-@property (strong, nonatomic) FCSVenue *venue;
-@property (nonatomic) CLLocationCoordinate2D coordinate;
+@property (readonly, nonatomic) CLLocationCoordinate2D coordinate;
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *subtitle;
 
--(id)initWithVenue:(FCSVenue *)theVenue;
+-(id)initWithVenueIndex:(NSInteger)venueIndex;
 
 @end
