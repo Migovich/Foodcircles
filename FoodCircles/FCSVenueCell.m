@@ -14,10 +14,11 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
   self = [super initWithCoder:aDecoder];
   if (self) {
-    self.backgroundColor = [UIColor whiteColor];
-    self.layer.shadowOpacity = 0.5f;
-    self.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-    self.layer.masksToBounds = NO;
+      //self.backgroundColor = [UIColor clearColor];
+      //self.contentView.backgroundColor = [UIColor whiteColor];
+      //self.contentView.layer.shadowOpacity = 0.5f;
+      //self.contentView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+      //self.contentView.layer.masksToBounds = NO;
   }
   return self;
 }

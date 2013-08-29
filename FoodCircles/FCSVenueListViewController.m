@@ -19,6 +19,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "AFJSONRequestOperation.h"
 #import "FCSCharity.h"
+#import <QuartzCore/QuartzCore.h>
 
 NSString *kVenueId = @"venueListViewID";
 
@@ -35,7 +36,6 @@ NSString *kVenueId = @"venueListViewID";
     [self.view addSubview:HUD];
     [HUD show:YES];
     
-    #warning set a better place
     FCSCharity *charities = [[FCSCharity alloc] init];
     [charities getCharities];
     
@@ -53,7 +53,9 @@ NSString *kVenueId = @"venueListViewID";
                                                                                             NSLog(@"%@",[JSON JSONString]);
                                                                                             
                                                                                             UIAppDelegate.venues = [JSON objectForKey:@"content"];
-                                                            
+                                                                                            NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"distance" ascending:YES];
+                                                                                            UIAppDelegate.venues = [UIAppDelegate.venues sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+ 
                                                                                             [self.collectionView reloadData];
                                                                                             
                                                                                         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
@@ -73,26 +75,6 @@ NSString *kVenueId = @"venueListViewID";
     flow.minimumInteritemSpacing = 1;
     
     self.title = @"Restaurants";
-    
-    /*
-    ILHTTPClient *client = [ILHTTPClient clientWithBaseURL:@"http://foodcircles.net"
-                                          showingHUDInView:self.view];
-
-    [client getPath:@"/api/venues.json"
-         parameters:nil
-        loadingText:@"Loading"
-        successText:nil
-            success:^(AFHTTPRequestOperation *operation, NSString *response)
-    {
-        UIAppDelegate.venues = [response objectFromJSONString];
-        [self.collectionView reloadData];
-    }
-            failure:^(AFHTTPRequestOperation *operation, NSError *error)
-    {
-#warning message if venues dont load
-        NSLog(@"Error: %@", error);
-    }];
-     */
 }
 
 - (void)didReceiveMemoryWarning
@@ -122,6 +104,7 @@ NSString *kVenueId = @"venueListViewID";
 
     venueCell.productName.text = [[[UIAppDelegate.venues objectAtIndex:[indexPath row]] objectForKey:@"name"] uppercaseString];
     [venueCell.productImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"timeline_image"]]] placeholderImage:[UIImage imageNamed:@"transparent_box.png"]];
+    [venueCell.productImage setClipsToBounds:YES];
 
     NSArray *tags = [NSArray arrayWithArray:[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"tags"]];
     
@@ -131,7 +114,27 @@ NSString *kVenueId = @"venueListViewID";
         venueCell.detailTextLabel.text = @"";
     }
     
-  return venueCell;
+    NSString *miles = [[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"distance"];
+    [venueCell.milesLabel setText:[miles substringWithRange:NSMakeRange(0, [miles length]-3)]];
+    
+    int leftTag = [[[UIAppDelegate.venues objectAtIndex:[indexPath row]] objectForKey:@"vouchers_available"] integerValue];
+    [venueCell.qtyLeftLabel setText:[NSString stringWithFormat:@"%d",leftTag]];
+    
+    if (leftTag == 0) {
+        [venueCell.tagImageView setImage:[UIImage imageNamed:@"tag-grey.png"]];
+        [venueCell setUserInteractionEnabled:NO];
+        [venueCell.soldOutLabel setHidden:NO];
+    } else {
+        [venueCell.tagImageView setImage:[UIImage imageNamed:@"tag-blue.png"]];
+        [venueCell setUserInteractionEnabled:YES];
+        [venueCell.soldOutLabel setHidden:YES];
+    }
+    
+    venueCell.contentView.layer.shadowOpacity = 0.1f;
+    venueCell.contentView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+    venueCell.contentView.layer.masksToBounds = NO;
+    
+    return venueCell;
 }
 
 @end

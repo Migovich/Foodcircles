@@ -12,9 +12,13 @@
 @interface FCSTimelineData : NSObject
 
 @property (assign, nonatomic) int type;
-@property (strong, nonatomic) NSDictionary *data;
+@property (assign, nonatomic) int total;
+@property (assign, nonatomic) int dataType;
 @property (strong, nonatomic) NSString *year;
 @property (strong, nonatomic) NSString *month;
+@property (strong, nonatomic) NSDate *date;
+@property (assign, nonatomic) int qtyFed;
+@property (strong, nonatomic) NSString *restaurantName;
 
 -(NSArray *)processJSON:(id)JSON;
 

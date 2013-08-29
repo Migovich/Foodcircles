@@ -100,7 +100,6 @@
     
     [PFTwitterUtils initialize];
     [PFTwitterUtils logInWithBlock:^(PFUser *user, NSError *error) {
-        #warning set messages
         if (!user) {
             NSLog(@"The user cancelled the Twitter login.");
             return;
@@ -122,35 +121,20 @@
                                                                                                     _completionHandler(YES);
                                                                                                     
                                                                                                 } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+
+                                                                                                    NSString *errorMessage = [JSON objectForKey:@"description"];
                                                                                                     
-                                                                                                    NSString *emailErrorMessage = [JSON valueForKeyPath:@"errors.email"][0];
-                                                                                                    NSString *passwordErrorMessage = [JSON valueForKeyPath:@"errors.password"][0];
-                                                                                                    NSString *errorMessage = @"";
-                                                                                                    
-                                                                                                    if (emailErrorMessage != nil) {
-                                                                                                        errorMessage = [NSString stringWithFormat:@"%@%@%@%@", errorMessage, @"Email ", emailErrorMessage, @"."];
-                                                                                                    }
-                                                                                                    
-                                                                                                    if (emailErrorMessage != nil && passwordErrorMessage != nil) {
-                                                                                                        errorMessage = [errorMessage stringByAppendingString:@"\n"];
-                                                                                                    }
-                                                                                                    
-                                                                                                    if (passwordErrorMessage != nil) {
-                                                                                                        errorMessage = [NSString stringWithFormat:@"%@%@%@%@", errorMessage, @"Password ", passwordErrorMessage, @"."];
-                                                                                                    }
-                                                                                                    
-                                                                                                    if(emailErrorMessage == nil && passwordErrorMessage == nil) {
+                                                                                                    if (errorMessage == nil) {
                                                                                                         errorMessage = @"Can't connect to server.";
+                                                                                                        
+                                                                                                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign In Error"
+                                                                                                                                                        message:errorMessage
+                                                                                                                                                       delegate:nil
+                                                                                                                                              cancelButtonTitle:@"OK"
+                                                                                                                                              otherButtonTitles:nil];
+                                                                                                        [alert show];
                                                                                                     }
-                                                                                                    
-                                                                                                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Error"
-                                                                                                                                                    message:errorMessage
-                                                                                                                                                   delegate:nil
-                                                                                                                                          cancelButtonTitle:@"OK"
-                                                                                                                                          otherButtonTitles:nil];
-                                                                                                    NSLog(@"%@", errorMessage);
-                                                                                                    [alert show];
-                                                                                                    
+
                                                                                                     _completionHandler(NO);
                                                                                                 }];
             

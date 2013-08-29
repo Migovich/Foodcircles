@@ -15,6 +15,8 @@
 #import "constants.h"
 #import "FCSStyles.h"
 #import "FCSTimelineData.h"
+#import "FCSAppDelegate.h"
+#import "FCSShareProviders.h"
 
 @interface FCSTimelineViewController ()
 
@@ -34,23 +36,21 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [HUD show:YES];
-    
-    #warning Mock data
-   // NSURL *url = [NSURL URLWithString:TIMELINE_URL];
-    NSURL *url = [NSURL URLWithString:@"http://direct.amithiva.com.br"];
-    
+    NSURL *url = [NSURL URLWithString:TIMELINE_URL];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
     
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            @"mLj5C5ASvCG1y274qxrQ", @"auth_token",
+                            UIAppDelegate.user_token, @"auth_token",
                             nil];
     
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"timeline.json" parameters:nil];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"" parameters:params];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                                                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                                                                                             [HUD hide:YES];
+                                                                                            
+                                                                                            NSLog(@"%@",[JSON JSONString]);
                                                                                             
                                                                                             FCSTimelineData *tl = [[FCSTimelineData alloc] init];
                                                                                             _timelineData = [tl processJSON:[JSON objectForKey:@"content"]];
@@ -108,19 +108,11 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TotalCell"];
         }
-    
-        int total = 0;
-        for (int i = 0; i < [_timelineData count]; i++) {
-            FCSTimelineData *data = [_timelineData objectAtIndex:i];
-            total += [[[data.data objectForKey:@"offer"] objectForKey:@"minimum_diners"] integerValue];
-        }
-    
-        total = total/2;
         
         [cell.textLabel setTextAlignment:NSTextAlignmentRight];
         [cell.textLabel setTextColor:[FCSStyles primaryTextColor]];
         
-        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Kids Fed %d",total]];
+        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Kids Fed %d",timelineData.total]];
         [text addAttribute:NSForegroundColorAttributeName value:[FCSStyles blueColor] range:NSMakeRange(9, [text length]-9)];
         [cell.textLabel setAttributedText: text];
         
@@ -153,22 +145,16 @@
     
     [cell.qtyChildrenLabel setTextColor:[FCSStyles blueColor]];
 
-    NSString *dateStr = [[timelineData.data objectForKey:@"date_purchased"] substringToIndex:10];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *date = [formatter dateFromString:dateStr];
     [formatter setDateFormat:@"MM/dd"];
+
+    [cell.dateLabel setText:[formatter stringFromDate:timelineData.date]];
+    [cell.restaurantNameLabel setText:timelineData.restaurantName];
     
-    [cell.dateLabel setText:[formatter stringFromDate:date]];
-    [cell.restaurantNameLabel setText:[[timelineData.data objectForKey:@"venue"] objectForKey:@"name"]];
-    
-    int qty = [[[timelineData.data objectForKey:@"offer"] objectForKey:@"minimum_diners"] integerValue];
-    qty = qty/2;
-    
-    if (qty >2 )
-        [cell.qtyChildrenLabel setText:[NSString stringWithFormat:@"%d children fed",qty]];
+    if (timelineData.qtyFed > 1 )
+        [cell.qtyChildrenLabel setText:[NSString stringWithFormat:@"%d children fed",timelineData.qtyFed]];
     else {
-        [cell.qtyChildrenLabel setText:[NSString stringWithFormat:@"%d child fed",qty]];
+        [cell.qtyChildrenLabel setText:[NSString stringWithFormat:@"%d child fed",timelineData.qtyFed]];
     }
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -177,4 +163,15 @@
 }
 
 
+- (IBAction)inviteButtonTapped:(id)sender {
+    FCSShareProviders *shareProviders = [[FCSShareProviders alloc] init];
+    shareProviders.type = 3;
+    NSURL *shareUrl = [NSURL URLWithString:@"http://joinfoodcircles.org/"];
+    
+    NSArray *itemsToShare = @[shareProviders,shareUrl];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToWeibo];
+    
+    [self presentViewController:activityVC animated:YES completion:nil];
+}
 @end

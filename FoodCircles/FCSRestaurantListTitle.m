@@ -7,14 +7,15 @@
 //
 
 #import "FCSRestaurantListTitle.h"
+#import "FCSStyles.h"
 
 @implementation FCSRestaurantListTitle
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
   self = [super initWithCoder:aDecoder];
   if (self) {
-    self.textColor = [UIColor blackColor];
-    self.font = [UIFont fontWithName:@"Neutraface Slab Text" size:15];
+      self.textColor = [FCSStyles brownColor];
+      self.font = [UIFont fontWithName:@"Neutraface Slab Text" size:15];
   }
   return self;
 }

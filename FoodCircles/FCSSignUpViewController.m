@@ -33,13 +33,23 @@
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *qtyPeople = [userDefaults stringForKey:@"qtyPeople"];
+    if (qtyPeople == nil) {
+        qtyPeople = @"0";
+    }
+    
+    self.countLabel.text = [NSString stringWithFormat:@"%@%@", qtyPeople, @" people repurpose their everyday dining."];
+    self.countCopyLabel.text = @"Today, it's your turn.";
+    
     NSURL *url = [NSURL URLWithString:USER_COUNT_URL];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                                             self.countLabel.text = [NSString stringWithFormat:@"%@%@", [JSON valueForKeyPath:@"content"], @" people repurpose their everyday dining."];
+                                            [userDefaults setValue:[NSString stringWithFormat:@"%@",[JSON valueForKeyPath:@"content"]] forKey:@"qtyPeople"];
+                                            [userDefaults synchronize];
                                             [self.countLabel boldSubstring: [NSString stringWithFormat:@"%@",[JSON valueForKeyPath:@"content"]]];
-                                            self.countCopyLabel.text = @"Today, it's your turn.";
                                         } failure:nil];
     [operation start];
 }
@@ -142,16 +152,23 @@
 }
 
 - (IBAction)clickTwitterSignUp:(id)sender {
+    [HUD show:YES];
     [PFTwitterUtils initialize];
     [PFTwitterUtils logInWithBlock:^(PFUser *user, NSError *error) {
-        #warning set messages
         if (!user) {
             NSLog(@"The user cancelled the Twitter login.");
             return;
         } else {
-            NSLog(@"User logged in with Twitter!");
             _twitterUID = user.username;
-            [self activateTwitterSignUp:YES];
+            FCSLoginProvider *login = [[FCSLoginProvider alloc] init];
+            [login loginWithTwitter:^(BOOL success) {
+                [HUD hide:YES];
+                if (!success) {
+                    [self activateTwitterSignUp:YES];
+                } else {
+                    [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
+                }
+             }];
         }
     }];
 }

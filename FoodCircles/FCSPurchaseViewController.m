@@ -1,6 +1,11 @@
 #import "FCSAppDelegate.h"
 #import "FCSPurchaseViewController.h"
 #import "FCSVenueListViewController.h"
+#import "AFHTTPClient.h"
+#import "AFJSONRequestOperation.h"
+#import "JSONKit.h"
+#import "constants.h"
+#import "FCSVoucherViewController.h"
 
 
 @interface FCSPurchaseViewController ()
@@ -39,6 +44,9 @@
     NSString *title = [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"title"];
     [_offerButton setTitle:title forState:UIControlStateNormal];
     
+    title = [[UIAppDelegate.charities objectAtIndex:0] objectForKey:@"name"];
+    [_charityButton setTitle:title forState:UIControlStateNormal];
+    
     [_priceSlider addTarget:self action:@selector(updatePrice:) forControlEvents:UIControlEventValueChanged];
 }
 
@@ -47,13 +55,22 @@
     [self donationChanged:self.charitySelectorSwitch];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"VoucherSegue"]) {
+        FCSVoucherViewController *destinationViewController = (FCSVoucherViewController *)segue.destinationViewController;
+        destinationViewController.voucherContent = self.voucherContent;
+        destinationViewController.offerName = [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"title"];
+        destinationViewController.restaurantName = [[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"name"];
+     }
+}
+
+#pragma mark - IBActions
 - (IBAction)buy:(id)sender {
     // Create a PayPalPayment
     PayPalPayment *payment = [[PayPalPayment alloc] init];
-    payment.amount = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%0.2f", self.priceSlider.value]];
-    payment.amount = [NSDecimalNumber decimalNumberWithString:@"10.0"];
+    payment.amount = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%.0f", trunc(self.priceSlider.value)]];
     payment.currencyCode = @"USD";
-    payment.shortDescription = @"desc";
+    payment.shortDescription = [NSString stringWithFormat:@"%.0f meals", trunc(self.priceSlider.value)];
     
     if (!payment.processable) {}
     
@@ -97,6 +114,7 @@
     [_pickerView reloadAllComponents];
 }
 
+#pragma mark - Custom Methods
 - (void)update:(int)value {
     [self.priceLabel setText:[NSString stringWithFormat:@"$%d",value]];
     
@@ -126,16 +144,57 @@
 }
 
 #pragma mark - PayPalPaymentDelegate methods
-
 - (void)payPalPaymentDidComplete:(PayPalPayment *)completedPayment {
-    //[self verifyCompletedPayment:completedPayment];
-    #warning need to verify payment!
-    
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    [self performSegueWithIdentifier:@"VoucherSegue" sender:self];
+    NSURL *url = [NSURL URLWithString:PAYMENT_URL];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
+    
+    NSDictionary *payment;
+    
+    if ([[[completedPayment.confirmation objectForKey:@"proof_of_payment"] objectForKey:@"adaptive_payment"] count] > 0) {
+        payment = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [[[completedPayment.confirmation objectForKey:@"proof_of_payment"] objectForKey:@"adaptive_payment"] objectForKey:@"pay_key"], @"paypal_charge_token",
+                             [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"id"], @"offer_id",
+                             [[completedPayment.confirmation objectForKey:@"payment"] objectForKey:@"amount"], @"amount",
+                             nil];
+    } else {
+        payment = [NSDictionary dictionaryWithObjectsAndKeys:
+                   [[[completedPayment.confirmation objectForKey:@"proof_of_payment"] objectForKey:@"rest_api"] objectForKey:@"payment_id"], @"paypal_charge_token",
+                   [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"id"], @"offer_id",
+                   [[completedPayment.confirmation objectForKey:@"payment"] objectForKey:@"amount"], @"amount",
+                   nil];
+    }
+    
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            UIAppDelegate.user_token, @"auth_token",
+                            payment, @"payment",
+                            nil];
+    
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"" parameters:params];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                                                            NSLog(@"%@",JSON);
+                                                                                            self.voucherContent = [JSON objectForKey:@"content"];
+                                                                                            [self performSegueWithIdentifier:@"VoucherSegue" sender:self];
+                                                                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                                                                            
+                                                                                            NSString *errorMessage = @"";
+                                                                                            errorMessage = @"Can't connect to server.";
+                                                                                            
+                                                                                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                                                            message:errorMessage
+                                                                                                                                           delegate:nil
+                                                                                                                                  cancelButtonTitle:@"OK"
+                                                                                                                                  otherButtonTitles:nil];
+                                                                                            NSLog(@"%@", errorMessage);
+                                                                                            [alert show];
+                                                                                        }];
+    
+    [operation start];
 }
-
 
 
 - (void)payPalPaymentDidCancel {

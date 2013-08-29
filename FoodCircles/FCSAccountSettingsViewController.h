@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 
-@interface FCSAccountSettingsViewController : UITableViewController
-<UITableViewDelegate>
+@interface FCSAccountSettingsViewController : UIViewController <UITableViewDelegate> {
+    MBProgressHUD *HUD;
+}
 
-@property (weak, nonatomic) IBOutlet UISwitch *facebookConnectionSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch *twitterConnectionSwitch;
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+- (IBAction)logoutButtonClicked:(id)sender;
+- (IBAction)saveUserData:(id)sender;
 
 @end

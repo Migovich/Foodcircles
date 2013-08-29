@@ -15,5 +15,6 @@
 + (UIColor *)greyBackgroundColor;
 + (UIColor *)darkRed;
 + (UIColor *)blueColor;
++ (UIColor *)brownColor; //#4e3e34
 
 @end

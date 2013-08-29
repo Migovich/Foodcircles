@@ -13,6 +13,7 @@
 @interface FCSLandingPageViewController : FCSStyledViewController
 
 @property (weak, nonatomic) IBOutlet UIScrollView *carouselView;
+@property (weak, nonatomic) IBOutlet UIImageView *shareButton;
 
 - (IBAction)swipeRecognized:(id)sender;
 

@@ -21,5 +21,6 @@
 @property (strong, nonatomic) NSArray *timelineData;
 @property (assign, nonatomic) int lastMonth;
 @property (assign, nonatomic) int monthCount;
+- (IBAction)inviteButtonTapped:(id)sender;
 
 @end

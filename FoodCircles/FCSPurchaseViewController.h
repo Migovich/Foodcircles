@@ -19,6 +19,7 @@
 @property int pickerType;
 @property int selectedOffer;
 @property int selectedCharity;
+@property (strong, nonatomic) NSDictionary *voucherContent;
 
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mealsProvidedLabel;
