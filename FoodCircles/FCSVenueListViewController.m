@@ -39,8 +39,8 @@ NSString *kVenueId = @"venueListViewID";
     FCSCharity *charities = [[FCSCharity alloc] init];
     [charities getCharities];
     
-    #warning Mock data
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:VENUES_URL,@"42.962924",@"-85.669713"]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:VENUES_URL,UIAppDelegate.locationManager.location.coordinate.latitude,UIAppDelegate.locationManager.location.coordinate.longitude]];
+    
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
     
@@ -55,8 +55,17 @@ NSString *kVenueId = @"venueListViewID";
                                                                                             UIAppDelegate.venues = [JSON objectForKey:@"content"];
                                                                                             NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"distance" ascending:YES];
                                                                                             UIAppDelegate.venues = [UIAppDelegate.venues sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
- 
-                                                                                            [self.collectionView reloadData];
+                                                                                            
+                                                                                            if ([UIAppDelegate.venues count] == 0) {
+                                                                                                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Venues"
+                                                                                                                                                message:@"No venues to show."
+                                                                                                                                               delegate:nil
+                                                                                                                                      cancelButtonTitle:@"OK"
+                                                                                                                                      otherButtonTitles:nil];
+                                                                                                [alert show];
+                                                                                            } else {
+                                                                                                [self.collectionView reloadData];
+                                                                                            }
                                                                                             
                                                                                         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
                                                                                             [HUD hide:YES];
@@ -133,6 +142,19 @@ NSString *kVenueId = @"venueListViewID";
     venueCell.contentView.layer.shadowOpacity = 0.1f;
     venueCell.contentView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
     venueCell.contentView.layer.masksToBounds = NO;
+    
+    //Set LocalNotifications
+    CLLocationCoordinate2D coords;
+    coords.latitude = [[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"lat"] floatValue];
+    coords.longitude= [[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"lon"] floatValue];
+
+    NSString *restaurantName = [[UIAppDelegate.venues objectAtIndex:[indexPath row]] objectForKey:@"name"];
+    NSString *offerName = [[[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"title"];
+    
+    CLRegion *region = [[CLRegion alloc] initCircularRegionWithCenter:coords radius:5.0 identifier:[NSString stringWithFormat:@"%@|%@",restaurantName,offerName]];
+    
+    [UIAppDelegate.locationManager stopMonitoringForRegion:region];
+    [UIAppDelegate.locationManager startMonitoringForRegion:region];
     
     return venueCell;
 }

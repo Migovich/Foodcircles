@@ -11,6 +11,7 @@
 #import "AFJSONRequestOperation.h"
 #import "AFHTTPClient.h"
 #import "FCSAppDelegate.h"
+#import "SSKeychain.h"
 
 @implementation FCSLoginProvider
 
@@ -52,6 +53,10 @@
                                                                                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                                                                                                             UIAppDelegate.user_email = email;
                                                                                                             UIAppDelegate.user_token = [JSON valueForKeyPath:@"auth_token"];
+                                                                                                            
+                                                                                                            [SSKeychain setPassword:@"Facebook" forService:@"FoodCircles" account:@"FoodCirclesType"];
+                                                                                                            [SSKeychain setPassword:user.username forService:@"FoodCircles" account:@"FoodCirclesFacebookUID"];
+                                                                                                            [SSKeychain setPassword:email forService:@"FoodCircles" account:@"FoodCirclesEmail"];
 
                                                                                                             _completionHandler(YES);
                                                                                                             
@@ -118,6 +123,9 @@
                                                                                                 success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                                                                                                     UIAppDelegate.user_token = [JSON valueForKeyPath:@"auth_token"];
                                                                                                     
+                                                                                                    [SSKeychain setPassword:@"Twitter" forService:@"FoodCircles" account:@"FoodCirclesType"];
+                                                                                                    [SSKeychain setPassword:user.username forService:@"FoodCircles" account:@"FoodCirclesTwitterUID"];
+                                                                                                    
                                                                                                     _completionHandler(YES);
                                                                                                     
                                                                                                 } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
@@ -142,6 +150,43 @@
 
         }
     }];
+}
+
+-(void)loginWithParams:(NSDictionary *)params :(void (^)(BOOL))handler {
+    _completionHandler = [handler copy];
+    
+    NSURL *url = [NSURL URLWithString:SIGN_IN_URL];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
+    
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"" parameters:params];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                                                            UIAppDelegate.user_token = [JSON valueForKeyPath:@"auth_token"];
+                                                                                            
+                                                                                            _completionHandler(YES);
+                                                                                            
+                                                                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                                                                            
+                                                                                            NSString *errorMessage = [JSON objectForKey:@"description"];
+                                                                                            
+                                                                                            if (errorMessage == nil) {
+                                                                                                errorMessage = @"Can't connect to server.";
+                                                                                                
+                                                                                                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign In Error"
+                                                                                                                                                message:errorMessage
+                                                                                                                                               delegate:nil
+                                                                                                                                      cancelButtonTitle:@"OK"
+                                                                                                                                      otherButtonTitles:nil];
+                                                                                                [alert show];
+                                                                                            }
+                                                                                            
+                                                                                            _completionHandler(NO);
+                                                                                            
+                                                                                        }];
+    
+    [operation start];
 }
 
 @end

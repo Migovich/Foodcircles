@@ -10,6 +10,7 @@
 #import "AFHTTPClient.h"
 #import "FCSAppDelegate.h"
 #import "FCSLoginProvider.h"
+#import "SSKeychain.h"
 
 #import <Parse/Parse.h>
 
@@ -50,6 +51,11 @@
                                                                                             [HUD hide:YES];
                                                                                             UIAppDelegate.user_email = self.emailTextField.text;
                                                                                             UIAppDelegate.user_token = [JSON valueForKeyPath:@"auth_token"];
+                                                                                            
+                                                                                            [SSKeychain setPassword:@"Email" forService:@"FoodCircles" account:@"FoodCirclesType"];
+                                                                                            [SSKeychain setPassword: self.emailTextField.text forService:@"FoodCircles" account:@"FoodCirclesEmail"];
+                                                                                            [SSKeychain setPassword: self.passwordTextField.text forService:@"FoodCircles" account:@"FoodCirclesPassword"];
+                                                                                            
                                                                                             [self performSegueWithIdentifier:@"SignInSegue" sender:self];
                                                                                             
                                                                                         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {

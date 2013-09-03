@@ -16,6 +16,7 @@
 #import "MBProgressHUD.h"
 #import <Parse/Parse.h>
 #import "FCSLoginProvider.h"
+#import "SSKeychain.h"
 
 @interface FCSSignUpViewController ()
 
@@ -52,6 +53,36 @@
                                             [self.countLabel boldSubstring: [NSString stringWithFormat:@"%@",[JSON valueForKeyPath:@"content"]]];
                                         } failure:nil];
     [operation start];
+    
+    NSString *typeLogin = [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesType"];
+    if (typeLogin != nil) {
+        [HUD show:YES];
+        NSDictionary *params;
+        
+        if ([typeLogin isEqualToString:@"Email"]) {
+            params = [NSDictionary dictionaryWithObjectsAndKeys:
+                      [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesEmail"], @"user_email",
+                      [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesPassword"], @"user_password",
+                      nil];
+        } else if ([typeLogin isEqualToString:@"Facebook"]) {
+            params = [NSDictionary dictionaryWithObjectsAndKeys:
+                      [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesFacebookUID"], @"uid",
+                      [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesEmail"], @"user_password",
+                      nil];
+        } else if ([typeLogin isEqualToString:@"Twitter"]) {
+            params = [NSDictionary dictionaryWithObjectsAndKeys:
+                      [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesTwitterUID"], @"uid",
+                      nil];
+        }
+        
+        FCSLoginProvider *login = [[FCSLoginProvider alloc] init];
+        [login loginWithParams:params :^(BOOL success) {
+            [HUD hide:YES];
+            if (success) {
+                [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
+            }
+        }];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -100,6 +131,16 @@
                                             [HUD hide:YES];
                                             UIAppDelegate.user_email = self.emailTextField.text;
                                             UIAppDelegate.user_token = [JSON valueForKeyPath:@"auth_token"];
+                                            
+                                            if (!_twitterLogin) {
+                                                [SSKeychain setPassword:@"Email" forService:@"FoodCircles" account:@"FoodCirclesType"];
+                                                [SSKeychain setPassword: self.emailTextField.text forService:@"FoodCircles" account:@"FoodCirclesEmail"];
+                                                [SSKeychain setPassword: self.passwordTextField.text forService:@"FoodCircles" account:@"FoodCirclesPassword"];
+                                            } else {
+                                                [SSKeychain setPassword:@"Twitter" forService:@"FoodCircles" account:@"FoodCirclesType"];
+                                                [SSKeychain setPassword:_twitterUID forService:@"FoodCircles" account:@"FoodCirclesTwitterUID"];
+                                            }
+                                            
                                             [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
 
                                         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {

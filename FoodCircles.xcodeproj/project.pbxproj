@@ -121,6 +121,7 @@
 		AF7C86A217C6B8D6009729D1 /* tag-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7C86A017C6B8D5009729D1 /* tag-grey.png */; };
 		AF7C86A517C6B8E6009729D1 /* tag-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7C86A317C6B8E4009729D1 /* tag-blue@2x.png */; };
 		AF7C86A617C6B8E6009729D1 /* tag-grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7C86A417C6B8E5009729D1 /* tag-grey@2x.png */; };
+		AF8063A417D3957B00317EBA /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8063A317D3957B00317EBA /* SSKeychain.m */; };
 		AF8FEFAB17BC47D800A2A28B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AF8FEFAA17BC47D800A2A28B /* Default.png */; };
 		AF8FEFAD17BC47E000A2A28B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF8FEFAC17BC47E000A2A28B /* Default@2x.png */; };
 		AF8FEFAF17BC47EE00A2A28B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF8FEFAE17BC47EE00A2A28B /* Default-568h@2x.png */; };
@@ -358,6 +359,7 @@
 		AF50399017CFF0FE00F4654F /* invite-friends_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "invite-friends_icon.png"; sourceTree = "<group>"; };
 		AF50399217CFF10400F4654F /* invite-friends_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "invite-friends_button.png"; sourceTree = "<group>"; };
 		AF50399417CFF10B00F4654F /* invite-friends_button@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "invite-friends_button@2X.png"; sourceTree = "<group>"; };
+		AF69464F17D2A05600F30B73 /* GrandRapids.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GrandRapids.gpx; sourceTree = "<group>"; };
 		AF7C868A17C664B1009729D1 /* FCSTimelineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSTimelineTableViewCell.h; sourceTree = "<group>"; };
 		AF7C868B17C664B1009729D1 /* FCSTimelineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSTimelineTableViewCell.m; sourceTree = "<group>"; };
 		AF7C868D17C668E3009729D1 /* FCSTimelineTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCSTimelineTableViewCell.xib; sourceTree = "<group>"; };
@@ -374,6 +376,8 @@
 		AF7C86A017C6B8D5009729D1 /* tag-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tag-grey.png"; sourceTree = "<group>"; };
 		AF7C86A317C6B8E4009729D1 /* tag-blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tag-blue@2x.png"; sourceTree = "<group>"; };
 		AF7C86A417C6B8E5009729D1 /* tag-grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tag-grey@2x.png"; sourceTree = "<group>"; };
+		AF8063A217D3957B00317EBA /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSKeychain.h; path = FoodCircles/SSKeyChain/SSKeychain.h; sourceTree = "<group>"; };
+		AF8063A317D3957B00317EBA /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSKeychain.m; path = FoodCircles/SSKeyChain/SSKeychain.m; sourceTree = "<group>"; };
 		AF8FEFAA17BC47D800A2A28B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		AF8FEFAC17BC47E000A2A28B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		AF8FEFAE17BC47EE00A2A28B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -851,6 +855,7 @@
 				63DBB62F173161FD003A74CC /* InfoPlist.strings */,
 				63DBB632173161FD003A74CC /* main.m */,
 				63DBB634173161FD003A74CC /* FoodCircles-Prefix.pch */,
+				AF69464F17D2A05600F30B73 /* GrandRapids.gpx */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -891,9 +896,19 @@
 			name = Timeline;
 			sourceTree = "<group>";
 		};
+		AF8063A117D3956B00317EBA /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				AF8063A217D3957B00317EBA /* SSKeychain.h */,
+				AF8063A317D3957B00317EBA /* SSKeychain.m */,
+			);
+			name = SSKeychain;
+			sourceTree = "<group>";
+		};
 		AF8FEFA917BC471700A2A28B /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				AF8063A117D3956B00317EBA /* SSKeychain */,
 				DCF30AF717A74C020060BA9D /* Boldify */,
 				DCF30AD317A730320060BA9D /* AFNetworking */,
 				DCF30AF017A730420060BA9D /* TPKeyboardAvoid */,
@@ -1282,6 +1297,7 @@
 				AFC69D5D17C947BF00DAAAA8 /* FCSAccountSettingsChildViewController.m in Sources */,
 				AFD94A8B17CD751800AE8B0D /* FCSBoldShowServerLabel.m in Sources */,
 				AF50398D17CFE55100F4654F /* FCSShareProviders.m in Sources */,
+				AF8063A417D3957B00317EBA /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

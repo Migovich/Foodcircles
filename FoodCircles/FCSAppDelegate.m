@@ -26,6 +26,14 @@
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    _locationManager = [[CLLocationManager alloc] init];
+    _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    _locationManager.distanceFilter = kCLLocationAccuracyNearestTenMeters;
+    _locationManager.delegate = self;
+    [_locationManager startUpdatingLocation];
+    
+    [self setNotification];
+    
     return YES;
 }
 
@@ -42,7 +50,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-  // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+  // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
   // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -59,6 +67,63 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
   // Saves changes in the application's managed object context before the application terminates.
+}
+
+#pragma mark - CLLocationManagerDelegate
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
+{
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    
+    NSLog(@"%@",region.identifier);
+    
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    
+    NSArray *strings = [region.identifier componentsSeparatedByString: @"|"];
+    
+    if ([strings count] > 1) {
+        notification.alertBody = [NSString stringWithFormat:@"You're near %@! \rGrab %@ for a buck!",[strings objectAtIndex:0],[strings objectAtIndex:1]];
+        notification.alertAction = @"View details";
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        notification.applicationIconBadgeNumber = 1;
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    }
+}
+
+-(void)setNotification {
+    NSArray *messages = [[NSArray alloc] initWithObjects:
+                         @"Dinner plans in 60secs. \rBuy a meal, feed a child in need.",
+                         @"Your hunger can feed a child in need. \rGrab food w/ our app to provide food to local kids in need.",
+                         @"You're hungry. They're hungry. You both can eat. \rBuy One, Feed One tonight.",
+                         @"Hungry? Your appetizer, drink or dessert is on us. \rFeed a child in need through our app, and get specials all around town.",
+                         @"Share a warm meal with friends! \rEnjoy free appetizers for $1 and provide food to a local child in need.",
+                         @"Solve the hunger of others just by solving your own. \rBuy One, Feed One specials tonight.",
+                         @"'I don't know, what do you want to eat?' \rKnow what to say. Check the latest 'Buy One, Feed One' specials.",
+                         @"Need something to do w/ friends? \rStart a conversation over a 'Buy One, Feed One' special tonight.",
+                         @"Solve dinner plans & help a local child eat. \rDecide through our app to provide a free meal to a child in need.",
+                         nil];
+    
+    NSDate *date = [NSDate date];
+    date = [date dateByAddingTimeInterval:60*60*24*7];
+    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.alertAction = @"View details";
+    int i = arc4random() % [messages count];
+    localNotification.alertBody = [NSString stringWithFormat:@"%@",[messages objectAtIndex:i]];
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    localNotification.applicationIconBadgeNumber = -1;
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comps = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
+    [comps setHour:16];
+    [comps setMinute:0];
+    date = [calendar dateFromComponents:comps];
+    localNotification.fireDate = date;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
 @end

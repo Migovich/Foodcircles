@@ -14,6 +14,7 @@
 #import "AFJSONRequestOperation.h"
 #import "AFHTTPClient.h"
 #import "JSONKit.h"
+#import "SSKeychain.h"
 
 @interface FCSAccountSettingsViewController ()
 
@@ -50,6 +51,7 @@
 - (IBAction)logoutButtonClicked:(id)sender {
     UIAppDelegate.user_token = @"";
     UIAppDelegate.user_email = @"";
+    [SSKeychain deletePasswordForService:@"FoodCircles" account:@"FoodCirclesType"];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
