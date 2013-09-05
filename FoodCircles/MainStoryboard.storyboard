@@ -1898,7 +1898,7 @@
             <objects>
                 <viewController id="XcD-QN-USc" customClass="FCSLandingPageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xbY-I2-FV5">
-                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="Kids-crowd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="kmU-9t-dAd">
@@ -2339,7 +2339,8 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="soI-Pv-6ih"/>
-        <segue reference="8lH-aS-vX6"/>
-        <segue reference="ul6-7D-WAj"/>
+        <segue reference="Hj0-nf-aWT"/>
+        <segue reference="22V-ht-X5p"/>
+        <segue reference="GkS-aB-WLb"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -69,6 +69,7 @@
     
     if ([segue.identifier isEqualToString:@"VoucherSegue"]) {
         FCSVoucherViewController *destinationViewController = (FCSVoucherViewController *)segue.destinationViewController;
+        destinationViewController.viewType = VoucherViewTypePayment;
         destinationViewController.selectedOffer = _selectedOffer;
         destinationViewController.selectedVenueIndex = _selectedVenueIndex;
         destinationViewController.completedPayment = self.completedPayment;

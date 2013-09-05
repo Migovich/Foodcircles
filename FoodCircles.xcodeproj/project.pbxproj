@@ -1320,6 +1320,8 @@
 				AF50399117CFF0FE00F4654F /* invite-friends_icon.png in Resources */,
 				AF50399317CFF10400F4654F /* invite-friends_button.png in Resources */,
 				AF50399517CFF10B00F4654F /* invite-friends_button@2X.png in Resources */,
+				AFD29D4E17D7DEF9003033D2 /* arrow_button@2X.png in Resources */,
+				AFD29D5017D7DEFF003033D2 /* arrow_button.png in Resources */,
 				D59B72C517D881BA00E001F0 /* LICENSE in Resources */,
 				D59B72E017D8C0E800E001F0 /* footer.png in Resources */,
 				D59B72E117D8C0E800E001F0 /* footer@2X.png in Resources */,

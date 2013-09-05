@@ -12,9 +12,24 @@
 
 @class PayPalPayment;
 
+typedef enum {
+    VoucherViewTypeTimeline,
+    VoucherViewTypePayment,
+} VoucherViewType;
+
 @interface FCSVoucherViewController : FCSStyledViewController
 
+
+@property (nonatomic) VoucherViewType viewType;
+
+//For payments
 @property (nonatomic) PayPalPayment *completedPayment;
 @property (nonatomic) NSUInteger selectedVenueIndex;
 @property (nonatomic) NSUInteger selectedOffer;
+
+//For coming from timeline
+@property (strong, nonatomic) NSDictionary *voucherContent;
+@property (strong, nonatomic) NSString *offerName;
+@property (strong, nonatomic) NSString *restaurantName;
+
 @end
