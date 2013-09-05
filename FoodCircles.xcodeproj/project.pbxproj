@@ -133,6 +133,8 @@
 		AFB4D60117C2C1E5009691F9 /* FCSLoginProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB4D60017C2C1E5009691F9 /* FCSLoginProvider.m */; };
 		AFB8287217C41E1A006FCB90 /* FCSCharity.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB8287117C41E1A006FCB90 /* FCSCharity.m */; };
 		AFC69D5D17C947BF00DAAAA8 /* FCSAccountSettingsChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC69D5C17C947BF00DAAAA8 /* FCSAccountSettingsChildViewController.m */; };
+		AFD29D4E17D7DEF9003033D2 /* arrow_button@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD29D4D17D7DEF8003033D2 /* arrow_button@2X.png */; };
+		AFD29D5017D7DEFF003033D2 /* arrow_button.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD29D4F17D7DEFF003033D2 /* arrow_button.png */; };
 		AFD94A8717CD6E7D00AE8B0D /* Paper-tear.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD94A8517CD6E7D00AE8B0D /* Paper-tear.png */; };
 		AFD94A8817CD6E7D00AE8B0D /* Paper-tear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD94A8617CD6E7D00AE8B0D /* Paper-tear@2x.png */; };
 		AFD94A8B17CD751800AE8B0D /* FCSBoldShowServerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD94A8A17CD751800AE8B0D /* FCSBoldShowServerLabel.m */; };
@@ -394,6 +396,8 @@
 		AFB8B45A17BD7373006162F8 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		AFC69D5B17C947BF00DAAAA8 /* FCSAccountSettingsChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSAccountSettingsChildViewController.h; sourceTree = "<group>"; };
 		AFC69D5C17C947BF00DAAAA8 /* FCSAccountSettingsChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSAccountSettingsChildViewController.m; sourceTree = "<group>"; };
+		AFD29D4D17D7DEF8003033D2 /* arrow_button@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_button@2X.png"; sourceTree = "<group>"; };
+		AFD29D4F17D7DEFF003033D2 /* arrow_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_button.png; sourceTree = "<group>"; };
 		AFD94A8517CD6E7D00AE8B0D /* Paper-tear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Paper-tear.png"; sourceTree = "<group>"; };
 		AFD94A8617CD6E7D00AE8B0D /* Paper-tear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Paper-tear@2x.png"; sourceTree = "<group>"; };
 		AFD94A8917CD751800AE8B0D /* FCSBoldShowServerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSBoldShowServerLabel.h; sourceTree = "<group>"; };
@@ -650,7 +654,9 @@
 				DCF30A6B17A6D2980060BA9D /* contact_button.png */,
 				AF7C869317C6818F009729D1 /* activity-dot.png */,
 				AF7C869417C6818F009729D1 /* activity-dot@2x.png */,
+				AFD29D4D17D7DEF8003033D2 /* arrow_button@2X.png */,
 				AF7C86A317C6B8E4009729D1 /* tag-blue@2x.png */,
+				AFD29D4F17D7DEFF003033D2 /* arrow_button.png */,
 				AF7C86A417C6B8E5009729D1 /* tag-grey@2x.png */,
 				AF7C869F17C6B8D4009729D1 /* tag-blue.png */,
 				AF7C86A017C6B8D5009729D1 /* tag-grey.png */,
@@ -1199,6 +1205,8 @@
 				AF50399117CFF0FE00F4654F /* invite-friends_icon.png in Resources */,
 				AF50399317CFF10400F4654F /* invite-friends_button.png in Resources */,
 				AF50399517CFF10B00F4654F /* invite-friends_button@2X.png in Resources */,
+				AFD29D4E17D7DEF9003033D2 /* arrow_button@2X.png in Resources */,
+				AFD29D5017D7DEFF003033D2 /* arrow_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

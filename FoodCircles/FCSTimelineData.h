@@ -17,8 +17,11 @@
 @property (strong, nonatomic) NSString *year;
 @property (strong, nonatomic) NSString *month;
 @property (strong, nonatomic) NSDate *date;
+@property (strong, nonatomic) NSString *code;
 @property (assign, nonatomic) int qtyFed;
 @property (strong, nonatomic) NSString *restaurantName;
+@property (strong, nonatomic) NSString *offerName;
+
 
 -(NSArray *)processJSON:(id)JSON;
 

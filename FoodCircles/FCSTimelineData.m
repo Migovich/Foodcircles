@@ -29,6 +29,8 @@
         
         data.date = date;
         data.restaurantName = [[row objectForKey:@"venue"] objectForKey:@"name"];
+        data.offerName = [[row objectForKey:@"offer"] objectForKey:@"title"];
+        data.code = @"";
         
         int qty = [[[row objectForKey:@"offer"] objectForKey:@"minimum_diners"] integerValue];
         qty = qty/2;
@@ -48,7 +50,9 @@
         NSDate *date = [formatter dateFromString:dateStr];
         
         data.date = date;
-        data.restaurantName = [[[[[[row objectForKey:@"offer"] objectAtIndex:0] objectForKey:@"venue"] objectAtIndex:0] objectForKey:@"name"] uppercaseString];
+        data.restaurantName = [[[[[row objectForKey:@"offer"] objectAtIndex:0] objectForKey:@"venue"] objectAtIndex:0] objectForKey:@"name"];
+        data.offerName = [[[row objectForKey:@"offer"] objectAtIndex:0] objectForKey:@"name"];
+        data.code = [row objectForKey:@"code"];
         
         int qty = [[row objectForKey:@"amount"] integerValue];
         data.qtyFed = qty;
@@ -74,7 +78,7 @@
     int monthDif = [comps month];
     int month = 0;
     
-    for (int i = 1; i < [array count]; i++) {
+    for (int i = 0; i < [array count]; i++) {
         data = [array objectAtIndex:i];
         
         comps = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:data.date];
