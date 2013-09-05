@@ -53,8 +53,27 @@ NSString *kVenueId = @"venueListViewID";
                                                                                             NSLog(@"%@",[JSON JSONString]);
                                                                                             
                                                                                             UIAppDelegate.venues = [JSON objectForKey:@"content"];
-                                                                                            NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"distance" ascending:YES];
-                                                                                            UIAppDelegate.venues = [UIAppDelegate.venues sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+                                                                                            UIAppDelegate.venues = [UIAppDelegate.venues sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                                                                                                NSDictionary *d1 = obj1;
+                                                                                                NSDictionary *d2 = obj2;
+                                                                                                
+                                                                                                NSString *dString1 = [d1 objectForKey:@"distance"];
+                                                                                                dString1 = [dString1 substringWithRange:NSMakeRange(0, [dString1 length]-6)];
+                                                                                                double dDouble1 = [dString1 doubleValue];
+                                                                                                
+                                                                                                NSString *dString2 = [d2 objectForKey:@"distance"];
+                                                                                                dString2 = [dString2 substringWithRange:NSMakeRange(0, [dString2 length]-6)];
+                                                                                                double dDouble2 = [dString2 doubleValue];
+                                                                                                
+                                                                                                if (dDouble1 > dDouble2) {
+                                                                                                    return (NSComparisonResult)NSOrderedDescending;
+                                                                                                } else if (dDouble1 < dDouble2) {
+                                                                                                    return (NSComparisonResult)NSOrderedAscending;
+                                                                                                }
+                                                                                                
+                                                                                                return (NSComparisonResult)NSOrderedSame;
+
+                                                                                            }];
                                                                                             
                                                                                             if ([UIAppDelegate.venues count] == 0) {
                                                                                                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Venues"
