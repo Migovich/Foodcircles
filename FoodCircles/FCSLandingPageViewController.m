@@ -12,6 +12,8 @@
 
 
 @interface FCSLandingPageViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *shareThisMissionLabelYConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *youCanFeedLabel;
 
 @end
 
@@ -19,11 +21,21 @@
 @implementation FCSLandingPageViewController
 
 -(void)viewDidLoad {
+    [super viewDidLoad];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareButtonTapped)];
     tap.numberOfTapsRequired = 1;
     tap.enabled = YES;
     _shareButton.userInteractionEnabled = YES;
     [_shareButton addGestureRecognizer:tap];
+    
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:@"You can feed a child but your\nnetwork can feed a classrom" attributes:@{
+                                                         NSForegroundColorAttributeName: [UIColor whiteColor]
+                                       }];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:1];
+    [paragraphStyle setAlignment:NSTextAlignmentCenter];
+    [text addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, text.length)];
+    self.youCanFeedLabel.attributedText = text;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -17,4 +17,6 @@
 + (UIColor *)blueColor;
 + (UIColor *)brownColor; //#4e3e34
 
++ (UIColor*)colorWithHexString:(NSString*)hex;
++ (UIColor*)copyTextViewTextColor;
 @end

@@ -17,13 +17,13 @@
 
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  self.view.backgroundColor = [FCSStyles backgroundColor];
+    [super viewDidLoad];
+    self.view.backgroundColor = [FCSStyles backgroundColor];
 }
 
 - (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -10,13 +10,10 @@
 
 @implementation FCSOverImageSecondary
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        self.font = [UIFont fontWithName:@"Neutraface Slab Text" size:14];
-        self.textColor = [UIColor whiteColor];
-    }
-    return self;
+- (void)awakeFromNib {
+    UIFont *font = [UIFont fontWithName:@"NeutrafaceSlabText-BoldItalic" size:14];
+    self.font = font;
+    self.textColor = [UIColor whiteColor];
 }
 
 /*

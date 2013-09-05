@@ -7,6 +7,13 @@
 #import "constants.h"
 #import "FCSVoucherViewController.h"
 
+#import "RNBlurModalView.h"
+
+#ifdef DEBUG
+#ifndef SKIP_PAYMENT
+#define SKIP_PAYMENT 0
+#endif
+#endif
 
 @interface FCSPurchaseViewController ()
 
@@ -14,12 +21,15 @@
 @property (strong, nonatomic) UIColor *selectedCharityColor;
 @property (strong, nonatomic) UIColor *unselectedCharityColor;
 
+@property (nonatomic) PayPalPayment *completedPayment;
+
 @end
 
 @implementation FCSPurchaseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.usdFormatter = [[NSNumberFormatter alloc] init];
     [self.usdFormatter setCurrencySymbol:@"$"];
     [self.usdFormatter setNumberStyle: NSNumberFormatterCurrencyStyle];
@@ -56,21 +66,32 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([segue.identifier isEqualToString:@"VoucherSegue"]) {
         FCSVoucherViewController *destinationViewController = (FCSVoucherViewController *)segue.destinationViewController;
-        destinationViewController.voucherContent = self.voucherContent;
-        destinationViewController.offerName = [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"title"];
-        destinationViewController.restaurantName = [[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"name"];
+        destinationViewController.selectedOffer = _selectedOffer;
+        destinationViewController.selectedVenueIndex = _selectedVenueIndex;
+        destinationViewController.completedPayment = self.completedPayment;
      }
 }
 
 #pragma mark - IBActions
 - (IBAction)buy:(id)sender {
+    
+#if SKIP_PAYMENT
+    self.voucherContent = @{ @"code": @"123",
+                             @"amout": @"2",
+                             @"created_at": [[NSDate date] description]
+                             };
+    [self performSegueWithIdentifier:@"VoucherSegue" sender:nil];
+    return;
+#endif
+    
     // Create a PayPalPayment
     PayPalPayment *payment = [[PayPalPayment alloc] init];
     payment.amount = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%.0f", trunc(self.priceSlider.value)]];
     payment.currencyCode = @"USD";
-    payment.shortDescription = [NSString stringWithFormat:@"%.0f meals", trunc(self.priceSlider.value)];
+    payment.shortDescription = [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"title"];
     
     if (!payment.processable) {}
     
@@ -78,12 +99,7 @@
     
     NSString *aPayerId = UIAppDelegate.user_email;
     
-    PayPalPaymentViewController *paymentViewController;
-    paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:@"ATpY8BAwAkcjGxyOJ9IjArCzDNfrqdQV3FaADv-iWszrCOxpjQ_I2elLntHS"
-                                                                    receiverEmail:@"jtkumario@gmail.com"
-                                                                          payerId:aPayerId
-                                                                          payment:payment
-                                                                         delegate:self];
+    PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:@"ATpY8BAwAkcjGxyOJ9IjArCzDNfrqdQV3FaADv-iWszrCOxpjQ_I2elLntHS" receiverEmail:@"jtkumario@gmail.com" payerId:aPayerId payment:payment delegate:self];
 
     [self presentViewController:paymentViewController animated:YES completion:nil];
 }
@@ -130,9 +146,9 @@
     [self update:_priceSlider.value];
     [_priceSlider setMaximumValue:[[[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"original_price"] floatValue]*2];
     
-    [_minPriceLabel setText:[NSString stringWithFormat:@"$%2.0f",_priceSlider.minimumValue]];
-    [_medPriceLabel setText:[NSString stringWithFormat:@"$%2.0f",_priceSlider.maximumValue/2]];
-    [_maxPriceLabel setText:[NSString stringWithFormat:@"$%2.0f",_priceSlider.maximumValue]];
+    [_minPriceLabel setText:[NSString stringWithFormat:@"$%1.0f",_priceSlider.minimumValue]];
+    [_medPriceLabel setText:[NSString stringWithFormat:@"$%1.0f",_priceSlider.maximumValue/2]];
+    [_maxPriceLabel setText:[NSString stringWithFormat:@"$%1.0f",_priceSlider.maximumValue]];
 }
 
 - (NSString *)priceAsString {
@@ -145,57 +161,10 @@
 
 #pragma mark - PayPalPaymentDelegate methods
 - (void)payPalPaymentDidComplete:(PayPalPayment *)completedPayment {
+    self.completedPayment = completedPayment;
+    [self performSegueWithIdentifier:@"VoucherSegue" sender:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
-    
-    NSURL *url = [NSURL URLWithString:PAYMENT_URL];
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-    [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
-    
-    NSDictionary *payment;
-    
-    if ([[[completedPayment.confirmation objectForKey:@"proof_of_payment"] objectForKey:@"adaptive_payment"] count] > 0) {
-        payment = [NSDictionary dictionaryWithObjectsAndKeys:
-                             [[[completedPayment.confirmation objectForKey:@"proof_of_payment"] objectForKey:@"adaptive_payment"] objectForKey:@"pay_key"], @"paypal_charge_token",
-                             [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"id"], @"offer_id",
-                             [[completedPayment.confirmation objectForKey:@"payment"] objectForKey:@"amount"], @"amount",
-                             nil];
-    } else {
-        payment = [NSDictionary dictionaryWithObjectsAndKeys:
-                   [[[completedPayment.confirmation objectForKey:@"proof_of_payment"] objectForKey:@"rest_api"] objectForKey:@"payment_id"], @"paypal_charge_token",
-                   [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"id"], @"offer_id",
-                   [[completedPayment.confirmation objectForKey:@"payment"] objectForKey:@"amount"], @"amount",
-                   nil];
-    }
-    
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            UIAppDelegate.user_token, @"auth_token",
-                            payment, @"payment",
-                            nil];
-    
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"" parameters:params];
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
-                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                                                            NSLog(@"%@",JSON);
-                                                                                            self.voucherContent = [JSON objectForKey:@"content"];
-                                                                                            [self performSegueWithIdentifier:@"VoucherSegue" sender:self];
-                                                                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                                                                            
-                                                                                            NSString *errorMessage = @"";
-                                                                                            errorMessage = @"Can't connect to server.";
-                                                                                            
-                                                                                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                                                                            message:errorMessage
-                                                                                                                                           delegate:nil
-                                                                                                                                  cancelButtonTitle:@"OK"
-                                                                                                                                  otherButtonTitles:nil];
-                                                                                            NSLog(@"%@", errorMessage);
-                                                                                            [alert show];
-                                                                                        }];
-    
-    [operation start];
 }
-
 
 - (void)payPalPaymentDidCancel {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -244,4 +213,18 @@
     _pickerView.hidden = YES;
 }
 
+#pragma mark - Info Buttons
+
+- (IBAction)bringingFriendsInfoPressed:(id)sender {
+    RNBlurModalView *modalView = [[RNBlurModalView alloc] initWithParentView:self.view title:NSLocalizedString(@"Bringing Friends?", nil) message:NSLocalizedString(@"Grab an upgrade for bigger groups ($1 added per upgrade)", nil)];
+    [modalView show];
+}
+
+- (IBAction)charityDescriptionInfoPressed:(id)sender {
+    NSString *selectedCharityName = [[UIAppDelegate.charities objectAtIndex:_selectedCharity] objectForKey:@"name"];
+    NSString *selectedCharityDescription = [[UIAppDelegate.charities objectAtIndex:_selectedCharity] objectForKey:@"description"];
+    
+    RNBlurModalView *modalView = [[RNBlurModalView alloc] initWithParentView:self.view title:selectedCharityName message:selectedCharityDescription];
+    [modalView show];
+}
 @end

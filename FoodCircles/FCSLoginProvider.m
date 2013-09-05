@@ -23,7 +23,7 @@
     [PFFacebookUtils initializeFacebook];
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
         if (!user) {
-            #warning set messages
+#warning set messages
             if (!error) {
                 NSLog(@"The user cancelled the Facebook login.");
             } else {
@@ -49,49 +49,48 @@
                     
                     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"" parameters:params];
                     
-                    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
-                                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                                                                            UIAppDelegate.user_email = email;
-                                                                                                            UIAppDelegate.user_token = [JSON valueForKeyPath:@"auth_token"];
-                                                                                                            
-                                                                                                            [SSKeychain setPassword:@"Facebook" forService:@"FoodCircles" account:@"FoodCirclesType"];
-                                                                                                            [SSKeychain setPassword:user.username forService:@"FoodCircles" account:@"FoodCirclesFacebookUID"];
-                                                                                                            [SSKeychain setPassword:email forService:@"FoodCircles" account:@"FoodCirclesEmail"];
-
-                                                                                                            _completionHandler(YES);
-                                                                                                            
-                                                                                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-
-                                                                                                            NSString *emailErrorMessage = [JSON valueForKeyPath:@"errors.email"][0];
-                                                                                                            NSString *passwordErrorMessage = [JSON valueForKeyPath:@"errors.password"][0];
-                                                                                                            NSString *errorMessage = @"";
-                                                                                                            
-                                                                                                            if (emailErrorMessage != nil) {
-                                                                                                                errorMessage = [NSString stringWithFormat:@"%@%@%@%@", errorMessage, @"Email ", emailErrorMessage, @"."];
-                                                                                                            }
-                                                                                                            
-                                                                                                            if (emailErrorMessage != nil && passwordErrorMessage != nil) {
-                                                                                                                errorMessage = [errorMessage stringByAppendingString:@"\n"];
-                                                                                                            }
-                                                                                                            
-                                                                                                            if (passwordErrorMessage != nil) {
-                                                                                                                errorMessage = [NSString stringWithFormat:@"%@%@%@%@", errorMessage, @"Password ", passwordErrorMessage, @"."];
-                                                                                                            }
-                                                                                                            
-                                                                                                            if(emailErrorMessage == nil && passwordErrorMessage == nil) {
-                                                                                                                errorMessage = @"Can't connect to server.";
-                                                                                                            }
-                                                                                                            
-                                                                                                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Error"
-                                                                                                                                                            message:errorMessage
-                                                                                                                                                           delegate:nil
-                                                                                                                                                  cancelButtonTitle:@"OK"
-                                                                                                                                                  otherButtonTitles:nil];
-                                                                                                            NSLog(@"%@", errorMessage);
-                                                                                                            [alert show];
-                                                                                                            
-                                                                                                            _completionHandler(NO);
-                                                                                                        }];
+                    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                        UIAppDelegate.user_email = email;
+                        UIAppDelegate.user_token = [JSON valueForKeyPath:@"auth_token"];
+                        
+                        [SSKeychain setPassword:@"Facebook" forService:@"FoodCircles" account:@"FoodCirclesType"];
+                        [SSKeychain setPassword:user.username forService:@"FoodCircles" account:@"FoodCirclesFacebookUID"];
+                        [SSKeychain setPassword:email forService:@"FoodCircles" account:@"FoodCirclesEmail"];
+                        
+                        _completionHandler(YES);
+                        
+                    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                        
+                        NSString *emailErrorMessage = [JSON valueForKeyPath:@"errors.email"][0];
+                        NSString *passwordErrorMessage = [JSON valueForKeyPath:@"errors.password"][0];
+                        NSString *errorMessage = @"";
+                        
+                        if (emailErrorMessage != nil) {
+                            errorMessage = [NSString stringWithFormat:@"%@%@%@%@", errorMessage, @"Email ", emailErrorMessage, @"."];
+                        }
+                        
+                        if (emailErrorMessage != nil && passwordErrorMessage != nil) {
+                            errorMessage = [errorMessage stringByAppendingString:@"\n"];
+                        }
+                        
+                        if (passwordErrorMessage != nil) {
+                            errorMessage = [NSString stringWithFormat:@"%@%@%@%@", errorMessage, @"Password ", passwordErrorMessage, @"."];
+                        }
+                        
+                        if(emailErrorMessage == nil && passwordErrorMessage == nil) {
+                            errorMessage = @"Can't connect to server.";
+                        }
+                        
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Error"
+                                                                        message:errorMessage
+                                                                       delegate:nil
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil];
+                        NSLog(@"%@", errorMessage);
+                        [alert show];
+                        
+                        _completionHandler(NO);
+                    }];
                     
                     [operation start];
                 }
@@ -129,7 +128,7 @@
                                                                                                     _completionHandler(YES);
                                                                                                     
                                                                                                 } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-
+                                                                                                    
                                                                                                     NSString *errorMessage = [JSON objectForKey:@"description"];
                                                                                                     
                                                                                                     if (errorMessage == nil) {
@@ -142,12 +141,12 @@
                                                                                                                                               otherButtonTitles:nil];
                                                                                                         [alert show];
                                                                                                     }
-
+                                                                                                    
                                                                                                     _completionHandler(NO);
                                                                                                 }];
             
             [operation start];
-
+            
         }
     }];
 }
@@ -161,30 +160,29 @@
     
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"" parameters:params];
     
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
-                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                                                            UIAppDelegate.user_token = [JSON valueForKeyPath:@"auth_token"];
-                                                                                            
-                                                                                            _completionHandler(YES);
-                                                                                            
-                                                                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                                                                            
-                                                                                            NSString *errorMessage = [JSON objectForKey:@"description"];
-                                                                                            
-                                                                                            if (errorMessage == nil) {
-                                                                                                errorMessage = @"Can't connect to server.";
-                                                                                                
-                                                                                                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign In Error"
-                                                                                                                                                message:errorMessage
-                                                                                                                                               delegate:nil
-                                                                                                                                      cancelButtonTitle:@"OK"
-                                                                                                                                      otherButtonTitles:nil];
-                                                                                                [alert show];
-                                                                                            }
-                                                                                            
-                                                                                            _completionHandler(NO);
-                                                                                            
-                                                                                        }];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        UIAppDelegate.user_token = [JSON valueForKeyPath:@"auth_token"];
+        
+        _completionHandler(YES);
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        
+        NSString *errorMessage = [JSON objectForKey:@"description"];
+        
+        if (errorMessage == nil) {
+            errorMessage = @"Can't connect to server.";
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign In Error"
+                                                            message:errorMessage
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        
+        _completionHandler(NO);
+        
+    }];
     
     [operation start];
 }

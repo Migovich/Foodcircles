@@ -10,13 +10,10 @@
 
 @implementation FCSOverImageHeader
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-  self = [super initWithCoder:aDecoder];
-  if (self) {
-    self.font = [UIFont fontWithName:@"Neutraface Slab Text" size:24];
+- (void)awakeFromNib {
+    UIFont *font = [UIFont fontWithName:@"NeutrafaceSlabText-BoldItalic" size:24];
+    self.font = font;
     self.textColor = [UIColor whiteColor];
-  }
-  return self;
 }
 
 /*

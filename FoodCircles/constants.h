@@ -8,3 +8,6 @@
 #define CHARITIES_URL (BASE_URL @"/api/charities")
 #define TIMELINE_URL (BASE_URL @"/api/timeline")
 #define PAYMENT_URL (BASE_URL @"/api/payments")
+
+//Short URL's
+#define PAYMENT_URL_SHORT @"/api/payments"

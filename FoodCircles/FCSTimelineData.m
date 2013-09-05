@@ -65,8 +65,9 @@
     data.total = total;
     [returnArray addObject:data];
     
-    if (array.count > 0)
-        data = [array objectAtIndex:1];
+    if (array && array.count > 0) {
+        data = [array objectAtIndex:0];
+    }
 
     if (data.date) {
        NSDateComponents *comps = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:data.date];

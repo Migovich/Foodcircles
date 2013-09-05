@@ -53,6 +53,13 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>NeutrafaceSlabText-Bold.otf</string>
+		<string>NeutrafaceSlabText-Italic.ttf</string>
+		<string>NeutrafaceSlabText-BoldItalic.ttf</string>
+		<string>neutrafaceslabtextbook.ttf</string>
+		<string>Roboto-Bold</string>
+		<string>Roboto-BoldItalic</string>
+		<string>Roboto-Italic</string>
+		<string>Roboto-Regular</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard</string>

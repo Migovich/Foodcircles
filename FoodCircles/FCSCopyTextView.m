@@ -12,11 +12,11 @@
 @implementation FCSCopyTextView
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-  self = [super initWithCoder:aDecoder];
-  if (self) {
-    self.textColor = [FCSStyles primaryTextColor];
-  }
-  return self;
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.textColor = [FCSStyles copyTextViewTextColor];
+    }
+    return self;
 }
 
 /*

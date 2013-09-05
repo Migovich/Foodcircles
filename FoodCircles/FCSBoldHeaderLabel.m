@@ -15,7 +15,7 @@
   self = [super initWithCoder:aDecoder];
   if (self) {
     self.textColor = [FCSStyles primaryTextColor];
-    self.font = [UIFont fontWithName:@"Neutraface Slab Text" size:26];
+    self.font = [UIFont fontWithName:@"NeutrafaceSlabText-Bold" size:26];
   }
   return self;
 }

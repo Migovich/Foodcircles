@@ -13,12 +13,16 @@
 #import "FCSSignUpViewController.h"
 
 #import "UILabel+Boldify.h"
+#import "FCSOverImageHeader.h"
+#import "FCSOverImageSecondary.h"
 #import "MBProgressHUD.h"
 #import <Parse/Parse.h>
 #import "FCSLoginProvider.h"
 #import "SSKeychain.h"
 
 @interface FCSSignUpViewController ()
+@property (weak, nonatomic) IBOutlet FCSOverImageHeader *overImageHeader;
+@property (weak, nonatomic) IBOutlet FCSOverImageSecondary *overImageHeaderScondary;
 
 @end
 
@@ -40,18 +44,27 @@
         qtyPeople = @"0";
     }
     
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:@"Buy one appetizer or dessert for $1 or more, \nfeed one child in need."];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:1];
+    [paragraphStyle setAlignment:NSTextAlignmentCenter];
+    [text addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, text.length)];
+    self.overImageHeaderScondary.attributedText = text;
+    
     self.countLabel.text = [NSString stringWithFormat:@"%@%@", qtyPeople, @" people repurpose their everyday dining."];
     self.countCopyLabel.text = @"Today, it's your turn.";
     
     NSURL *url = [NSURL URLWithString:USER_COUNT_URL];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
-                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                            self.countLabel.text = [NSString stringWithFormat:@"%@%@", [JSON valueForKeyPath:@"content"], @" people repurpose their everyday dining."];
-                                            [userDefaults setValue:[NSString stringWithFormat:@"%@",[JSON valueForKeyPath:@"content"]] forKey:@"qtyPeople"];
-                                            [userDefaults synchronize];
-                                            [self.countLabel boldSubstring: [NSString stringWithFormat:@"%@",[JSON valueForKeyPath:@"content"]]];
-                                        } failure:nil];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        self.countLabel.text = [NSString stringWithFormat:@"%@%@", [JSON valueForKeyPath:@"content"], @" people repurpose their everyday dining."];
+        NSString *quantity = [JSON valueForKeyPath:@"content"];
+        if (!quantity) quantity = @"0";
+        
+        [userDefaults setValue:[NSString stringWithFormat:@"%@",quantity] forKey:@"qtyPeople"];
+        [userDefaults synchronize];
+        [self.countLabel boldSubstring: [NSString stringWithFormat:@"%@", quantity]];
+    } failure:nil];
     [operation start];
     
     NSString *typeLogin = [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesType"];
@@ -100,8 +113,8 @@
 }
 
 - (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)clickSignUp:(id)sender {
@@ -114,9 +127,9 @@
     
     if (!_twitterLogin) {
         params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            self.emailTextField.text, @"user_email",
-                            self.passwordTextField.text, @"user_password",
-                            nil];
+                  self.emailTextField.text, @"user_email",
+                  self.passwordTextField.text, @"user_password",
+                  nil];
     } else {
         params = [NSDictionary dictionaryWithObjectsAndKeys:
                   self.emailTextField.text, @"user_email",
@@ -126,56 +139,55 @@
     
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"" parameters:params];
     
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
-                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                            [HUD hide:YES];
-                                            UIAppDelegate.user_email = self.emailTextField.text;
-                                            UIAppDelegate.user_token = [JSON valueForKeyPath:@"auth_token"];
-                                            
-                                            if (!_twitterLogin) {
-                                                [SSKeychain setPassword:@"Email" forService:@"FoodCircles" account:@"FoodCirclesType"];
-                                                [SSKeychain setPassword: self.emailTextField.text forService:@"FoodCircles" account:@"FoodCirclesEmail"];
-                                                [SSKeychain setPassword: self.passwordTextField.text forService:@"FoodCircles" account:@"FoodCirclesPassword"];
-                                            } else {
-                                                [SSKeychain setPassword:@"Twitter" forService:@"FoodCircles" account:@"FoodCirclesType"];
-                                                [SSKeychain setPassword:_twitterUID forService:@"FoodCircles" account:@"FoodCirclesTwitterUID"];
-                                            }
-                                            
-                                            [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
-
-                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                            [HUD hide:YES];
-                                                                                            
-                                            NSString *emailErrorMessage = [JSON valueForKeyPath:@"errors.email"][0];
-                                            NSString *passwordErrorMessage = [JSON valueForKeyPath:@"errors.password"][0];
-                                                                                            
-                                            NSString *errorMessage = @"";
-                                                                                            
-                                            if (emailErrorMessage != nil) {
-                                                errorMessage = [NSString stringWithFormat:@"%@%@%@%@", errorMessage, @"Email ", emailErrorMessage, @"."];
-                                            }
-                                                                                            
-                                            if (emailErrorMessage != nil && passwordErrorMessage != nil) {
-                                                errorMessage = [errorMessage stringByAppendingString:@"\n"];
-                                            }
-                                                                                            
-                                            if (passwordErrorMessage != nil) {
-                                                errorMessage = [NSString stringWithFormat:@"%@%@%@%@", errorMessage, @"Password ", passwordErrorMessage, @"."];
-                                            }
-                                            
-                                            if(emailErrorMessage == nil && passwordErrorMessage == nil) {
-                                                errorMessage = @"Can't connect to server.";
-                                            }
-                                                                                            
-                                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Error"
-                                                                                            message:errorMessage
-                                                                                            delegate:nil
-                                                                                   cancelButtonTitle:@"OK"
-                                                                                   otherButtonTitles:nil];
-                                                NSLog(@"%@", errorMessage);
-                                                [alert show];
-                                                                                            
-                                        }];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        [HUD hide:YES];
+        UIAppDelegate.user_email = self.emailTextField.text;
+        UIAppDelegate.user_token = [JSON valueForKeyPath:@"auth_token"];
+        
+        if (!_twitterLogin) {
+            [SSKeychain setPassword:@"Email" forService:@"FoodCircles" account:@"FoodCirclesType"];
+            [SSKeychain setPassword: self.emailTextField.text forService:@"FoodCircles" account:@"FoodCirclesEmail"];
+            [SSKeychain setPassword: self.passwordTextField.text forService:@"FoodCircles" account:@"FoodCirclesPassword"];
+        } else {
+            [SSKeychain setPassword:@"Twitter" forService:@"FoodCircles" account:@"FoodCirclesType"];
+            [SSKeychain setPassword:_twitterUID forService:@"FoodCircles" account:@"FoodCirclesTwitterUID"];
+        }
+        
+        [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [HUD hide:YES];
+        
+        NSString *emailErrorMessage = [JSON valueForKeyPath:@"errors.email"][0];
+        NSString *passwordErrorMessage = [JSON valueForKeyPath:@"errors.password"][0];
+        
+        NSString *errorMessage = @"";
+        
+        if (emailErrorMessage != nil) {
+            errorMessage = [NSString stringWithFormat:@"%@%@%@%@", errorMessage, @"Email ", emailErrorMessage, @"."];
+        }
+        
+        if (emailErrorMessage != nil && passwordErrorMessage != nil) {
+            errorMessage = [errorMessage stringByAppendingString:@"\n"];
+        }
+        
+        if (passwordErrorMessage != nil) {
+            errorMessage = [NSString stringWithFormat:@"%@%@%@%@", errorMessage, @"Password ", passwordErrorMessage, @"."];
+        }
+        
+        if(emailErrorMessage == nil && passwordErrorMessage == nil) {
+            errorMessage = @"Can't connect to server.";
+        }
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Error"
+                                                        message:errorMessage
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        NSLog(@"%@", errorMessage);
+        [alert show];
+        
+    }];
     
     [operation start];
     
@@ -209,7 +221,7 @@
                 } else {
                     [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
                 }
-             }];
+            }];
         }
     }];
 }
