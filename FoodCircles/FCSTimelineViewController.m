@@ -17,6 +17,7 @@
 #import "FCSTimelineData.h"
 #import "FCSAppDelegate.h"
 #import "FCSShareProviders.h"
+#import "FCSVoucherViewController.h"
 
 @interface FCSTimelineViewController ()
 
@@ -79,6 +80,15 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"VoucherDetailSegue"]) {
+        FCSVoucherViewController *destinationViewController = (FCSVoucherViewController *)segue.destinationViewController;
+        destinationViewController.voucherContent = _voucherContent;
+        destinationViewController.restaurantName = [_voucherContent objectForKey:@"restaurantName"];
+        destinationViewController.offerName = [_voucherContent objectForKey:@"offerName"];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -148,7 +158,7 @@
     [formatter setDateFormat:@"MM/dd"];
     
     [cell.dateLabel setText:[formatter stringFromDate:timelineData.date]];
-    [cell.restaurantNameLabel setText:timelineData.restaurantName];
+    [cell.restaurantNameLabel setText:[timelineData.restaurantName uppercaseString]];
     
     if (timelineData.qtyFed > 1 )
         [cell.qtyChildrenLabel setText:[NSString stringWithFormat:@"%d children fed",timelineData.qtyFed]];
@@ -158,9 +168,42 @@
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
+    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comps = [cal components:NSDayCalendarUnit fromDate:timelineData.date toDate:[NSDate date] options:0];
+    int numberOfDays = [comps day];
+    
+    if (numberOfDays <= 30) {
+        [cell.voucherDetailButton addTarget:self action:@selector(acessoryButtonTapped:withEvent:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.voucherDetailButton setHidden:NO];
+    } else {
+        [cell.voucherDetailButton setHidden:YES];
+    }
+    
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    FCSTimelineData *timelineData = [_timelineData objectAtIndex:indexPath.row];
+    
+    _voucherContent = [NSDictionary dictionaryWithObjectsAndKeys:
+                       timelineData.code,@"code",
+                       [NSString stringWithFormat:@"%d",timelineData.qtyFed],@"amount",
+                       [NSString stringWithFormat:@"%@",timelineData.date],@"created_at",
+                       timelineData.restaurantName,@"restaurantName",
+                       timelineData.offerName,@"offerName",
+                       nil];
+    
+    [self performSegueWithIdentifier:@"VoucherDetailSegue" sender:self];
+}
+
+-(void)acessoryButtonTapped:(UIControl *)button withEvent:(UIEvent *)event {
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:[[[event touchesForView: button] anyObject] locationInView: self.tableView]];
+    
+    if (indexPath == nil)
+        return;
+    
+    [self.tableView.delegate tableView: self.tableView accessoryButtonTappedForRowWithIndexPath: indexPath];
+}
 
 - (IBAction)inviteButtonTapped:(id)sender {
     FCSShareProviders *shareProviders = [[FCSShareProviders alloc] init];
@@ -173,4 +216,5 @@
     
     [self presentViewController:activityVC animated:YES completion:nil];
 }
+
 @end
