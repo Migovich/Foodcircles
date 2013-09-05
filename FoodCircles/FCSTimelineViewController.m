@@ -25,13 +25,13 @@
 @implementation FCSTimelineViewController
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-  self = [super initWithCoder:aDecoder];
-  if (self) {
-    // Custom initialization
-      _tableView.delegate = self;
-      _tableView.dataSource = self;
-  }
-  return self;
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        // Custom initialization
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+    }
+    return self;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -46,46 +46,45 @@
     
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"" parameters:params];
     
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
-                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                                                            [HUD hide:YES];
-                                                                                            
-                                                                                            NSLog(@"%@",[JSON JSONString]);
-                                                                                            
-                                                                                            FCSTimelineData *tl = [[FCSTimelineData alloc] init];
-                                                                                            _timelineData = [tl processJSON:[JSON objectForKey:@"content"]];
-                                                                                            
-                                                                                            [_tableView reloadData];
-                                                                                            
-                                                                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                                                                            [HUD hide:YES];
-                                                                                            
-                                                                                            #warning message if timeline dont load
-                                                                                            NSLog(@"Error: %@", error);
-                                                                                            
-                                                                                        }];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        [HUD hide:YES];
+        
+        NSLog(@"%@",[JSON JSONString]);
+        
+        FCSTimelineData *tl = [[FCSTimelineData alloc] init];
+        _timelineData = [tl processJSON:[JSON objectForKey:@"content"]];
+        
+        [_tableView reloadData];
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [HUD hide:YES];
+        
+#warning message if timeline dont load
+        NSLog(@"Error: %@", error);
+        
+    }];
     
     [operation start];
 }
 
 - (void)viewDidLoad
 {
-  [super viewDidLoad];
+    [super viewDidLoad];
     
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
-  
-  // Uncomment the following line to preserve selection between presentations.
-  // self.clearsSelectionOnViewWillAppear = NO;
-  
-  // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-  // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
 {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - UITableViewDelegate
@@ -99,7 +98,7 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     FCSTimelineData *timelineData = [_timelineData objectAtIndex:indexPath.row];
     
     if (timelineData.type == 0) {
@@ -117,7 +116,7 @@
         [cell.textLabel setAttributedText: text];
         
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    
+        
         return cell;
     }
     
@@ -144,10 +143,10 @@
     }
     
     [cell.qtyChildrenLabel setTextColor:[FCSStyles blueColor]];
-
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM/dd"];
-
+    
     [cell.dateLabel setText:[formatter stringFromDate:timelineData.date]];
     [cell.restaurantNameLabel setText:timelineData.restaurantName];
     

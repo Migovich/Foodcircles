@@ -65,36 +65,38 @@
     data.total = total;
     [returnArray addObject:data];
     
-    data = [array objectAtIndex:1];
+    if (array.count > 0)
+        data = [array objectAtIndex:1];
 
-    NSDateComponents *comps = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:data.date];
-   
-    [formatter setDateFormat:@"yyyy"];
-    
-    int monthDif = [comps month];
-    int month = 0;
-    
-    for (int i = 1; i < [array count]; i++) {
-        data = [array objectAtIndex:i];
+    if (data.date) {
+       NSDateComponents *comps = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:data.date];
+        [formatter setDateFormat:@"yyyy"];
         
-        comps = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:data.date];
-        month = [comps month];
-
-        if (monthDif != month) {
+        int monthDif = [comps month];
+        int month = 0;
+        
+        for (int i = 1; i < [array count]; i++) {
+            data = [array objectAtIndex:i];
             
-            FCSTimelineData *newData = [[FCSTimelineData alloc] init];
-            newData.type = 1;
-            newData.year = [NSString stringWithFormat:@"%d", [comps year]];
+            comps = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:data.date];
+            month = [comps month];
             
-            [formatter setDateFormat:@"MMMM"];
-            newData.month = [[formatter stringFromDate:data.date] uppercaseString];
+            if (monthDif != month) {
+                
+                FCSTimelineData *newData = [[FCSTimelineData alloc] init];
+                newData.type = 1;
+                newData.year = [NSString stringWithFormat:@"%d", [comps year]];
+                
+                [formatter setDateFormat:@"MMMM"];
+                newData.month = [[formatter stringFromDate:data.date] uppercaseString];
+                
+                [returnArray addObject:newData];
+                
+                monthDif = month;
+            }
             
-            [returnArray addObject:newData];
-            
-            monthDif = month;
+            [returnArray addObject:data];
         }
-        
-        [returnArray addObject:data];
     }
     
     return returnArray;

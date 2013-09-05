@@ -61,12 +61,12 @@
     [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
     
     FCSAccountSettingsChildViewController *child = [self.childViewControllers lastObject];
-
+    
     NSDictionary *session = [NSDictionary dictionaryWithObjectsAndKeys:
-                            child.emailTextField.text, @"email",
-                            child.passwordTextField.text, @"password",
-                            child.nameTextField.text, @"name",
-                            nil];
+                             child.emailTextField.text, @"email",
+                             child.passwordTextField.text, @"password",
+                             child.nameTextField.text, @"name",
+                             nil];
     
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                             session, @"session",
@@ -75,31 +75,30 @@
     
     
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"PUT" path:@"" parameters:params];
-
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
-                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                                                            NSLog(@"%@",JSON);
-                                                                                            [HUD setLabelText:@"User saved"];
-                                                                                            [HUD setMode:MBProgressHUDModeText];
-                                                                                            [HUD show:YES];
-                                                                                            [HUD hide:YES afterDelay:2];
-                                                                                            
-                                                                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                                                                            
-                                                                                            NSString *errorMessage = [JSON objectForKey:@"description"];
-                                                                                            
-                                                                                            if (errorMessage == nil) {
-                                                                                                errorMessage = @"Can't connect to server.";
-                                                                                            }
-                                                                                            
-                                                                                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Error"
-                                                                                                                                            message:errorMessage
-                                                                                                                                           delegate:nil
-                                                                                                                                  cancelButtonTitle:@"OK"
-                                                                                                                                  otherButtonTitles:nil];
-                                                                                            NSLog(@"%@", errorMessage);
-                                                                                            [alert show];
-                                                                                        }];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"%@",JSON);
+        [HUD setLabelText:@"User saved"];
+        [HUD setMode:MBProgressHUDModeText];
+        [HUD show:YES];
+        [HUD hide:YES afterDelay:2];
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        
+        NSString *errorMessage = [JSON objectForKey:@"description"];
+        
+        if (errorMessage == nil) {
+            errorMessage = @"Can't connect to server.";
+        }
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Error"
+                                                        message:errorMessage
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        NSLog(@"%@", errorMessage);
+        [alert show];
+    }];
     
     [operation start];
 }
