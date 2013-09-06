@@ -14,12 +14,14 @@
 #import "UIImageView+AFNetworking.h"
 #import "constants.h"
 
+#import "FCSDrawUtilities.h"
+
 
 @interface FCSVenueViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *specialNameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *specialDetailsTextView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *specialDetailsTextViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *detailTextViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UIButton *iWantThisButton;
 @property (weak, nonatomic) IBOutlet UIImageView *restaurantImage;
@@ -35,7 +37,10 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+    
     self.title = [[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"name"];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem infoBarButtonItemWithTarget:self selector:@selector(infoPressed:)];
+    
     self.specialNameLabel.text = [[[[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"title"];
     
     UIFont *font = [UIFont fontWithName:@"Helvetica" size:14.0];
@@ -65,10 +70,15 @@
   }
 }
 
+- (void)infoPressed: (id)sender {
+    [self performSegueWithIdentifier:@"showRestaurantDetails" sender:nil];
+}
+
 - (void)updateViewConstraints {
     [super updateViewConstraints];
-    self.specialDetailsTextViewHeightConstraint.constant =
-    [UIScreen mainScreen].bounds.size.height > 480.0f ? 170 : 77;
+    CGFloat textHeight = [self.specialDetailsTextView.text sizeWithFont:self.specialDetailsTextView.font constrainedToSize:CGSizeMake(280, MAXFLOAT)].height;
+    NSUInteger spacing = 10;
+    self.detailTextViewHeightConstraint.constant = textHeight + spacing;
 }
 
 @end

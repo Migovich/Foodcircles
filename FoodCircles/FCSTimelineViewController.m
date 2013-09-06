@@ -19,6 +19,8 @@
 #import "FCSShareProviders.h"
 #import "FCSVoucherViewController.h"
 
+#import "FCSDrawUtilities.h"
+
 @interface FCSTimelineViewController ()
 
 @end
@@ -75,11 +77,15 @@
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem settingsBarButtonItemWithTarget:self selector:@selector(settingsPressed:)];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+- (void)settingsPressed: (id)sender {
+    [self performSegueWithIdentifier:@"Settings" sender:nil];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -32,6 +32,13 @@
     _locationManager.delegate = self;
     [_locationManager startUpdatingLocation];
     
+    //UI Defaults
+    UIImage *backButton = [[UIImage imageNamed:@"back-arrow"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 10)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    UIImage *barButton = [[UIImage imageNamed:@"square_button"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 8, 0, 8)];
+    [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    
     [self setNotification];
     
     return YES;

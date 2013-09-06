@@ -591,85 +591,93 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="Hopcat.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wt2-oX-Fl0">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0d-99-CDn">
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="Hopcat.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wt2-oX-Fl0">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="178" type="user" id="BhK-ng-hhy"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="U-Pick Desserts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWL-bh-5lQ" customClass="FCSBoldHeaderLabel">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" type="user" id="R0B-ZM-TJX"/>
+                                            <constraint firstAttribute="height" constant="29" type="user" id="kNP-kK-LhH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="Something good about food goes here. It usually has more than two lines, covering a decent amount of space... test" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gtH-Ik-d03" customClass="FCSCopyTextView">
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" type="user" id="BG4-Eo-g7L"/>
+                                            <constraint firstAttribute="height" constant="60" type="user" id="snx-tl-Hk6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwp-Kk-g8h" customClass="FCSButton">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="I want this">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="apv-UE-IaB" kind="push" identifier="showOptions" id="0N8-6G-WNg"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Make Someone's Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBE-eW-Cts" customClass="FCSHighlightLabel">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Don't need the upgrade today? Send one to a table next to you or the person in line behind ya." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="256" translatesAutoresizingMaskIntoConstraints="NO" id="56x-ub-1Iw" customClass="FCSSecondaryCopyLabel">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="2h7-J0-q24"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="heart.png" translatesAutoresizingMaskIntoConstraints="NO" id="S7o-96-gz8">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="JLU-Jf-ufz"/>
+                                            <constraint firstAttribute="height" constant="14" id="q9D-0N-v3S"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="178" type="user" id="BhK-ng-hhy"/>
-                                    <constraint firstAttribute="width" constant="323" id="ZS3-Dt-PFL"/>
+                                    <constraint firstItem="KBE-eW-Cts" firstAttribute="top" secondItem="iwp-Kk-g8h" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="0NL-L6-6il"/>
+                                    <constraint firstItem="gtH-Ik-d03" firstAttribute="top" secondItem="N0d-99-CDn" secondAttribute="top" constant="205" id="22v-tV-tfd"/>
+                                    <constraint firstItem="S7o-96-gz8" firstAttribute="leading" secondItem="N0d-99-CDn" secondAttribute="leading" constant="224" id="BVO-Sq-ivM"/>
+                                    <constraint firstAttribute="bottom" secondItem="56x-ub-1Iw" secondAttribute="bottom" constant="36" id="DbD-xV-OhZ"/>
+                                    <constraint firstItem="gtH-Ik-d03" firstAttribute="leading" secondItem="iwp-Kk-g8h" secondAttribute="leading" type="default" id="KMI-0d-VSh"/>
+                                    <constraint firstItem="56x-ub-1Iw" firstAttribute="top" secondItem="KBE-eW-Cts" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Pv0-0F-1mH"/>
+                                    <constraint firstItem="wt2-oX-Fl0" firstAttribute="top" secondItem="N0d-99-CDn" secondAttribute="top" type="default" id="TlI-hM-12m"/>
+                                    <constraint firstItem="iwp-Kk-g8h" firstAttribute="top" secondItem="gtH-Ik-d03" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="TzD-qk-ZAT"/>
+                                    <constraint firstItem="KBE-eW-Cts" firstAttribute="centerX" secondItem="wt2-oX-Fl0" secondAttribute="centerX" type="default" id="WTm-jG-N3I"/>
+                                    <constraint firstItem="iwp-Kk-g8h" firstAttribute="centerX" secondItem="56x-ub-1Iw" secondAttribute="centerX" type="default" id="X9N-C0-tMM"/>
+                                    <constraint firstItem="iwp-Kk-g8h" firstAttribute="trailing" secondItem="gtH-Ik-d03" secondAttribute="trailing" type="default" id="XYT-QK-dDp"/>
+                                    <constraint firstItem="wt2-oX-Fl0" firstAttribute="trailing" secondItem="N0d-99-CDn" secondAttribute="trailing" type="default" id="ajs-PH-5yb"/>
+                                    <constraint firstItem="gtH-Ik-d03" firstAttribute="leading" secondItem="RWL-bh-5lQ" secondAttribute="leading" type="user" id="hHw-5r-Gpc"/>
+                                    <constraint firstItem="RWL-bh-5lQ" firstAttribute="leading" secondItem="N0d-99-CDn" secondAttribute="leading" constant="22" id="mbR-p6-rAL"/>
+                                    <constraint firstItem="56x-ub-1Iw" firstAttribute="top" secondItem="S7o-96-gz8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="njN-5x-1NZ"/>
+                                    <constraint firstAttribute="centerX" secondItem="wt2-oX-Fl0" secondAttribute="centerX" type="user" id="p2q-JN-iq9"/>
+                                    <constraint firstItem="wt2-oX-Fl0" firstAttribute="leading" secondItem="N0d-99-CDn" secondAttribute="leading" type="default" id="q92-ab-xfW"/>
+                                    <constraint firstItem="RWL-bh-5lQ" firstAttribute="top" secondItem="wt2-oX-Fl0" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="scf-os-XkA"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="U-Pick Desserts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWL-bh-5lQ" customClass="FCSBoldHeaderLabel">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="29" type="user" id="kNP-kK-LhH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Make Someone's Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBE-eW-Cts" customClass="FCSHighlightLabel">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" type="user" id="0ro-PN-D6A"/>
-                                    <constraint firstAttribute="width" constant="166" id="kRW-SB-cN4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Don't need the upgrade today? Send one to a table next to you or the person in line behind ya." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="256" translatesAutoresizingMaskIntoConstraints="NO" id="56x-ub-1Iw" customClass="FCSSecondaryCopyLabel">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="2h7-J0-q24"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwp-Kk-g8h" customClass="FCSButton">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="I want this">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="apv-UE-IaB" kind="push" identifier="showOptions" id="0N8-6G-WNg"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="heart.png" translatesAutoresizingMaskIntoConstraints="NO" id="S7o-96-gz8">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="14" id="JLU-Jf-ufz"/>
-                                    <constraint firstAttribute="height" constant="14" id="q9D-0N-v3S"/>
-                                </constraints>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="Something good about food goes here" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gtH-Ik-d03" customClass="FCSCopyTextView">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="77" type="user" id="ggm-gD-rGf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.94117647059999998" green="0.91372549020000005" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="wt2-oX-Fl0" firstAttribute="top" secondItem="mok-qs-LrR" secondAttribute="top" type="default" id="1Gr-94-r6Y"/>
-                            <constraint firstAttribute="trailing" secondItem="gtH-Ik-d03" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="47Y-ps-hV7"/>
-                            <constraint firstItem="KBE-eW-Cts" firstAttribute="centerX" secondItem="56x-ub-1Iw" secondAttribute="centerX" type="default" id="72i-Pp-2CK"/>
-                            <constraint firstAttribute="trailing" secondItem="S7o-96-gz8" secondAttribute="trailing" constant="83" id="BYV-PQ-xHJ"/>
-                            <constraint firstItem="iwp-Kk-g8h" firstAttribute="centerX" secondItem="KBE-eW-Cts" secondAttribute="centerX" type="default" id="CAl-Qb-BUr"/>
-                            <constraint firstAttribute="bottom" secondItem="iwp-Kk-g8h" secondAttribute="bottom" constant="72" type="user" id="GEZ-ZC-epF"/>
-                            <constraint firstItem="iwp-Kk-g8h" firstAttribute="leading" secondItem="mok-qs-LrR" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="K2T-kS-WBC"/>
-                            <constraint firstItem="RWL-bh-5lQ" firstAttribute="leading" secondItem="mok-qs-LrR" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="LW4-gg-xgA"/>
-                            <constraint firstAttribute="trailing" secondItem="RWL-bh-5lQ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="OFb-me-ly2"/>
-                            <constraint firstAttribute="trailing" secondItem="iwp-Kk-g8h" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Vcu-se-RoW"/>
-                            <constraint firstItem="gtH-Ik-d03" firstAttribute="top" secondItem="mok-qs-LrR" secondAttribute="top" constant="213" type="user" id="fhb-Jo-S5l"/>
-                            <constraint firstAttribute="bottom" secondItem="KBE-eW-Cts" secondAttribute="bottom" constant="45" id="iD9-lX-7nH"/>
-                            <constraint firstItem="gtH-Ik-d03" firstAttribute="leading" secondItem="mok-qs-LrR" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="oGh-pn-MHa"/>
-                            <constraint firstItem="RWL-bh-5lQ" firstAttribute="top" secondItem="wt2-oX-Fl0" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="pZe-2q-TTC"/>
-                            <constraint firstAttribute="centerX" secondItem="wt2-oX-Fl0" secondAttribute="centerX" type="user" id="pyJ-qV-Fta"/>
-                            <constraint firstAttribute="bottom" secondItem="56x-ub-1Iw" secondAttribute="bottom" constant="8" id="xCD-79-5LM"/>
-                            <constraint firstItem="S7o-96-gz8" firstAttribute="centerY" secondItem="KBE-eW-Cts" secondAttribute="centerY" type="default" id="zTH-kJ-0bJ"/>
+                            <constraint firstItem="N0d-99-CDn" firstAttribute="trailing" secondItem="mok-qs-LrR" secondAttribute="trailing" type="default" id="3cj-Ur-j2v"/>
+                            <constraint firstItem="N0d-99-CDn" firstAttribute="bottom" secondItem="mok-qs-LrR" secondAttribute="bottom" type="default" id="aYt-GU-wFK"/>
+                            <constraint firstItem="N0d-99-CDn" firstAttribute="leading" secondItem="mok-qs-LrR" secondAttribute="leading" type="default" id="npH-cI-BSx"/>
+                            <constraint firstItem="N0d-99-CDn" firstAttribute="top" secondItem="mok-qs-LrR" secondAttribute="top" type="default" id="tCQ-SI-hIS"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="vFD-qe-aRE" appends="YES" id="OP5-Cg-pPZ"/>
@@ -677,20 +685,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="6ay-mH-Yzp">
                         <barButtonItem key="backBarButtonItem" title="Back" id="NXM-1s-oay"/>
-                        <barButtonItem key="rightBarButtonItem" title="Info" id="Jeg-li-YgQ">
-                            <connections>
-                                <segue destination="Cl1-bB-DII" kind="push" identifier="showRestaurantDetails" id="N1v-Sv-Rqt"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="detailTextViewHeightConstraint" destination="snx-tl-Hk6" id="pDP-U8-HjO"/>
                         <outlet property="iWantThisButton" destination="iwp-Kk-g8h" id="gTE-vd-mUo"/>
                         <outlet property="priceLabel" destination="SAo-dw-xod" id="KnN-HV-nsj"/>
                         <outlet property="restaurantImage" destination="wt2-oX-Fl0" id="8UJ-Cs-qDS"/>
                         <outlet property="specialDetailsTextView" destination="gtH-Ik-d03" id="qYr-kS-KpG"/>
-                        <outlet property="specialDetailsTextViewHeightConstraint" destination="ggm-gD-rGf" id="C3F-0m-Brl"/>
                         <outlet property="specialNameLabel" destination="RWL-bh-5lQ" id="EX8-ag-a6Q"/>
+                        <segue destination="Cl1-bB-DII" kind="push" identifier="showRestaurantDetails" id="ekG-Wc-Gmu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KvC-gO-rSH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1013,14 +1017,17 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="47M-oJ-gAW">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="47M-oJ-gAW">
                                         <rect key="frame" x="0.0" y="260" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="cYi-Jm-gld" kind="push" identifier="Settings" id="HEU-hk-aT2"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="IgU-uP-5s9">
                                         <rect key="frame" x="0.0" y="304" width="320" height="44"/>
@@ -1102,11 +1109,6 @@
                         <barButtonItem key="leftBarButtonItem" title="Home" id="y0N-cc-kBu">
                             <connections>
                                 <segue destination="XcD-QN-USc" kind="push" id="Hj0-nf-aWT"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="IrF-4g-Xgt">
-                            <connections>
-                                <segue destination="cYi-Jm-gld" kind="push" id="EHq-2K-3tw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1926,8 +1928,8 @@
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You can feed a child but your network can feed a classrom" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="232" translatesAutoresizingMaskIntoConstraints="NO" id="auo-TB-WmQ">
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="0qS-DN-jCo"/>
                                     <constraint firstAttribute="width" constant="232" id="Kad-Rj-ppL"/>
-                                    <constraint firstAttribute="height" constant="44" type="user" id="aVc-Yp-5FJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -2016,6 +2018,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="shareButton" destination="9Pb-Z5-nSn" id="hTe-1y-qsJ"/>
                         <outlet property="shareThisMissionLabelYConstraint" destination="4Tq-Xn-hOC" id="Zpg-PE-uYP"/>
@@ -2036,7 +2039,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="547" y="1194"/>
+            <point key="canvasLocation" x="550" y="1216"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Lo-NR-d9D">
@@ -2087,7 +2090,7 @@
         <image name="kid-icon.png" width="16" height="14"/>
         <image name="pip.png" width="8" height="9"/>
         <image name="share_action-brown.png" width="48" height="37"/>
-        <image name="share_action.png" width="80" height="62"/>
+        <image name="share_action.png" width="48" height="37"/>
         <image name="swipe-arrow.png" width="35" height="10"/>
         <image name="tag-blue.png" width="25" height="29"/>
         <image name="twitter.png" width="39" height="40"/>
@@ -2286,11 +2289,11 @@
         <class className="FCSVenueViewController" superclassName="FCSStyledViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSVenueViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="detailTextViewHeightConstraint" candidateClass="NSLayoutConstraint"/>
                 <relationship kind="outlet" name="iWantThisButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="restaurantImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="specialDetailsTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="specialDetailsTextViewHeightConstraint" candidateClass="NSLayoutConstraint"/>
                 <relationship kind="outlet" name="specialNameLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
@@ -2331,6 +2334,9 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -2338,9 +2344,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="soI-Pv-6ih"/>
+        <segue reference="ul6-7D-WAj"/>
         <segue reference="Hj0-nf-aWT"/>
-        <segue reference="22V-ht-X5p"/>
         <segue reference="GkS-aB-WLb"/>
+        <segue reference="YC2-fE-Okr"/>
     </inferredMetricsTieBreakers>
 </document>
