@@ -38,7 +38,10 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     [HUD show:YES];
+    
     NSURL *url = [NSURL URLWithString:TIMELINE_URL];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
@@ -46,13 +49,13 @@
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                             UIAppDelegate.user_token, @"auth_token",
                             nil];
-    
+    TFLog(@"Calling TimeLine URL: %@ params: %@", url, params);
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"" parameters:params];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         [HUD hide:YES];
         
-        NSLog(@"%@",[JSON JSONString]);
+        TFLog(@"Timeline response: %@", [JSON JSONString]);
         
         FCSTimelineData *tl = [[FCSTimelineData alloc] init];
         _timelineData = [tl processJSON:[JSON objectForKey:@"content"]];
@@ -60,6 +63,7 @@
         [_tableView reloadData];
         
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        TFLog(@"Timeline failed: %@", [JSON JSONString]);
         [HUD hide:YES];
         
 #warning message if timeline dont load

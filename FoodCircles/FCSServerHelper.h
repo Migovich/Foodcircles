@@ -10,5 +10,11 @@
 @class PayPalPayment;
 @interface FCSServerHelper : AFHTTPClient
 + (id)sharedHelper;
+
+//Payment
 - (void)processPayment: (PayPalPayment*)payment offerId: (NSString*)offerId withCompletion: (void(^)(NSDictionary *voucherContent, NSString *error))completion;
+
+//Images
+- (void)getNewsImages: (void(^)(NSArray *images, NSString *error))completion;
+
 @end

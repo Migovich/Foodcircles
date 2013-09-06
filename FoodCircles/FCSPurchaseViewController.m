@@ -163,6 +163,7 @@
 #pragma mark - PayPalPaymentDelegate methods
 - (void)payPalPaymentDidComplete:(PayPalPayment *)completedPayment {
     self.completedPayment = completedPayment;
+    TFLog(@"Completed Payment: %@", completedPayment);
     [self performSegueWithIdentifier:@"VoucherSegue" sender:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

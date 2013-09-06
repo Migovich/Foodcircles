@@ -8,6 +8,9 @@
 
 #import "FCSAppDelegate.h"
 #import <Parse/Parse.h>
+#import "TestFlight.h"
+
+#define kLastNotificationDateKey @"kLastNotificationDate"
 
 @implementation FCSAppDelegate
 
@@ -18,6 +21,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [TestFlight takeOff:@"f70b7a5b-4c79-4d6b-841c-a4b6a61a3ba6"];
+    
     [Parse setApplicationId:@"kOy6fgxIymc6fp3Z6FaYdkTaMy6F41hYX3SgAltZ"
                   clientKey:@"dq206qPaYrhf2WnFOeuA4n1gTDvKIa3PFLQ7qt3i"];
     
@@ -26,11 +32,22 @@
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     _locationManager.distanceFilter = kCLLocationAccuracyNearestTenMeters;
     _locationManager.delegate = self;
     [_locationManager startUpdatingLocation];
+    
+    //Set the last notified date to a week back, the first the time app starts...
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDate *date = [NSDate date];
+    NSDateComponents *comps = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:date];
+    NSDate *today = [calendar dateFromComponents:comps];
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    [components setDay:-8];
+    NSDate *lastWeek = [calendar dateByAddingComponents:components toDate:today options:0];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:@{kLastNotificationDateKey: lastWeek}];
     
     //UI Defaults
     UIImage *backButton = [[UIImage imageNamed:@"back-arrow"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 10)];
@@ -84,16 +101,24 @@
     
     NSLog(@"%@",region.identifier);
     
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    NSDate *lastNotifiedDate = [[NSUserDefaults standardUserDefaults] objectForKey:kLastNotificationDateKey];
+    NSDate *currentDate = [NSDate date];
     
-    NSArray *strings = [region.identifier componentsSeparatedByString: @"|"];
-    
-    if ([strings count] > 1) {
-        notification.alertBody = [NSString stringWithFormat:@"You're near %@! \rGrab %@ for a buck!",[strings objectAtIndex:0],[strings objectAtIndex:1]];
-        notification.alertAction = @"View details";
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        notification.applicationIconBadgeNumber = 1;
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    if ([currentDate timeIntervalSinceDate:lastNotifiedDate] >= 60*60*24*7) {
+        
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        
+        NSArray *strings = [region.identifier componentsSeparatedByString: @"|"];
+        
+        if ([strings count] > 1) {
+            notification.alertBody = [NSString stringWithFormat:@"You're near %@! \rGrab %@ for a buck!",[strings objectAtIndex:0],[strings objectAtIndex:1]];
+            notification.alertAction = @"View details";
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            notification.applicationIconBadgeNumber = 1;
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:kLastNotificationDateKey];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
     }
 }
 

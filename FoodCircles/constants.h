@@ -11,3 +11,5 @@
 
 //Short URL's
 #define PAYMENT_URL_SHORT @"/api/payments"
+
+#define NEWS_URL @"api/news"

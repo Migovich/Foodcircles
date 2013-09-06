@@ -14,6 +14,8 @@
 #import "PayPalMobile.h"
 #import "constants.h"
 
+#import "FCSNewsImage.h"
+
 @implementation FCSServerHelper
 
 + (id)sharedHelper {
@@ -61,10 +63,37 @@
                             paymentDetails, @"payment",
                             nil];
     
+    TFLog(@"Calling Payment URL: %@ params: %@", PAYMENT_URL_SHORT, params);
+    
     [self postPath:PAYMENT_URL_SHORT parameters:params success:^(AFHTTPRequestOperation *operation, id JSON) {
+        TFLog(@"Voucher confirmed: %@", JSON);
         completion([JSON objectForKey:@"content"], nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         completion(nil, error.localizedDescription);
+        TFLog(@"Voucher not confirmed: %@", error);
+        completion(nil, error.localizedDescription);
     }];
 }
+
+- (void)getNewsImages: (void(^)(NSArray *images, NSString *error))completion {
+    
+    NSDictionary *params = @{
+                             UIAppDelegate.user_token: @"auth_token"
+                            };
+    
+    [self getPath:NEWS_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        //TODO: PARSE JSON
+        
+        NSMutableArray *images = [[NSMutableArray alloc] init];
+        
+        FCSNewsImage *newsImage = [FCSNewsImage newsImageWithImage:[UIImage imageNamed:@"Kids-crowd.jpg"] url:[NSURL URLWithString:@""]];
+        FCSNewsImage *newsImage2 = [FCSNewsImage newsImageWithImage:[UIImage imageNamed:@"US_Navy_050106.jpg"] url:[NSURL URLWithString:@""]];
+        
+        
+        if (completion) completion(@[newsImage, newsImage2], nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (completion) completion(nil, error.localizedDescription);
+    }];
+}
+
 @end

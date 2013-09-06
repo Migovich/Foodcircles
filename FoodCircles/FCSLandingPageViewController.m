@@ -10,15 +10,26 @@
 #import "FCSShareProviders.h"
 #import "constants.h"
 
+#import "FCSServerHelper.h"
+#import "FCSNewsImage.h"
 
 @interface FCSLandingPageViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *shareThisMissionLabelYConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *youCanFeedLabel;
 
+@property (weak, nonatomic) IBOutlet UIImageView *newsImageView;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
+@property (nonatomic) NSArray *newsImages;
+@property (nonatomic) NSTimer *timer;
+
 @end
 
 
-@implementation FCSLandingPageViewController
+@implementation FCSLandingPageViewController {
+    NSUInteger _currentImageIndex;
+}
 
 -(void)viewDidLoad {
     [super viewDidLoad];
@@ -36,6 +47,27 @@
     [paragraphStyle setAlignment:NSTextAlignmentCenter];
     [text addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, text.length)];
     self.youCanFeedLabel.attributedText = text;
+    
+    [self.spinner startAnimating];
+    [[FCSServerHelper sharedHelper] getNewsImages:^(NSArray *images, NSString *error) {
+        
+        [self.spinner stopAnimating];
+        if (error) {
+            NSLog(@"Error: %@", error);
+            self.errorLabel.text = error;
+        }
+        else {
+            if (images) {
+                self.errorLabel.text = nil;
+                _currentImageIndex = 0;
+                self.newsImages = images;
+                self.newsImageView.image = [images[0] image];
+                self.timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(changeImage:) userInfo:nil repeats:YES];
+                [self.timer fire];
+            }
+        }
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,4 +101,18 @@
     [self presentViewController:activityVC animated:YES completion:nil];
 }
 
+
+#pragma mark - Helpers
+- (void)changeImage: (id)sender {
+    
+    FCSNewsImage *newsImage = self.newsImages[_currentImageIndex];
+    UIImage *image = newsImage.image;
+    
+    [UIView transitionWithView:self.view duration:1.0f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        self.newsImageView.image = image;
+    } completion:nil];
+    
+    _currentImageIndex++;
+    if (_currentImageIndex == self.newsImages.count) _currentImageIndex = 0;
+}
 @end
