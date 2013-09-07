@@ -137,6 +137,8 @@
 		D5042E8417DA304500E9A8FC /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5042E7E17DA304500E9A8FC /* libTestFlight.a */; };
 		D5042E8517DA304500E9A8FC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D5042E7F17DA304500E9A8FC /* README.md */; };
 		D5042E8617DA304500E9A8FC /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = D5042E8017DA304500E9A8FC /* release_notes.md */; };
+		D53D4C6B17DB4818003EBB3B /* NeutrafaceSlabText-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D53D4C6A17DB4818003EBB3B /* NeutrafaceSlabText-Italic.ttf */; };
+		D53D4C6C17DB4856003EBB3B /* NeutrafaceSlabText-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D53D4C6A17DB4818003EBB3B /* NeutrafaceSlabText-Italic.ttf */; };
 		D58DEDA417D998E4004BC430 /* back-home.png in Resources */ = {isa = PBXBuildFile; fileRef = D58DED9A17D998E4004BC430 /* back-home.png */; };
 		D58DEDA517D998E4004BC430 /* back-home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D58DED9B17D998E4004BC430 /* back-home@2x.png */; };
 		D58DEDA617D998E4004BC430 /* back-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D58DED9C17D998E4004BC430 /* back-arrow.png */; };
@@ -149,15 +151,11 @@
 		D58DEDB517D9B533004BC430 /* info_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D58DEDB317D9B533004BC430 /* info_button@2x.png */; };
 		D58DEDB817D9B835004BC430 /* FCSDrawUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D58DEDB717D9B835004BC430 /* FCSDrawUtilities.m */; };
 		D59B72B017D8685400E001F0 /* NeutrafaceSlabText-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D59B72A917D8685400E001F0 /* NeutrafaceSlabText-BoldItalic.ttf */; };
-		D59B72B117D8685400E001F0 /* neutrafaceslabtextbook.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D59B72AA17D8685400E001F0 /* neutrafaceslabtextbook.ttf */; };
-		D59B72B217D8685400E001F0 /* NeutrafaceSlabText-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D59B72AB17D8685400E001F0 /* NeutrafaceSlabText-Italic.ttf */; };
 		D59B72B317D8685400E001F0 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D59B72AC17D8685400E001F0 /* Roboto-Bold.ttf */; };
 		D59B72B417D8685400E001F0 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D59B72AD17D8685400E001F0 /* Roboto-BoldItalic.ttf */; };
 		D59B72B517D8685400E001F0 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D59B72AE17D8685400E001F0 /* Roboto-Italic.ttf */; };
 		D59B72B617D8685400E001F0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D59B72AF17D8685400E001F0 /* Roboto-Regular.ttf */; };
 		D59B72B717D86B1700E001F0 /* NeutrafaceSlabText-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D59B72A917D8685400E001F0 /* NeutrafaceSlabText-BoldItalic.ttf */; };
-		D59B72B817D86B1700E001F0 /* neutrafaceslabtextbook.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D59B72AA17D8685400E001F0 /* neutrafaceslabtextbook.ttf */; };
-		D59B72B917D86B1700E001F0 /* NeutrafaceSlabText-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D59B72AB17D8685400E001F0 /* NeutrafaceSlabText-Italic.ttf */; };
 		D59B72BA17D86B1700E001F0 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D59B72AC17D8685400E001F0 /* Roboto-Bold.ttf */; };
 		D59B72BB17D86B1700E001F0 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D59B72AD17D8685400E001F0 /* Roboto-BoldItalic.ttf */; };
 		D59B72BC17D86B1700E001F0 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D59B72AE17D8685400E001F0 /* Roboto-Italic.ttf */; };
@@ -452,6 +450,7 @@
 		D5042E8117DA304500E9A8FC /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		D5042E8217DA304500E9A8FC /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		D5042E8317DA304500E9A8FC /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		D53D4C6A17DB4818003EBB3B /* NeutrafaceSlabText-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NeutrafaceSlabText-Italic.ttf"; path = "Fonts/NeutrafaceSlabText-Italic.ttf"; sourceTree = "<group>"; };
 		D58DED9A17D998E4004BC430 /* back-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back-home.png"; path = "Buttons/back-home.png"; sourceTree = "<group>"; };
 		D58DED9B17D998E4004BC430 /* back-home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back-home@2x.png"; path = "Buttons/back-home@2x.png"; sourceTree = "<group>"; };
 		D58DED9C17D998E4004BC430 /* back-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back-arrow.png"; path = "Buttons/back-arrow.png"; sourceTree = "<group>"; };
@@ -465,8 +464,6 @@
 		D58DEDB617D9B835004BC430 /* FCSDrawUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSDrawUtilities.h; sourceTree = "<group>"; };
 		D58DEDB717D9B835004BC430 /* FCSDrawUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSDrawUtilities.m; sourceTree = "<group>"; };
 		D59B72A917D8685400E001F0 /* NeutrafaceSlabText-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NeutrafaceSlabText-BoldItalic.ttf"; path = "Fonts/NeutrafaceSlabText-BoldItalic.ttf"; sourceTree = "<group>"; };
-		D59B72AA17D8685400E001F0 /* neutrafaceslabtextbook.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = neutrafaceslabtextbook.ttf; path = Fonts/neutrafaceslabtextbook.ttf; sourceTree = "<group>"; };
-		D59B72AB17D8685400E001F0 /* NeutrafaceSlabText-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NeutrafaceSlabText-Italic.ttf"; path = "Fonts/NeutrafaceSlabText-Italic.ttf"; sourceTree = "<group>"; };
 		D59B72AC17D8685400E001F0 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "Fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		D59B72AD17D8685400E001F0 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-BoldItalic.ttf"; path = "Fonts/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
 		D59B72AE17D8685400E001F0 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Italic.ttf"; path = "Fonts/Roboto-Italic.ttf"; sourceTree = "<group>"; };
@@ -827,8 +824,7 @@
 			children = (
 				634E7A0B174B9B8200114E56 /* NeutrafaceSlabText-Bold.otf */,
 				D59B72A917D8685400E001F0 /* NeutrafaceSlabText-BoldItalic.ttf */,
-				D59B72AB17D8685400E001F0 /* NeutrafaceSlabText-Italic.ttf */,
-				D59B72AA17D8685400E001F0 /* neutrafaceslabtextbook.ttf */,
+				D53D4C6A17DB4818003EBB3B /* NeutrafaceSlabText-Italic.ttf */,
 				D59B72AC17D8685400E001F0 /* Roboto-Bold.ttf */,
 				D59B72AD17D8685400E001F0 /* Roboto-BoldItalic.ttf */,
 				D59B72AE17D8685400E001F0 /* Roboto-Italic.ttf */,
@@ -1361,9 +1357,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D53D4C6C17DB4856003EBB3B /* NeutrafaceSlabText-Italic.ttf in Resources */,
 				D59B72B717D86B1700E001F0 /* NeutrafaceSlabText-BoldItalic.ttf in Resources */,
-				D59B72B817D86B1700E001F0 /* neutrafaceslabtextbook.ttf in Resources */,
-				D59B72B917D86B1700E001F0 /* NeutrafaceSlabText-Italic.ttf in Resources */,
 				D59B72BA17D86B1700E001F0 /* Roboto-Bold.ttf in Resources */,
 				D59B72BB17D86B1700E001F0 /* Roboto-BoldItalic.ttf in Resources */,
 				D59B72BC17D86B1700E001F0 /* Roboto-Italic.ttf in Resources */,
@@ -1492,12 +1487,11 @@
 				63DBB653173161FE003A74CC /* InfoPlist.strings in Resources */,
 				634E7A0C174B9B8200114E56 /* NeutrafaceSlabText-Bold.otf in Resources */,
 				D59B72B017D8685400E001F0 /* NeutrafaceSlabText-BoldItalic.ttf in Resources */,
-				D59B72B117D8685400E001F0 /* neutrafaceslabtextbook.ttf in Resources */,
-				D59B72B217D8685400E001F0 /* NeutrafaceSlabText-Italic.ttf in Resources */,
 				D59B72B317D8685400E001F0 /* Roboto-Bold.ttf in Resources */,
 				D59B72B417D8685400E001F0 /* Roboto-BoldItalic.ttf in Resources */,
 				D59B72B517D8685400E001F0 /* Roboto-Italic.ttf in Resources */,
 				D59B72B617D8685400E001F0 /* Roboto-Regular.ttf in Resources */,
+				D53D4C6B17DB4818003EBB3B /* NeutrafaceSlabText-Italic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
