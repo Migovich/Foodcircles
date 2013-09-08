@@ -1759,19 +1759,18 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="E8L-rD-B81" firstAttribute="top" secondItem="kp2-CA-I57" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="1X3-fB-y3D"/>
+                                    <constraint firstAttribute="bottom" secondItem="H4E-H9-Zeh" secondAttribute="bottom" constant="136" id="3pS-ln-nZI"/>
                                     <constraint firstItem="myE-Y5-UYy" firstAttribute="top" secondItem="E8L-rD-B81" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="63c-b9-dl6"/>
                                     <constraint firstAttribute="bottom" secondItem="VwT-rc-Qye" secondAttribute="bottom" constant="25" id="7yn-Ah-D5s"/>
                                     <constraint firstItem="Zmh-hM-MwM" firstAttribute="leading" secondItem="VwT-rc-Qye" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Ccj-47-ULD"/>
                                     <constraint firstItem="7vR-sf-hou" firstAttribute="top" secondItem="BXS-4v-8ju" secondAttribute="top" constant="17" id="F7A-ge-FlU"/>
-                                    <constraint firstItem="wMO-oN-tMv" firstAttribute="top" secondItem="1o9-8X-7Jl" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="I6e-ih-cHo"/>
                                     <constraint firstItem="kp2-CA-I57" firstAttribute="trailing" secondItem="BXS-4v-8ju" secondAttribute="trailing" type="default" id="Jv8-mX-njG"/>
-                                    <constraint firstItem="1o9-8X-7Jl" firstAttribute="top" secondItem="H4E-H9-Zeh" secondAttribute="bottom" constant="-7" type="user" id="Qqp-a1-Q7x"/>
-                                    <constraint firstItem="H4E-H9-Zeh" firstAttribute="top" secondItem="myE-Y5-UYy" secondAttribute="bottom" constant="20" type="user" id="QrF-gD-cwU"/>
                                     <constraint firstItem="7vR-sf-hou" firstAttribute="centerX" secondItem="kp2-CA-I57" secondAttribute="centerX" type="default" id="WhA-YC-U76"/>
                                     <constraint firstItem="E8L-rD-B81" firstAttribute="leading" secondItem="BXS-4v-8ju" secondAttribute="leading" type="default" id="XqV-zh-BPj"/>
-                                    <constraint firstItem="E8L-rD-B81" firstAttribute="top" secondItem="BXS-4v-8ju" secondAttribute="top" constant="122" type="user" id="Xsd-3A-qIh"/>
                                     <constraint firstItem="kp2-CA-I57" firstAttribute="leading" secondItem="BXS-4v-8ju" secondAttribute="leading" type="default" id="Z3F-hf-TVa"/>
+                                    <constraint firstAttribute="bottom" secondItem="1o9-8X-7Jl" secondAttribute="bottom" constant="119" id="b6c-ok-sOo"/>
                                     <constraint firstAttribute="trailing" secondItem="Zmh-hM-MwM" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="f8Q-eN-LkA"/>
+                                    <constraint firstAttribute="bottom" secondItem="wMO-oN-tMv" secondAttribute="bottom" constant="69" id="fvG-O9-yUx"/>
                                     <constraint firstItem="1o9-8X-7Jl" firstAttribute="leading" secondItem="BXS-4v-8ju" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="gOw-F5-o4o"/>
                                     <constraint firstItem="H4E-H9-Zeh" firstAttribute="trailing" secondItem="BXS-4v-8ju" secondAttribute="trailing" type="default" id="ghy-1a-jxE"/>
                                     <constraint firstItem="E8L-rD-B81" firstAttribute="trailing" secondItem="BXS-4v-8ju" secondAttribute="trailing" type="default" id="kLd-F2-idN"/>
@@ -1785,6 +1784,7 @@
                                     <constraint firstItem="H4E-H9-Zeh" firstAttribute="leading" secondItem="BXS-4v-8ju" secondAttribute="leading" type="default" id="sqS-wy-4mA"/>
                                     <constraint firstItem="kp2-CA-I57" firstAttribute="top" secondItem="BXS-4v-8ju" secondAttribute="top" constant="61" id="tzP-4L-3tH"/>
                                     <constraint firstAttribute="bottom" secondItem="Zmh-hM-MwM" secondAttribute="bottom" constant="19" id="uI6-U7-7SK"/>
+                                    <constraint firstItem="E8L-rD-B81" firstAttribute="top" secondItem="BXS-4v-8ju" secondAttribute="top" constant="122" id="zJn-Uc-aSS"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Paper-tear.png" translatesAutoresizingMaskIntoConstraints="NO" id="uav-tq-pEq">
@@ -2126,7 +2126,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="550" y="1216"/>
+            <point key="canvasLocation" x="506" y="1194"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Lo-NR-d9D">
@@ -2431,9 +2431,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YC2-fE-Okr"/>
-        <segue reference="Imp-07-Dox"/>
-        <segue reference="Gah-Xx-Dks"/>
+        <segue reference="soI-Pv-6ih"/>
         <segue reference="Hj0-nf-aWT"/>
+        <segue reference="22V-ht-X5p"/>
+        <segue reference="GkS-aB-WLb"/>
     </inferredMetricsTieBreakers>
 </document>
