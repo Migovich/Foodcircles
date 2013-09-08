@@ -168,6 +168,7 @@
     [formatter setDateFormat:@"MM/dd"];
     
     [cell.dateLabel setText:[formatter stringFromDate:timelineData.date]];
+    cell.dateLabel.textColor = [FCSStyles dateMonthTimelineTextColor];
     [cell.restaurantNameLabel setText:[timelineData.restaurantName uppercaseString]];
     
     if (timelineData.qtyFed > 1 )
@@ -190,6 +191,14 @@
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isKindOfClass:[FCSTimelineTableViewCell class]]) {
+        if (!((FCSTimelineTableViewCell*)cell).voucherDetailButton.hidden)
+            [self tableView:self.tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
+    }
 }
 
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {

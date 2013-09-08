@@ -74,5 +74,8 @@
 + (UIColor*)copyTextViewTextColor {
     return [self colorWithHexString:@"8a857f"];
 }
++ (UIColor*)dateMonthTimelineTextColor {
+    return [self colorWithHexString:@"bfbab4"];
+}
 
 @end

@@ -19,4 +19,5 @@
 
 + (UIColor*)colorWithHexString:(NSString*)hex;
 + (UIColor*)copyTextViewTextColor;
++ (UIColor*)dateMonthTimelineTextColor;
 @end
