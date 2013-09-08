@@ -1,0 +1,459 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3003A82F16BAD54C000E48B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3003A82E16BAD54C000E48B9 /* UIKit.framework */; };
+		3003A83116BAD54C000E48B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3003A83016BAD54C000E48B9 /* Foundation.framework */; };
+		3003A83316BAD54C000E48B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3003A83216BAD54C000E48B9 /* CoreGraphics.framework */; };
+		3003A83916BAD54C000E48B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3003A83716BAD54C000E48B9 /* InfoPlist.strings */; };
+		3003A83B16BAD54C000E48B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003A83A16BAD54C000E48B9 /* main.m */; };
+		3003A83F16BAD54C000E48B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003A83E16BAD54C000E48B9 /* AppDelegate.m */; };
+		3003A84116BAD54C000E48B9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3003A84016BAD54C000E48B9 /* Default.png */; };
+		3003A84316BAD54C000E48B9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3003A84216BAD54C000E48B9 /* Default@2x.png */; };
+		3003A84516BAD54C000E48B9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3003A84416BAD54C000E48B9 /* Default-568h@2x.png */; };
+		3003A85216BAD909000E48B9 /* Flower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3003A85116BAD909000E48B9 /* Flower.jpg */; };
+		3003A85716BAE680000E48B9 /* RootViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003A85416BAE680000E48B9 /* RootViewController_iPad.m */; };
+		3003A85816BAE680000E48B9 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003A85616BAE680000E48B9 /* RootViewController.m */; };
+		4A1FECAD16F75E620003CC31 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1FECAC16F75E620003CC31 /* MessageUI.framework */; };
+		4A1FECAF16F75E680003CC31 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1FECAE16F75E680003CC31 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4A1FECB116F75E780003CC31 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1FECB016F75E780003CC31 /* Twitter.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4A1FECB316F75E7F0003CC31 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1FECB216F75E7F0003CC31 /* AssetsLibrary.framework */; };
+		4AA50C6116F8907600B51FE9 /* OWActivityViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AA50C3E16F8907600B51FE9 /* OWActivityViewController.strings */; };
+		4AA50C6216F8907600B51FE9 /* OWActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA50C4516F8907600B51FE9 /* OWActivity.m */; };
+		4AA50C6316F8907600B51FE9 /* OWActivityDelegateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA50C4716F8907600B51FE9 /* OWActivityDelegateObject.m */; };
+		4AA50C6416F8907600B51FE9 /* OWActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA50C4916F8907600B51FE9 /* OWActivityView.m */; };
+		4AA50C6516F8907600B51FE9 /* OWActivityViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4AA50C4A16F8907600B51FE9 /* OWActivityViewController.bundle */; };
+		4AA50C6616F8907600B51FE9 /* OWActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA50C4C16F8907600B51FE9 /* OWActivityViewController.m */; };
+		4AA50C6716F8907600B51FE9 /* OWCopyActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA50C4E16F8907600B51FE9 /* OWCopyActivity.m */; };
+		4AA50C6816F8907600B51FE9 /* OWFacebookActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA50C5016F8907600B51FE9 /* OWFacebookActivity.m */; };
+		4AA50C6916F8907600B51FE9 /* OWMailActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA50C5216F8907600B51FE9 /* OWMailActivity.m */; };
+		4AA50C6A16F8907600B51FE9 /* OWMapsActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA50C5416F8907600B51FE9 /* OWMapsActivity.m */; };
+		4AA50C6B16F8907600B51FE9 /* OWMessageActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA50C5616F8907600B51FE9 /* OWMessageActivity.m */; };
+		4AA50C6C16F8907600B51FE9 /* OWPrintActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA50C5816F8907600B51FE9 /* OWPrintActivity.m */; };
+		4AA50C6D16F8907600B51FE9 /* OWSafariActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA50C5A16F8907600B51FE9 /* OWSafariActivity.m */; };
+		4AA50C6E16F8907600B51FE9 /* OWSaveToCameraRollActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA50C5C16F8907600B51FE9 /* OWSaveToCameraRollActivity.m */; };
+		4AA50C6F16F8907600B51FE9 /* OWSinaWeiboActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA50C5E16F8907600B51FE9 /* OWSinaWeiboActivity.m */; };
+		4AA50C7016F8907600B51FE9 /* OWTwitterActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA50C6016F8907600B51FE9 /* OWTwitterActivity.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3003A82B16BAD54C000E48B9 /* OWActivityViewControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OWActivityViewControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3003A82E16BAD54C000E48B9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3003A83016BAD54C000E48B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3003A83216BAD54C000E48B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3003A83616BAD54C000E48B9 /* OWActivityViewControllerExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OWActivityViewControllerExample-Info.plist"; sourceTree = "<group>"; };
+		3003A83816BAD54C000E48B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3003A83A16BAD54C000E48B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3003A83C16BAD54C000E48B9 /* OWActivityViewControllerExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OWActivityViewControllerExample-Prefix.pch"; sourceTree = "<group>"; };
+		3003A83D16BAD54C000E48B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3003A83E16BAD54C000E48B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3003A84016BAD54C000E48B9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		3003A84216BAD54C000E48B9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		3003A84416BAD54C000E48B9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		3003A85116BAD909000E48B9 /* Flower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Flower.jpg; sourceTree = "<group>"; };
+		3003A85316BAE680000E48B9 /* RootViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController_iPad.h; sourceTree = "<group>"; };
+		3003A85416BAE680000E48B9 /* RootViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController_iPad.m; sourceTree = "<group>"; };
+		3003A85516BAE680000E48B9 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		3003A85616BAE680000E48B9 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		408D988717BE0BDD00CD7BE8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/OWActivityViewController.strings; sourceTree = "<group>"; };
+		4A1FECAC16F75E620003CC31 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		4A1FECAE16F75E680003CC31 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		4A1FECB016F75E780003CC31 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		4A1FECB216F75E7F0003CC31 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		4AA50C3F16F8907600B51FE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OWActivityViewController.strings; sourceTree = "<group>"; };
+		4AA50C4016F8907600B51FE9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/OWActivityViewController.strings; sourceTree = "<group>"; };
+		4AA50C4116F8907600B51FE9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OWActivityViewController.strings; sourceTree = "<group>"; };
+		4AA50C4216F8907600B51FE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/OWActivityViewController.strings"; sourceTree = "<group>"; };
+		4AA50C4316F8907600B51FE9 /* OWActivities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWActivities.h; sourceTree = "<group>"; };
+		4AA50C4416F8907600B51FE9 /* OWActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWActivity.h; sourceTree = "<group>"; };
+		4AA50C4516F8907600B51FE9 /* OWActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWActivity.m; sourceTree = "<group>"; };
+		4AA50C4616F8907600B51FE9 /* OWActivityDelegateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWActivityDelegateObject.h; sourceTree = "<group>"; };
+		4AA50C4716F8907600B51FE9 /* OWActivityDelegateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWActivityDelegateObject.m; sourceTree = "<group>"; };
+		4AA50C4816F8907600B51FE9 /* OWActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWActivityView.h; sourceTree = "<group>"; };
+		4AA50C4916F8907600B51FE9 /* OWActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWActivityView.m; sourceTree = "<group>"; };
+		4AA50C4A16F8907600B51FE9 /* OWActivityViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = OWActivityViewController.bundle; sourceTree = "<group>"; };
+		4AA50C4B16F8907600B51FE9 /* OWActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWActivityViewController.h; sourceTree = "<group>"; };
+		4AA50C4C16F8907600B51FE9 /* OWActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWActivityViewController.m; sourceTree = "<group>"; };
+		4AA50C4D16F8907600B51FE9 /* OWCopyActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWCopyActivity.h; sourceTree = "<group>"; };
+		4AA50C4E16F8907600B51FE9 /* OWCopyActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWCopyActivity.m; sourceTree = "<group>"; };
+		4AA50C4F16F8907600B51FE9 /* OWFacebookActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWFacebookActivity.h; sourceTree = "<group>"; };
+		4AA50C5016F8907600B51FE9 /* OWFacebookActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWFacebookActivity.m; sourceTree = "<group>"; };
+		4AA50C5116F8907600B51FE9 /* OWMailActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWMailActivity.h; sourceTree = "<group>"; };
+		4AA50C5216F8907600B51FE9 /* OWMailActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWMailActivity.m; sourceTree = "<group>"; };
+		4AA50C5316F8907600B51FE9 /* OWMapsActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWMapsActivity.h; sourceTree = "<group>"; };
+		4AA50C5416F8907600B51FE9 /* OWMapsActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWMapsActivity.m; sourceTree = "<group>"; };
+		4AA50C5516F8907600B51FE9 /* OWMessageActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWMessageActivity.h; sourceTree = "<group>"; };
+		4AA50C5616F8907600B51FE9 /* OWMessageActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWMessageActivity.m; sourceTree = "<group>"; };
+		4AA50C5716F8907600B51FE9 /* OWPrintActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWPrintActivity.h; sourceTree = "<group>"; };
+		4AA50C5816F8907600B51FE9 /* OWPrintActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWPrintActivity.m; sourceTree = "<group>"; };
+		4AA50C5916F8907600B51FE9 /* OWSafariActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWSafariActivity.h; sourceTree = "<group>"; };
+		4AA50C5A16F8907600B51FE9 /* OWSafariActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWSafariActivity.m; sourceTree = "<group>"; };
+		4AA50C5B16F8907600B51FE9 /* OWSaveToCameraRollActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWSaveToCameraRollActivity.h; sourceTree = "<group>"; };
+		4AA50C5C16F8907600B51FE9 /* OWSaveToCameraRollActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWSaveToCameraRollActivity.m; sourceTree = "<group>"; };
+		4AA50C5D16F8907600B51FE9 /* OWSinaWeiboActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWSinaWeiboActivity.h; sourceTree = "<group>"; };
+		4AA50C5E16F8907600B51FE9 /* OWSinaWeiboActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWSinaWeiboActivity.m; sourceTree = "<group>"; };
+		4AA50C5F16F8907600B51FE9 /* OWTwitterActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWTwitterActivity.h; sourceTree = "<group>"; };
+		4AA50C6016F8907600B51FE9 /* OWTwitterActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWTwitterActivity.m; sourceTree = "<group>"; };
+		79A97977173E4AB4000F8B94 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/OWActivityViewController.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3003A82816BAD54C000E48B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A1FECB316F75E7F0003CC31 /* AssetsLibrary.framework in Frameworks */,
+				4A1FECB116F75E780003CC31 /* Twitter.framework in Frameworks */,
+				4A1FECAF16F75E680003CC31 /* Social.framework in Frameworks */,
+				4A1FECAD16F75E620003CC31 /* MessageUI.framework in Frameworks */,
+				3003A82F16BAD54C000E48B9 /* UIKit.framework in Frameworks */,
+				3003A83116BAD54C000E48B9 /* Foundation.framework in Frameworks */,
+				3003A83316BAD54C000E48B9 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3003A82216BAD54C000E48B9 = {
+			isa = PBXGroup;
+			children = (
+				4AA50C3C16F8907600B51FE9 /* OWActivityViewController */,
+				3003A83416BAD54C000E48B9 /* OWActivityViewControllerExample */,
+				3003A82D16BAD54C000E48B9 /* Frameworks */,
+				3003A82C16BAD54C000E48B9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3003A82C16BAD54C000E48B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3003A82B16BAD54C000E48B9 /* OWActivityViewControllerExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3003A82D16BAD54C000E48B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A1FECAC16F75E620003CC31 /* MessageUI.framework */,
+				4A1FECB216F75E7F0003CC31 /* AssetsLibrary.framework */,
+				4A1FECB016F75E780003CC31 /* Twitter.framework */,
+				4A1FECAE16F75E680003CC31 /* Social.framework */,
+				3003A82E16BAD54C000E48B9 /* UIKit.framework */,
+				3003A83016BAD54C000E48B9 /* Foundation.framework */,
+				3003A83216BAD54C000E48B9 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3003A83416BAD54C000E48B9 /* OWActivityViewControllerExample */ = {
+			isa = PBXGroup;
+			children = (
+				3003A83D16BAD54C000E48B9 /* AppDelegate.h */,
+				3003A83E16BAD54C000E48B9 /* AppDelegate.m */,
+				3003A85316BAE680000E48B9 /* RootViewController_iPad.h */,
+				3003A85416BAE680000E48B9 /* RootViewController_iPad.m */,
+				3003A85516BAE680000E48B9 /* RootViewController.h */,
+				3003A85616BAE680000E48B9 /* RootViewController.m */,
+				3003A83516BAD54C000E48B9 /* Supporting Files */,
+			);
+			path = OWActivityViewControllerExample;
+			sourceTree = "<group>";
+		};
+		3003A83516BAD54C000E48B9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3003A83616BAD54C000E48B9 /* OWActivityViewControllerExample-Info.plist */,
+				3003A83716BAD54C000E48B9 /* InfoPlist.strings */,
+				3003A83A16BAD54C000E48B9 /* main.m */,
+				3003A83C16BAD54C000E48B9 /* OWActivityViewControllerExample-Prefix.pch */,
+				3003A84016BAD54C000E48B9 /* Default.png */,
+				3003A84216BAD54C000E48B9 /* Default@2x.png */,
+				3003A84416BAD54C000E48B9 /* Default-568h@2x.png */,
+				3003A85116BAD909000E48B9 /* Flower.jpg */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4AA50C3C16F8907600B51FE9 /* OWActivityViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4AA50C3D16F8907600B51FE9 /* Localizations */,
+				4AA50C4316F8907600B51FE9 /* OWActivities.h */,
+				4AA50C4416F8907600B51FE9 /* OWActivity.h */,
+				4AA50C4516F8907600B51FE9 /* OWActivity.m */,
+				4AA50C4616F8907600B51FE9 /* OWActivityDelegateObject.h */,
+				4AA50C4716F8907600B51FE9 /* OWActivityDelegateObject.m */,
+				4AA50C4816F8907600B51FE9 /* OWActivityView.h */,
+				4AA50C4916F8907600B51FE9 /* OWActivityView.m */,
+				4AA50C4A16F8907600B51FE9 /* OWActivityViewController.bundle */,
+				4AA50C4B16F8907600B51FE9 /* OWActivityViewController.h */,
+				4AA50C4C16F8907600B51FE9 /* OWActivityViewController.m */,
+				4AA50C4D16F8907600B51FE9 /* OWCopyActivity.h */,
+				4AA50C4E16F8907600B51FE9 /* OWCopyActivity.m */,
+				4AA50C4F16F8907600B51FE9 /* OWFacebookActivity.h */,
+				4AA50C5016F8907600B51FE9 /* OWFacebookActivity.m */,
+				4AA50C5116F8907600B51FE9 /* OWMailActivity.h */,
+				4AA50C5216F8907600B51FE9 /* OWMailActivity.m */,
+				4AA50C5316F8907600B51FE9 /* OWMapsActivity.h */,
+				4AA50C5416F8907600B51FE9 /* OWMapsActivity.m */,
+				4AA50C5516F8907600B51FE9 /* OWMessageActivity.h */,
+				4AA50C5616F8907600B51FE9 /* OWMessageActivity.m */,
+				4AA50C5716F8907600B51FE9 /* OWPrintActivity.h */,
+				4AA50C5816F8907600B51FE9 /* OWPrintActivity.m */,
+				4AA50C5916F8907600B51FE9 /* OWSafariActivity.h */,
+				4AA50C5A16F8907600B51FE9 /* OWSafariActivity.m */,
+				4AA50C5B16F8907600B51FE9 /* OWSaveToCameraRollActivity.h */,
+				4AA50C5C16F8907600B51FE9 /* OWSaveToCameraRollActivity.m */,
+				4AA50C5D16F8907600B51FE9 /* OWSinaWeiboActivity.h */,
+				4AA50C5E16F8907600B51FE9 /* OWSinaWeiboActivity.m */,
+				4AA50C5F16F8907600B51FE9 /* OWTwitterActivity.h */,
+				4AA50C6016F8907600B51FE9 /* OWTwitterActivity.m */,
+			);
+			name = OWActivityViewController;
+			path = ../OWActivityViewController;
+			sourceTree = "<group>";
+		};
+		4AA50C3D16F8907600B51FE9 /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				4AA50C3E16F8907600B51FE9 /* OWActivityViewController.strings */,
+			);
+			path = Localizations;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3003A82A16BAD54C000E48B9 /* OWActivityViewControllerExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3003A84816BAD54C000E48B9 /* Build configuration list for PBXNativeTarget "OWActivityViewControllerExample" */;
+			buildPhases = (
+				3003A82716BAD54C000E48B9 /* Sources */,
+				3003A82816BAD54C000E48B9 /* Frameworks */,
+				3003A82916BAD54C000E48B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OWActivityViewControllerExample;
+			productName = OWActivityViewControllerExample;
+			productReference = 3003A82B16BAD54C000E48B9 /* OWActivityViewControllerExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3003A82316BAD54C000E48B9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Roman Efimov";
+			};
+			buildConfigurationList = 3003A82616BAD54C000E48B9 /* Build configuration list for PBXProject "OWActivityViewControllerExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				fr,
+				ru,
+				zh_CN,
+				"zh-Hans",
+				de,
+				es,
+			);
+			mainGroup = 3003A82216BAD54C000E48B9;
+			productRefGroup = 3003A82C16BAD54C000E48B9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3003A82A16BAD54C000E48B9 /* OWActivityViewControllerExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3003A82916BAD54C000E48B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3003A83916BAD54C000E48B9 /* InfoPlist.strings in Resources */,
+				3003A84116BAD54C000E48B9 /* Default.png in Resources */,
+				3003A84316BAD54C000E48B9 /* Default@2x.png in Resources */,
+				3003A84516BAD54C000E48B9 /* Default-568h@2x.png in Resources */,
+				3003A85216BAD909000E48B9 /* Flower.jpg in Resources */,
+				4AA50C6116F8907600B51FE9 /* OWActivityViewController.strings in Resources */,
+				4AA50C6516F8907600B51FE9 /* OWActivityViewController.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3003A82716BAD54C000E48B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3003A83B16BAD54C000E48B9 /* main.m in Sources */,
+				3003A83F16BAD54C000E48B9 /* AppDelegate.m in Sources */,
+				3003A85716BAE680000E48B9 /* RootViewController_iPad.m in Sources */,
+				3003A85816BAE680000E48B9 /* RootViewController.m in Sources */,
+				4AA50C6216F8907600B51FE9 /* OWActivity.m in Sources */,
+				4AA50C6316F8907600B51FE9 /* OWActivityDelegateObject.m in Sources */,
+				4AA50C6416F8907600B51FE9 /* OWActivityView.m in Sources */,
+				4AA50C6616F8907600B51FE9 /* OWActivityViewController.m in Sources */,
+				4AA50C6716F8907600B51FE9 /* OWCopyActivity.m in Sources */,
+				4AA50C6816F8907600B51FE9 /* OWFacebookActivity.m in Sources */,
+				4AA50C6916F8907600B51FE9 /* OWMailActivity.m in Sources */,
+				4AA50C6A16F8907600B51FE9 /* OWMapsActivity.m in Sources */,
+				4AA50C6B16F8907600B51FE9 /* OWMessageActivity.m in Sources */,
+				4AA50C6C16F8907600B51FE9 /* OWPrintActivity.m in Sources */,
+				4AA50C6D16F8907600B51FE9 /* OWSafariActivity.m in Sources */,
+				4AA50C6E16F8907600B51FE9 /* OWSaveToCameraRollActivity.m in Sources */,
+				4AA50C6F16F8907600B51FE9 /* OWSinaWeiboActivity.m in Sources */,
+				4AA50C7016F8907600B51FE9 /* OWTwitterActivity.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3003A83716BAD54C000E48B9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3003A83816BAD54C000E48B9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4AA50C3E16F8907600B51FE9 /* OWActivityViewController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AA50C3F16F8907600B51FE9 /* en */,
+				4AA50C4016F8907600B51FE9 /* fr */,
+				4AA50C4116F8907600B51FE9 /* ru */,
+				4AA50C4216F8907600B51FE9 /* zh-Hans */,
+				79A97977173E4AB4000F8B94 /* de */,
+				408D988717BE0BDD00CD7BE8 /* es */,
+			);
+			name = OWActivityViewController.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3003A84616BAD54C000E48B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3003A84716BAD54C000E48B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3003A84916BAD54C000E48B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OWActivityViewControllerExample/OWActivityViewControllerExample-Prefix.pch";
+				INFOPLIST_FILE = "OWActivityViewControllerExample/OWActivityViewControllerExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3003A84A16BAD54C000E48B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OWActivityViewControllerExample/OWActivityViewControllerExample-Prefix.pch";
+				INFOPLIST_FILE = "OWActivityViewControllerExample/OWActivityViewControllerExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3003A82616BAD54C000E48B9 /* Build configuration list for PBXProject "OWActivityViewControllerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3003A84616BAD54C000E48B9 /* Debug */,
+				3003A84716BAD54C000E48B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3003A84816BAD54C000E48B9 /* Build configuration list for PBXNativeTarget "OWActivityViewControllerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3003A84916BAD54C000E48B9 /* Debug */,
+				3003A84A16BAD54C000E48B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3003A82316BAD54C000E48B9 /* Project object */;
+}

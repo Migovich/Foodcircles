@@ -69,18 +69,14 @@
     data.total = total;
     [returnArray addObject:data];
     
-    if (array && array.count > 0) {
-        data = [array objectAtIndex:0];
-    }
-
-    if (data.date) {
-       NSDateComponents *comps = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:data.date];
+    if (array.count) {
+        NSDateComponents *comps = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:data.date];
         [formatter setDateFormat:@"yyyy"];
         
         int monthDif = [comps month];
         int month = 0;
         
-        for (int i = 1; i < [array count]; i++) {
+        for (int i = 0; i < [array count]; i++) {
             data = [array objectAtIndex:i];
             
             comps = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:data.date];
@@ -103,8 +99,12 @@
             [returnArray addObject:data];
         }
     }
+    TFLog(@"All timeline objects %@", returnArray);
     
     return returnArray;
 }
 
+- (NSString*)description {
+    return [NSString stringWithFormat:@"type: %i offerName: %@, code: %@, created_at: %@", self.type, self.offerName, self.code, self.date];
+}
 @end

@@ -14,7 +14,9 @@
 #import "FCSServerHelper.h"
 #import "FCSAppDelegate.h"
 
-@interface FCSVoucherViewController ()
+#import "OWActivityViewController.h"
+
+@interface FCSVoucherViewController () <UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet FCSHeaderLabel *offerNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *voucherNumberLabel;
@@ -130,19 +132,58 @@
 }
 
 - (IBAction)shareButtonTapped:(id)sender {
+    
+    /*
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Share", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Facebook", nil), NSLocalizedString(@"Twitter", nil), nil];
+    [sheet showInView:self.view];
+    */
+    
     FCSShareProviders *shareProviders = [[FCSShareProviders alloc] init];
     shareProviders.type = 2;
     shareProviders.kidsFed = [[self.voucherContent objectForKey:@"amount"] integerValue];
     shareProviders.restaurantName = self.restaurantName;
     
-    NSURL *shareUrl = [NSURL URLWithString:@"http://joinfoodcircles.org/restaurant"];
+    OWFacebookActivity *facebookActivity = [[OWFacebookActivity alloc] init];
+    facebookActivity.userInfo = @{ @"text": [shareProviders shareStringForActivityTime:UIActivityTypePostToFacebook]};
+    OWTwitterActivity *twitterActivity = [[OWTwitterActivity alloc] init];
+    twitterActivity.userInfo = @{ @"text": [shareProviders shareStringForActivityTime:UIActivityTypePostToTwitter]};
+    OWActivityViewController *activityViewController = [[OWActivityViewController alloc] initWithViewController:self activities:@[facebookActivity, twitterActivity]];
+    [activityViewController presentFromRootViewController];
+    
+    /*NSURL *shareUrl = [NSURL URLWithString:@"http://joinfoodcircles.org/restaurant"];
     
     NSArray *itemsToShare = @[shareProviders,shareUrl];
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
     activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToWeibo];
     
     [self presentViewController:activityVC animated:YES completion:nil];
+     */
+     
 }
+
+#pragma mark - Actionsheet
+/*
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    FCSShareProviders *shareProviders = [[FCSShareProviders alloc] init];
+    shareProviders.type = 2;
+    shareProviders.kidsFed = [[self.voucherContent objectForKey:@"amount"] integerValue];
+    shareProviders.restaurantName = self.restaurantName;
+    
+    if (buttonIndex == 0) {
+        SHKItem *item = [SHKItem text:[shareProviders shareStringForActivityTime:UIActivityTypePostToFacebook]];
+        
+        // Share the item on Facebook
+        [SHKFacebook shareItem:item];
+    }
+    else if (buttonIndex == 1) {
+        SHKItem *item = [SHKItem text:[shareProviders shareStringForActivityTime:UIActivityTypePostToTwitter]];
+        
+        // Share the item on Facebook
+        [SHKTwitter shareItem:item];
+    }
+}
+ */
 
 
 @end

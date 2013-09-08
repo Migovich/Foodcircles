@@ -46,53 +46,52 @@ NSString *kVenueId = @"venueListViewID";
     
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"" parameters:nil];
     
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
-                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                                                            [HUD hide:YES];
-                                                                                            
-                                                                                            NSLog(@"%@",[JSON JSONString]);
-                                                                                            
-                                                                                            UIAppDelegate.venues = [JSON objectForKey:@"content"];
-                                                                                            UIAppDelegate.venues = [UIAppDelegate.venues sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-                                                                                                NSDictionary *d1 = obj1;
-                                                                                                NSDictionary *d2 = obj2;
-                                                                                                
-                                                                                                NSString *dString1 = [d1 objectForKey:@"distance"];
-                                                                                                dString1 = [dString1 substringWithRange:NSMakeRange(0, [dString1 length]-6)];
-                                                                                                double dDouble1 = [dString1 doubleValue];
-                                                                                                
-                                                                                                NSString *dString2 = [d2 objectForKey:@"distance"];
-                                                                                                dString2 = [dString2 substringWithRange:NSMakeRange(0, [dString2 length]-6)];
-                                                                                                double dDouble2 = [dString2 doubleValue];
-                                                                                                
-                                                                                                if (dDouble1 > dDouble2) {
-                                                                                                    return (NSComparisonResult)NSOrderedDescending;
-                                                                                                } else if (dDouble1 < dDouble2) {
-                                                                                                    return (NSComparisonResult)NSOrderedAscending;
-                                                                                                }
-                                                                                                
-                                                                                                return (NSComparisonResult)NSOrderedSame;
-
-                                                                                            }];
-                                                                                            
-                                                                                            if ([UIAppDelegate.venues count] == 0) {
-                                                                                                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Venues"
-                                                                                                                                                message:@"No venues to show."
-                                                                                                                                               delegate:nil
-                                                                                                                                      cancelButtonTitle:@"OK"
-                                                                                                                                      otherButtonTitles:nil];
-                                                                                                [alert show];
-                                                                                            } else {
-                                                                                                [self.collectionView reloadData];
-                                                                                            }
-                                                                                            
-                                                                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                                                                            [HUD hide:YES];
-                                                                                            
-                                                                                            #warning message if venues dont load
-                                                                                            NSLog(@"Error: %@", error);
-                                                                                            
-                                                                                        }];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        [HUD hide:YES];
+        
+        NSLog(@"%@",[JSON JSONString]);
+        
+        UIAppDelegate.venues = [JSON objectForKey:@"content"];
+        UIAppDelegate.venues = [UIAppDelegate.venues sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            NSDictionary *d1 = obj1;
+            NSDictionary *d2 = obj2;
+            
+            NSString *dString1 = [d1 objectForKey:@"distance"];
+            dString1 = [dString1 substringWithRange:NSMakeRange(0, [dString1 length]-6)];
+            double dDouble1 = [dString1 doubleValue];
+            
+            NSString *dString2 = [d2 objectForKey:@"distance"];
+            dString2 = [dString2 substringWithRange:NSMakeRange(0, [dString2 length]-6)];
+            double dDouble2 = [dString2 doubleValue];
+            
+            if (dDouble1 > dDouble2) {
+                return (NSComparisonResult)NSOrderedDescending;
+            } else if (dDouble1 < dDouble2) {
+                return (NSComparisonResult)NSOrderedAscending;
+            }
+            
+            return (NSComparisonResult)NSOrderedSame;
+            
+        }];
+        
+        if ([UIAppDelegate.venues count] == 0) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Venues"
+                                                            message:@"No venues to show."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        } else {
+            [self.collectionView reloadData];
+        }
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [HUD hide:YES];
+        
+#warning message if venues dont load
+        NSLog(@"Error: %@", error);
+        
+    }];
     
     [operation start];
     
@@ -107,16 +106,16 @@ NSString *kVenueId = @"venueListViewID";
 
 - (void)didReceiveMemoryWarning
 {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  if ([segue.identifier isEqualToString:@"showVenue"]) {
-    NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
-    FCSVenueViewController *destinationViewController = (FCSVenueViewController *)segue.destinationViewController;
-    destinationViewController.selectedVenueIndex = [indexPath row];
-  }
+    if ([segue.identifier isEqualToString:@"showVenue"]) {
+        NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
+        FCSVenueViewController *destinationViewController = (FCSVenueViewController *)segue.destinationViewController;
+        destinationViewController.selectedVenueIndex = [indexPath row];
+    }
 }
 
 
@@ -129,11 +128,11 @@ NSString *kVenueId = @"venueListViewID";
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FCSVenueCell *venueCell = [collectionView dequeueReusableCellWithReuseIdentifier:kVenueId forIndexPath:indexPath];
-
+    
     venueCell.productName.text = [[[UIAppDelegate.venues objectAtIndex:[indexPath row]] objectForKey:@"name"] uppercaseString];
     [venueCell.productImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"timeline_image"]]] placeholderImage:[UIImage imageNamed:@"transparent_box.png"]];
     [venueCell.productImage setClipsToBounds:YES];
-
+    
     NSArray *tags = [NSArray arrayWithArray:[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"tags"]];
     
     if (tags.count > 0) {
@@ -166,7 +165,7 @@ NSString *kVenueId = @"venueListViewID";
     CLLocationCoordinate2D coords;
     coords.latitude = [[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"lat"] floatValue];
     coords.longitude= [[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"lon"] floatValue];
-
+    
     NSString *restaurantName = [[UIAppDelegate.venues objectAtIndex:[indexPath row]] objectForKey:@"name"];
     NSString *offerName = [[[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"title"];
     

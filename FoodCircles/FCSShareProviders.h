@@ -14,4 +14,6 @@
 @property (assign, nonatomic) int kidsFed;
 @property (strong, nonatomic) NSString *restaurantName;
 
+- (NSString*)shareStringForActivityTime: (NSString*)activityType;
+
 @end

@@ -17,4 +17,6 @@
 //Images
 - (void)getNewsImages: (void(^)(NSArray *images, NSString *error))completion;
 
+//Logout
+- (void)logoutWithCompletion: (void(^)())completion;
 @end

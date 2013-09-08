@@ -77,22 +77,51 @@
 - (void)getNewsImages: (void(^)(NSArray *images, NSString *error))completion {
     
     NSDictionary *params = @{
-                             UIAppDelegate.user_token: @"auth_token"
+                              @"auth_token": UIAppDelegate.user_token
                             };
     
     [self getPath:NEWS_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        //TODO: PARSE JSON
-        
         NSMutableArray *images = [[NSMutableArray alloc] init];
         
-        FCSNewsImage *newsImage = [FCSNewsImage newsImageWithImage:[UIImage imageNamed:@"Kids-crowd.jpg"] url:[NSURL URLWithString:@""]];
-        FCSNewsImage *newsImage2 = [FCSNewsImage newsImageWithImage:[UIImage imageNamed:@"US_Navy_050106.jpg"] url:[NSURL URLWithString:@""]];
+        NSArray *news = [[responseObject objectForKey:@"content"] objectForKey:@"news"];
+        for (NSDictionary *newsObject in news) {
+            FCSNewsImage *newsImage = [FCSNewsImage newsImageWithImage:newsObject[@"mobile_image_url"] url:newsObject[@"mobile_url"]];
+            //Test images
+            /*if (arc4random() % 4 == 0)
+                newsImage.imageUrl = @"http://blog.gettyimages.com/wp-content/uploads/2013/01/Siberian-Tiger-Running-Through-Snow-Tom-Brakefield-Getty-Images-200353826-001.jpg";
+            else if (arc4random() % 4 == 1) {
+                newsImage.imageUrl = @"http://l.yimg.com/bt/api/res/1.2/o1sg_vgaIuYxC_8LOiWPMw--/YXBwaWQ9eW5ld3M7Zmk9aW5zZXQ7aD02MjQ7cT04NTt3PTk1MA--/http://l.yimg.com/os/156/2012/10/23/000-Del412742-jpg_073522.jpg";
+            }
+            else if (arc4random() % 4 == 4) {
+                newsImage.imageUrl = @"http://forbesindia.com/media/photogallery/2012/Dec/horse_flame_20121228105002_930x584.jpg";
+            }
+            else {
+                newsImage.imageUrl = @"http://blog.gettyimages.com/wp-content/uploads/2013/01/Siberian-Tiger-Running-Through-Snow-Tom-Brakefield-Getty-Images-200353826-001.jpg";
+            }
+             */
+            
+            [images addObject:newsImage];
+            
+        }
         
         
-        if (completion) completion(@[newsImage, newsImage2], nil);
+        
+        if (completion) completion(images, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (completion) completion(nil, error.localizedDescription);
+    }];
+}
+
+- (void)logoutWithCompletion: (void(^)())completion {
+    NSDictionary *params = @{
+                             @"auth_token": UIAppDelegate.user_token
+                             };
+    [self deletePath:LOGOUT_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (completion) completion();
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //Should there be an error if the user tries to logout?
+        if (completion) completion();
     }];
 }
 

@@ -10,16 +10,16 @@
 
 @implementation FCSNewsImage
 
-- (id)initWithImage: (UIImage*)image url: (NSURL*)url {
+- (id)initWithImage: (NSString*)imageUrl url: (NSString*)url {
     self = [super init];
     if (self) {
-        _image = image;
+        _imageUrl = imageUrl;
         _url = url;
     }
     return self;
 }
 
-+ (FCSNewsImage*)newsImageWithImage: (UIImage*)image url: (NSURL*)url {
-    return [[self alloc] initWithImage:image url:url];
++ (FCSNewsImage*)newsImageWithImage: (NSString*)imageUrl url: (NSString*)url {
+    return [[self alloc] initWithImage:imageUrl url:url];
 }
 @end

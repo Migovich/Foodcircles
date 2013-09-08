@@ -8,16 +8,19 @@
 
 #import "FCSAccountSettingsViewController.h"
 #import "FCSAccountSettingsChildViewController.h"
+
 #import "FCSStyles.h"
 #import "FCSAppDelegate.h"
 #import "constants.h"
+
 #import "AFJSONRequestOperation.h"
 #import "AFHTTPClient.h"
 #import "JSONKit.h"
 #import "SSKeychain.h"
 
-@interface FCSAccountSettingsViewController ()
+#import "FCSServerHelper.h"
 
+@interface FCSAccountSettingsViewController ()
 @end
 
 @implementation FCSAccountSettingsViewController
@@ -49,10 +52,16 @@
 }
 
 - (IBAction)logoutButtonClicked:(id)sender {
-    UIAppDelegate.user_token = @"";
-    UIAppDelegate.user_email = @"";
-    [SSKeychain deletePasswordForService:@"FoodCircles" account:@"FoodCirclesType"];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    [HUD show:YES];
+    [[FCSServerHelper sharedHelper] logoutWithCompletion:^{
+        UIAppDelegate.user_token = @"";
+        UIAppDelegate.user_email = @"";
+        [SSKeychain deletePasswordForService:@"FoodCircles" account:@"FoodCirclesType"];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        [HUD hide:YES];
+    }];
 }
 
 - (IBAction)saveUserData:(id)sender {
@@ -102,4 +111,16 @@
     
     [operation start];
 }
+
+#pragma mark - Contact us buttons
+- (IBAction)facebookPressed:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://facebook.com/foodcircles"]];
+}
+- (IBAction)twitterPressed:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://twitter.com/foodcircles"]];
+}
+- (IBAction)emailPressed:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mailto:support@foodcircles.net"]];
+}
+
 @end

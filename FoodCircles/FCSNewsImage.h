@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface FCSNewsImage : NSObject
-@property (nonatomic) UIImage *image;
-@property (nonatomic) NSURL *url;
+@property (nonatomic) NSString *imageUrl;
+@property (nonatomic) NSString *url;
 
 //for later...
 @property (nonatomic) NSString *venueId;
 
-+ (FCSNewsImage*)newsImageWithImage: (UIImage*)image url: (NSURL*)url;
++ (FCSNewsImage*)newsImageWithImage: (NSString*)imageUrl url: (NSString*)url;
 
 @end

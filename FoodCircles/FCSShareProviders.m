@@ -46,4 +46,8 @@
     return @"";
 }
 
+- (NSString*)shareStringForActivityTime:(NSString *)activityType {
+    return [self activityViewController:nil itemForActivityType:activityType];
+}
+
 @end

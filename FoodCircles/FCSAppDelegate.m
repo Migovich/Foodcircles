@@ -10,6 +10,10 @@
 #import <Parse/Parse.h>
 #import "TestFlight.h"
 
+#import "SHKConfiguration.h"
+#import "FCSDefaultSHKConfigurator.h"
+#import "SHKFacebook.h"
+
 #define kLastNotificationDateKey @"kLastNotificationDate"
 
 @implementation FCSAppDelegate
@@ -32,6 +36,9 @@
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    
+    DefaultSHKConfigurator *configurator = [[FCSDefaultSHKConfigurator alloc] init];
+    [SHKConfiguration sharedInstanceWithConfigurator:configurator];
     
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
@@ -63,6 +70,12 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    NSString* scheme = [url scheme];
+    
+    if ([scheme hasPrefix:[NSString stringWithFormat:@"fb%@", SHKCONFIG(facebookAppId)]]) {
+        [SHKFacebook handleOpenURL:url];
+    }
+    
     return [PFFacebookUtils handleOpenURL:url];
 }
 
@@ -86,11 +99,13 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
   // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [SHKFacebook handleDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
   // Saves changes in the application's managed object context before the application terminates.
+    [SHKFacebook handleWillTerminate];
 }
 
 #pragma mark - CLLocationManagerDelegate
