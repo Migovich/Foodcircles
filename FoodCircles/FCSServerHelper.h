@@ -11,6 +11,8 @@
 @interface FCSServerHelper : AFHTTPClient
 + (id)sharedHelper;
 
+//Use voucher
+- (void)useVoucher: (NSDictionary*)voucherContent withCompletion:(void(^)(NSString *error))completion;
 //Payment
 - (void)processPayment: (PayPalPayment*)payment offerId: (NSString*)offerId withCompletion: (void(^)(NSDictionary *voucherContent, NSString *error))completion;
 

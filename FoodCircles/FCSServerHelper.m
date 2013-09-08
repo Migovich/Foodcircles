@@ -37,6 +37,20 @@
     return self;
 }
 
+
+//Use voucher
+- (void)useVoucher: (NSDictionary*)voucherContent withCompletion:(void(^)(NSString *error))completion {
+    NSDictionary *params = @{
+                             @"auth_token": UIAppDelegate.user_token,
+                             @"code": voucherContent[@"code"]
+                             };
+    [self getPath:DELETE_VOUCHER_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (completion) completion(nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (completion) completion(error.localizedDescription);
+    }];
+}
+
 - (void)processPayment: (PayPalPayment*)payment offerId:(NSString *)offerId withCompletion:(void (^)(NSDictionary *voucherContent, NSString *error))completion {
     
     NSDictionary *paymentDetails;

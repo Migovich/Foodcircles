@@ -1064,8 +1064,9 @@
                             </tableView>
                             <view autoresizesSubviews="NO" contentMode="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="4GY-tJ-jWV">
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="See where your friends are eating and who they're feeding" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="153" translatesAutoresizingMaskIntoConstraints="NO" id="LLp-YE-ZzM">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You can feed a child your network can feed a classrom" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="156" translatesAutoresizingMaskIntoConstraints="NO" id="LLp-YE-ZzM">
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="156" id="7Xa-W7-vZt"/>
                                             <constraint firstAttribute="height" constant="33" id="vLa-Yr-Gbe"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -1096,6 +1097,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Svs-za-rP4" secondAttribute="trailing" constant="40" id="7pB-d4-Ry1"/>
                                     <constraint firstItem="Mn4-o9-j43" firstAttribute="centerY" secondItem="Svs-za-rP4" secondAttribute="centerY" type="default" id="Nwy-40-ctg"/>
                                     <constraint firstItem="Svs-za-rP4" firstAttribute="bottom" secondItem="LLp-YE-ZzM" secondAttribute="bottom" type="default" id="Oyq-r8-trf"/>
                                     <constraint firstItem="LLp-YE-ZzM" firstAttribute="leading" secondItem="4GY-tJ-jWV" secondAttribute="leading" constant="6" id="Uh5-AP-dqy"/>
@@ -1103,7 +1105,6 @@
                                     <constraint firstItem="Svs-za-rP4" firstAttribute="top" secondItem="LLp-YE-ZzM" secondAttribute="top" type="default" id="cHd-bv-mdK"/>
                                     <constraint firstItem="LLp-YE-ZzM" firstAttribute="centerY" secondItem="4GY-tJ-jWV" secondAttribute="centerY" type="default" id="osm-Fu-hfC"/>
                                     <constraint firstAttribute="height" constant="44" type="user" id="pbS-dm-wUb"/>
-                                    <constraint firstItem="Svs-za-rP4" firstAttribute="leading" secondItem="LLp-YE-ZzM" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="sLa-QF-gjR"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1131,6 +1132,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="bottomLabel" destination="LLp-YE-ZzM" id="4CR-Bn-5GR"/>
                         <outlet property="tableView" destination="KmW-HK-cts" id="Jsk-NP-xV4"/>
                         <segue destination="IuN-at-r6q" kind="push" identifier="VoucherDetailSegue" id="GkS-aB-WLb"/>
                     </connections>
@@ -1149,8 +1151,8 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjt-Sr-2Ej">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="icW-pg-rEW"/>
-                                    <constraint firstAttribute="height" constant="44" id="y8C-Pa-8GH"/>
+                                    <constraint firstAttribute="width" constant="180" id="rlw-O8-mtE"/>
+                                    <constraint firstAttribute="height" constant="44" id="tbf-ie-XB6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Logout">
@@ -1171,7 +1173,7 @@
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjR-oP-A4k">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="65" id="HQI-nZ-mmu"/>
+                                    <constraint firstAttribute="width" constant="50" id="6to-AD-Y0V"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="facebook.png">
@@ -1188,7 +1190,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WN3-56-LZZ">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" type="user" id="9bf-kq-t1x"/>
-                                    <constraint firstAttribute="width" constant="65" id="dOu-iJ-qfe"/>
+                                    <constraint firstAttribute="width" constant="50" id="bAD-35-Lv6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="twitter.png">
@@ -1202,9 +1204,13 @@
                                     <action selector="twitterPressed:" destination="cYi-Jm-gld" eventType="touchUpInside" id="LAd-EA-gPD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wq1-lp-FhG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wq1-lp-FhG">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="8NH-4U-Ie4"/>
+                                    <constraint firstAttribute="height" constant="44" id="iKW-m4-5eV"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Email">
+                                <state key="normal" image="email-icon.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1215,21 +1221,32 @@
                                     <action selector="emailPressed:" destination="cYi-Jm-gld" eventType="touchUpInside" id="cGc-5I-pC2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Contact Us" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNH-u9-89Z">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="I2L-Yb-KJF"/>
+                                    <constraint firstAttribute="height" constant="19" id="kwI-8w-LPI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ep2-80-9BQ" firstAttribute="top" secondItem="968-8p-Nri" secondAttribute="top" type="default" id="2Ir-fb-kPe"/>
-                            <constraint firstAttribute="bottom" secondItem="kjR-oP-A4k" secondAttribute="bottom" constant="117" type="user" id="A8r-im-RaM"/>
+                            <constraint firstItem="LNH-u9-89Z" firstAttribute="centerX" secondItem="Ep2-80-9BQ" secondAttribute="centerX" type="default" id="4nU-Fw-7Tp"/>
+                            <constraint firstItem="WN3-56-LZZ" firstAttribute="leading" secondItem="kjR-oP-A4k" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="IuJ-xS-7PV"/>
                             <constraint firstItem="Ep2-80-9BQ" firstAttribute="trailing" secondItem="968-8p-Nri" secondAttribute="trailing" type="default" id="IxJ-I7-hI4"/>
-                            <constraint firstItem="kjR-oP-A4k" firstAttribute="leading" secondItem="968-8p-Nri" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Qni-Xf-GED"/>
-                            <constraint firstItem="WN3-56-LZZ" firstAttribute="top" secondItem="Ep2-80-9BQ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="YVv-Ee-pcn"/>
-                            <constraint firstItem="WN3-56-LZZ" firstAttribute="centerX" secondItem="Ep2-80-9BQ" secondAttribute="centerX" type="default" id="dLI-Dr-C1b"/>
-                            <constraint firstItem="WN3-56-LZZ" firstAttribute="centerX" secondItem="hjt-Sr-2Ej" secondAttribute="centerX" type="default" id="dlV-b4-Rbr"/>
+                            <constraint firstItem="kjR-oP-A4k" firstAttribute="top" secondItem="LNH-u9-89Z" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Lff-6o-13p"/>
+                            <constraint firstItem="Wq1-lp-FhG" firstAttribute="leading" secondItem="WN3-56-LZZ" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Mwy-4b-CWZ"/>
+                            <constraint firstItem="Wq1-lp-FhG" firstAttribute="centerY" secondItem="WN3-56-LZZ" secondAttribute="centerY" type="default" id="Po8-iL-G5E"/>
+                            <constraint firstItem="WN3-56-LZZ" firstAttribute="top" secondItem="LNH-u9-89Z" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WbV-EN-EBX"/>
+                            <constraint firstItem="WN3-56-LZZ" firstAttribute="centerX" secondItem="LNH-u9-89Z" secondAttribute="centerX" type="default" id="d3K-A7-yxZ"/>
+                            <constraint firstAttribute="bottom" secondItem="Wq1-lp-FhG" secondAttribute="bottom" constant="86" id="eGI-sX-NmB"/>
                             <constraint firstItem="Ep2-80-9BQ" firstAttribute="leading" secondItem="968-8p-Nri" secondAttribute="leading" type="default" id="f4R-ns-j1e"/>
-                            <constraint firstAttribute="bottom" secondItem="Wq1-lp-FhG" secondAttribute="bottom" constant="117" type="user" id="jPw-i2-Qvj"/>
+                            <constraint firstItem="WN3-56-LZZ" firstAttribute="centerX" secondItem="hjt-Sr-2Ej" secondAttribute="centerX" type="default" id="oom-vT-UBs"/>
                             <constraint firstAttribute="bottom" secondItem="hjt-Sr-2Ej" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="pIk-0v-ESg"/>
-                            <constraint firstItem="kjR-oP-A4k" firstAttribute="top" secondItem="Ep2-80-9BQ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="vIf-8N-xZ5"/>
-                            <constraint firstAttribute="trailing" secondItem="Wq1-lp-FhG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="vyo-Ho-tja"/>
+                            <constraint firstAttribute="bottom" secondItem="Ep2-80-9BQ" secondAttribute="bottom" constant="165" id="tPy-el-3hE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Account Settings" id="Ggo-zT-yeb">
@@ -1240,6 +1257,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QsF-Q3-3ra" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1649,6 +1667,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="markAsUsedPressed:" destination="IuN-at-r6q" eventType="touchUpInside" id="BsL-cG-5So"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Special Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vR-sf-hou" customClass="FCSBoldHeaderLabel">
                                         <constraints>
@@ -1803,16 +1824,7 @@
                             <constraint firstAttribute="bottom" secondItem="BXS-4v-8ju" secondAttribute="bottom" constant="20" symbolic="YES" type="user" id="pga-ML-feF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Voucher" id="FZu-3E-hB5">
-                        <barButtonItem key="leftBarButtonItem" title="Account" id="4nS-tx-sgE">
-                            <connections>
-                                <action selector="accountButtonClicked:" destination="IuN-at-r6q" id="tlX-Ch-M7P"/>
-                            </connections>
-                        </barButtonItem>
-                        <connections>
-                            <outlet property="backBarButtonItem" destination="4nS-tx-sgE" id="Ezk-IF-Jzn"/>
-                        </connections>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Voucher" id="FZu-3E-hB5"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="kidsFedLabel" destination="VwT-rc-Qye" id="8TI-f4-ZfP"/>
@@ -1823,14 +1835,11 @@
                         <outlet property="spinner" destination="fM1-QQ-PAj" id="kSq-93-1SC"/>
                         <outlet property="voucherNumberLabel" destination="myE-Y5-UYy" id="x6W-da-Wi4"/>
                         <outlet property="yourCodeLabel" destination="E8L-rD-B81" id="sae-QK-fak"/>
+                        <segue destination="tgA-4s-OJ7" kind="push" identifier="TimelineSegue" id="IhY-7W-IJZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZs-eA-xbn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="wra-Su-1qQ">
-                    <connections>
-                        <segue destination="tgA-4s-OJ7" kind="push" identifier="TimelineSegue" id="22V-ht-X5p"/>
-                    </connections>
-                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="wra-Su-1qQ"/>
             </objects>
             <point key="canvasLocation" x="2473" y="515"/>
         </scene>
@@ -2165,6 +2174,7 @@
         <image name="YellowChild.png" width="48" height="43"/>
         <image name="activity-dot.png" width="22" height="22"/>
         <image name="call_button.png" width="16" height="18"/>
+        <image name="email-icon.png" width="40" height="40"/>
         <image name="facebook.png" width="39" height="40"/>
         <image name="foodcircles logo.png" width="150" height="132"/>
         <image name="footer.png" width="320" height="24"/>
@@ -2353,6 +2363,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSTimelineViewController.h"/>
             <relationships>
                 <relationship kind="action" name="inviteButtonTapped:"/>
+                <relationship kind="outlet" name="bottomLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
@@ -2390,8 +2401,6 @@
         <class className="FCSVoucherViewController" superclassName="FCSStyledViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSVoucherViewController.h"/>
             <relationships>
-                <relationship kind="action" name="accountButtonClicked:"/>
-                <relationship kind="action" name="shareButtonTapped:"/>
                 <relationship kind="outlet" name="accountButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="kidsFedLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="minGroupDateLabel" candidateClass="UILabel"/>
@@ -2433,7 +2442,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="soI-Pv-6ih"/>
         <segue reference="Hj0-nf-aWT"/>
-        <segue reference="22V-ht-X5p"/>
-        <segue reference="GkS-aB-WLb"/>
+        <segue reference="ul6-7D-WAj"/>
+        <segue reference="Imp-07-Dox"/>
     </inferredMetricsTieBreakers>
 </document>

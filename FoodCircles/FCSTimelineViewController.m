@@ -22,6 +22,7 @@
 #import "FCSDrawUtilities.h"
 
 @interface FCSTimelineViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *bottomLabel;
 
 @end
 
@@ -82,6 +83,8 @@
     [self.view addSubview:HUD];
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem settingsBarButtonItemWithTarget:self selector:@selector(settingsPressed:)];
+    
+    self.bottomLabel.text = NSLocalizedString(@"You can feed a child\nYour network can feed a classrom", nil);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

@@ -8,6 +8,8 @@
 #import "FCSVoucherViewController.h"
 
 #import "RNBlurModalView.h"
+#import "FPPopoverController.h"
+#import "FCSPickerTableViewController.h"
 
 #ifdef DEBUG
 #ifndef SKIP_PAYMENT
@@ -15,7 +17,7 @@
 #endif
 #endif
 
-@interface FCSPurchaseViewController ()
+@interface FCSPurchaseViewController () <FCSPickerTableViewControllerDelegate>
 
 @property (strong, atomic) NSNumberFormatter *usdFormatter;
 @property (strong, nonatomic) UIColor *selectedCharityColor;
@@ -23,6 +25,7 @@
 
 @property (nonatomic) PayPalPayment *completedPayment;
 
+@property (nonatomic) FPPopoverController *popOverController;
 @end
 
 @implementation FCSPurchaseViewController
@@ -120,15 +123,43 @@
 }
 
 - (IBAction)selectOffer:(id)sender {
-    _pickerView.hidden = NO;
+//    _pickerView.hidden = NO;
+//    _pickerType = 1;
+//    [_pickerView reloadAllComponents];
+    NSMutableArray *offerNames = [[NSMutableArray alloc] init];
+    for (NSDictionary *offer in [[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"]) {
+        [offerNames addObject:offer[@"title"]];
+    }
+    FCSPickerTableViewController *picker = [[FCSPickerTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    picker.titles = offerNames;
+    picker.delegate = self;
+    self.popOverController = [[FPPopoverController alloc] initWithViewController:picker];
+    self.popOverController.contentSize = CGSizeMake(300, MIN(300, offerNames.count*44 + 38));
+    self.popOverController.arrowDirection = FPPopoverArrowDirectionAny;
+    self.popOverController.tint = FPPopoverRedTint;
+    [self.popOverController presentPopoverFromView:sender];
     _pickerType = 1;
-    [_pickerView reloadAllComponents];
 }
 
 - (IBAction)selectCharity:(id)sender {
-    _pickerView.hidden = NO;
+//    _pickerView.hidden = NO;
+//    _pickerType = 2;
+//    [_pickerView reloadAllComponents];
+    
+    NSMutableArray *charityNames = [[NSMutableArray alloc] init];
+    for (NSDictionary *charity in UIAppDelegate.charities) {
+        [charityNames addObject:charity[@"name"]];
+    }
+    FCSPickerTableViewController *picker = [[FCSPickerTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    picker.titles = charityNames;
+    picker.delegate = self;
+    self.popOverController = [[FPPopoverController alloc] initWithViewController:picker];
+    self.popOverController.contentSize = CGSizeMake(200, MIN(300, charityNames.count*44 + 38));
+    self.popOverController.arrowDirection = FPPopoverArrowDirectionAny;
+    self.popOverController.tint = FPPopoverRedTint;
+    [self.popOverController presentPopoverFromView:sender];
+    
     _pickerType = 2;
-    [_pickerView reloadAllComponents];
 }
 
 #pragma mark - Custom Methods
@@ -207,7 +238,6 @@
 -(void)pickerTapped:(UIGestureRecognizer *)gestureRecognizer {
     if (_pickerType == 1) {
         [_offerButton setTitle:[[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"title"] forState:UIControlStateNormal];
-        
         [self setPriceRule];
     } else {
         [_charityButton setTitle:[[UIAppDelegate.charities objectAtIndex:_selectedCharity] objectForKey:@"name"]  forState:UIControlStateNormal];
@@ -215,6 +245,18 @@
     _pickerView.hidden = YES;
 }
 
+#pragma mark - Picker Delegate
+- (void)picker: (FCSPickerTableViewController*)picker didSelectRowAtIndex: (NSUInteger)index {
+    if (_pickerType == 1) {
+        _selectedOffer = index;
+        [_offerButton setTitle:[[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"title"] forState:UIControlStateNormal];
+        [self setPriceRule];
+    } else {
+        _selectedCharity = index;
+        [_charityButton setTitle:[[UIAppDelegate.charities objectAtIndex:_selectedCharity] objectForKey:@"name"]  forState:UIControlStateNormal];
+    }
+    [self.popOverController dismissPopoverAnimated:YES];
+}
 #pragma mark - Info Buttons
 
 - (IBAction)bringingFriendsInfoPressed:(id)sender {

@@ -135,8 +135,14 @@
 		D5042E8417DA304500E9A8FC /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5042E7E17DA304500E9A8FC /* libTestFlight.a */; };
 		D5042E8517DA304500E9A8FC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D5042E7F17DA304500E9A8FC /* README.md */; };
 		D5042E8617DA304500E9A8FC /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = D5042E8017DA304500E9A8FC /* release_notes.md */; };
+		D53D000017DCEE880023290D /* FCSPickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D53DFFFF17DCEE880023290D /* FCSPickerTableViewController.m */; };
+		D53D000317DCFDDA0023290D /* email-icon@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = D53D000117DCFDDA0023290D /* email-icon@2X.png */; };
+		D53D000417DCFDDA0023290D /* email-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D53D000217DCFDDA0023290D /* email-icon.png */; };
 		D53D4C6B17DB4818003EBB3B /* NeutrafaceSlabText-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D53D4C6A17DB4818003EBB3B /* NeutrafaceSlabText-Italic.ttf */; };
 		D53D4C6C17DB4856003EBB3B /* NeutrafaceSlabText-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D53D4C6A17DB4818003EBB3B /* NeutrafaceSlabText-Italic.ttf */; };
+		D53DFFD217DCEE510023290D /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = D53DFFCD17DCEE510023290D /* FPPopoverController.m */; };
+		D53DFFD317DCEE510023290D /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D53DFFCF17DCEE510023290D /* FPPopoverView.m */; };
+		D53DFFD417DCEE510023290D /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = D53DFFD117DCEE510023290D /* FPTouchView.m */; };
 		D55F853817DC7DF400A27E44 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D55F853717DC7DF400A27E44 /* AssetsLibrary.framework */; };
 		D55F85A617DC7EF500A27E44 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D55F856417DC7EF500A27E44 /* LICENSE */; };
 		D55F85A717DC7EF500A27E44 /* OWActivityViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = D55F856717DC7EF500A27E44 /* OWActivityViewController.strings */; };
@@ -806,7 +812,18 @@
 		D5042E8117DA304500E9A8FC /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		D5042E8217DA304500E9A8FC /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		D5042E8317DA304500E9A8FC /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		D53D000117DCFDDA0023290D /* email-icon@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-icon@2X.png"; sourceTree = "<group>"; };
+		D53D000217DCFDDA0023290D /* email-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-icon.png"; sourceTree = "<group>"; };
 		D53D4C6A17DB4818003EBB3B /* NeutrafaceSlabText-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NeutrafaceSlabText-Italic.ttf"; path = "Fonts/NeutrafaceSlabText-Italic.ttf"; sourceTree = "<group>"; };
+		D53DFFCB17DCEE510023290D /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
+		D53DFFCC17DCEE510023290D /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverController.h; sourceTree = "<group>"; };
+		D53DFFCD17DCEE510023290D /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
+		D53DFFCE17DCEE510023290D /* FPPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverView.h; sourceTree = "<group>"; };
+		D53DFFCF17DCEE510023290D /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverView.m; sourceTree = "<group>"; };
+		D53DFFD017DCEE510023290D /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTouchView.h; sourceTree = "<group>"; };
+		D53DFFD117DCEE510023290D /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
+		D53DFFFE17DCEE880023290D /* FCSPickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSPickerTableViewController.h; sourceTree = "<group>"; };
+		D53DFFFF17DCEE880023290D /* FCSPickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSPickerTableViewController.m; sourceTree = "<group>"; };
 		D55F853717DC7DF400A27E44 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		D55F856417DC7EF500A27E44 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D55F856817DC7EF500A27E44 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/OWActivityViewController.strings; sourceTree = "<group>"; };
@@ -1206,6 +1223,8 @@
 				635FE0D8174BEAF6004E8D6B /* facebook-icon@2X.png */,
 				63520BED173D62B100D32223 /* facebook.png */,
 				634E79EB174AD40800114E56 /* facebook@2X.png */,
+				D53D000117DCFDDA0023290D /* email-icon@2X.png */,
+				D53D000217DCFDDA0023290D /* email-icon.png */,
 				DCF30A6D17A6D2980060BA9D /* Facebook_button.png */,
 				DCF30A6E17A6D2980060BA9D /* Facebook_button@2X.png */,
 				6301F4781747C7ED0081245A /* foodcircles logo.png */,
@@ -1462,6 +1481,7 @@
 				D59B72C117D881BA00E001F0 /* RNBlurModalView */,
 				D5EEF41117DA4D62006E4F52 /* iCarousel */,
 				D55F856217DC7EF500A27E44 /* OWActivityViewController-master */,
+				D53DFFCA17DCEE510023290D /* FPPopover */,
 			);
 			name = Libs;
 			sourceTree = "<group>";
@@ -1489,6 +1509,21 @@
 			);
 			name = "TestFlightSDK2-1";
 			path = "FoodCircles/TestFlightSDK2-1";
+			sourceTree = "<group>";
+		};
+		D53DFFCA17DCEE510023290D /* FPPopover */ = {
+			isa = PBXGroup;
+			children = (
+				D53DFFCB17DCEE510023290D /* ARCMacros.h */,
+				D53DFFCC17DCEE510023290D /* FPPopoverController.h */,
+				D53DFFCD17DCEE510023290D /* FPPopoverController.m */,
+				D53DFFCE17DCEE510023290D /* FPPopoverView.h */,
+				D53DFFCF17DCEE510023290D /* FPPopoverView.m */,
+				D53DFFD017DCEE510023290D /* FPTouchView.h */,
+				D53DFFD117DCEE510023290D /* FPTouchView.m */,
+			);
+			name = FPPopover;
+			path = FoodCircles/FPPopover;
 			sourceTree = "<group>";
 		};
 		D55F856217DC7EF500A27E44 /* OWActivityViewController-master */ = {
@@ -1643,6 +1678,8 @@
 				635FE0F8174C0996004E8D6B /* FCSRestaurantInfoViewController.m */,
 				6323572A173818A20068A2F5 /* FCSPurchaseViewController.h */,
 				6323572B173818A20068A2F5 /* FCSPurchaseViewController.m */,
+				D53DFFFE17DCEE880023290D /* FCSPickerTableViewController.h */,
+				D53DFFFF17DCEE880023290D /* FCSPickerTableViewController.m */,
 			);
 			name = "Venue Detail";
 			sourceTree = "<group>";
@@ -2405,6 +2442,8 @@
 				D55F85A717DC7EF500A27E44 /* OWActivityViewController.strings in Resources */,
 				D55F85AB17DC7EF500A27E44 /* OWActivityViewController.bundle in Resources */,
 				D55F85C217DC7EF500A27E44 /* README.md in Resources */,
+				D53D000317DCFDDA0023290D /* email-icon@2X.png in Resources */,
+				D53D000417DCFDDA0023290D /* email-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2545,6 +2584,10 @@
 				D55F85B417DC7EF500A27E44 /* OWSaveToCameraRollActivity.m in Sources */,
 				D55F85B517DC7EF500A27E44 /* OWSinaWeiboActivity.m in Sources */,
 				D55F85B617DC7EF500A27E44 /* OWTwitterActivity.m in Sources */,
+				D53DFFD217DCEE510023290D /* FPPopoverController.m in Sources */,
+				D53DFFD317DCEE510023290D /* FPPopoverView.m in Sources */,
+				D53DFFD417DCEE510023290D /* FPTouchView.m in Sources */,
+				D53D000017DCEE880023290D /* FCSPickerTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

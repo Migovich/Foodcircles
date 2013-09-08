@@ -15,6 +15,7 @@
 #import "FCSAppDelegate.h"
 
 #import "OWActivityViewController.h"
+#import "MBProgressHUD.h"
 
 @interface FCSVoucherViewController () <UIActionSheetDelegate>
 
@@ -28,9 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIView *receiptView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *accountButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
-- (IBAction)accountButtonClicked:(id)sender;
-- (IBAction)shareButtonTapped:(id)sender;
-
+@property (nonatomic) MBProgressHUD *hud;
 @end
 
 @implementation FCSVoucherViewController
@@ -39,12 +38,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  
+    
     self.receiptView.layer.shadowOpacity = 0.4f;
     self.receiptView.layer.shadowColor = [[UIColor colorWithRed:109.0/255.0 green:109.0/255.0 blue:109.0/255.0 alpha:1.0] CGColor];
     self.receiptView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
     
     if (self.viewType == VoucherViewTypePayment) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Account", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(accountButtonClicked:)];
         self.offerName = [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"title"];
         self.restaurantName = [[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"name"];
         self.voucherNumberLabel.text = @"";
@@ -53,6 +53,8 @@
         [self.spinner startAnimating];
     }
     
+    self.hud = [[MBProgressHUD alloc] initWithView:self.view];
+    self.hud.mode = MBProgressHUDModeIndeterminate;
     
     self.restaurantNameLabel.text = self.restaurantName;
     self.offerNameLabel.text = self.offerName;
@@ -127,7 +129,8 @@
   // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)accountButtonClicked:(id)sender {
+#pragma mark - User events
+- (void)accountButtonClicked:(id)sender {
     [self performSegueWithIdentifier:@"TimelineSegue" sender:self];
 }
 
@@ -160,6 +163,27 @@
      */
      
 }
+
+- (IBAction)markAsUsedPressed:(id)sender {
+    [self.hud show:YES];
+    [[FCSServerHelper sharedHelper] useVoucher:self.voucherContent withCompletion:^(NSString *error) {
+        if (error) {
+            self.hud.labelText = NSLocalizedString(@"Could not mark voucher as used!", nil);
+            self.hud.detailsLabelText = error;
+            [self.hud hide:YES afterDelay:3];
+        }
+        else {
+            [self.hud hide:YES];
+            if (self.viewType == VoucherViewTypePayment) {
+                [self accountButtonClicked:nil];
+            }
+            else if (self.viewType == VoucherViewTypeTimeline) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }
+    }];
+}
+
 
 #pragma mark - Actionsheet
 /*
