@@ -11,6 +11,8 @@
 @implementation FCSOverImageSecondary
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
+    
     UIFont *font = [UIFont fontWithName:@"NeutrafaceSlabText-BookItalic" size:16];
     self.font = font;
     self.textColor = [UIColor whiteColor];

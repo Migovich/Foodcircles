@@ -8,6 +8,8 @@
 
 #import "FCSPickerTableViewController.h"
 
+#import "FCSMultilineCell.h"
+
 @interface FCSPickerTableViewController ()
 
 @end
@@ -50,16 +52,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"MultilineCell";
+    FCSMultilineCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.textLabel.backgroundColor = [UIColor clearColor];
-        //cell.textLabel.adjustsFontSizeToFitWidth = YES;
-        cell.textLabel.font = [UIFont systemFontOfSize:14];
-        cell.textLabel.adjustsLetterSpacingToFitWidth = YES;
-        cell.textLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
+        NSArray *subViews = [[NSBundle mainBundle] loadNibNamed:@"FCSMultilineCell" owner:nil options:nil];
+        for (UIView *view in subViews) {
+            if ([view isKindOfClass:[FCSMultilineCell class]])
+                cell = (FCSMultilineCell*)view;
+        }
     }
     // Configure the cell...
     if (indexPath.row >= self.titles.count) {
@@ -67,7 +68,7 @@
     }
     else {
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-        cell.textLabel.text = self.titles[indexPath.row];
+        cell.mainLabel.text = self.titles[indexPath.row];
     }
     
     return cell;

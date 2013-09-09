@@ -162,6 +162,8 @@
 		D55F85B517DC7EF500A27E44 /* OWSinaWeiboActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = D55F858A17DC7EF500A27E44 /* OWSinaWeiboActivity.m */; };
 		D55F85B617DC7EF500A27E44 /* OWTwitterActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = D55F858C17DC7EF500A27E44 /* OWTwitterActivity.m */; };
 		D55F85C217DC7EF500A27E44 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D55F85A217DC7EF500A27E44 /* README.md */; };
+		D56E797017DE297700EEFADD /* FCSMultilineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D56E796F17DE297700EEFADD /* FCSMultilineCell.m */; };
+		D56E797217DE299B00EEFADD /* FCSMultilineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D56E797117DE299B00EEFADD /* FCSMultilineCell.xib */; };
 		D58DEDA417D998E4004BC430 /* back-home.png in Resources */ = {isa = PBXBuildFile; fileRef = D58DED9A17D998E4004BC430 /* back-home.png */; };
 		D58DEDA517D998E4004BC430 /* back-home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D58DED9B17D998E4004BC430 /* back-home@2x.png */; };
 		D58DEDA617D998E4004BC430 /* back-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D58DED9C17D998E4004BC430 /* back-arrow.png */; };
@@ -865,6 +867,9 @@
 		D55F858C17DC7EF500A27E44 /* OWTwitterActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWTwitterActivity.m; sourceTree = "<group>"; };
 		D55F85A217DC7EF500A27E44 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		D5615E8517DB8E4F0094064A /* ShareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ShareKit.xcodeproj; path = Submodules/ShareKit/ShareKit.xcodeproj; sourceTree = "<group>"; };
+		D56E796E17DE297700EEFADD /* FCSMultilineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FCSMultilineCell.h; path = Cells/FCSMultilineCell.h; sourceTree = "<group>"; };
+		D56E796F17DE297700EEFADD /* FCSMultilineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCSMultilineCell.m; path = Cells/FCSMultilineCell.m; sourceTree = "<group>"; };
+		D56E797117DE299B00EEFADD /* FCSMultilineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FCSMultilineCell.xib; path = Cells/FCSMultilineCell.xib; sourceTree = "<group>"; };
 		D58DED9A17D998E4004BC430 /* back-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back-home.png"; path = "Buttons/back-home.png"; sourceTree = "<group>"; };
 		D58DED9B17D998E4004BC430 /* back-home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back-home@2x.png"; path = "Buttons/back-home@2x.png"; sourceTree = "<group>"; };
 		D58DED9C17D998E4004BC430 /* back-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back-arrow.png"; path = "Buttons/back-arrow.png"; sourceTree = "<group>"; };
@@ -1088,6 +1093,7 @@
 		6312D7E1173BCBB4009B8E6D /* UI Styles */ = {
 			isa = PBXGroup;
 			children = (
+				D56E796D17DE294200EEFADD /* Cells */,
 				635FE0E7174BEB36004E8D6B /* Buttons */,
 				6305D52D17345D1C0021482B /* FCSNavigationController.h */,
 				6305D52E17345D1C0021482B /* FCSNavigationController.m */,
@@ -1630,6 +1636,16 @@
 				D5615F0C17DB8E500094064A /* libPocket SDK.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D56E796D17DE294200EEFADD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D56E796E17DE297700EEFADD /* FCSMultilineCell.h */,
+				D56E796F17DE297700EEFADD /* FCSMultilineCell.m */,
+				D56E797117DE299B00EEFADD /* FCSMultilineCell.xib */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		D58DED9917D9989D004BC430 /* Buttons */ = {
@@ -2444,6 +2460,7 @@
 				D55F85C217DC7EF500A27E44 /* README.md in Resources */,
 				D53D000317DCFDDA0023290D /* email-icon@2X.png in Resources */,
 				D53D000417DCFDDA0023290D /* email-icon.png in Resources */,
+				D56E797217DE299B00EEFADD /* FCSMultilineCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2588,6 +2605,7 @@
 				D53DFFD317DCEE510023290D /* FPPopoverView.m in Sources */,
 				D53DFFD417DCEE510023290D /* FPTouchView.m in Sources */,
 				D53D000017DCEE880023290D /* FCSPickerTableViewController.m in Sources */,
+				D56E797017DE297700EEFADD /* FCSMultilineCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,14 @@
     return self;
 }
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.mainLabel.font = [UIFont systemFontOfSize:16];
+    self.mainLabel.adjustsLetterSpacingToFitWidth = YES;
+    self.mainLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

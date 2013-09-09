@@ -40,6 +40,7 @@ const CGFloat kCalculatedContentPadding = 10;
 }
 
 -(void)awakeFromNib {
+    [super awakeFromNib];
     [self setup];
 }
 

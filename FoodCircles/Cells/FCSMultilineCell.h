@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface FCSMultilineCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UILabel *mainLabel;
 @end

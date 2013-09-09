@@ -4,8 +4,9 @@
 @implementation FCSNavigationController
 
 - (void)awakeFromNib {
-  self.navigationBar.tintColor = [FCSStyles darkRed];
-  self.navigationBar.titleTextAttributes = @{ UITextAttributeFont : [UIFont fontWithName:@"NeutrafaceSlabText-Bold" size:22] };
+    [super awakeFromNib];
+    self.navigationBar.tintColor = [FCSStyles darkRed];
+    self.navigationBar.titleTextAttributes = @{ UITextAttributeFont : [UIFont fontWithName:@"NeutrafaceSlabText-Bold" size:22] };
 }
 
 @end
