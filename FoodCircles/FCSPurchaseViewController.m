@@ -95,7 +95,7 @@
     PayPalPayment *payment = [[PayPalPayment alloc] init];
     payment.amount = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%.0f", trunc(self.priceSlider.value)]];
     payment.currencyCode = @"USD";
-    payment.shortDescription = [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"title"];
+    payment.shortDescription = [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"title"];
     
     if (!payment.processable) {}
     
