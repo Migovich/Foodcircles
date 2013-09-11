@@ -383,7 +383,7 @@
                         <barButtonItem key="backBarButtonItem" title="List" id="duL-9a-xZb"/>
                         <barButtonItem key="leftBarButtonItem" title="News" id="eH9-mM-oS8">
                             <connections>
-                                <segue destination="XcD-QN-USc" kind="push" id="8lH-aS-vX6"/>
+                                <segue destination="XcD-QN-USc" kind="custom" identifier="showNews" customClass="FCSCustomSegue" id="1av-uJ-9vP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1126,7 +1126,7 @@
                     <navigationItem key="navigationItem" title="Timeline" id="B7s-Fh-yRn">
                         <barButtonItem key="leftBarButtonItem" title="Home" id="y0N-cc-kBu">
                             <connections>
-                                <segue destination="XcD-QN-USc" kind="push" id="Hj0-nf-aWT"/>
+                                <segue destination="XcD-QN-USc" kind="custom" customClass="FCSCustomSegue" id="Hj0-nf-aWT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2102,7 +2102,7 @@
                         <barButtonItem key="backBarButtonItem" title="News" id="cES-0A-R0O"/>
                         <barButtonItem key="leftBarButtonItem" title="Account" id="PvD-mx-wfm">
                             <connections>
-                                <segue destination="tgA-4s-OJ7" kind="push" id="ul6-7D-WAj"/>
+                                <segue destination="tgA-4s-OJ7" kind="custom" customClass="FCSCustomSegue" id="ul6-7D-WAj"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Restaurants" id="Md3-ke-lGZ">
@@ -2135,7 +2135,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="506" y="1194"/>
+            <point key="canvasLocation" x="472" y="1223"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Lo-NR-d9D">
@@ -2186,7 +2186,7 @@
         <image name="kid-icon.png" width="16" height="14"/>
         <image name="pip.png" width="8" height="9"/>
         <image name="share_action-brown.png" width="48" height="37"/>
-        <image name="share_action.png" width="80" height="62"/>
+        <image name="share_action.png" width="48" height="37"/>
         <image name="swipe-arrow.png" width="35" height="10"/>
         <image name="tag-blue.png" width="25" height="29"/>
         <image name="twitter.png" width="39" height="40"/>
@@ -2440,9 +2440,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Gah-Xx-Dks"/>
         <segue reference="soI-Pv-6ih"/>
         <segue reference="Hj0-nf-aWT"/>
-        <segue reference="Imp-07-Dox"/>
+        <segue reference="ul6-7D-WAj"/>
+        <segue reference="GkS-aB-WLb"/>
     </inferredMetricsTieBreakers>
 </document>
