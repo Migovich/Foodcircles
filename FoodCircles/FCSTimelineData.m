@@ -32,6 +32,7 @@
         data.offerName = [[row objectForKey:@"offer"] objectForKey:@"title"];
         data.code = @"";
         
+        data.minumumDiners = [[[row objectForKey:@"offer"] objectForKey:@"minimum_diners"] integerValue];
         int qty = [[[row objectForKey:@"offer"] objectForKey:@"minimum_diners"] integerValue];
         qty = qty/2;
         
@@ -51,6 +52,7 @@
         
         data.date = date;
         data.restaurantName = [[[[[row objectForKey:@"offer"] objectAtIndex:0] objectForKey:@"venue"] objectAtIndex:0] objectForKey:@"name"];
+        data.minumumDiners = [[[[row objectForKey:@"offer"] objectAtIndex:0] objectForKey:@"minimum_diners"] integerValue];
         data.offerName = [[[row objectForKey:@"offer"] objectAtIndex:0] objectForKey:@"name"];
         data.code = [row objectForKey:@"code"];
         

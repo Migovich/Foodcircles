@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSDate *date;
 @property (strong, nonatomic) NSString *code;
 @property (assign, nonatomic) int qtyFed;
+@property (assign, nonatomic) NSInteger minumumDiners;
 @property (strong, nonatomic) NSString *restaurantName;
 @property (strong, nonatomic) NSString *offerName;
 

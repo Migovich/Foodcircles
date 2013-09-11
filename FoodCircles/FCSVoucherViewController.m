@@ -53,7 +53,8 @@
         [self.spinner startAnimating];
     }
     
-    self.hud = [[MBProgressHUD alloc] initWithView:self.view];
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:NO];
+    [self.hud hide:NO];
     self.hud.mode = MBProgressHUDModeIndeterminate;
     
     self.restaurantNameLabel.text = self.restaurantName;
@@ -88,6 +89,7 @@
 }
 
 - (void)updateViewWithVoucherContent {
+    NSLog(@"Voucher Content %@", self.voucherContent);
     self.voucherNumberLabel.text = [self.voucherContent objectForKey:@"code"];
     
     int amount = [[self.voucherContent objectForKey:@"amount"] integerValue];
@@ -116,7 +118,16 @@
     date = [date dateByAddingTimeInterval:60*60*24*30];
     [formatter setDateFormat:@"MM/dd/yy"];
     
-    [self.minGroupDateLabel setText:[NSString stringWithFormat:@"(min. group %d, use by %@)",amount*2,[formatter stringFromDate:date]]];
+    NSString *minimumDiners = self.voucherContent[@"num_diners"];
+    NSString *minimumText = nil;
+    if ([minimumDiners intValue] > 2) {
+        minimumText = [NSString stringWithFormat:@"(min. group %@, use by %@)",minimumDiners,[formatter stringFromDate:date]];
+    }
+    else {
+        minimumText = [NSString stringWithFormat:@"(Use by %@)", [formatter stringFromDate:date]];
+    }
+    
+    [self.minGroupDateLabel setText:minimumText];
     
     [self.yourCodeLabel setTextColor:[FCSStyles brownColor]];
     [self.minGroupDateLabel setTextColor:[FCSStyles brownColor]];
@@ -168,7 +179,7 @@
     [self.hud show:YES];
     [[FCSServerHelper sharedHelper] useVoucher:self.voucherContent withCompletion:^(NSString *error) {
         if (error) {
-            self.hud.labelText = NSLocalizedString(@"Could not mark voucher as used!", nil);
+            self.hud.labelText = NSLocalizedString(@"Error!", nil);
             self.hud.detailsLabelText = error;
             [self.hud hide:YES afterDelay:3];
         }

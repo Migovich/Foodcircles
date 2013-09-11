@@ -213,6 +213,7 @@
                        [NSString stringWithFormat:@"%@",timelineData.date],@"created_at",
                        timelineData.restaurantName,@"restaurantName",
                        timelineData.offerName,@"offerName",
+                       [NSString stringWithFormat:@"%d",timelineData.minumumDiners],@"num_diners",
                        nil];
     
     [self performSegueWithIdentifier:@"VoucherDetailSegue" sender:self];

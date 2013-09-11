@@ -55,7 +55,7 @@
                                                 NSFontAttributeName: font
                                              }];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    [paragraphStyle setLineSpacing:1];
+    [paragraphStyle setLineSpacing:0];
     [paragraphStyle setAlignment:NSTextAlignmentCenter];
     [detailText addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, detailText.length)];
     self.specialDetailsTextView.attributedText = detailText;
@@ -101,7 +101,7 @@
 
 - (void)updateViewConstraints {
     [super updateViewConstraints];
-    CGFloat textHeight = [self.specialDetailsTextView.text sizeWithFont:self.specialDetailsTextView.font constrainedToSize:CGSizeMake(280, MAXFLOAT)].height;
+    CGFloat textHeight = [self.specialDetailsTextView.text sizeWithFont:self.specialDetailsTextView.font constrainedToSize:CGSizeMake(260, MAXFLOAT)].height;
     NSUInteger spacing = 10;
     self.detailTextViewHeightConstraint.constant = textHeight + spacing;
 }

@@ -41,7 +41,7 @@
 //Use voucher
 - (void)useVoucher: (NSDictionary*)voucherContent withCompletion:(void(^)(NSString *error))completion {
     NSDictionary *params = @{
-                             @"auth_token": UIAppDelegate.user_token,
+                             //@"auth_token": UIAppDelegate.user_token,
                              @"code": voucherContent[@"code"]
                              };
     [self getPath:DELETE_VOUCHER_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {

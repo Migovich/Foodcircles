@@ -38,8 +38,14 @@ NSString *kVenueId = @"venueListViewID";
     
     FCSCharity *charities = [[FCSCharity alloc] init];
     [charities getCharities];
-    
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:VENUES_URL,UIAppDelegate.locationManager.location.coordinate.latitude,UIAppDelegate.locationManager.location.coordinate.longitude]];
+#ifdef DEBUG
+    double latitude = 42.963316;
+    double longitude = -85.669563;
+#else
+    double latitude = UIAppDelegate.locationManager.location.coordinate.latitude;
+    double longitude = UIAppDelegate.locationManager.location.coordinate.longitude;
+#endif
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:VENUES_URL,latitude,longitude]];
     
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
@@ -55,19 +61,24 @@ NSString *kVenueId = @"venueListViewID";
         UIAppDelegate.venues = [UIAppDelegate.venues sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
             NSDictionary *d1 = obj1;
             NSDictionary *d2 = obj2;
-            
-            NSString *dString1 = [d1 objectForKey:@"distance"];
-            dString1 = [dString1 substringWithRange:NSMakeRange(0, [dString1 length]-6)];
-            double dDouble1 = [dString1 doubleValue];
-            
-            NSString *dString2 = [d2 objectForKey:@"distance"];
-            dString2 = [dString2 substringWithRange:NSMakeRange(0, [dString2 length]-6)];
-            double dDouble2 = [dString2 doubleValue];
-            
-            if (dDouble1 > dDouble2) {
-                return (NSComparisonResult)NSOrderedDescending;
-            } else if (dDouble1 < dDouble2) {
-                return (NSComparisonResult)NSOrderedAscending;
+            //TODO: This crashes if mi is used a unit... Added exception handling for now..
+            @try {
+                NSString *dString1 = [d1 objectForKey:@"distance"];
+                //dString1 = [dString1 substringWithRange:NSMakeRange(0, [dString1 length]-6)];
+                double dDouble1 = [dString1 doubleValue];
+                
+                NSString *dString2 = [d2 objectForKey:@"distance"];
+                //dString2 = [dString2 substringWithRange:NSMakeRange(0, [dString2 length]-6)];
+                double dDouble2 = [dString2 doubleValue];
+                
+                if (dDouble1 > dDouble2) {
+                    return (NSComparisonResult)NSOrderedDescending;
+                } else if (dDouble1 < dDouble2) {
+                    return (NSComparisonResult)NSOrderedAscending;
+                }
+            }
+            @catch (NSException *e) {
+                
             }
             
             return (NSComparisonResult)NSOrderedSame;
