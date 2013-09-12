@@ -58,7 +58,6 @@ NSString *kVenueId = @"venueListViewID";
     }
 }
 
-
 #pragma mark -
 #pragma mark UICollectionViewDataSoure
 
