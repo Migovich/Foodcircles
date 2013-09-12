@@ -16,4 +16,5 @@
     MBProgressHUD *HUD;
 }
 
+- (void)reloadOffers;
 @end

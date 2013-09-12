@@ -17,7 +17,7 @@
 #import "OWActivityViewController.h"
 #import "MBProgressHUD.h"
 
-@interface FCSVoucherViewController () <UIActionSheetDelegate>
+@interface FCSVoucherViewController () <UIActionSheetDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet FCSHeaderLabel *offerNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *voucherNumberLabel;
@@ -30,6 +30,8 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *accountButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (nonatomic) MBProgressHUD *hud;
+
+- (void)updateViewWithVoucherContent;
 @end
 
 @implementation FCSVoucherViewController
@@ -81,7 +83,9 @@
             else {
                 [self.spinner stopAnimating];
                 self.voucherContent = voucherContent;
-                [self updateViewWithVoucherContent];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self updateViewWithVoucherContent];
+                });
             }
             
         }];
@@ -118,7 +122,11 @@
     date = [date dateByAddingTimeInterval:60*60*24*30];
     [formatter setDateFormat:@"MM/dd/yy"];
     
+    //Use server's value if available, else use local value.
     NSString *minimumDiners = self.voucherContent[@"num_diners"];
+    if (!minimumDiners || [minimumDiners isEqual:[NSNull null]]) {
+        minimumDiners = [NSString stringWithFormat:@"%d", self.numberOfDiners];
+    }
     NSString *minimumText = nil;
     if ([minimumDiners intValue] > 2) {
         minimumText = [NSString stringWithFormat:@"(min. group %@, use by %@)",minimumDiners,[formatter stringFromDate:date]];
@@ -176,23 +184,8 @@
 }
 
 - (IBAction)markAsUsedPressed:(id)sender {
-    [self.hud show:YES];
-    [[FCSServerHelper sharedHelper] useVoucher:self.voucherContent withCompletion:^(NSString *error) {
-        if (error) {
-            self.hud.labelText = NSLocalizedString(@"Error!", nil);
-            self.hud.detailsLabelText = error;
-            [self.hud hide:YES afterDelay:3];
-        }
-        else {
-            [self.hud hide:YES];
-            if (self.viewType == VoucherViewTypePayment) {
-                [self accountButtonClicked:nil];
-            }
-            else if (self.viewType == VoucherViewTypeTimeline) {
-                [self.navigationController popViewControllerAnimated:YES];
-            }
-        }
-    }];
+    
+    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Are you sure?", nil) message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"Yes", nil), nil] show];
 }
 
 
@@ -220,5 +213,28 @@
 }
  */
 
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != alertView.cancelButtonIndex) {
+        [self.hud show:YES];
+        [[FCSServerHelper sharedHelper] useVoucher:self.voucherContent withCompletion:^(NSString *error) {
+            if (error) {
+                self.hud.labelText = NSLocalizedString(@"Error!", nil);
+                self.hud.detailsLabelText = error;
+                [self.hud hide:YES afterDelay:3];
+            }
+            else {
+                [self.hud hide:YES];
+                if (self.viewType == VoucherViewTypePayment) {
+                    [self accountButtonClicked:nil];
+                }
+                else if (self.viewType == VoucherViewTypeTimeline) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+            }
+        }];
+    }
+}
 
 @end

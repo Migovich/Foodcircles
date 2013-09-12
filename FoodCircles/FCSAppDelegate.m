@@ -11,6 +11,8 @@
 #import "TestFlight.h"
 #import <FacebookSDK/FacebookSDK.h>
 
+#import "FCSVenueListViewController.h"
+
 #define kLastNotificationDateKey @"kLastNotificationDate"
 
 @implementation FCSAppDelegate
@@ -157,6 +159,15 @@
     localNotification.fireDate = date;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    for (UIViewController *viewcontroller in [((UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController) viewControllers]) {
+        if (viewcontroller.view.window && [viewcontroller isKindOfClass:[FCSVenueListViewController class]]) {
+            [(FCSVenueListViewController*)viewcontroller reloadOffers];
+            break;
+        }
+    }
 }
 
 @end

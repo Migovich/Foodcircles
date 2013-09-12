@@ -45,6 +45,7 @@
                              @"code": voucherContent[@"code"]
                              };
     [self getPath:DELETE_VOUCHER_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        TFLog(@"Mark voucher as used: %@", responseObject);
         if (completion) completion(nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (completion) completion(error.localizedDescription);

@@ -32,79 +32,7 @@ NSString *kVenueId = @"venueListViewID";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-    [HUD show:YES];
-    
-    FCSCharity *charities = [[FCSCharity alloc] init];
-    [charities getCharities];
-#ifdef DEBUG
-    double latitude = 42.963316;
-    double longitude = -85.669563;
-#else
-    double latitude = UIAppDelegate.locationManager.location.coordinate.latitude;
-    double longitude = UIAppDelegate.locationManager.location.coordinate.longitude;
-#endif
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:VENUES_URL,latitude,longitude]];
-    
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-    [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
-    
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"" parameters:nil];
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        [HUD hide:YES];
-        
-        NSLog(@"%@",[JSON JSONString]);
-        
-        UIAppDelegate.venues = [JSON objectForKey:@"content"];
-        UIAppDelegate.venues = [UIAppDelegate.venues sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            NSDictionary *d1 = obj1;
-            NSDictionary *d2 = obj2;
-            //TODO: This crashes if mi is used a unit... Added exception handling for now..
-            @try {
-                NSString *dString1 = [d1 objectForKey:@"distance"];
-                //dString1 = [dString1 substringWithRange:NSMakeRange(0, [dString1 length]-6)];
-                double dDouble1 = [dString1 doubleValue];
-                
-                NSString *dString2 = [d2 objectForKey:@"distance"];
-                //dString2 = [dString2 substringWithRange:NSMakeRange(0, [dString2 length]-6)];
-                double dDouble2 = [dString2 doubleValue];
-                
-                if (dDouble1 > dDouble2) {
-                    return (NSComparisonResult)NSOrderedDescending;
-                } else if (dDouble1 < dDouble2) {
-                    return (NSComparisonResult)NSOrderedAscending;
-                }
-            }
-            @catch (NSException *e) {
-                
-            }
-            
-            return (NSComparisonResult)NSOrderedSame;
-            
-        }];
-        
-        if ([UIAppDelegate.venues count] == 0) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Venues"
-                                                            message:@"No venues to show."
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-        } else {
-            [self.collectionView reloadData];
-        }
-        
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [HUD hide:YES];
-        
-#warning message if venues dont load
-        NSLog(@"Error: %@", error);
-        
-    }];
-    
-    [operation start];
+    self.title = @"Restaurants";
     
     self.collectionView.backgroundColor = [FCSStyles backgroundColor];
     
@@ -112,7 +40,8 @@ NSString *kVenueId = @"venueListViewID";
     flow.sectionInset = UIEdgeInsetsMake(10, 5, 0, 5);
     flow.minimumInteritemSpacing = 1;
     
-    self.title = @"Restaurants";
+    [self reloadOffers];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -186,6 +115,82 @@ NSString *kVenueId = @"venueListViewID";
     [UIAppDelegate.locationManager startMonitoringForRegion:region];
     
     return venueCell;
+}
+
+- (void)reloadOffers {
+    
+    if (HUD == nil) {
+        HUD = [[MBProgressHUD alloc] initWithView:self.view];
+        [self.view addSubview:HUD];
+    }
+    [HUD show:YES];
+    
+    FCSCharity *charities = [[FCSCharity alloc] init];
+    [charities getCharities];
+#ifdef DEBUG
+    double latitude = 42.963316;
+    double longitude = -85.669563;
+#else
+    double latitude = UIAppDelegate.locationManager.location.coordinate.latitude;
+    double longitude = UIAppDelegate.locationManager.location.coordinate.longitude;
+#endif
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:VENUES_URL,latitude,longitude]];
+    
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
+    
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"" parameters:nil];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        [HUD hide:YES];
+        
+        NSLog(@"%@",[JSON JSONString]);
+        
+        UIAppDelegate.venues = [JSON objectForKey:@"content"];
+        UIAppDelegate.venues = [UIAppDelegate.venues sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            NSDictionary *d1 = obj1;
+            NSDictionary *d2 = obj2;
+            //TODO: This crashes if mi is used a unit... Added exception handling for now..
+            @try {
+                NSString *dString1 = [d1 objectForKey:@"distance"];
+                //dString1 = [dString1 substringWithRange:NSMakeRange(0, [dString1 length]-6)];
+                double dDouble1 = [dString1 doubleValue];
+                
+                NSString *dString2 = [d2 objectForKey:@"distance"];
+                //dString2 = [dString2 substringWithRange:NSMakeRange(0, [dString2 length]-6)];
+                double dDouble2 = [dString2 doubleValue];
+                
+                if (dDouble1 > dDouble2) {
+                    return (NSComparisonResult)NSOrderedDescending;
+                } else if (dDouble1 < dDouble2) {
+                    return (NSComparisonResult)NSOrderedAscending;
+                }
+            }
+            @catch (NSException *e) {
+                
+            }
+            
+            return (NSComparisonResult)NSOrderedSame;
+            
+        }];
+        
+        if ([UIAppDelegate.venues count] == 0) {
+            HUD.labelText = NSLocalizedString(@"No Venues found.", nil);
+            HUD.mode = MBProgressHUDModeText;
+            [HUD hide:YES afterDelay:3];
+        } else {
+            [self.collectionView reloadData];
+        }
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [HUD hide:YES];
+        
+#warning message if venues dont load
+        NSLog(@"Error: %@", error);
+        
+    }];
+    
+    [operation start];
 }
 
 @end

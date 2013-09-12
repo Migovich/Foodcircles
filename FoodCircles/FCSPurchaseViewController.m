@@ -74,6 +74,8 @@
         FCSVoucherViewController *destinationViewController = (FCSVoucherViewController *)segue.destinationViewController;
         destinationViewController.viewType = VoucherViewTypePayment;
         destinationViewController.selectedOffer = _selectedOffer;
+        NSDictionary *offer = [[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer];
+        destinationViewController.numberOfDiners = [[offer objectForKey:@"minimum_diners"] integerValue];
         destinationViewController.selectedVenueIndex = _selectedVenueIndex;
         destinationViewController.completedPayment = self.completedPayment;
      }

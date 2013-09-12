@@ -22,6 +22,7 @@
 @property (assign, nonatomic) NSInteger minumumDiners;
 @property (strong, nonatomic) NSString *restaurantName;
 @property (strong, nonatomic) NSString *offerName;
+@property (strong, nonatomic) NSString *state;
 
 
 -(NSArray *)processJSON:(id)JSON;

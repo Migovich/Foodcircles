@@ -55,6 +55,7 @@
         data.minumumDiners = [[[[row objectForKey:@"offer"] objectAtIndex:0] objectForKey:@"minimum_diners"] integerValue];
         data.offerName = [[[row objectForKey:@"offer"] objectAtIndex:0] objectForKey:@"name"];
         data.code = [row objectForKey:@"code"];
+        data.state = [row objectForKey:@"state"];
         
         int qty = [[row objectForKey:@"amount"] integerValue];
         data.qtyFed = qty;

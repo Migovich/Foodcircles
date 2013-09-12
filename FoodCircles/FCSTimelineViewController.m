@@ -17,6 +17,7 @@
 #import "FCSTimelineData.h"
 #import "FCSAppDelegate.h"
 #import "FCSShareProviders.h"
+#import "OWActivityViewController.h"
 #import "FCSVoucherViewController.h"
 
 #import "FCSDrawUtilities.h"
@@ -182,7 +183,8 @@
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
-    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    //Old logic
+    /*NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *comps = [cal components:NSDayCalendarUnit fromDate:timelineData.date toDate:[NSDate date] options:0];
     int numberOfDays = [comps day];
     
@@ -190,6 +192,15 @@
         [cell.voucherDetailButton addTarget:self action:@selector(acessoryButtonTapped:withEvent:) forControlEvents:UIControlEventTouchUpInside];
         [cell.voucherDetailButton setHidden:NO];
     } else {
+        [cell.voucherDetailButton setHidden:YES];
+     }
+     */
+    //if null or not used.
+    if ((!timelineData.state || [timelineData.state isEqual:[NSNull null]]) || ![timelineData.state isEqualToString:@"Used"]) {
+        [cell.voucherDetailButton addTarget:self action:@selector(acessoryButtonTapped:withEvent:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.voucherDetailButton setHidden:NO];
+    }
+    else {
         [cell.voucherDetailButton setHidden:YES];
     }
     
@@ -230,14 +241,14 @@
 
 - (IBAction)inviteButtonTapped:(id)sender {
     FCSShareProviders *shareProviders = [[FCSShareProviders alloc] init];
-    shareProviders.type = 3;
-    NSURL *shareUrl = [NSURL URLWithString:@"http://joinfoodcircles.org/"];
+    shareProviders.type = 1;
     
-    NSArray *itemsToShare = @[shareProviders,shareUrl];
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
-    activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToWeibo];
-    
-    [self presentViewController:activityVC animated:YES completion:nil];
+    OWFacebookActivity *facebookActivity = [[OWFacebookActivity alloc] init];
+    facebookActivity.userInfo = @{ @"text": [shareProviders shareStringForActivityTime:UIActivityTypePostToFacebook]};
+    OWTwitterActivity *twitterActivity = [[OWTwitterActivity alloc] init];
+    twitterActivity.userInfo = @{ @"text": [shareProviders shareStringForActivityTime:UIActivityTypePostToTwitter]};
+    OWActivityViewController *activityViewController = [[OWActivityViewController alloc] initWithViewController:self activities:@[facebookActivity, twitterActivity]];
+    [activityViewController presentFromRootViewController];
 }
 
 @end
