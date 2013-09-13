@@ -46,7 +46,7 @@
     self.receiptView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
     
     if (self.viewType == VoucherViewTypePayment) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Account", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(accountButtonClicked:)];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Timeline", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(accountButtonClicked:)];
         self.offerName = [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"title"];
         self.restaurantName = [[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"name"];
         self.voucherNumberLabel.text = @"";

@@ -98,6 +98,8 @@
 		63E367F2174AC82C00DA3852 /* Kids-crowd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63E367F1174AC82C00DA3852 /* Kids-crowd.jpg */; };
 		63F89782174065FF00FB8391 /* FCSLandingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F89781174065FF00FB8391 /* FCSLandingPageViewController.m */; };
 		AF06E69117E1197000BA1A65 /* FCSCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = AF06E69017E1197000BA1A65 /* FCSCustomSegue.m */; };
+		AF0FF94717E3864D0061A5A3 /* FCSFromBottomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FF94617E3864D0061A5A3 /* FCSFromBottomSegue.m */; };
+		AF0FF94A17E387E90061A5A3 /* FCSFromTopSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FF94917E387E90061A5A3 /* FCSFromTopSegue.m */; };
 		AF50398D17CFE55100F4654F /* FCSShareProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = AF50398C17CFE55100F4654F /* FCSShareProviders.m */; };
 		AF50398F17CFF0F700F4654F /* invite-friends_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF50398E17CFF0F700F4654F /* invite-friends_icon@2x.png */; };
 		AF50399117CFF0FE00F4654F /* invite-friends_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AF50399017CFF0FE00F4654F /* invite-friends_icon.png */; };
@@ -439,6 +441,10 @@
 		63F89781174065FF00FB8391 /* FCSLandingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSLandingPageViewController.m; sourceTree = "<group>"; };
 		AF06E68F17E1197000BA1A65 /* FCSCustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSCustomSegue.h; sourceTree = "<group>"; };
 		AF06E69017E1197000BA1A65 /* FCSCustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSCustomSegue.m; sourceTree = "<group>"; };
+		AF0FF94517E3864D0061A5A3 /* FCSFromBottomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSFromBottomSegue.h; sourceTree = "<group>"; };
+		AF0FF94617E3864D0061A5A3 /* FCSFromBottomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSFromBottomSegue.m; sourceTree = "<group>"; };
+		AF0FF94817E387E90061A5A3 /* FCSFromTopSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSFromTopSegue.h; sourceTree = "<group>"; };
+		AF0FF94917E387E90061A5A3 /* FCSFromTopSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSFromTopSegue.m; sourceTree = "<group>"; };
 		AF50398B17CFE55100F4654F /* FCSShareProviders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSShareProviders.h; sourceTree = "<group>"; };
 		AF50398C17CFE55100F4654F /* FCSShareProviders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSShareProviders.m; sourceTree = "<group>"; };
 		AF50398E17CFF0F700F4654F /* invite-friends_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "invite-friends_icon@2x.png"; sourceTree = "<group>"; };
@@ -1379,6 +1385,10 @@
 				D58DEDB717D9B835004BC430 /* FCSDrawUtilities.m */,
 				AF06E68F17E1197000BA1A65 /* FCSCustomSegue.h */,
 				AF06E69017E1197000BA1A65 /* FCSCustomSegue.m */,
+				AF0FF94517E3864D0061A5A3 /* FCSFromBottomSegue.h */,
+				AF0FF94617E3864D0061A5A3 /* FCSFromBottomSegue.m */,
+				AF0FF94817E387E90061A5A3 /* FCSFromTopSegue.h */,
+				AF0FF94917E387E90061A5A3 /* FCSFromTopSegue.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1899,6 +1909,8 @@
 				D56E797017DE297700EEFADD /* FCSMultilineCell.m in Sources */,
 				D56E79AF17DE2F2B00EEFADD /* SSKeychain.m in Sources */,
 				AF06E69117E1197000BA1A65 /* FCSCustomSegue.m in Sources */,
+				AF0FF94717E3864D0061A5A3 /* FCSFromBottomSegue.m in Sources */,
+				AF0FF94A17E387E90061A5A3 /* FCSFromTopSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2069,7 +2081,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_ENTITLEMENTS = FoodCircles/FoodCircles.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/FoodCircles\"",

@@ -1268,7 +1268,7 @@
             <objects>
                 <tableViewController id="iud-yo-L35" customClass="FCSAccountSettingsChildViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="1fR-fg-hsG">
-                        <rect key="frame" x="0.0" y="20" width="320" height="251"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="251"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                         <sections>
@@ -1637,7 +1637,7 @@
                         <outlet property="offerButton" destination="dfg-w3-AO0" id="Ayh-9Q-dya"/>
                         <outlet property="priceLabel" destination="pXP-mI-rdC" id="9lX-OX-ww8"/>
                         <outlet property="priceSlider" destination="fZw-y3-Ogp" id="D9I-VG-ewC"/>
-                        <segue destination="IuN-at-r6q" kind="push" identifier="VoucherSegue" id="Imp-07-Dox"/>
+                        <segue destination="IuN-at-r6q" kind="custom" identifier="VoucherSegue" customClass="FCSFromBottomSegue" id="Imp-07-Dox"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZyN-MQ-aim" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1835,13 +1835,13 @@
                         <outlet property="spinner" destination="fM1-QQ-PAj" id="kSq-93-1SC"/>
                         <outlet property="voucherNumberLabel" destination="myE-Y5-UYy" id="x6W-da-Wi4"/>
                         <outlet property="yourCodeLabel" destination="E8L-rD-B81" id="sae-QK-fak"/>
-                        <segue destination="tgA-4s-OJ7" kind="push" identifier="TimelineSegue" id="IhY-7W-IJZ"/>
+                        <segue destination="tgA-4s-OJ7" kind="custom" identifier="TimelineSegue" customClass="FCSFromTopSegue" id="IhY-7W-IJZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZs-eA-xbn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="wra-Su-1qQ"/>
             </objects>
-            <point key="canvasLocation" x="2473" y="515"/>
+            <point key="canvasLocation" x="2597" y="471"/>
         </scene>
         <!--Sign In View Controller - Sign In-->
         <scene sceneID="EUy-RB-Pci">
@@ -2442,7 +2442,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="soI-Pv-6ih"/>
         <segue reference="Hj0-nf-aWT"/>
-        <segue reference="ul6-7D-WAj"/>
-        <segue reference="GkS-aB-WLb"/>
+        <segue reference="IhY-7W-IJZ"/>
+        <segue reference="Imp-07-Dox"/>
     </inferredMetricsTieBreakers>
 </document>
