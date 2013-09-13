@@ -27,7 +27,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
+    
     self.restaurantName.text = [[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"name"];
     self.restaurantDescription.text = [[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"description"];
 
@@ -55,12 +55,15 @@
 }
 
 - (IBAction)followFacebook:(id)sender {
+    [self openSocialUrlForKey:@"facebook"];
 }
 
 - (IBAction)followTwitter:(id)sender {
+    [self openSocialUrlForKey:@"twitter"];
 }
 
 - (IBAction)followYelp:(id)sender {
+    [self openSocialUrlForKey:@"yelp"];
 }
 
 - (IBAction)visitWebsite:(id)sender {
@@ -72,6 +75,29 @@
     NSString *URLString = [@"tel://" stringByAppendingString:[[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"phone"]];
     NSURL *URL = [NSURL URLWithString:URLString];
     [[UIApplication sharedApplication] openURL:URL];
+}
+
+#pragma mark - Helpers
+
+- (void)openSocialUrlForKey: (NSString*)key {
+    NSDictionary *venue = [UIAppDelegate.venues objectAtIndex:selectedVenueIndex];
+    NSArray *socialLinks = venue[@"social_links"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"source == %@", key];
+    NSArray *link = [socialLinks filteredArrayUsingPredicate:predicate];
+    NSString *urlSring = nil;
+    if (link.count) {
+        urlSring = link[0][@"url"];
+    }
+    else {
+        //Fail silently
+    }
+    
+    if (urlSring) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlSring]];
+    }
+    else {
+        //Fail silently
+    }
 }
 
 @end
