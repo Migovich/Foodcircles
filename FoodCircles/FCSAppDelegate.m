@@ -12,6 +12,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 
 #import "FCSVenueListViewController.h"
+#import "FCSSignUpViewController.h"
 
 #define kLastNotificationDateKey @"kLastNotificationDate"
 
@@ -115,6 +116,7 @@
         
         if ([strings count] > 1) {
             notification.alertBody = [NSString stringWithFormat:@"You're near %@! \rGrab %@ for a buck!",[strings objectAtIndex:0],[strings objectAtIndex:1]];
+            notification.userInfo = @{@"type": @"location"};
             notification.alertAction = @"View details";
             notification.soundName = UILocalNotificationDefaultSoundName;
             notification.applicationIconBadgeNumber = 1;
@@ -159,6 +161,26 @@
     localNotification.fireDate = date;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    /*if ([notification.userInfo[@"type"] isEqualToString:@"location"]) {
+        UINavigationController *navController = ((UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController);
+        BOOL found = NO;
+        for (UIViewController *viewcontroller in navController.viewControllers) {
+            if ([viewcontroller isKindOfClass:[FCSVenueListViewController class]]) {
+                found = YES;
+                break;
+            }
+        }
+        
+        if (found) {
+            [navController popToRootViewControllerAnimated:NO];
+            FCSSignUpViewController *signUpViewController = navController.viewControllers[0];
+            [signUpViewController goToRestuarantList];
+        }
+    }
+     */
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {

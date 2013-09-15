@@ -64,6 +64,7 @@
         if(errorMessage == nil)
         {
             errorMessage = @"Can't connect to server.";
+            errorMessage = error.localizedDescription;
         }
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign In Error"

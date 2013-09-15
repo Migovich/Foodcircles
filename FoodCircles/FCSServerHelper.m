@@ -97,11 +97,15 @@
     
     [self getPath:NEWS_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
+        TFLog(@"news image %@", responseObject);
+        
         NSMutableArray *images = [[NSMutableArray alloc] init];
         
         NSArray *news = [[responseObject objectForKey:@"content"] objectForKey:@"news"];
         for (NSDictionary *newsObject in news) {
             FCSNewsImage *newsImage = [FCSNewsImage newsImageWithImage:newsObject[@"mobile_image_url"] url:newsObject[@"mobile_url"]];
+            NSLog(@"News Image %@\n %@", newsImage.imageUrl, newsImage.url);
+            
             //Test images
             /*if (arc4random() % 4 == 0)
                 newsImage.imageUrl = @"http://blog.gettyimages.com/wp-content/uploads/2013/01/Siberian-Tiger-Running-Through-Snow-Tom-Brakefield-Getty-Images-200353826-001.jpg";

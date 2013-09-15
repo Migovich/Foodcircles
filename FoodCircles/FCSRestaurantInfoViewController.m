@@ -13,6 +13,12 @@
 #import "constants.h"
 
 @interface FCSRestaurantInfoViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *facebookButton;
+@property (weak, nonatomic) IBOutlet UIButton *twitterButton;
+@property (weak, nonatomic) IBOutlet UIButton *yelpButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *facebookXConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *yelpXConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *twitterXConstraint;
 
 @end
 
@@ -28,13 +34,31 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.restaurantName.text = [[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"name"];
-    self.restaurantDescription.text = [[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"description"];
+    NSDictionary *venue = [UIAppDelegate.venues objectAtIndex:selectedVenueIndex];
+    self.restaurantName.text = [venue objectForKey:@"name"];
+    self.restaurantDescription.text = [venue objectForKey:@"description"];
+    self.restaurantAmenities.text = venue[@"tags"][0][@"name"];
 
     [imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,[[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"outside_image"]]] placeholderImage:[UIImage imageNamed:@"transparent_box.png"]];
 
     FCSVenueAnnotation *venueAnn = [[FCSVenueAnnotation alloc] initWithVenueIndex:selectedVenueIndex];
     [mapView addAnnotation:venueAnn];
+    
+
+    
+//    if (!facebook && twitter && yelp) {
+//        
+//    }
+//    else if (facebook && !twitter && yelp) {
+//        
+//    }
+//    else if (facebook && twitter && !yelp) {
+//        
+//    }
+//    else if () {
+//        
+//    }
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -80,23 +104,56 @@
 #pragma mark - Helpers
 
 - (void)openSocialUrlForKey: (NSString*)key {
+    NSString *urlString = [self socialUrlForKey:key];
+    
+    if (urlString) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+    }
+    else {
+        //Fail silently
+    }
+}
+- (NSString*)socialUrlForKey: (NSString*)key {
     NSDictionary *venue = [UIAppDelegate.venues objectAtIndex:selectedVenueIndex];
     NSArray *socialLinks = venue[@"social_links"];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"source == %@", key];
     NSArray *link = [socialLinks filteredArrayUsingPredicate:predicate];
-    NSString *urlSring = nil;
     if (link.count) {
-        urlSring = link[0][@"url"];
+        return link[0][@"url"];
     }
     else {
         //Fail silently
+        return nil;
     }
+}
+
+- (void)updateViewConstraints {
+    [super updateViewConstraints];
     
-    if (urlSring) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlSring]];
+    BOOL facebook = [self socialUrlForKey:@"facebook"] ? YES:NO;
+    BOOL twitter = [self socialUrlForKey:@"twitter"] ? YES:NO;
+    BOOL yelp = [self socialUrlForKey:@"yelp"] ? YES:NO;
+    
+    NSMutableArray *buttons = [NSMutableArray array];
+    if (facebook) [buttons addObject:self.facebookXConstraint];
+    else self.facebookButton.hidden = YES;
+    if (twitter) [buttons addObject:self.twitterXConstraint];
+    else self.twitterButton.hidden = YES;
+    if (yelp) [buttons addObject:self.yelpXConstraint];
+    else self.yelpButton.hidden = YES;
+    
+    //Yup, this code is bad....
+    NSUInteger x = 139;
+    NSUInteger y = 71;
+    NSUInteger centerX = 193;
+    NSUInteger xcounter = x;
+    for (NSLayoutConstraint *constraint in buttons) {
+        constraint.constant = xcounter;
+        xcounter += 15 + 39;
     }
-    else {
-        //Fail silently
+    if (buttons.count == 1) {
+        NSLayoutConstraint *constraint = buttons[0];
+        constraint.constant = centerX;
     }
 }
 

@@ -6,6 +6,7 @@
 #import "JSONKit.h"
 #import "constants.h"
 #import "FCSVoucherViewController.h"
+#import "FCSStyles.h"
 
 #import "RNBlurModalView.h"
 #import "FPPopoverController.h"
@@ -18,6 +19,11 @@
 #endif
 
 @interface FCSPurchaseViewController () <FCSPickerTableViewControllerDelegate>
+
+
+@property (weak, nonatomic) IBOutlet UILabel *payWhatYouWantLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bringingFriendsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *donatedToLabel;
 
 @property (strong, atomic) NSNumberFormatter *usdFormatter;
 @property (strong, nonatomic) UIColor *selectedCharityColor;
@@ -61,6 +67,10 @@
     [_charityButton setTitle:title forState:UIControlStateNormal];
     
     [_priceSlider addTarget:self action:@selector(updatePrice:) forControlEvents:UIControlEventValueChanged];
+    
+    self.payWhatYouWantLabel.textColor = [FCSStyles brownColor];
+    self.bringingFriendsLabel.textColor = [FCSStyles brownColor];
+    self.donatedToLabel.textColor = [FCSStyles brownColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -101,7 +111,7 @@
     
     if (!payment.processable) {}
     
-    [PayPalPaymentViewController setEnvironment:PayPalEnvironmentNoNetwork];
+    [PayPalPaymentViewController setEnvironment:PayPalEnvironmentSandbox];
     
     NSString *aPayerId = UIAppDelegate.user_email;
     

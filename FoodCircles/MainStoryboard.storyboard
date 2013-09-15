@@ -467,8 +467,8 @@
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Gb-LK-JEj">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" type="user" id="7no-5Y-Ffv"/>
                                     <constraint firstAttribute="height" constant="44" id="9cn-2f-lCn"/>
+                                    <constraint firstAttribute="width" constant="39" id="sMW-fT-vLg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="facebook.png">
@@ -484,7 +484,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bni-nR-XxI">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="VC1-8g-9vT"/>
+                                    <constraint firstAttribute="width" constant="39" type="user" id="aYO-4W-Nta"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="twitter.png">
@@ -500,7 +500,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILl-B3-bhb">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" type="user" id="xWs-Ze-xAc"/>
+                                    <constraint firstAttribute="width" constant="39" type="user" id="8be-Oq-LKn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="yelp.png">
@@ -536,14 +536,14 @@
                         <constraints>
                             <constraint firstItem="5Qb-ZX-kBq" firstAttribute="baseline" secondItem="hnl-zh-HS8" secondAttribute="baseline" type="default" id="03b-Uh-SX1"/>
                             <constraint firstItem="cEE-Ex-qJG" firstAttribute="leading" secondItem="FhJ-d1-Jd1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="05V-o4-VtI"/>
+                            <constraint firstItem="3Gb-LK-JEj" firstAttribute="baseline" secondItem="ILl-B3-bhb" secondAttribute="baseline" type="user" id="08p-bo-KnG"/>
                             <constraint firstItem="SFA-5J-sId" firstAttribute="leading" secondItem="FhJ-d1-Jd1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="2Yg-Y2-hKw"/>
-                            <constraint firstAttribute="trailing" secondItem="ILl-B3-bhb" secondAttribute="trailing" constant="29" id="2za-bc-Xns"/>
                             <constraint firstItem="uDh-fb-qnj" firstAttribute="bottom" secondItem="FhJ-d1-Jd1" secondAttribute="bottom" type="default" id="3be-V0-3TM"/>
-                            <constraint firstAttribute="trailing" secondItem="bni-nR-XxI" secondAttribute="trailing" constant="83" id="5EK-dc-sFN"/>
                             <constraint firstItem="ILl-B3-bhb" firstAttribute="top" secondItem="YfF-gB-7ZK" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="9Ua-Ar-oxl"/>
                             <constraint firstItem="uDh-fb-qnj" firstAttribute="top" secondItem="Ji7-K9-LSm" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Dff-HP-N9r"/>
                             <constraint firstAttribute="trailing" secondItem="5Qb-ZX-kBq" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="E8z-A5-sOg"/>
                             <constraint firstItem="3Gb-LK-JEj" firstAttribute="top" secondItem="YfF-gB-7ZK" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="EPu-Od-GMG"/>
+                            <constraint firstItem="ILl-B3-bhb" firstAttribute="leading" secondItem="FhJ-d1-Jd1" secondAttribute="leading" constant="247" type="user" id="G6L-Bw-2KV"/>
                             <constraint firstItem="ILl-B3-bhb" firstAttribute="bottom" secondItem="bni-nR-XxI" secondAttribute="bottom" type="default" id="GUZ-a1-bf0"/>
                             <constraint firstItem="hnl-zh-HS8" firstAttribute="top" secondItem="FhJ-d1-Jd1" secondAttribute="top" constant="129" id="Gn3-uH-MYQ"/>
                             <constraint firstItem="uDh-fb-qnj" firstAttribute="leading" secondItem="FhJ-d1-Jd1" secondAttribute="leading" type="default" id="Hk2-aG-AJN"/>
@@ -553,17 +553,20 @@
                             <constraint firstItem="dh1-rY-5IW" firstAttribute="top" secondItem="FhJ-d1-Jd1" secondAttribute="top" constant="20" symbolic="YES" type="default" id="QUB-xQ-XH0"/>
                             <constraint firstItem="dh1-rY-5IW" firstAttribute="leading" secondItem="SFA-5J-sId" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="VTC-gk-05f"/>
                             <constraint firstItem="uDh-fb-qnj" firstAttribute="trailing" secondItem="FhJ-d1-Jd1" secondAttribute="trailing" type="default" id="acz-EH-LmR"/>
+                            <constraint firstItem="bni-nR-XxI" firstAttribute="leading" secondItem="FhJ-d1-Jd1" secondAttribute="leading" constant="193" type="user" id="anZ-6q-w8i"/>
                             <constraint firstItem="hnl-zh-HS8" firstAttribute="leading" secondItem="FhJ-d1-Jd1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="gw1-Ye-1rB"/>
                             <constraint firstItem="3Gb-LK-JEj" firstAttribute="bottom" secondItem="bni-nR-XxI" secondAttribute="bottom" type="default" id="i05-10-xzJ"/>
                             <constraint firstItem="Ji7-K9-LSm" firstAttribute="leading" secondItem="FhJ-d1-Jd1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jQ3-5x-NdA"/>
                             <constraint firstItem="YfF-gB-7ZK" firstAttribute="top" secondItem="FhJ-d1-Jd1" secondAttribute="top" constant="42" id="jo4-iR-Ddo"/>
                             <constraint firstItem="ILl-B3-bhb" firstAttribute="leading" secondItem="bni-nR-XxI" secondAttribute="trailing" priority="800" type="user" id="jtI-lk-Wr0"/>
+                            <constraint firstItem="3Gb-LK-JEj" firstAttribute="baseline" secondItem="bni-nR-XxI" secondAttribute="baseline" type="user" id="kck-08-Hjo"/>
+                            <constraint firstAttribute="trailing" secondItem="bni-nR-XxI" secondAttribute="trailing" constant="88" type="user" id="lar-wh-awC"/>
+                            <constraint firstItem="3Gb-LK-JEj" firstAttribute="leading" secondItem="FhJ-d1-Jd1" secondAttribute="leading" constant="139" type="user" id="o7I-C1-R6J"/>
                             <constraint firstItem="bni-nR-XxI" firstAttribute="leading" secondItem="3Gb-LK-JEj" secondAttribute="trailing" priority="800" constant="-1" type="user" id="pUa-kd-61H"/>
                             <constraint firstAttribute="trailing" secondItem="cEE-Ex-qJG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="psu-p2-HWb"/>
                             <constraint firstItem="bni-nR-XxI" firstAttribute="top" secondItem="YfF-gB-7ZK" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="rGt-YF-Umz"/>
                             <constraint firstItem="cEE-Ex-qJG" firstAttribute="top" secondItem="hnl-zh-HS8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="tyN-vj-g5b"/>
                             <constraint firstAttribute="trailing" secondItem="dh1-rY-5IW" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="vK0-b9-uy4"/>
-                            <constraint firstItem="3Gb-LK-JEj" firstAttribute="leading" secondItem="FhJ-d1-Jd1" secondAttribute="leading" constant="138" id="va2-No-1rm"/>
                             <constraint firstAttribute="trailing" secondItem="Ji7-K9-LSm" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="yyF-Kr-yHC"/>
                         </constraints>
                     </view>
@@ -574,11 +577,17 @@
                     <connections>
                         <outlet property="conactByWebsite" destination="5Qb-ZX-kBq" id="XOV-hT-qxA"/>
                         <outlet property="contactByPhone" destination="hnl-zh-HS8" id="a1B-Hy-KO7"/>
+                        <outlet property="facebookButton" destination="3Gb-LK-JEj" id="Dqr-Wi-5CL"/>
+                        <outlet property="facebookXConstraint" destination="o7I-C1-R6J" id="tJ4-aI-sq7"/>
                         <outlet property="imageView" destination="SFA-5J-sId" id="xia-N0-evd"/>
                         <outlet property="mapView" destination="uDh-fb-qnj" id="6y2-LW-mi9"/>
                         <outlet property="restaurantAmenities" destination="YfF-gB-7ZK" id="g9q-xm-rUU"/>
                         <outlet property="restaurantDescription" destination="cEE-Ex-qJG" id="F6H-BL-gIK"/>
                         <outlet property="restaurantName" destination="dh1-rY-5IW" id="aPV-6o-cZQ"/>
+                        <outlet property="twitterButton" destination="bni-nR-XxI" id="I4o-Lk-hxS"/>
+                        <outlet property="twitterXConstraint" destination="anZ-6q-w8i" id="TAb-SQ-dGZ"/>
+                        <outlet property="yelpButton" destination="ILl-B3-bhb" id="JbV-fh-hYQ"/>
+                        <outlet property="yelpXConstraint" destination="G6L-Bw-2KV" id="slC-2d-chT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNf-NU-bsR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1107,16 +1116,26 @@
                                     <constraint firstAttribute="height" constant="44" type="user" id="pbS-dm-wUb"/>
                                 </constraints>
                             </view>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2Y-Av-Nrx">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="6vq-Bb-z8T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.94509810209274292" green="0.92156869173049927" blue="0.88235300779342651" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="4GY-tJ-jWV" firstAttribute="bottom" secondItem="4Rm-RF-9Ur" secondAttribute="bottom" type="user" id="0eu-bS-zjv"/>
+                            <constraint firstItem="Z2Y-Av-Nrx" firstAttribute="centerY" secondItem="nWu-X0-WZo" secondAttribute="centerY" type="default" id="12M-VK-873"/>
                             <constraint firstItem="KmW-HK-cts" firstAttribute="leading" secondItem="4Rm-RF-9Ur" secondAttribute="leading" type="default" id="5WN-1p-pLs"/>
                             <constraint firstItem="KmW-HK-cts" firstAttribute="bottom" secondItem="4Rm-RF-9Ur" secondAttribute="bottom" type="default" id="9a3-zF-dx8"/>
                             <constraint firstItem="4GY-tJ-jWV" firstAttribute="bottom" secondItem="4Rm-RF-9Ur" secondAttribute="bottom" type="user" id="Dxu-FI-vBx"/>
                             <constraint firstItem="nWu-X0-WZo" firstAttribute="leading" secondItem="4Rm-RF-9Ur" secondAttribute="leading" constant="65" id="g38-Cm-fZy"/>
                             <constraint firstItem="KmW-HK-cts" firstAttribute="top" secondItem="4Rm-RF-9Ur" secondAttribute="top" type="default" id="gEI-DS-sMJ"/>
                             <constraint firstItem="KmW-HK-cts" firstAttribute="trailing" secondItem="4Rm-RF-9Ur" secondAttribute="trailing" type="default" id="l6r-mf-4wi"/>
+                            <constraint firstItem="Z2Y-Av-Nrx" firstAttribute="centerX" secondItem="4GY-tJ-jWV" secondAttribute="centerX" type="default" id="oFY-bP-e2O"/>
                             <constraint firstItem="nWu-X0-WZo" firstAttribute="bottom" secondItem="4Rm-RF-9Ur" secondAttribute="bottom" type="default" id="oin-ID-blj"/>
                             <constraint firstItem="4GY-tJ-jWV" firstAttribute="leading" secondItem="4Rm-RF-9Ur" secondAttribute="leading" type="default" id="ruC-dS-eYZ"/>
                             <constraint firstItem="nWu-X0-WZo" firstAttribute="top" secondItem="4Rm-RF-9Ur" secondAttribute="top" type="default" id="z3p-Of-Nwf"/>
@@ -1133,6 +1152,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="bottomLabel" destination="LLp-YE-ZzM" id="4CR-Bn-5GR"/>
+                        <outlet property="errorLabel" destination="Z2Y-Av-Nrx" id="qdc-YZ-1dD"/>
                         <outlet property="tableView" destination="KmW-HK-cts" id="Jsk-NP-xV4"/>
                         <segue destination="IuN-at-r6q" kind="push" identifier="VoucherDetailSegue" id="GkS-aB-WLb"/>
                     </connections>
@@ -1402,8 +1422,8 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Pay what you want" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Etw-cl-ERk">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="220" id="bsJ-oq-uXG"/>
-                                    <constraint firstAttribute="height" constant="21" type="user" id="fIv-oq-yh9"/>
+                                    <constraint firstAttribute="height" constant="24" id="RGj-dV-xGd"/>
+                                    <constraint firstAttribute="width" constant="220" id="YNY-La-FsM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1430,11 +1450,7 @@
                                 <color key="textColor" red="0.13829323090658474" green="0.33581220294672509" blue="0.82975924744897955" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="9" minValue="1" maxValue="18" translatesAutoresizingMaskIntoConstraints="NO" id="fZw-y3-Ogp" customClass="FCSSlider">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="S4P-Qa-kap"/>
-                                </constraints>
-                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="9" minValue="1" maxValue="18" translatesAutoresizingMaskIntoConstraints="NO" id="fZw-y3-Ogp" customClass="FCSSlider"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfg-w3-AO0">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="xpb-Hz-kXB"/>
@@ -1494,7 +1510,7 @@
                                             <constraint firstAttribute="width" constant="40" id="BL1-pd-K1v"/>
                                             <constraint firstAttribute="height" constant="21" type="user" id="XP6-3z-9Zb"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1502,7 +1518,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="Aik-JG-f6U"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1510,7 +1526,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="VXX-0k-fsf"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1548,7 +1564,7 @@
                                     <constraint firstAttribute="width" constant="82" id="X5D-wR-pUl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1h-BO-0WU" customClass="FCSInfoButton">
@@ -1588,8 +1604,7 @@
                         <color key="backgroundColor" red="0.94117647059999998" green="0.91372549020000005" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="Urw-9H-9d5" firstAttribute="top" secondItem="Etw-cl-ERk" secondAttribute="bottom" constant="8" type="user" id="0Ji-4b-DaW"/>
-                            <constraint firstItem="8Wp-DQ-DQV" firstAttribute="leading" secondItem="o4a-H2-QFo" secondAttribute="leading" constant="145" id="8Fq-A5-6Lk"/>
+                            <constraint firstItem="fZw-y3-Ogp" firstAttribute="top" secondItem="Urw-9H-9d5" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="1sz-z5-I7q"/>
                             <constraint firstItem="8Wp-DQ-DQV" firstAttribute="baseline" secondItem="g57-hO-X97" secondAttribute="baseline" type="default" id="90X-ch-AV7"/>
                             <constraint firstItem="l68-c3-8pd" firstAttribute="top" secondItem="fZw-y3-Ogp" secondAttribute="bottom" constant="2" type="user" id="9rB-M0-ji8"/>
                             <constraint firstItem="Etw-cl-ERk" firstAttribute="centerX" secondItem="pXP-mI-rdC" secondAttribute="centerX" type="default" id="BAv-pw-Ljq"/>
@@ -1603,16 +1618,18 @@
                             <constraint firstAttribute="bottom" secondItem="yj3-Nl-hzT" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="IVD-J4-wVX"/>
                             <constraint firstItem="SAo-dw-xod" firstAttribute="centerY" secondItem="QwD-HK-cZ0" secondAttribute="centerY" type="default" id="QA5-Ru-lLR"/>
                             <constraint firstItem="c1h-BO-0WU" firstAttribute="centerY" secondItem="8Wp-DQ-DQV" secondAttribute="centerY" type="default" id="R1q-Lf-1pa"/>
+                            <constraint firstItem="8Wp-DQ-DQV" firstAttribute="leading" secondItem="o4a-H2-QFo" secondAttribute="leading" constant="142" id="RLg-jC-aEt"/>
                             <constraint firstAttribute="trailing" secondItem="yj3-Nl-hzT" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="TBm-kH-eSb"/>
                             <constraint firstItem="SAo-dw-xod" firstAttribute="centerX" secondItem="dfg-w3-AO0" secondAttribute="centerX" type="default" id="TVT-oR-wRD"/>
+                            <constraint firstAttribute="bottom" secondItem="avQ-Sq-rIE" secondAttribute="bottom" constant="91" id="TYh-Tp-QUh"/>
                             <constraint firstItem="avQ-Sq-rIE" firstAttribute="leading" secondItem="o4a-H2-QFo" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="VIS-2r-2XC"/>
-                            <constraint firstAttribute="bottom" secondItem="8Wp-DQ-DQV" secondAttribute="bottom" constant="134" id="Wyo-rW-3MA"/>
-                            <constraint firstItem="fZw-y3-Ogp" firstAttribute="top" secondItem="Urw-9H-9d5" secondAttribute="bottom" constant="14" type="user" id="ZAW-Ec-9aL"/>
                             <constraint firstItem="SAo-dw-xod" firstAttribute="top" secondItem="o4a-H2-QFo" secondAttribute="top" constant="18" id="ZdI-YW-jVS"/>
                             <constraint firstItem="Etw-cl-ERk" firstAttribute="centerX" secondItem="dfg-w3-AO0" secondAttribute="centerX" type="default" id="bn5-YF-NRE"/>
+                            <constraint firstItem="Etw-cl-ERk" firstAttribute="top" secondItem="o4a-H2-QFo" secondAttribute="top" constant="105" id="cOw-Lt-jX4"/>
                             <constraint firstItem="pXP-mI-rdC" firstAttribute="centerY" secondItem="Urw-9H-9d5" secondAttribute="centerY" type="default" id="cU0-29-LBt"/>
+                            <constraint firstItem="Urw-9H-9d5" firstAttribute="top" secondItem="o4a-H2-QFo" secondAttribute="top" constant="136" id="cxo-1O-2bL"/>
                             <constraint firstItem="dfg-w3-AO0" firstAttribute="leading" secondItem="o4a-H2-QFo" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="g5I-9J-mde"/>
-                            <constraint firstItem="avQ-Sq-rIE" firstAttribute="top" secondItem="g57-hO-X97" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kkt-Qs-rrJ"/>
+                            <constraint firstAttribute="bottom" secondItem="g57-hO-X97" secondAttribute="bottom" constant="132" id="gpz-Kj-xeS"/>
                             <constraint firstItem="Etw-cl-ERk" firstAttribute="leading" secondItem="g57-hO-X97" secondAttribute="leading" type="default" id="mnv-LU-b8f"/>
                             <constraint firstItem="fZw-y3-Ogp" firstAttribute="centerY" secondItem="o4a-H2-QFo" secondAttribute="centerY" type="default" id="oca-J5-vGv"/>
                             <constraint firstItem="l68-c3-8pd" firstAttribute="leading" secondItem="o4a-H2-QFo" secondAttribute="leading" type="default" id="ov9-Qq-JAc"/>
@@ -1628,13 +1645,16 @@
                     <navigationItem key="navigationItem" title="Options" id="egg-SN-Xzz"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="bringingFriendsLabel" destination="SAo-dw-xod" id="Z7t-5d-rdY"/>
                         <outlet property="buyButton" destination="yj3-Nl-hzT" id="tQW-Hg-lsb"/>
                         <outlet property="charityButton" destination="avQ-Sq-rIE" id="L3z-C6-hTV"/>
+                        <outlet property="donatedToLabel" destination="8Wp-DQ-DQV" id="AOX-ht-umm"/>
                         <outlet property="maxPriceLabel" destination="Uto-s1-UT6" id="Jmn-qA-57v"/>
                         <outlet property="mealsProvidedLabel" destination="g57-hO-X97" id="vVZ-fd-ikt"/>
                         <outlet property="medPriceLabel" destination="Yzg-6w-tEu" id="45T-q2-ctF"/>
                         <outlet property="minPriceLabel" destination="swx-CA-TUc" id="ynv-g8-rGQ"/>
                         <outlet property="offerButton" destination="dfg-w3-AO0" id="Ayh-9Q-dya"/>
+                        <outlet property="payWhatYouWantLabel" destination="Etw-cl-ERk" id="HMF-Bf-gRL"/>
                         <outlet property="priceLabel" destination="pXP-mI-rdC" id="9lX-OX-ww8"/>
                         <outlet property="priceSlider" destination="fZw-y3-Ogp" id="D9I-VG-ewC"/>
                         <segue destination="IuN-at-r6q" kind="push" identifier="VoucherSegue" id="Imp-07-Dox"/>
@@ -1671,9 +1691,9 @@
                                             <action selector="markAsUsedPressed:" destination="IuN-at-r6q" eventType="touchUpInside" id="BsL-cG-5So"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Special Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vR-sf-hou" customClass="FCSBoldHeaderLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Special Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="286" translatesAutoresizingMaskIntoConstraints="NO" id="7vR-sf-hou" customClass="FCSBoldHeaderLabel">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="33" id="mwN-oM-slY"/>
+                                            <constraint firstAttribute="height" constant="56" id="K8j-pj-v6Z"/>
                                             <constraint firstAttribute="width" constant="286" id="o7E-68-kbU"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1781,15 +1801,16 @@
                                 <constraints>
                                     <constraint firstItem="E8L-rD-B81" firstAttribute="top" secondItem="kp2-CA-I57" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="1X3-fB-y3D"/>
                                     <constraint firstAttribute="bottom" secondItem="H4E-H9-Zeh" secondAttribute="bottom" constant="136" id="3pS-ln-nZI"/>
+                                    <constraint firstItem="7vR-sf-hou" firstAttribute="top" secondItem="BXS-4v-8ju" secondAttribute="top" constant="5" id="4r5-i2-BjQ"/>
                                     <constraint firstItem="myE-Y5-UYy" firstAttribute="top" secondItem="E8L-rD-B81" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="63c-b9-dl6"/>
                                     <constraint firstAttribute="bottom" secondItem="VwT-rc-Qye" secondAttribute="bottom" constant="25" id="7yn-Ah-D5s"/>
                                     <constraint firstItem="Zmh-hM-MwM" firstAttribute="leading" secondItem="VwT-rc-Qye" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Ccj-47-ULD"/>
-                                    <constraint firstItem="7vR-sf-hou" firstAttribute="top" secondItem="BXS-4v-8ju" secondAttribute="top" constant="17" id="F7A-ge-FlU"/>
                                     <constraint firstItem="kp2-CA-I57" firstAttribute="trailing" secondItem="BXS-4v-8ju" secondAttribute="trailing" type="default" id="Jv8-mX-njG"/>
                                     <constraint firstItem="7vR-sf-hou" firstAttribute="centerX" secondItem="kp2-CA-I57" secondAttribute="centerX" type="default" id="WhA-YC-U76"/>
                                     <constraint firstItem="E8L-rD-B81" firstAttribute="leading" secondItem="BXS-4v-8ju" secondAttribute="leading" type="default" id="XqV-zh-BPj"/>
                                     <constraint firstItem="kp2-CA-I57" firstAttribute="leading" secondItem="BXS-4v-8ju" secondAttribute="leading" type="default" id="Z3F-hf-TVa"/>
                                     <constraint firstAttribute="bottom" secondItem="1o9-8X-7Jl" secondAttribute="bottom" constant="119" id="b6c-ok-sOo"/>
+                                    <constraint firstItem="kp2-CA-I57" firstAttribute="top" secondItem="BXS-4v-8ju" secondAttribute="top" constant="61" id="bf9-7y-G43"/>
                                     <constraint firstAttribute="trailing" secondItem="Zmh-hM-MwM" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="f8Q-eN-LkA"/>
                                     <constraint firstAttribute="bottom" secondItem="wMO-oN-tMv" secondAttribute="bottom" constant="69" id="fvG-O9-yUx"/>
                                     <constraint firstItem="1o9-8X-7Jl" firstAttribute="leading" secondItem="BXS-4v-8ju" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="gOw-F5-o4o"/>
@@ -1803,7 +1824,6 @@
                                     <constraint firstItem="fM1-QQ-PAj" firstAttribute="centerX" secondItem="myE-Y5-UYy" secondAttribute="centerX" type="default" id="ohU-kO-f7m"/>
                                     <constraint firstItem="myE-Y5-UYy" firstAttribute="trailing" secondItem="BXS-4v-8ju" secondAttribute="trailing" type="default" id="sh3-MY-Exa"/>
                                     <constraint firstItem="H4E-H9-Zeh" firstAttribute="leading" secondItem="BXS-4v-8ju" secondAttribute="leading" type="default" id="sqS-wy-4mA"/>
-                                    <constraint firstItem="kp2-CA-I57" firstAttribute="top" secondItem="BXS-4v-8ju" secondAttribute="top" constant="61" id="tzP-4L-3tH"/>
                                     <constraint firstAttribute="bottom" secondItem="Zmh-hM-MwM" secondAttribute="bottom" constant="19" id="uI6-U7-7SK"/>
                                     <constraint firstItem="E8L-rD-B81" firstAttribute="top" secondItem="BXS-4v-8ju" secondAttribute="top" constant="122" id="zJn-Uc-aSS"/>
                                 </constraints>
@@ -2186,22 +2206,273 @@
         <image name="kid-icon.png" width="16" height="14"/>
         <image name="pip.png" width="8" height="9"/>
         <image name="share_action-brown.png" width="48" height="37"/>
-        <image name="share_action.png" width="16" height="16"/>
+        <image name="share_action.png" width="48" height="37"/>
         <image name="swipe-arrow.png" width="35" height="10"/>
         <image name="tag-blue.png" width="25" height="29"/>
         <image name="twitter.png" width="39" height="40"/>
         <image name="website_icon.png" width="17" height="18"/>
         <image name="yelp.png" width="39" height="40"/>
     </resources>
+    <classes>
+        <class className="FCSAccountSettingsChildViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSAccountSettingsChildViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="FCSAccountSettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSAccountSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutButtonClicked:"/>
+                <relationship kind="action" name="saveUserData:"/>
+            </relationships>
+        </class>
+        <class className="FCSBoldHeaderLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSBoldHeaderLabel.h"/>
+        </class>
+        <class className="FCSBoldShowServerLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSBoldShowServerLabel.h"/>
+        </class>
+        <class className="FCSButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSButton.h"/>
+        </class>
+        <class className="FCSCallButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSCallButton.h"/>
+        </class>
+        <class className="FCSCopyLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSCopyLabel.h"/>
+        </class>
+        <class className="FCSCopyTextView" superclassName="UITextView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSCopyTextView.h"/>
+        </class>
+        <class className="FCSFacebookButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSFacebookButton.h"/>
+        </class>
+        <class className="FCSHeaderLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSHeaderLabel.h"/>
+        </class>
+        <class className="FCSHighlightLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSHighlightLabel.h"/>
+        </class>
+        <class className="FCSInfoButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSInfoButton.h"/>
+        </class>
+        <class className="FCSLandingPageViewController" superclassName="FCSStyledViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSLandingPageViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="swipeRecognized:"/>
+                <relationship kind="outlet" name="carouselView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="newsImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="shareThisMissionLabelYConstraint" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="youCanFeedLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FCSNavigationController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSNavigationController.h"/>
+        </class>
+        <class className="FCSOverImageHeader" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSOverImageHeader.h"/>
+        </class>
+        <class className="FCSOverImageSecondary" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSOverImageSecondary.h"/>
+        </class>
+        <class className="FCSPurchaseViewController" superclassName="FCSStyledViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSPurchaseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="buy:"/>
+                <relationship kind="action" name="donationChanged:" candidateClass="UISwitch"/>
+                <relationship kind="action" name="selectCharity:"/>
+                <relationship kind="action" name="selectOffer:"/>
+                <relationship kind="action" name="updatePrice:" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="bringingFriendsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="buyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="charityButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="charitySelectorSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="donatedToLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="internationalCharityLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="localCharityLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="maxPriceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mealsProvidedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="medPriceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="minPriceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="payWhatYouWantLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="priceSlider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="FCSRestaurantInfoName" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSRestaurantInfoName.h"/>
+        </class>
+        <class className="FCSRestaurantInfoViewController" superclassName="FCSStyledViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSRestaurantInfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="followFacebook:"/>
+                <relationship kind="action" name="followTwitter:"/>
+                <relationship kind="action" name="followYelp:"/>
+                <relationship kind="action" name="getPhoneInfo:"/>
+                <relationship kind="action" name="visitWebsite:"/>
+                <relationship kind="outlet" name="conactByWebsite" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="contactByPhone" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="facebookButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="facebookXConstraint" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="restaurantAmenities" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="restaurantDescription" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="restaurantName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="twitterButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="twitterXConstraint" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="yelpButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="yelpXConstraint" candidateClass="NSLayoutConstraint"/>
+            </relationships>
+        </class>
+        <class className="FCSRestaurantListTitle" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSRestaurantListTitle.h"/>
+        </class>
+        <class className="FCSSecondaryCopyLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSSecondaryCopyLabel.h"/>
+        </class>
+        <class className="FCSSignInViewController" superclassName="FCSStyledViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSSignInViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clickFacebookSignIn:"/>
+                <relationship kind="action" name="clickSignIn:"/>
+                <relationship kind="action" name="clickTwitterSignIn:"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="signInButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="FCSSignUpViewController" superclassName="FCSStyledViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSSignUpViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clickFacebookSignUp:"/>
+                <relationship kind="action" name="clickSignUp:"/>
+                <relationship kind="action" name="clickTwitterSignUp:"/>
+                <relationship kind="outlet" name="countCopyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="countLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="facebookButton" candidateClass="FCSFacebookButton"/>
+                <relationship kind="outlet" name="overImageHeader" candidateClass="FCSOverImageHeader"/>
+                <relationship kind="outlet" name="overImageHeaderScondary" candidateClass="FCSOverImageSecondary"/>
+                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordTextView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="signUpButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="twitterButton" candidateClass="FCSTwitterButton"/>
+                <relationship kind="outlet" name="twitterTextView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="FCSSlider" superclassName="UISlider">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSSlider.h"/>
+        </class>
+        <class className="FCSStyledViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSStyledViewController.h"/>
+        </class>
+        <class className="FCSTimelineTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSTimelineTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dotImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="infoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="qtyChildrenLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="restaurantNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="voucherDetailButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="FCSTimelineViewController" superclassName="FCSStyledViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSTimelineViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="inviteButtonTapped:"/>
+                <relationship kind="outlet" name="bottomLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="FCSTwitterButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSTwitterButton.h"/>
+        </class>
+        <class className="FCSVenueCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSVenueCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contentView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="detailTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="milesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="productImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="productName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="qtyLeftLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="soldOutLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tagImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="FCSVenueListViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSVenueListViewController.h"/>
+        </class>
+        <class className="FCSVenueViewController" superclassName="FCSStyledViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSVenueViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailTextViewHeightConstraint" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="iWantThisButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="oldPriceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="restaurantImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="specialDetailsTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="specialNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FCSVoucherViewController" superclassName="FCSStyledViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSVoucherViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="accountButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="kidsFedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="minGroupDateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offerNameLabel" candidateClass="FCSHeaderLabel"/>
+                <relationship kind="outlet" name="receiptView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="restaurantNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="voucherNumberLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="yourCodeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FCSWebsiteButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCSWebsiteButton.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="TPKeyboardAvoidingScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPKeyboardAvoidingScrollView.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ul6-7D-WAj"/>
-        <segue reference="1av-uJ-9vP"/>
-        <segue reference="soI-Pv-6ih"/>
+        <segue reference="Icg-OI-CJ8"/>
+        <segue reference="Hj0-nf-aWT"/>
+        <segue reference="IhY-7W-IJZ"/>
         <segue reference="GkS-aB-WLb"/>
     </inferredMetricsTieBreakers>
 </document>

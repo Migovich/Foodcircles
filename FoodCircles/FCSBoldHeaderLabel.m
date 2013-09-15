@@ -12,12 +12,13 @@
 @implementation FCSBoldHeaderLabel
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-  self = [super initWithCoder:aDecoder];
-  if (self) {
-    self.textColor = [FCSStyles primaryTextColor];
-    self.font = [UIFont fontWithName:@"NeutrafaceSlabText-Bold" size:26];
-  }
-  return self;
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.textColor = [FCSStyles primaryTextColor];
+        self.font = [UIFont fontWithName:@"NeutrafaceSlabText-Bold" size:22];
+
+    }
+    return self;
 }
 
 @end

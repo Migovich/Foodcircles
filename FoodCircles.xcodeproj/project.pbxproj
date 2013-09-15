@@ -174,6 +174,7 @@
 		D58DEDB817D9B835004BC430 /* FCSDrawUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D58DEDB717D9B835004BC430 /* FCSDrawUtilities.m */; };
 		D5924BF217E046470099F6EF /* slider_Knob.png in Resources */ = {isa = PBXBuildFile; fileRef = DCF30B2017A87F550060BA9D /* slider_Knob.png */; };
 		D594AF7617E2F16600F3BC48 /* slider_Knob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D594AF7517E2F16600F3BC48 /* slider_Knob@2x.png */; };
+		D594AF7817E2F30800F3BC48 /* yelp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D594AF7717E2F30700F3BC48 /* yelp@2x.png */; };
 		D59B72B017D8685400E001F0 /* NeutrafaceSlabText-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D59B72A917D8685400E001F0 /* NeutrafaceSlabText-BoldItalic.ttf */; };
 		D59B72B317D8685400E001F0 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D59B72AC17D8685400E001F0 /* Roboto-Bold.ttf */; };
 		D59B72B417D8685400E001F0 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D59B72AD17D8685400E001F0 /* Roboto-BoldItalic.ttf */; };
@@ -246,7 +247,6 @@
 		DCA15CE417594F6500AF294B /* TimelineYear.png in Resources */ = {isa = PBXBuildFile; fileRef = DCA15CE017594F6500AF294B /* TimelineYear.png */; };
 		DCC3CAB617A6C418005E5D5D /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = DCC3CAB317A6C418005E5D5D /* twitter.png */; };
 		DCC3CAB717A6C418005E5D5D /* yelp.png in Resources */ = {isa = PBXBuildFile; fileRef = DCC3CAB417A6C418005E5D5D /* yelp.png */; };
-		DCC3CAB817A6C418005E5D5D /* yelp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DCC3CAB517A6C418005E5D5D /* yelp@2x.png */; };
 		DCF30A7417A6D2980060BA9D /* contact_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DCF30A6B17A6D2980060BA9D /* contact_button.png */; };
 		DCF30A7517A6D2980060BA9D /* contact_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DCF30A6C17A6D2980060BA9D /* contact_button@2x.png */; };
 		DCF30A7617A6D2980060BA9D /* Facebook_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DCF30A6D17A6D2980060BA9D /* Facebook_button.png */; };
@@ -558,6 +558,7 @@
 		D58DEDB617D9B835004BC430 /* FCSDrawUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSDrawUtilities.h; sourceTree = "<group>"; };
 		D58DEDB717D9B835004BC430 /* FCSDrawUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSDrawUtilities.m; sourceTree = "<group>"; };
 		D594AF7517E2F16600F3BC48 /* slider_Knob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider_Knob@2x.png"; sourceTree = "<group>"; };
+		D594AF7717E2F30700F3BC48 /* yelp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yelp@2x.png"; sourceTree = "<group>"; };
 		D59B72A917D8685400E001F0 /* NeutrafaceSlabText-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NeutrafaceSlabText-BoldItalic.ttf"; path = "Fonts/NeutrafaceSlabText-BoldItalic.ttf"; sourceTree = "<group>"; };
 		D59B72AC17D8685400E001F0 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "Fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		D59B72AD17D8685400E001F0 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-BoldItalic.ttf"; path = "Fonts/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -648,7 +649,6 @@
 		DCA15CE017594F6500AF294B /* TimelineYear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimelineYear.png; sourceTree = "<group>"; };
 		DCC3CAB317A6C418005E5D5D /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		DCC3CAB417A6C418005E5D5D /* yelp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yelp.png; sourceTree = "<group>"; };
-		DCC3CAB517A6C418005E5D5D /* yelp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yelp@2x.png"; sourceTree = "<group>"; };
 		DCF30A6B17A6D2980060BA9D /* contact_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contact_button.png; sourceTree = "<group>"; };
 		DCF30A6C17A6D2980060BA9D /* contact_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contact_button@2x.png"; sourceTree = "<group>"; };
 		DCF30A6D17A6D2980060BA9D /* Facebook_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Facebook_button.png; sourceTree = "<group>"; };
@@ -953,7 +953,7 @@
 				635FE10A174C0A96004E8D6B /* website_icon@2x.png */,
 				DCA15CDA17594B1A00AF294B /* YellowChild.png */,
 				DCC3CAB417A6C418005E5D5D /* yelp.png */,
-				DCC3CAB517A6C418005E5D5D /* yelp@2x.png */,
+				D594AF7717E2F30700F3BC48 /* yelp@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -1688,7 +1688,6 @@
 				DCA15CE417594F6500AF294B /* TimelineYear.png in Resources */,
 				DCC3CAB617A6C418005E5D5D /* twitter.png in Resources */,
 				DCC3CAB717A6C418005E5D5D /* yelp.png in Resources */,
-				DCC3CAB817A6C418005E5D5D /* yelp@2x.png in Resources */,
 				DCF30A7417A6D2980060BA9D /* contact_button.png in Resources */,
 				DCF30A7517A6D2980060BA9D /* contact_button@2x.png in Resources */,
 				DCF30A7617A6D2980060BA9D /* Facebook_button.png in Resources */,
@@ -1751,6 +1750,7 @@
 				D56E797217DE299B00EEFADD /* FCSMultilineCell.xib in Resources */,
 				D5D8BAA217E231DB00BF662F /* facebook@2x.png in Resources */,
 				D594AF7617E2F16600F3BC48 /* slider_Knob@2x.png in Resources */,
+				D594AF7817E2F30800F3BC48 /* yelp@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2066,8 +2066,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_ENTITLEMENTS = FoodCircles/FoodCircles.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: FoodCircles LC (6H3NUKPCZ9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: FoodCircles LC (6H3NUKPCZ9)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/FoodCircles\"",
@@ -2096,8 +2096,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "6CB751EC-BFD5-4C91-9A8A-B565591EA8C0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6CB751EC-BFD5-4C91-9A8A-B565591EA8C0";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};

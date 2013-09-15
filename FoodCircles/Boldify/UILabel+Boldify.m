@@ -1,5 +1,5 @@
 #import "UILabel+Boldify.h"
- 
+
 @implementation UILabel (Boldify)
 - (void) boldRange: (NSRange) range {
     if (![self respondsToSelector:@selector(setAttributedText:)]) {
@@ -7,8 +7,11 @@
     }
     NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:self.text];
     NSString *fontName = [NSString stringWithFormat:@"%@-Bold", self.font.fontName];
-    [attributedText addAttribute:NSFontAttributeName value:[UIFont fontWithName:fontName size:self.font.pointSize] range:range];
-    self.attributedText = attributedText;    
+    UIFont *font = [UIFont fontWithName:fontName size:self.font.pointSize];
+    if (font) {
+        [attributedText addAttribute:NSFontAttributeName value:font range:range];
+        self.attributedText = attributedText;
+    }
 }
 
 - (void) boldSubstring: (NSString*) substring {

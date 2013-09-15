@@ -36,4 +36,6 @@
 - (IBAction)clickFacebookSignUp:(id)sender;
 - (IBAction)clickTwitterSignUp:(id)sender;
 
+- (void)goToRestuarantList;
+
 @end

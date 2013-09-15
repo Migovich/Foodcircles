@@ -24,6 +24,7 @@
 
 @interface FCSTimelineViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *bottomLabel;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 
 @end
 
@@ -61,7 +62,14 @@
         
         FCSTimelineData *tl = [[FCSTimelineData alloc] init];
         _timelineData = [tl processJSON:[JSON objectForKey:@"content"]];
-        
+        if (!(_timelineData.count > 2)) {
+            self.errorLabel.hidden = NO;
+            self.errorLabel.textColor = [FCSStyles brownColor];
+            self.errorLabel.text = NSLocalizedString(@"No purchases yet!", nil);
+        }
+        else {
+            self.errorLabel.hidden = YES;
+        }
         [_tableView reloadData];
         
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
@@ -185,25 +193,28 @@
     
     //Old logic
     /*NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *comps = [cal components:NSDayCalendarUnit fromDate:timelineData.date toDate:[NSDate date] options:0];
-    int numberOfDays = [comps day];
-    
-    if (numberOfDays <= 30) {
-        [cell.voucherDetailButton addTarget:self action:@selector(acessoryButtonTapped:withEvent:) forControlEvents:UIControlEventTouchUpInside];
-        [cell.voucherDetailButton setHidden:NO];
-    } else {
-        [cell.voucherDetailButton setHidden:YES];
+     NSDateComponents *comps = [cal components:NSDayCalendarUnit fromDate:timelineData.date toDate:[NSDate date] options:0];
+     int numberOfDays = [comps day];
+     
+     if (numberOfDays <= 30) {
+     [cell.voucherDetailButton addTarget:self action:@selector(acessoryButtonTapped:withEvent:) forControlEvents:UIControlEventTouchUpInside];
+     [cell.voucherDetailButton setHidden:NO];
+     } else {
+     [cell.voucherDetailButton setHidden:YES];
      }
      */
-    //if null or not used.
-    if ((!timelineData.state || [timelineData.state isEqual:[NSNull null]]) || ![timelineData.state isEqualToString:@"Used"]) {
+    //if null or not used and not expired
+    if (!timelineData.state || [timelineData.state isEqual:[NSNull null]]) {
         [cell.voucherDetailButton addTarget:self action:@selector(acessoryButtonTapped:withEvent:) forControlEvents:UIControlEventTouchUpInside];
         [cell.voucherDetailButton setHidden:NO];
+    }
+    else if ([timelineData.state isEqualToString:@"Expired"] || [timelineData.state isEqualToString:@"Expired"]) {
+        [cell.voucherDetailButton setHidden:YES];
     }
     else {
         [cell.voucherDetailButton setHidden:YES];
     }
-    
+        
     return cell;
 }
 

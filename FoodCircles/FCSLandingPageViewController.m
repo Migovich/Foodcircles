@@ -61,7 +61,7 @@
         else {
             if (images) {
                 self.errorLabel.text = nil;
-                _currentImageIndex = 0;
+                _currentImageIndex = -1;
                 self.newsImages = images;
                 self.timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(changeImage:) userInfo:nil repeats:YES];
                 [self.timer fire];
@@ -72,13 +72,19 @@
             }
         }
     }];
-    SDImageCache *imageCache = [SDImageCache sharedImageCache];
+    /*SDImageCache *imageCache = [SDImageCache sharedImageCache];
     [imageCache clearMemory];
     [imageCache clearDisk];
     [imageCache cleanDisk];
+     */
     
 }
-
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.timer invalidate];
+    self.timer = nil;
+    
+    [super viewDidDisappear:animated];
+}
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
@@ -123,8 +129,12 @@
 
 - (void)imageTapped: (id)sender {
     FCSNewsImage *newsImage = self.newsImages[_currentImageIndex];
+    NSLog(@"News Image %@\n %@", newsImage.imageUrl, newsImage.url);
     //Either open in safari, or go to restaurant page
-    if (newsImage.url) {
+    if ([newsImage.url isEqualToString:@"RestaurantList"]) {
+        [self performSegueWithIdentifier:@"showVenueList" sender:nil];
+    }
+    else if (newsImage.url && ![newsImage.url isEqualToString:@""]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:newsImage.url]];
     }
     else {
@@ -134,28 +144,30 @@
 }
 #pragma mark - Helpers
 - (void)changeImage: (id)sender {
+
+    _currentImageIndex++;
+    if (_currentImageIndex == self.newsImages.count) _currentImageIndex = 0;
     
     FCSNewsImage *newsImage = self.newsImages[_currentImageIndex];
-    _imageIsLoading = YES;
+    NSLog(@"News Image %@\n %@", newsImage.imageUrl, newsImage.url);
     [UIView transitionWithView:self.view duration:1.0f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-        [self.newsImageView setImageWithURL:[NSURL URLWithString:newsImage.imageUrl relativeToURL:[NSURL URLWithString:BASE_URL]] placeholderImage:nil options:SDWebImageProgressiveDownload progress:^(NSUInteger receivedSize, long long expectedSize) {
-            self.imageIsLoading = YES;
-        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+    
+        self.imageIsLoading = YES;
+    
+        [self.newsImageView setImageWithURL:[NSURL URLWithString:newsImage.imageUrl relativeToURL:[NSURL URLWithString:BASE_URL]] placeholderImage:nil options:-1 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
             self.imageIsLoading = NO;
         }];
     } completion:nil];
-    
-    _currentImageIndex++;
-    if (_currentImageIndex == self.newsImages.count) _currentImageIndex = 0;
 }
 
 - (void)setImageIsLoading:(BOOL)imageIsLoading {
     _imageIsLoading = imageIsLoading;
     if (imageIsLoading) {
-        [self.timer invalidate];
+        if ([self.timer isValid])
+            [self.timer invalidate];
     }
     else {
-        if (![self.timer isValid])
+        if (![self.timer isValid] && self.view.window)
             self.timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(changeImage:) userInfo:nil repeats:YES];
     }
 }

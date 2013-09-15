@@ -226,4 +226,8 @@
     }];
 }
 
+- (void)goToRestuarantList {
+    [self performSegueWithIdentifier:@"SignUpSegue" sender:nil];
+}
+
 @end

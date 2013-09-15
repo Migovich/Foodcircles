@@ -81,7 +81,7 @@ NSString *kVenueId = @"venueListViewID";
     }
     
     NSString *miles = [[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"distance"];
-    [venueCell.milesLabel setText:[miles substringWithRange:NSMakeRange(0, [miles length]-3)]];
+    [venueCell.milesLabel setText:miles];
     
     int leftTag = [[[UIAppDelegate.venues objectAtIndex:[indexPath row]] objectForKey:@"vouchers_available"] integerValue];
     [venueCell.qtyLeftLabel setText:[NSString stringWithFormat:@"%d",leftTag]];
