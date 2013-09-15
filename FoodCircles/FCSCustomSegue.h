@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 FoodCircles. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface FCSCustomSegue : UIStoryboardSegue
 
 @end

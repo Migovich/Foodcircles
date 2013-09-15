@@ -1657,7 +1657,7 @@
                         <outlet property="payWhatYouWantLabel" destination="Etw-cl-ERk" id="HMF-Bf-gRL"/>
                         <outlet property="priceLabel" destination="pXP-mI-rdC" id="9lX-OX-ww8"/>
                         <outlet property="priceSlider" destination="fZw-y3-Ogp" id="D9I-VG-ewC"/>
-                        <segue destination="IuN-at-r6q" kind="push" identifier="VoucherSegue" id="Imp-07-Dox"/>
+                        <segue destination="IuN-at-r6q" kind="custom" identifier="VoucherSegue" customClass="FCSFromBottomSegue" id="Imp-07-Dox"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZyN-MQ-aim" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1855,13 +1855,13 @@
                         <outlet property="spinner" destination="fM1-QQ-PAj" id="kSq-93-1SC"/>
                         <outlet property="voucherNumberLabel" destination="myE-Y5-UYy" id="x6W-da-Wi4"/>
                         <outlet property="yourCodeLabel" destination="E8L-rD-B81" id="sae-QK-fak"/>
-                        <segue destination="tgA-4s-OJ7" kind="push" identifier="TimelineSegue" id="IhY-7W-IJZ"/>
+                        <segue destination="tgA-4s-OJ7" kind="custom" identifier="TimelineSegue" customClass="FCSFromTopSegue" id="IhY-7W-IJZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZs-eA-xbn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="wra-Su-1qQ"/>
             </objects>
-            <point key="canvasLocation" x="2473" y="515"/>
+            <point key="canvasLocation" x="2597" y="471"/>
         </scene>
         <!--Sign In View Controller - Sign In-->
         <scene sceneID="EUy-RB-Pci">
@@ -2473,6 +2473,6 @@
         <segue reference="Icg-OI-CJ8"/>
         <segue reference="Hj0-nf-aWT"/>
         <segue reference="IhY-7W-IJZ"/>
-        <segue reference="GkS-aB-WLb"/>
+        <segue reference="Imp-07-Dox"/>
     </inferredMetricsTieBreakers>
 </document>
