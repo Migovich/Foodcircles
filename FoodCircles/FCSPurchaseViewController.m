@@ -18,6 +18,10 @@
 #endif
 #endif
 
+#define kTesterClientId @"AZ-lJhCFTTflkzUugWkJ2i_Q7iSpADJgPtHVAlwGj_nzOSu-Xfzo0yKnI1DW"
+
+#define kClientId @"ATtEOxB-eX60pOi_fHSv3K2PvAX8LRme-eyngA9l6LRSTIr9SeJHtmpaJL4M"
+
 @interface FCSPurchaseViewController () <FCSPickerTableViewControllerDelegate>
 
 
@@ -71,9 +75,15 @@
     self.payWhatYouWantLabel.textColor = [FCSStyles brownColor];
     self.bringingFriendsLabel.textColor = [FCSStyles brownColor];
     self.donatedToLabel.textColor = [FCSStyles brownColor];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [PayPalPaymentViewController prepareForPaymentUsingClientId:kTesterClientId];
+    [PayPalPaymentViewController setEnvironment:PayPalEnvironmentSandbox];
+    
     self.charitySelectorSwitch.on = NO;
     [self donationChanged:self.charitySelectorSwitch];
 }
@@ -109,13 +119,13 @@
     payment.currencyCode = @"USD";
     payment.shortDescription = [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"title"];
     
-    if (!payment.processable) {}
-    
-    [PayPalPaymentViewController setEnvironment:PayPalEnvironmentSandbox];
+    if (!payment.processable) {
+        
+    }
     
     NSString *aPayerId = UIAppDelegate.user_email;
     
-    PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:@"ATpY8BAwAkcjGxyOJ9IjArCzDNfrqdQV3FaADv-iWszrCOxpjQ_I2elLntHS" receiverEmail:@"jtkumario@gmail.com" payerId:aPayerId payment:payment delegate:self];
+    PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:kTesterClientId receiverEmail:@"jtkumario@gmail.com" payerId:aPayerId payment:payment delegate:self];
 
     [self presentViewController:paymentViewController animated:YES completion:nil];
 }
