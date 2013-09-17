@@ -16,6 +16,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSString *user_email;
 @property (strong, nonatomic) NSString *user_token;
+@property (strong, nonatomic) NSString *user_uid;
 @property (strong, nonatomic) NSArray *venues;
 @property (strong, nonatomic) NSArray *charities;
 

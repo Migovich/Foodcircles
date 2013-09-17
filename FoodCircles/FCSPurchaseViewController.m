@@ -19,8 +19,8 @@
 #endif
 
 #define kTesterClientId @"AZ-lJhCFTTflkzUugWkJ2i_Q7iSpADJgPtHVAlwGj_nzOSu-Xfzo0yKnI1DW"
-
 #define kClientId @"ATtEOxB-eX60pOi_fHSv3K2PvAX8LRme-eyngA9l6LRSTIr9SeJHtmpaJL4M"
+#define kReceiverEmail @"jtkumario@gmail.com"
 
 @interface FCSPurchaseViewController () <FCSPickerTableViewControllerDelegate>
 
@@ -123,9 +123,9 @@
         
     }
     
-    NSString *aPayerId = UIAppDelegate.user_email;
+    NSString *aPayerId = UIAppDelegate.user_uid;
     
-    PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:kTesterClientId receiverEmail:@"jtkumario@gmail.com" payerId:aPayerId payment:payment delegate:self];
+    PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:kTesterClientId receiverEmail:kReceiverEmail payerId:aPayerId payment:payment delegate:self];
 
     [self presentViewController:paymentViewController animated:YES completion:nil];
 }

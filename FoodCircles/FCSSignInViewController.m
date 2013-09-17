@@ -50,6 +50,7 @@
         [HUD hide:YES];
         UIAppDelegate.user_email = self.emailTextField.text;
         UIAppDelegate.user_token = [JSON valueForKeyPath:@"auth_token"];
+        UIAppDelegate.user_uid = self.emailTextField.text;
         
         [SSKeychain setPassword:@"Email" forService:@"FoodCircles" account:@"FoodCirclesType"];
         [SSKeychain setPassword: self.emailTextField.text forService:@"FoodCircles" account:@"FoodCirclesEmail"];

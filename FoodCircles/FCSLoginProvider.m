@@ -52,6 +52,7 @@
                     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                         UIAppDelegate.user_email = email;
                         UIAppDelegate.user_token = [JSON valueForKeyPath:@"auth_token"];
+                        UIAppDelegate.user_uid = user.username;
                         
                         [SSKeychain setPassword:@"Facebook" forService:@"FoodCircles" account:@"FoodCirclesType"];
                         [SSKeychain setPassword:user.username forService:@"FoodCircles" account:@"FoodCirclesFacebookUID"];
@@ -121,6 +122,7 @@
             AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                                                                                 success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                                                                                                     UIAppDelegate.user_token = [JSON valueForKeyPath:@"auth_token"];
+                                                                                                    UIAppDelegate.user_uid = user.username;
                                                                                                     
                                                                                                     [SSKeychain setPassword:@"Twitter" forService:@"FoodCircles" account:@"FoodCirclesType"];
                                                                                                     [SSKeychain setPassword:user.username forService:@"FoodCircles" account:@"FoodCirclesTwitterUID"];

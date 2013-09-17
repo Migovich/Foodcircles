@@ -719,6 +719,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				631C6D73173303E000151EFA /* MessageUI.framework in Frameworks */,
+				D5042E6E17DA2D7000E9A8FC /* libxml2.dylib in Frameworks */,
+				631C6D71173303E000151EFA /* CoreVideo.framework in Frameworks */,
+				631C6D70173303E000151EFA /* CoreMedia.framework in Frameworks */,
+				631C6D6E173303E000151EFA /* AudioToolbox.framework in Frameworks */,
+				631C6D6F173303E000151EFA /* AVFoundation.framework in Frameworks */,
 				D55F853817DC7DF400A27E44 /* AssetsLibrary.framework in Frameworks */,
 				D5B1C2E217DB9B61008EB2A5 /* ImageIO.framework in Frameworks */,
 				D5B1C24B17DB91B9008EB2A5 /* libc++.dylib in Frameworks */,
@@ -727,7 +732,6 @@
 				D5B1C24217DB901F008EB2A5 /* Accounts.framework in Frameworks */,
 				D5B1C24117DB9002008EB2A5 /* AdSupport.framework in Frameworks */,
 				D5B1C23F17DB8FEA008EB2A5 /* Twitter.framework in Frameworks */,
-				D5042E6E17DA2D7000E9A8FC /* libxml2.dylib in Frameworks */,
 				D5042E6D17DA2D2300E9A8FC /* libz.dylib in Frameworks */,
 				D59B72C817D8837C00E001F0 /* Accelerate.framework in Frameworks */,
 				631C6D77173303E000151EFA /* Security.framework in Frameworks */,
@@ -736,10 +740,6 @@
 				635FE129174D3A98004E8D6B /* CoreLocation.framework in Frameworks */,
 				635FE11C174C0EBB004E8D6B /* MapKit.framework in Frameworks */,
 				AF8FEFB317BC554B00A2A28B /* CFNetwork.framework in Frameworks */,
-				631C6D6E173303E000151EFA /* AudioToolbox.framework in Frameworks */,
-				631C6D6F173303E000151EFA /* AVFoundation.framework in Frameworks */,
-				631C6D70173303E000151EFA /* CoreMedia.framework in Frameworks */,
-				631C6D71173303E000151EFA /* CoreVideo.framework in Frameworks */,
 				631C6D74173303E000151EFA /* MobileCoreServices.framework in Frameworks */,
 				631C6D75173303E000151EFA /* OpenGLES.framework in Frameworks */,
 				631C6D76173303E000151EFA /* QuartzCore.framework in Frameworks */,
@@ -1992,12 +1992,13 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
-				"OTHER_LDFLAGS[arch=*]" = (
-					"-lstdc++",
+				OTHER_LDFLAGS = (
+					"-lc++",
 					"-ObjC",
 				);
+				"OTHER_LDFLAGS[arch=*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2020,12 +2021,13 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				"OTHER_LDFLAGS[arch=*]" = (
-					"-lstdc++",
+				OTHER_LDFLAGS = (
+					"-lc++",
 					"-ObjC",
 				);
+				"OTHER_LDFLAGS[arch=*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2046,7 +2048,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
 				INFOPLIST_FILE = "FoodCircles/FoodCircles-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/FoodCircles/TestFlightSDK2-1\"",
@@ -2078,8 +2080,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_ENTITLEMENTS = FoodCircles/FoodCircles.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/FoodCircles\"",
@@ -2088,7 +2090,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
 				INFOPLIST_FILE = "FoodCircles/FoodCircles-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/FoodCircles/TestFlightSDK2-1\"",

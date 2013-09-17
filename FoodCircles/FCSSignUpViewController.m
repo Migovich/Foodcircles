@@ -92,6 +92,11 @@
         [login loginWithParams:params :^(BOOL success) {
             [HUD hide:YES];
             if (success) {
+                if ([typeLogin isEqualToString:@"Facebook"] || [typeLogin isEqualToString:@"Twitter"]) {
+                    UIAppDelegate.user_uid = [params objectForKey:@"uid"];
+                } else {
+                    UIAppDelegate.user_uid = [params objectForKey:@"user_email"];
+                }
                 [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
             }
         }];
@@ -148,9 +153,11 @@
             [SSKeychain setPassword:@"Email" forService:@"FoodCircles" account:@"FoodCirclesType"];
             [SSKeychain setPassword: self.emailTextField.text forService:@"FoodCircles" account:@"FoodCirclesEmail"];
             [SSKeychain setPassword: self.passwordTextField.text forService:@"FoodCircles" account:@"FoodCirclesPassword"];
+            UIAppDelegate.user_uid = self.emailTextField.text;
         } else {
             [SSKeychain setPassword:@"Twitter" forService:@"FoodCircles" account:@"FoodCirclesType"];
             [SSKeychain setPassword:_twitterUID forService:@"FoodCircles" account:@"FoodCirclesTwitterUID"];
+            UIAppDelegate.user_uid = _twitterUID;
         }
         
         [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
