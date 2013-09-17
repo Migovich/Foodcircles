@@ -13,7 +13,7 @@
     void (^_completionHandler)(BOOL success);
 }
 
-- (void) loginWithFacebook:(void(^)(BOOL))handler;
+- (void)loginWithFacebook:(void(^)(BOOL))handler;
 - (void) loginWithTwitter:(void(^)(BOOL))handler;
 - (void) loginWithParams:(NSDictionary *)params :(void(^)(BOOL))handler;
 
