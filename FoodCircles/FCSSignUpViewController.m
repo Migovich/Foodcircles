@@ -44,7 +44,8 @@
         qtyPeople = @"0";
     }
     
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:@"Buy one appetizer or dessert for $1 or more, \nfeed one child in need."];
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:@"Grab a local restaurant dish for $1.\nYour $1 feeds one child in need."];
+    [text addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0,text.length)];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:1];
     [paragraphStyle setAlignment:NSTextAlignmentCenter];

@@ -81,7 +81,7 @@ typedef enum {
 - (void) loginWithFacebook:(void(^)(BOOL))handler {
     _completionHandler = [handler copy];
     
-    NSArray *permissionsArray = @[@"user_about_me"/*, @"email"*/];
+    NSArray *permissionsArray = @[@"user_about_me", @"email"];
     
     [PFFacebookUtils initializeFacebook];
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
@@ -133,6 +133,7 @@ typedef enum {
                                     [SSKeychain setPassword:@"Facebook" forService:@"FoodCircles" account:@"FoodCirclesType"];
                                     [SSKeychain setPassword:user.username forService:@"FoodCircles" account:@"FoodCirclesFacebookUID"];
                                     [SSKeychain setPassword:email forService:@"FoodCircles" account:@"FoodCirclesEmail"];
+                                    handler(YES);
                                 }
                             }];
                         }

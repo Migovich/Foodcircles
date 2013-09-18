@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    UIFont *font = [UIFont fontWithName:@"NeutrafaceSlabText-BoldItalic" size:24];
+    UIFont *font = [UIFont fontWithName:@"NeutrafaceSlabText-Bold" size:24];
     self.font = font;
     self.textColor = [UIColor whiteColor];
 }

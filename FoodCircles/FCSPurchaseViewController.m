@@ -81,8 +81,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+#ifdef TESTING
     [PayPalPaymentViewController prepareForPaymentUsingClientId:kTesterClientId];
     [PayPalPaymentViewController setEnvironment:PayPalEnvironmentSandbox];
+#else
+    [PayPalPaymentViewController prepareForPaymentUsingClientId:kClientId];
+    [PayPalPaymentViewController setEnvironment:PayPalEnvironmentProduction];
+#endif
     
     self.charitySelectorSwitch.on = NO;
     [self donationChanged:self.charitySelectorSwitch];
@@ -125,7 +130,13 @@
     
     NSString *aPayerId = UIAppDelegate.user_uid;
     
-    PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:kTesterClientId receiverEmail:kReceiverEmail payerId:aPayerId payment:payment delegate:self];
+#ifdef TESTING
+    NSString *clientID = kTesterClientId;
+#else
+    NSString *clientID = kClientId;
+#endif
+    
+    PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:clientID receiverEmail:kReceiverEmail payerId:aPayerId payment:payment delegate:self];
 
     [self presentViewController:paymentViewController animated:YES completion:nil];
 }

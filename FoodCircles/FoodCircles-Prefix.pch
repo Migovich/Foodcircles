@@ -14,3 +14,13 @@
     #import <CoreData/CoreData.h>
     #import "TestFlight.h"
 #endif
+
+#ifndef TESTING
+//#define TESTING 1
+#endif
+
+#ifdef TESTING
+#pragma message("DO NOT SUBMIT BUILD TO APPLE")
+#else
+#pragma message("You can submit this build to Apple")
+#endif
