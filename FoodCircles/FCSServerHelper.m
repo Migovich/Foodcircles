@@ -39,7 +39,7 @@
 
 
 //Use voucher
-- (void)useVoucher: (NSDictionary*)voucherContent withCompletion:(void(^)(NSString *error))completion {
+- (void)useVoucher: (NSDictionary *)voucherContent withCompletion:(void(^)(NSString *error))completion {
     NSDictionary *params = @{
                              //@"auth_token": UIAppDelegate.user_token,
                              @"code": voucherContent[@"code"]
@@ -52,7 +52,7 @@
     }];
 }
 
-- (void)processPayment: (PayPalPayment*)payment offerId:(NSString *)offerId withCompletion:(void (^)(NSDictionary *voucherContent, NSString *error))completion {
+- (void)processPayment: (PayPalPayment *)payment offerId: (NSString *)offerId charityId: (NSString *)charityId withCompletion: (void(^)(NSDictionary *voucherContent, NSString *error))completion {
     
     NSDictionary *paymentDetails;
     
@@ -63,12 +63,14 @@
         paymentDetails = [NSDictionary dictionaryWithObjectsAndKeys:
                           [[[payment.confirmation objectForKey:@"proof_of_payment"] objectForKey:@"adaptive_payment"] objectForKey:@"pay_key"], @"paypal_charge_token",
                           offerId, @"offer_id",
+                          charityId, @"charity_id",
                           [[payment.confirmation objectForKey:@"payment"] objectForKey:@"amount"], @"amount",
                           nil];
     } else {
         paymentDetails = [NSDictionary dictionaryWithObjectsAndKeys:
                           [[[payment.confirmation objectForKey:@"proof_of_payment"] objectForKey:@"rest_api"] objectForKey:@"payment_id"], @"paypal_charge_token",
                           offerId, @"offer_id",
+                          charityId, @"charity_id",
                           [[payment.confirmation objectForKey:@"payment"] objectForKey:@"amount"], @"amount",
                           nil];
     }

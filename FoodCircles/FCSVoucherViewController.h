@@ -26,6 +26,7 @@ typedef enum {
 @property (nonatomic) PayPalPayment *completedPayment;
 @property (nonatomic) NSUInteger selectedVenueIndex;
 @property (nonatomic) NSUInteger selectedOffer;
+@property (nonatomic) NSUInteger selectedCharity;
 @property (nonatomic) NSInteger numberOfDiners;
 
 //For coming from timeline

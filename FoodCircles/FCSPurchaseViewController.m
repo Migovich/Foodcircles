@@ -103,6 +103,7 @@
         destinationViewController.numberOfDiners = [[offer objectForKey:@"minimum_diners"] integerValue];
         destinationViewController.selectedVenueIndex = _selectedVenueIndex;
         destinationViewController.completedPayment = self.completedPayment;
+        destinationViewController.selectedCharity = _selectedCharity;
      }
 }
 

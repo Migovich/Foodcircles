@@ -12,9 +12,9 @@
 + (id)sharedHelper;
 
 //Use voucher
-- (void)useVoucher: (NSDictionary*)voucherContent withCompletion:(void(^)(NSString *error))completion;
+- (void)useVoucher: (NSDictionary *)voucherContent withCompletion:(void(^)(NSString *error))completion;
 //Payment
-- (void)processPayment: (PayPalPayment*)payment offerId: (NSString*)offerId withCompletion: (void(^)(NSDictionary *voucherContent, NSString *error))completion;
+- (void)processPayment: (PayPalPayment *)payment offerId: (NSString *)offerId charityId: (NSString *)charityId withCompletion: (void(^)(NSDictionary *voucherContent, NSString *error))completion;
 
 //Images
 - (void)getNewsImages: (void(^)(NSArray *images, NSString *error))completion;

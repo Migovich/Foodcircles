@@ -106,7 +106,8 @@ NSString *kVenueId = @"venueListViewID";
     coords.longitude= [[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"lon"] floatValue];
     
     NSString *restaurantName = [[UIAppDelegate.venues objectAtIndex:[indexPath row]] objectForKey:@"name"];
-    NSString *offerName = [[[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"title"];
+    NSDictionary *venue = [UIAppDelegate.venues objectAtIndex:indexPath.row];
+    NSString *offerName = [[[venue objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"title"];
     
     CLRegion *region = [[CLRegion alloc] initCircularRegionWithCenter:coords radius:5.0 identifier:[NSString stringWithFormat:@"%@|%@",restaurantName,offerName]];
     

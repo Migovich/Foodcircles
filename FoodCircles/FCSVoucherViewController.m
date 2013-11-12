@@ -72,9 +72,10 @@
     [super viewWillAppear:animated];
     
      NSString *offerId = [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"id"];
+    NSString *charityId = [UIAppDelegate.charities objectAtIndex:self.selectedCharity][@"id"];
     
     if (self.viewType == VoucherViewTypePayment) {
-        [[FCSServerHelper sharedHelper] processPayment:self.completedPayment offerId:offerId withCompletion:^(NSDictionary *voucherContent, NSString *error) {
+        [[FCSServerHelper sharedHelper] processPayment:self.completedPayment offerId:offerId charityId:charityId withCompletion:^(NSDictionary *voucherContent, NSString *error) {
             
             if (error) {
                 [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error!", nil) message:error delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
