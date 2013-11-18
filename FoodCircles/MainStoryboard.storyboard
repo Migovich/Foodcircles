@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="5a7-jK-lit">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="5a7-jK-lit">
     <dependencies>
         <development version="4600" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
@@ -10,7 +10,7 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpViewController" id="cnE-kN-jcW" customClass="FCSSignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W1c-2X-dzM">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Mg-gR-RfN" customClass="TPKeyboardAvoidingScrollView">
@@ -88,9 +88,6 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uh2-ft-4lk" customClass="FCSTwitterButton">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="136" id="8Dp-ws-R0n"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Log in">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -195,14 +192,15 @@
                                     <constraint firstItem="X40-0j-zAT" firstAttribute="leading" secondItem="7Mg-gR-RfN" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="cW4-bO-ztF"/>
                                     <constraint firstItem="Y2n-3i-yka" firstAttribute="top" secondItem="7Mg-gR-RfN" secondAttribute="top" constant="183" id="dDZ-TW-s4h"/>
                                     <constraint firstItem="3yy-a5-6gV" firstAttribute="leading" secondItem="7Mg-gR-RfN" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="e5E-Q2-uqT"/>
+                                    <constraint firstAttribute="bottom" secondItem="cC0-jR-0OM" secondAttribute="bottom" constant="19" id="ehv-AJ-cpM"/>
                                     <constraint firstItem="Nsx-wy-lQl" firstAttribute="leading" secondItem="7Mg-gR-RfN" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="hMk-le-aaT"/>
                                     <constraint firstItem="kYL-pX-V88" firstAttribute="leading" secondItem="7Mg-gR-RfN" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jUp-Sd-fOO"/>
                                     <constraint firstItem="BQd-z3-Jxe" firstAttribute="top" secondItem="FHP-8Y-7Wx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kD7-IL-Oee"/>
                                     <constraint firstItem="BQd-z3-Jxe" firstAttribute="top" secondItem="3yy-a5-6gV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kVY-H9-k6K"/>
                                     <constraint firstItem="uh2-ft-4lk" firstAttribute="leading" secondItem="3yy-a5-6gV" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="mAb-Kd-KvW"/>
-                                    <constraint firstAttribute="bottom" secondItem="cC0-jR-0OM" secondAttribute="bottom" constant="19" id="nXf-bQ-aPZ"/>
                                     <constraint firstAttribute="trailing" secondItem="cC0-jR-0OM" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pWD-EW-7TO"/>
                                     <constraint firstItem="FNn-0W-ILt" firstAttribute="top" secondItem="7Mg-gR-RfN" secondAttribute="top" constant="71" id="qgm-Bv-L1k"/>
+                                    <constraint firstItem="kYL-pX-V88" firstAttribute="centerX" secondItem="7Mg-gR-RfN" secondAttribute="centerX" type="default" id="rhk-BY-huN"/>
                                     <constraint firstItem="BQd-z3-Jxe" firstAttribute="top" secondItem="uh2-ft-4lk" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xtg-dn-Ugm"/>
                                 </constraints>
                             </scrollView>
@@ -248,7 +246,7 @@
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" title="Venues" id="ANb-DE-Bvj" customClass="FCSVenueListViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="O0f-au-eON">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="9oz-9U-gj1">
                             <size key="itemSize" width="154" height="140"/>
@@ -402,7 +400,7 @@
             <objects>
                 <viewController title="More Info" id="Cl1-bB-DII" customClass="FCSRestaurantInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FhJ-d1-Jd1">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Restaurant Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh1-rY-5IW" customClass="FCSRestaurantInfoName">
@@ -599,7 +597,7 @@
             <objects>
                 <viewController id="Wv4-fd-RiF" customClass="FCSVenueViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mok-qs-LrR">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N0d-99-CDn">
@@ -737,7 +735,7 @@
             <objects>
                 <viewController title="Timeline" id="tgA-4s-OJ7" customClass="FCSTimelineViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Rm-RF-9Ur">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="TimelineRedLine.png" translatesAutoresizingMaskIntoConstraints="NO" id="nWu-X0-WZo">
@@ -1408,7 +1406,7 @@
             <objects>
                 <viewController id="apv-UE-IaB" customClass="FCSPurchaseViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o4a-H2-QFo">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Bringing Friends?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAo-dw-xod">
@@ -1670,7 +1668,7 @@
             <objects>
                 <viewController storyboardIdentifier="voucherViewController" id="IuN-at-r6q" customClass="FCSVoucherViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yIA-q8-Ww4">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BXS-4v-8ju">
@@ -1868,7 +1866,7 @@
             <objects>
                 <viewController title="Sign In" id="4D9-v2-uO0" customClass="FCSSignInViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ELF-vg-qOn">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsg-Z8-pfg" customClass="TPKeyboardAvoidingScrollView">
@@ -1944,6 +1942,20 @@
                                             <action selector="clickSignIn:" destination="4D9-v2-uO0" eventType="touchUpInside" id="1iH-74-DDo"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhV-hp-271">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="26" id="1G7-oR-ycM"/>
+                                            <constraint firstAttribute="width" constant="156" type="user" id="hAw-RI-0sZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                        <state key="normal" title="Forgot Password?">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="forgotYourPasswordPressed:" destination="4D9-v2-uO0" eventType="touchUpInside" id="4zq-m8-hWA"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="WbR-hL-2XQ" firstAttribute="leading" secondItem="Fsg-Z8-pfg" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="0dj-WP-SUF"/>
@@ -1952,38 +1964,43 @@
                                     <constraint firstItem="b6G-wI-oMz" firstAttribute="top" secondItem="1vt-Wc-VSX" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="6ja-wk-NyC"/>
                                     <constraint firstItem="1vt-Wc-VSX" firstAttribute="leading" secondItem="Fsg-Z8-pfg" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="9Lo-hY-rJq"/>
                                     <constraint firstItem="8S5-dt-ZI9" firstAttribute="top" secondItem="b6G-wI-oMz" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="FMY-yN-teq"/>
+                                    <constraint firstItem="vhV-hp-271" firstAttribute="centerX" secondItem="8S5-dt-ZI9" secondAttribute="centerX" type="default" id="G13-eq-4mz"/>
                                     <constraint firstItem="b6G-wI-oMz" firstAttribute="leading" secondItem="Fsg-Z8-pfg" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="IRO-VO-AfW"/>
                                     <constraint firstItem="Knh-oZ-bmK" firstAttribute="leading" secondItem="Fsg-Z8-pfg" secondAttribute="leading" type="default" id="IcQ-LO-ZSh"/>
                                     <constraint firstItem="1vt-Wc-VSX" firstAttribute="top" secondItem="WbR-hL-2XQ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="IzI-m7-fhm"/>
                                     <constraint firstItem="Knh-oZ-bmK" firstAttribute="top" secondItem="Fgu-7c-oFm" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="JkU-Vi-mi8"/>
                                     <constraint firstItem="Knh-oZ-bmK" firstAttribute="trailing" secondItem="Fsg-Z8-pfg" secondAttribute="trailing" type="default" id="LlI-Vg-yBB"/>
-                                    <constraint firstAttribute="trailing" secondItem="8S5-dt-ZI9" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="MRY-h5-8PF"/>
+                                    <constraint firstAttribute="trailing" secondItem="8S5-dt-ZI9" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="MRY-h5-8PF"/>
+                                    <constraint firstItem="3c9-TW-IYG" firstAttribute="baseline" secondItem="WbR-hL-2XQ" secondAttribute="baseline" type="user" id="N0u-tN-9AG"/>
                                     <constraint firstItem="Fgu-7c-oFm" firstAttribute="top" secondItem="Fsg-Z8-pfg" secondAttribute="top" constant="20" symbolic="YES" type="default" id="T6U-Dq-j5L"/>
                                     <constraint firstItem="3c9-TW-IYG" firstAttribute="top" secondItem="WbR-hL-2XQ" secondAttribute="top" type="default" id="UNG-3h-pUe"/>
                                     <constraint firstAttribute="trailing" secondItem="1vt-Wc-VSX" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Uc4-sY-ABC"/>
                                     <constraint firstAttribute="trailing" secondItem="b6G-wI-oMz" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="dGJ-uq-Zpc"/>
+                                    <constraint firstItem="vhV-hp-271" firstAttribute="top" secondItem="Fsg-Z8-pfg" secondAttribute="top" constant="411" type="user" id="dbh-1g-1jF"/>
+                                    <constraint firstItem="vhV-hp-271" firstAttribute="centerX" secondItem="Fsg-Z8-pfg" secondAttribute="centerX" type="default" id="fFx-4M-J1F"/>
                                     <constraint firstItem="1vt-Wc-VSX" firstAttribute="top" secondItem="3c9-TW-IYG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="jrJ-Kk-1ap"/>
-                                    <constraint firstItem="8S5-dt-ZI9" firstAttribute="leading" secondItem="Fsg-Z8-pfg" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="t9e-ya-JLX"/>
+                                    <constraint firstAttribute="bottom" secondItem="vhV-hp-271" secondAttribute="bottom" constant="67" id="qyY-LP-T2K"/>
+                                    <constraint firstItem="8S5-dt-ZI9" firstAttribute="leading" secondItem="Fsg-Z8-pfg" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="t9e-ya-JLX"/>
                                     <constraint firstItem="WbR-hL-2XQ" firstAttribute="top" secondItem="Fsg-Z8-pfg" secondAttribute="top" constant="225" id="u0y-oc-dm2"/>
                                     <constraint firstItem="Fgu-7c-oFm" firstAttribute="centerX" secondItem="Knh-oZ-bmK" secondAttribute="centerX" type="default" id="v5t-vB-2GY"/>
-                                    <constraint firstItem="8S5-dt-ZI9" firstAttribute="centerX" secondItem="Fsg-Z8-pfg" secondAttribute="centerX" type="default" id="vtT-dV-xaX"/>
-                                    <constraint firstAttribute="bottom" secondItem="8S5-dt-ZI9" secondAttribute="bottom" constant="18" id="vv2-jS-oVg"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.93725496530532837" green="0.90980398654937744" blue="0.86666673421859741" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="Fsg-Z8-pfg" firstAttribute="bottom" secondItem="ELF-vg-qOn" secondAttribute="bottom" type="default" id="8Cy-us-B3N"/>
-                            <constraint firstItem="Fsg-Z8-pfg" firstAttribute="leading" secondItem="ELF-vg-qOn" secondAttribute="leading" type="default" id="flt-1h-YyW"/>
+                            <constraint firstItem="Fsg-Z8-pfg" firstAttribute="leading" secondItem="ELF-vg-qOn" secondAttribute="leading" type="user" id="flt-1h-YyW"/>
                             <constraint firstItem="Fsg-Z8-pfg" firstAttribute="top" secondItem="ELF-vg-qOn" secondAttribute="top" type="default" id="yv6-w1-nhx"/>
-                            <constraint firstItem="Fsg-Z8-pfg" firstAttribute="trailing" secondItem="ELF-vg-qOn" secondAttribute="trailing" type="default" id="ywa-FV-fpt"/>
+                            <constraint firstItem="Fsg-Z8-pfg" firstAttribute="trailing" secondItem="ELF-vg-qOn" secondAttribute="trailing" type="user" id="ywa-FV-fpt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="FoodCircles" id="ukO-Ej-ebC">
                         <barButtonItem key="backBarButtonItem" title="Sign Up" id="NyT-Mt-8OH"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="buyOneFeedOneLabel" destination="Knh-oZ-bmK" id="Snz-be-nQC"/>
                         <outlet property="emailTextField" destination="1vt-Wc-VSX" id="7AP-iY-r2a"/>
+                        <outlet property="forgotPasswordButtonConstraintY" destination="dbh-1g-1jF" id="oNu-gd-xGM"/>
                         <outlet property="passwordTextField" destination="b6G-wI-oMz" id="tPt-SR-6G3"/>
                         <outlet property="scrollView" destination="Fsg-Z8-pfg" id="KxY-jl-Qgj"/>
                         <outlet property="signInButton" destination="8S5-dt-ZI9" id="PJm-qO-dWB"/>
@@ -1999,7 +2016,7 @@
             <objects>
                 <viewController id="XcD-QN-USc" customClass="FCSLandingPageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xbY-I2-FV5">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmU-9t-dAd">
@@ -2344,7 +2361,9 @@
                 <relationship kind="action" name="clickFacebookSignIn:"/>
                 <relationship kind="action" name="clickSignIn:"/>
                 <relationship kind="action" name="clickTwitterSignIn:"/>
+                <relationship kind="outlet" name="buyOneFeedOneLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="forgotPasswordButtonConstraintY" candidateClass="NSLayoutConstraint"/>
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="signInButton" candidateClass="UIButton"/>
@@ -2463,16 +2482,19 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Icg-OI-CJ8"/>
-        <segue reference="Hj0-nf-aWT"/>
-        <segue reference="IhY-7W-IJZ"/>
         <segue reference="Imp-07-Dox"/>
+        <segue reference="YC2-fE-Okr"/>
+        <segue reference="IhY-7W-IJZ"/>
+        <segue reference="Hj0-nf-aWT"/>
     </inferredMetricsTieBreakers>
 </document>

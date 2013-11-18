@@ -18,6 +18,8 @@
 
 @interface FCSSignInViewController ()
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *forgotPasswordButtonConstraintY;
+@property (weak, nonatomic) IBOutlet UILabel *buyOneFeedOneLabel;
 @end
 
 @implementation FCSSignInViewController
@@ -30,6 +32,12 @@
     [super viewDidLoad];
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
+    
+    UIFont *font = [UIFont fontWithName:@"NeutrafaceSlabText-Bold" size:17];
+    self.buyOneFeedOneLabel.font = font;
+}
+- (IBAction)forgotYourPasswordPressed:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.joinfoodcircles.org/users/password/new"]];
 }
 
 - (IBAction)clickSignIn:(id)sender {
@@ -103,4 +111,14 @@
         }
     }];
 }
+
+
+- (void)updateViewConstraints {
+    [super updateViewConstraints];
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    if (!(screenSize.height > 480.0f)) {
+        self.forgotPasswordButtonConstraintY.constant = 392;
+    }
+}
+
 @end
