@@ -10,6 +10,8 @@
 #import <Parse/Parse.h>
 #import "TestFlight.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "constants.h"
+#import "FCSStyles.h"
 
 #import "FCSVenueListViewController.h"
 #import "FCSSignUpViewController.h"
@@ -42,6 +44,7 @@
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
@@ -63,11 +66,17 @@
     //[[NSUserDefaults standardUserDefaults] setObject:lastWeek forKey:kLastNotificationDateKey];
     
     //UI Defaults
-    UIImage *backButton = [[UIImage imageNamed:@"back-arrow"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 10)];
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    UIImage *barButton = [[UIImage imageNamed:@"square_button"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 8, 0, 8)];
-    [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    
+    if (IS_OS_7_OR_LATER) {
+        //[[UINavigationBar appearance] setBarTintColor:[FCSStyles darkRed]];
+        [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:151.0/255.0 green:64.0/255.0 blue:65.0/255.0 alpha:1.0]];
+        [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    } else {
+        UIImage *backButton = [[UIImage imageNamed:@"back-arrow"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 10)];
+        [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+        UIImage *barButton = [[UIImage imageNamed:@"square_button"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 8, 0, 8)];
+        [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    }
     
     [self setNotification];
     

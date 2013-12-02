@@ -185,7 +185,7 @@ NSString *kVenueId = @"venueListViewID";
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         [HUD hide:YES];
         
-#warning message if venues dont load
+        #warning message if venues dont load
         NSLog(@"Error: %@", error);
         
     }];

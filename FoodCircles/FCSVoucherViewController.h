@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FCSStyledViewController.h"
 #import "FCSHeaderLabel.h"
-
-@class PayPalPayment;
+#import "PayPalMobile.h"
 
 typedef enum {
     VoucherViewTypeTimeline,

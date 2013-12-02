@@ -14,8 +14,8 @@
 <MKAnnotation>
 
 @property (readonly, nonatomic) CLLocationCoordinate2D coordinate;
-@property (strong, nonatomic) NSString *title;
-@property (strong, nonatomic) NSString *subtitle;
+@property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSString *subtitle;
 
 -(id)initWithVenueIndex:(NSInteger)venueIndex;
 

@@ -76,7 +76,7 @@
         TFLog(@"Timeline failed: %@", [JSON JSONString]);
         [HUD hide:YES];
         
-#warning message if timeline dont load
+        #warning message if timeline dont load
         NSLog(@"Error: %@", error);
         
     }];
@@ -88,17 +88,14 @@
 {
     [super viewDidLoad];
     
+    if (IS_OS_7_OR_LATER) self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem settingsBarButtonItemWithTarget:self selector:@selector(settingsPressed:)];
     
     self.bottomLabel.text = NSLocalizedString(@"You can feed a child\nYour network can feed a classrom", nil);
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 - (void)settingsPressed: (id)sender {
     [self performSegueWithIdentifier:@"Settings" sender:nil];
@@ -138,6 +135,7 @@
         
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TotalCell"];
+            cell.backgroundColor = [UIColor clearColor];
         }
         
         [cell.textLabel setTextAlignment:NSTextAlignmentRight];
@@ -241,6 +239,11 @@
     [self performSegueWithIdentifier:@"VoucherDetailSegue" sender:self];
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setBackgroundColor:[UIColor clearColor]];
+}
+
+#pragma mark - Curstom Methods
 -(void)acessoryButtonTapped:(UIControl *)button withEvent:(UIEvent *)event {
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:[[[event touchesForView: button] anyObject] locationInView: self.tableView]];
     

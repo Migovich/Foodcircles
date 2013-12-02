@@ -34,31 +34,17 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    if (IS_OS_7_OR_LATER) self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     NSDictionary *venue = [UIAppDelegate.venues objectAtIndex:selectedVenueIndex];
     self.restaurantName.text = [venue objectForKey:@"name"];
     self.restaurantDescription.text = [venue objectForKey:@"description"];
-    self.restaurantAmenities.text = venue[@"tags"][0][@"name"];
+    if ([[venue objectForKey:@"tags"] count] > 0) self.restaurantAmenities.text = [[[venue objectForKey:@"tags"] objectAtIndex:0] objectForKey:@"name"];
 
     [imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,[[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"outside_image"]]] placeholderImage:[UIImage imageNamed:@"transparent_box.png"]];
 
     FCSVenueAnnotation *venueAnn = [[FCSVenueAnnotation alloc] initWithVenueIndex:selectedVenueIndex];
     [mapView addAnnotation:venueAnn];
-    
-
-    
-//    if (!facebook && twitter && yelp) {
-//        
-//    }
-//    else if (facebook && !twitter && yelp) {
-//        
-//    }
-//    else if (facebook && twitter && !yelp) {
-//        
-//    }
-//    else if () {
-//        
-//    }
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -144,7 +130,6 @@
     
     //Yup, this code is bad....
     NSUInteger x = 139;
-    NSUInteger y = 71;
     NSUInteger centerX = 193;
     NSUInteger xcounter = x;
     for (NSLayoutConstraint *constraint in buttons) {

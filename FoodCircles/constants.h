@@ -14,3 +14,5 @@
 #define NEWS_URL @"api/news"
 #define LOGOUT_URL @"/users/sign_out"
 #define DELETE_VOUCHER_URL @"/payment/used"
+
+#define IS_OS_7_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)

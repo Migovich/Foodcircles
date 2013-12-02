@@ -16,7 +16,7 @@
 #endif
 
 #ifndef TESTING
-//#define TESTING 1
+#define TESTING 1
 #endif
 
 #ifdef TESTING

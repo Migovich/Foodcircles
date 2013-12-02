@@ -29,6 +29,4 @@
 @property (strong, nonatomic) NSString *offer_picture_url;
 @property (strong, nonatomic) NSString *venue_picture_url;
 
--(FCSVenue*) initFromJson: (NSString*) json;
-
 @end

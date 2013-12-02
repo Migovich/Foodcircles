@@ -24,7 +24,6 @@
 
 @interface FCSPurchaseViewController () <FCSPickerTableViewControllerDelegate>
 
-
 @property (weak, nonatomic) IBOutlet UILabel *payWhatYouWantLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bringingFriendsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *donatedToLabel;
@@ -42,6 +41,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (IS_OS_7_OR_LATER) self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.usdFormatter = [[NSNumberFormatter alloc] init];
     [self.usdFormatter setCurrencySymbol:@"$"];

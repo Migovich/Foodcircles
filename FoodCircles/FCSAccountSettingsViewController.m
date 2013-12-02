@@ -40,6 +40,8 @@
 	[self.view setBackgroundColor:[FCSStyles backgroundColor]];
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
+    
+    if (IS_OS_7_OR_LATER) self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

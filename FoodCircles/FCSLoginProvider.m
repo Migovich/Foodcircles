@@ -86,7 +86,7 @@ typedef enum {
     [PFFacebookUtils initializeFacebook];
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
         if (!user) {
-#warning set messages
+            #warning set messages
             if (error) {
                 NSLog(@"An error occurred: %@", error);
             }

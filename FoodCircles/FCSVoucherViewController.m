@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "FCSStyles.h"
 #import "FCSShareProviders.h"
+#import "constants.h"
 
 #import "FCSServerHelper.h"
 #import "FCSAppDelegate.h"
@@ -40,6 +41,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (IS_OS_7_OR_LATER) self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.receiptView.layer.shadowOpacity = 0.4f;
     self.receiptView.layer.shadowColor = [[UIColor colorWithRed:109.0/255.0 green:109.0/255.0 blue:109.0/255.0 alpha:1.0] CGColor];
