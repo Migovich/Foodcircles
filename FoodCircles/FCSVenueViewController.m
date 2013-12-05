@@ -50,9 +50,12 @@
     
     //Set detail text line spacing...
     UIFont *font = [UIFont fontWithName:@"Helvetica" size:14.0];
+    UIColor *color = [FCSStyles copyTextViewTextColor];
+    
     NSMutableAttributedString *detailText = [[NSMutableAttributedString alloc] initWithString:[[[[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"details"] attributes:
                                              @{
-                                                NSFontAttributeName: font
+                                                NSFontAttributeName: font,
+                                                NSForegroundColorAttributeName: color
                                              }];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:0];

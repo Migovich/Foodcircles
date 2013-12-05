@@ -8,10 +8,12 @@
 
 #import "FCSAppDelegate.h"
 #import <Parse/Parse.h>
+#import <Crashlytics/Crashlytics.h>
 #import "TestFlight.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "constants.h"
 #import "FCSStyles.h"
+#import "FCSServerHelper.h"
 
 #import "FCSVenueListViewController.h"
 #import "FCSSignUpViewController.h"
@@ -33,7 +35,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
+    [TestFlight setOptions:@{TFOptionReportCrashes:@NO}];
     [TestFlight takeOff:@"f70b7a5b-4c79-4d6b-841c-a4b6a61a3ba6"];
     
     [Parse setApplicationId:@"kOy6fgxIymc6fp3Z6FaYdkTaMy6F41hYX3SgAltZ"
@@ -43,6 +45,8 @@
                                consumerSecret:@"ipOQjEZ876e0qWexIOLKOV99TllNPC9LBcMEzCZ4"];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    [Crashlytics startWithAPIKey:@"22535ca9de8554d530b74b9a578747941edd9284"];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     

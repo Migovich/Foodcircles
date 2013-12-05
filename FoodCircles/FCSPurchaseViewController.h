@@ -11,11 +11,15 @@
 #import "FCSSpecial.h"
 #import "FCSStyledViewController.h"
 #import "PayPalMobile.h"
+#import "MBProgressHUD.h"
 
-@interface FCSPurchaseViewController : FCSStyledViewController <PayPalPaymentDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@class MBProgressHUD;
+
+@interface FCSPurchaseViewController : FCSStyledViewController <PayPalPaymentDelegate> {
+    MBProgressHUD *HUD;
+}
 
 @property int selectedVenueIndex;
-@property UIPickerView *pickerView;
 @property int pickerType;
 @property int selectedOffer;
 @property int selectedCharity;

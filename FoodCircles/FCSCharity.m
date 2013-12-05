@@ -28,8 +28,17 @@
                                                                                             UIAppDelegate.charities = [JSON objectForKey:@"content"];
 
                                                                                         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                                                                            #warning message if venues dont load
-                                                                                            NSLog(@"Error: %@", error);
+    
+                                                                                            TFLog(@"Error: %@", error.localizedDescription);
+                                                                                            NSString *errorMessage = [error localizedDescription];
+                                                                                            
+                                                                                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                                                            message:errorMessage
+                                                                                                                                           delegate:nil
+                                                                                                                                  cancelButtonTitle:@"OK"
+                                                                                                                                  otherButtonTitles:nil];
+                                                                                            [alert show];
+                                                                                
                                                                                         }];
     
     [operation start];

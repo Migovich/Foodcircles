@@ -7,6 +7,7 @@
 #import "constants.h"
 #import "FCSVoucherViewController.h"
 #import "FCSStyles.h"
+#import "FCSLoginProvider.h"
 
 #import "RNBlurModalView.h"
 #import "FPPopoverController.h"
@@ -42,6 +43,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    
     if (IS_OS_7_OR_LATER) self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.usdFormatter = [[NSNumberFormatter alloc] init];
@@ -50,20 +54,10 @@
     self.selectedCharityColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0];
     self.unselectedCharityColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
     
-    BOOL iphone4inch = [UIScreen mainScreen].bounds.size.height == 568;
-    _pickerView = [[UIPickerView alloc] initWithFrame:iphone4inch?CGRectMake(0, 290, 320, 300):CGRectMake(0, 200, 320, 300)];
-    _pickerView.delegate = self;
-    _pickerView.dataSource = self;
-    _pickerView.showsSelectionIndicator = YES;
-    [self.view addSubview:_pickerView];
-    _pickerView.hidden = YES;
-    
     _selectedOffer = 0;
     _selectedCharity = 0;
     
     [self setPriceRule];
-    
-    [_pickerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickerTapped:)]];
     
     NSString *title = [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"title"];
     [_offerButton setTitle:title forState:UIControlStateNormal];
@@ -76,7 +70,7 @@
     self.payWhatYouWantLabel.textColor = [FCSStyles brownColor];
     self.bringingFriendsLabel.textColor = [FCSStyles brownColor];
     self.donatedToLabel.textColor = [FCSStyles brownColor];
-    
+ 
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -158,9 +152,6 @@
 }
 
 - (IBAction)selectOffer:(id)sender {
-//    _pickerView.hidden = NO;
-//    _pickerType = 1;
-//    [_pickerView reloadAllComponents];
     NSMutableArray *offerNames = [[NSMutableArray alloc] init];
     for (NSDictionary *offer in [[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"]) {
         [offerNames addObject:offer[@"title"]];
@@ -176,11 +167,7 @@
     _pickerType = 1;
 }
 
-- (IBAction)selectCharity:(id)sender {
-//    _pickerView.hidden = NO;
-//    _pickerType = 2;
-//    [_pickerView reloadAllComponents];
-    
+- (IBAction)selectCharity:(id)sender { 
     NSMutableArray *charityNames = [[NSMutableArray alloc] init];
     for (NSDictionary *charity in UIAppDelegate.charities) {
         [charityNames addObject:charity[@"name"]];
@@ -230,54 +217,19 @@
 - (void)payPalPaymentDidComplete:(PayPalPayment *)completedPayment {
     self.completedPayment = completedPayment;
     TFLog(@"Completed Payment: %@", completedPayment);
-    [self performSegueWithIdentifier:@"VoucherSegue" sender:nil];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    if ([UIAppDelegate.user_token length] == 0) {
+        FCSLoginProvider *login = [[FCSLoginProvider alloc] init];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [login savedLoginWithView:self segue:@"VoucherSegue" hud:HUD];
+    } else {
+        [self performSegueWithIdentifier:@"VoucherSegue" sender:nil];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)payPalPaymentDidCancel {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-#pragma mark - UIPickerViewDelegate
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    if (_pickerType == 1) {
-        _selectedOffer = row;
-    } else {
-        _selectedCharity = row;
-    }
-}
-
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    if (_pickerType == 1) {
-        return [[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] count];
-    } else {
-        return [UIAppDelegate.charities count];
-    }
-}
-
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
-}
-
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    NSString *title;
-    if (_pickerType == 1) {
-        title = [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:row] objectForKey:@"title"];
-    } else {
-        title = [[UIAppDelegate.charities objectAtIndex:row] objectForKey:@"name"];
-    }
-    
-    return title;
-}
-
--(void)pickerTapped:(UIGestureRecognizer *)gestureRecognizer {
-    if (_pickerType == 1) {
-        [_offerButton setTitle:[[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"title"] forState:UIControlStateNormal];
-        [self setPriceRule];
-    } else {
-        [_charityButton setTitle:[[UIAppDelegate.charities objectAtIndex:_selectedCharity] objectForKey:@"name"]  forState:UIControlStateNormal];
-    }
-    _pickerView.hidden = YES;
 }
 
 #pragma mark - Picker Delegate

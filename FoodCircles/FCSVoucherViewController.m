@@ -69,12 +69,18 @@
         [self updateViewWithVoucherContent];
     }
     
+    if ([UIScreen mainScreen].bounds.size.  height == 568) {
+        //[_topLabelConstraint setConstant:40.0];
+        [_topCodeConstraint setConstant:50.0];
+        //[_yourCodeLabel layoutIfNeeded];
+        [_voucherNumberLabel layoutIfNeeded];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-     NSString *offerId = [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"id"];
+    NSString *offerId = [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"id"];
     NSString *charityId = [UIAppDelegate.charities objectAtIndex:self.selectedCharity][@"id"];
     
     if (self.viewType == VoucherViewTypePayment) {
@@ -91,7 +97,6 @@
                     [self updateViewWithVoucherContent];
                 });
             }
-            
         }];
     }
 }

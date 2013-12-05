@@ -76,8 +76,15 @@
         TFLog(@"Timeline failed: %@", [JSON JSONString]);
         [HUD hide:YES];
         
-        #warning message if timeline dont load
-        NSLog(@"Error: %@", error);
+        TFLog(@"Error: %@", error.localizedDescription);
+        NSString *errorMessage = [error localizedDescription];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:errorMessage
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
         
     }];
     

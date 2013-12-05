@@ -21,7 +21,7 @@ typedef enum {
 
 @implementation FCSLoginProvider
 
-- (void)authenticateToServerWithUrl: (NSString*)urlString uid: (NSString*)uid email: (NSString*)email withCompletion:(void(^)(id JSON, NSString *error, FacebookErrorCode errorCode))handler {
+- (void)authenticateToServerWithUrl: (NSString*)urlString uid:(NSString*)uid email:(NSString*)email withCompletion:(void(^)(id JSON, NSString *error, FacebookErrorCode errorCode))handler {
     
     NSURL *url = [NSURL URLWithString:urlString];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
@@ -233,6 +233,43 @@ typedef enum {
     }];
     
     [operation start];
+}
+
+-(void)savedLoginWithView:(UIViewController *)view segue:(NSString *)segue hud:(MBProgressHUD *)hud {
+    NSString *typeLogin = [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesType"];
+    if (typeLogin != nil) {
+        [hud show:YES];
+        NSDictionary *params;
+        
+        if ([typeLogin isEqualToString:@"Email"]) {
+            params = [NSDictionary dictionaryWithObjectsAndKeys:
+                      [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesEmail"], @"user_email",
+                      [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesPassword"], @"user_password",
+                      nil];
+        } else if ([typeLogin isEqualToString:@"Facebook"]) {
+            params = [NSDictionary dictionaryWithObjectsAndKeys:
+                      [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesFacebookUID"], @"uid",
+                      [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesEmail"], @"user_password",
+                      nil];
+        } else if ([typeLogin isEqualToString:@"Twitter"]) {
+            params = [NSDictionary dictionaryWithObjectsAndKeys:
+                      [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesTwitterUID"], @"uid",
+                      nil];
+        }
+        
+        //FCSLoginProvider *login = [[FCSLoginProvider alloc] init];
+        [self loginWithParams:params :^(BOOL success) {
+            [hud hide:YES];
+            if (success) {
+                if ([typeLogin isEqualToString:@"Facebook"] || [typeLogin isEqualToString:@"Twitter"]) {
+                    UIAppDelegate.user_uid = [params objectForKey:@"uid"];
+                } else {
+                    UIAppDelegate.user_uid = [params objectForKey:@"user_email"];
+                }
+                [view performSegueWithIdentifier:segue sender:self];
+            }
+        }];
+    }
 }
 
 @end

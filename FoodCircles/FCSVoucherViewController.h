@@ -33,4 +33,7 @@ typedef enum {
 @property (strong, nonatomic) NSString *offerName;
 @property (strong, nonatomic) NSString *restaurantName;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLabelConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topCodeConstraint;
+
 @end

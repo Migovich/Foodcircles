@@ -32,8 +32,6 @@
 		632357261738156A0068A2F5 /* Hopcat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 632357241738156A0068A2F5 /* Hopcat.jpg */; };
 		632357271738156A0068A2F5 /* kids.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 632357251738156A0068A2F5 /* kids.tiff */; };
 		6323572C173818A20068A2F5 /* FCSPurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6323572B173818A20068A2F5 /* FCSPurchaseViewController.m */; };
-		6323573D173832950068A2F5 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6323573C173832950068A2F5 /* icon.png */; };
-		632357431738333E0068A2F5 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 632357421738333E0068A2F5 /* icon@2x.png */; };
 		6323574E173850800068A2F5 /* FCSStyledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6323574D1738507F0068A2F5 /* FCSStyledViewController.m */; };
 		634E79EE174AD40800114E56 /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 634E79EC174AD40800114E56 /* twitter@2x.png */; };
 		634E79FD174AD81700114E56 /* FCSSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 634E79FC174AD81700114E56 /* FCSSlider.m */; };
@@ -145,11 +143,13 @@
 		AF7C86A217C6B8D6009729D1 /* tag-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7C86A017C6B8D5009729D1 /* tag-grey.png */; };
 		AF7C86A517C6B8E6009729D1 /* tag-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7C86A317C6B8E4009729D1 /* tag-blue@2x.png */; };
 		AF7C86A617C6B8E6009729D1 /* tag-grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7C86A417C6B8E5009729D1 /* tag-grey@2x.png */; };
+		AF8DBA7F1850B38F00D50A3F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8DBA7E1850B38F00D50A3F /* Foundation.framework */; };
 		AF8FEFB117BC551600A2A28B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8FEFB017BC551600A2A28B /* Parse.framework */; };
 		AF8FEFB317BC554B00A2A28B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8FEFB217BC554B00A2A28B /* CFNetwork.framework */; };
 		AFB4D60117C2C1E5009691F9 /* FCSLoginProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB4D60017C2C1E5009691F9 /* FCSLoginProvider.m */; };
 		AFB8287217C41E1A006FCB90 /* FCSCharity.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB8287117C41E1A006FCB90 /* FCSCharity.m */; };
 		AFC69D5D17C947BF00DAAAA8 /* FCSAccountSettingsChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC69D5C17C947BF00DAAAA8 /* FCSAccountSettingsChildViewController.m */; };
+		AFC8D3901851020900BAB6ED /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC8D38F1851020900BAB6ED /* Crashlytics.framework */; };
 		AFD29D4E17D7DEF9003033D2 /* arrow_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD29D4D17D7DEF8003033D2 /* arrow_button@2x.png */; };
 		AFD29D5017D7DEFF003033D2 /* arrow_button.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD29D4F17D7DEFF003033D2 /* arrow_button.png */; };
 		AFD94A8717CD6E7D00AE8B0D /* Paper-tear.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD94A8517CD6E7D00AE8B0D /* Paper-tear.png */; };
@@ -316,8 +316,6 @@
 		632357251738156A0068A2F5 /* kids.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = kids.tiff; sourceTree = "<group>"; };
 		6323572A173818A20068A2F5 /* FCSPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSPurchaseViewController.h; sourceTree = "<group>"; };
 		6323572B173818A20068A2F5 /* FCSPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSPurchaseViewController.m; sourceTree = "<group>"; };
-		6323573C173832950068A2F5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		632357421738333E0068A2F5 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		632357441738349A0068A2F5 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		6323574C1738507F0068A2F5 /* FCSStyledViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSStyledViewController.h; sourceTree = "<group>"; };
 		6323574D1738507F0068A2F5 /* FCSStyledViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSStyledViewController.m; sourceTree = "<group>"; };
@@ -497,6 +495,7 @@
 		AF7C86A017C6B8D5009729D1 /* tag-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tag-grey.png"; sourceTree = "<group>"; };
 		AF7C86A317C6B8E4009729D1 /* tag-blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tag-blue@2x.png"; sourceTree = "<group>"; };
 		AF7C86A417C6B8E5009729D1 /* tag-grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tag-grey@2x.png"; sourceTree = "<group>"; };
+		AF8DBA7E1850B38F00D50A3F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AF8FEFB017BC551600A2A28B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = FoodCircles/Parse.framework; sourceTree = "<group>"; };
 		AF8FEFB217BC554B00A2A28B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AFB4D5FF17C2C1E5009691F9 /* FCSLoginProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSLoginProvider.h; sourceTree = "<group>"; };
@@ -507,6 +506,7 @@
 		AFB8B45A17BD7373006162F8 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		AFC69D5B17C947BF00DAAAA8 /* FCSAccountSettingsChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSAccountSettingsChildViewController.h; sourceTree = "<group>"; };
 		AFC69D5C17C947BF00DAAAA8 /* FCSAccountSettingsChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSAccountSettingsChildViewController.m; sourceTree = "<group>"; };
+		AFC8D38F1851020900BAB6ED /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = FoodCircles/Libs/Crashlytics.framework; sourceTree = "<group>"; };
 		AFD29D4D17D7DEF8003033D2 /* arrow_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_button@2x.png"; sourceTree = "<group>"; };
 		AFD29D4F17D7DEFF003033D2 /* arrow_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_button.png; sourceTree = "<group>"; };
 		AFD94A8517CD6E7D00AE8B0D /* Paper-tear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Paper-tear.png"; sourceTree = "<group>"; };
@@ -614,6 +614,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF8DBA7F1850B38F00D50A3F /* Foundation.framework in Frameworks */,
 				AF762317184ABB71009AF016 /* StoreKit.framework in Frameworks */,
 				AF76230C184AB44D009AF016 /* UIKit.framework in Frameworks */,
 				AF76230A184AB441009AF016 /* SystemConfiguration.framework in Frameworks */,
@@ -633,14 +634,15 @@
 				AF762315184ABA4D009AF016 /* libPayPalMobile.a in Frameworks */,
 				D5B1C24517DB904D008EB2A5 /* Social.framework in Frameworks */,
 				D5B1C24417DB9027008EB2A5 /* libsqlite3.dylib in Frameworks */,
+				AFC8D3901851020900BAB6ED /* Crashlytics.framework in Frameworks */,
 				D5B1C24217DB901F008EB2A5 /* Accounts.framework in Frameworks */,
 				D5B1C24117DB9002008EB2A5 /* AdSupport.framework in Frameworks */,
 				D5B1C23F17DB8FEA008EB2A5 /* Twitter.framework in Frameworks */,
+				AF8FEFB117BC551600A2A28B /* Parse.framework in Frameworks */,
 				D5042E6D17DA2D2300E9A8FC /* libz.dylib in Frameworks */,
 				635FE11C174C0EBB004E8D6B /* MapKit.framework in Frameworks */,
 				AF8FEFB317BC554B00A2A28B /* CFNetwork.framework in Frameworks */,
 				63DBB62B173161FD003A74CC /* CoreData.framework in Frameworks */,
-				AF8FEFB117BC551600A2A28B /* Parse.framework in Frameworks */,
 				D8426A8776B244A7904A6405 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -933,7 +935,7 @@
 		63DBB623173161FD003A74CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AF762316184ABB71009AF016 /* StoreKit.framework */,
+				AFC8D38F1851020900BAB6ED /* Crashlytics.framework */,
 				AFB8B45A17BD7373006162F8 /* Accounts.framework */,
 				D5B1C24017DB9002008EB2A5 /* AdSupport.framework */,
 				D55F853717DC7DF400A27E44 /* AssetsLibrary.framework */,
@@ -944,6 +946,7 @@
 				63DBB62A173161FD003A74CC /* CoreData.framework */,
 				AF7622F9184AB3F4009AF016 /* CoreMedia.framework */,
 				AF7622FD184AB408009AF016 /* CoreVideo.framework */,
+				AF8DBA7E1850B38F00D50A3F /* Foundation.framework */,
 				D5B1C24A17DB91B9008EB2A5 /* libc++.dylib */,
 				157E63BFD8EC4EE796090E74 /* libPods.a */,
 				D5B1C24317DB9027008EB2A5 /* libsqlite3.dylib */,
@@ -958,6 +961,7 @@
 				AF762307184AB439009AF016 /* Security.framework */,
 				63DBB647173161FE003A74CC /* SenTestingKit.framework */,
 				632357441738349A0068A2F5 /* Social.framework */,
+				AF762316184ABB71009AF016 /* StoreKit.framework */,
 				AF762309184AB441009AF016 /* SystemConfiguration.framework */,
 				AFB8B45817BD734C006162F8 /* Twitter.framework */,
 				AF76230B184AB44D009AF016 /* UIKit.framework */,
@@ -989,8 +993,6 @@
 				D5EEF40B17DA3723006E4F52 /* Default@2x.png */,
 				D5EEF40C17DA3723006E4F52 /* Default.png */,
 				D5EEF40D17DA3723006E4F52 /* Default-568h@2x.png */,
-				632357421738333E0068A2F5 /* icon@2x.png */,
-				6323573C173832950068A2F5 /* icon.png */,
 				63DBB62E173161FD003A74CC /* FoodCircles-Info.plist */,
 				63DBB62F173161FD003A74CC /* InfoPlist.strings */,
 				63DBB632173161FD003A74CC /* main.m */,
@@ -1323,6 +1325,7 @@
 				63DBB61F173161FD003A74CC /* Resources */,
 				631C6D571732EAF600151EFA /* CopyFiles */,
 				9AEE2CCA0BAA47F4924A3C0A /* Copy Pods Resources */,
+				AF8DBA801850B5F200D50A3F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1363,7 +1366,7 @@
 				ORGANIZATIONNAME = FoodCircles;
 				TargetAttributes = {
 					63DBB620173161FD003A74CC = {
-						DevelopmentTeam = 2422G3DT64;
+						DevelopmentTeam = V46ME5Z7UQ;
 					};
 				};
 			};
@@ -1412,8 +1415,6 @@
 				63DBB6601731634B003A74CC /* MainStoryboard.storyboard in Resources */,
 				632357261738156A0068A2F5 /* Hopcat.jpg in Resources */,
 				632357271738156A0068A2F5 /* kids.tiff in Resources */,
-				6323573D173832950068A2F5 /* icon.png in Resources */,
-				632357431738333E0068A2F5 /* icon@2x.png in Resources */,
 				6312D7EF173BD9CA009B8E6D /* heart.png in Resources */,
 				63520BF0173D62B100D32223 /* facebook.png in Resources */,
 				D59B72E417D8C0E800E001F0 /* share_action.png in Resources */,
@@ -1585,6 +1586,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		AF8DBA801850B5F200D50A3F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./FoodCircles/Libs/Crashlytics.framework/run 22535ca9de8554d530b74b9a578747941edd9284";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1804,18 +1818,15 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/FoodCircles\"",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)/FoodCircles",
+					/Users/bigola/Documents/Developer/FoodCircles/FoodCircles/Libs,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
 				INFOPLIST_FILE = "FoodCircles/FoodCircles-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"\\\"$(SRCROOT)/FoodCircles/Libs/\\\"/**",
-					/Users/bigola/Documents/Developer/FoodCircles/FoodCircles/Libs/TestFlightSDK2,
-				);
-				"LIBRARY_SEARCH_PATHS[arch=*]" = "\"$(SRCROOT)/FoodCircles/Libs/\"/**";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/FoodCircles/Libs/**";
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/FoodCircles/Libs/**";
 				OTHER_LDFLAGS = (
 					"-lstdc++",
 					"-ObjC",
@@ -1845,22 +1856,19 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_ENTITLEMENTS = FoodCircles/FoodCircles.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/FoodCircles\"",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)/FoodCircles",
+					/Users/bigola/Documents/Developer/FoodCircles/FoodCircles/Libs,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
 				INFOPLIST_FILE = "FoodCircles/FoodCircles-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"\\\"$(SRCROOT)/FoodCircles/Libs/\\\"/**",
-					/Users/bigola/Documents/Developer/FoodCircles/FoodCircles/Libs/TestFlightSDK2,
-				);
-				"LIBRARY_SEARCH_PATHS[arch=*]" = "\"$(SRCROOT)/FoodCircles/Libs/\"/**";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/FoodCircles/Libs/**";
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/FoodCircles/Libs/**";
 				OTHER_LDFLAGS = (
 					"-lstdc++",
 					"-all_load",

@@ -34,7 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     
@@ -68,40 +68,8 @@
     } failure:nil];
     [operation start];
     
-    NSString *typeLogin = [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesType"];
-    if (typeLogin != nil) {
-        [HUD show:YES];
-        NSDictionary *params;
-        
-        if ([typeLogin isEqualToString:@"Email"]) {
-            params = [NSDictionary dictionaryWithObjectsAndKeys:
-                      [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesEmail"], @"user_email",
-                      [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesPassword"], @"user_password",
-                      nil];
-        } else if ([typeLogin isEqualToString:@"Facebook"]) {
-            params = [NSDictionary dictionaryWithObjectsAndKeys:
-                      [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesFacebookUID"], @"uid",
-                      [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesEmail"], @"user_password",
-                      nil];
-        } else if ([typeLogin isEqualToString:@"Twitter"]) {
-            params = [NSDictionary dictionaryWithObjectsAndKeys:
-                      [SSKeychain passwordForService:@"FoodCircles" account:@"FoodCirclesTwitterUID"], @"uid",
-                      nil];
-        }
-        
-        FCSLoginProvider *login = [[FCSLoginProvider alloc] init];
-        [login loginWithParams:params :^(BOOL success) {
-            [HUD hide:YES];
-            if (success) {
-                if ([typeLogin isEqualToString:@"Facebook"] || [typeLogin isEqualToString:@"Twitter"]) {
-                    UIAppDelegate.user_uid = [params objectForKey:@"uid"];
-                } else {
-                    UIAppDelegate.user_uid = [params objectForKey:@"user_email"];
-                }
-                [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
-            }
-        }];
-    }
+    FCSLoginProvider *login = [[FCSLoginProvider alloc] init];
+    [login savedLoginWithView:self segue:@"SignUpSegue" hud:HUD];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
