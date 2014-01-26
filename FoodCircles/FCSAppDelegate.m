@@ -49,6 +49,7 @@
     [Crashlytics startWithAPIKey:@"22535ca9de8554d530b74b9a578747941edd9284"];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
     
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
@@ -71,7 +72,6 @@
     
     //UI Defaults
     if (IS_OS_7_OR_LATER) {
-        //[[UINavigationBar appearance] setBarTintColor:[FCSStyles darkRed]];
         [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:151.0/255.0 green:64.0/255.0 blue:65.0/255.0 alpha:1.0]];
         [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
         [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];

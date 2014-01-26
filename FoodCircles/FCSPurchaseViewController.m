@@ -35,6 +35,10 @@
 
 @property (nonatomic) PayPalPayment *completedPayment;
 
+@property (strong, nonatomic) UIColor *navigationBarBarTintColor;
+@property (strong, nonatomic) UIColor *navigationBarTintColor;
+@property (strong, nonatomic) UIColor *barButtonItemTintColor;
+
 @property (nonatomic) FPPopoverController *popOverController;
 @end
 
@@ -132,6 +136,15 @@
     NSString *clientID = kClientId;
 #endif
     
+    //PayPal style fix
+    _navigationBarBarTintColor = [UINavigationBar appearance].barTintColor;
+    _navigationBarTintColor = [UINavigationBar appearance].tintColor;
+    _barButtonItemTintColor = [UIBarButtonItem appearance].tintColor;
+    [[UINavigationBar appearance] setBarTintColor:nil];
+    [[UINavigationBar appearance] setTintColor:nil];
+    [[UIBarButtonItem appearance] setTintColor:nil];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+    
     PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:clientID receiverEmail:kReceiverEmail payerId:aPayerId payment:payment delegate:self];
 
     [self presentViewController:paymentViewController animated:YES completion:nil];
@@ -185,6 +198,13 @@
 }
 
 #pragma mark - Custom Methods
+-(void)backDefaultStyle {
+    [[UINavigationBar appearance] setBarTintColor:_navigationBarBarTintColor];
+    [[UINavigationBar appearance] setTintColor:_navigationBarTintColor];
+    [[UIBarButtonItem appearance] setTintColor:_barButtonItemTintColor];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+}
+
 - (void)update:(int)value {
     [self.priceLabel setText:[NSString stringWithFormat:@"$%d",value]];
     
@@ -226,10 +246,13 @@
         [self performSegueWithIdentifier:@"VoucherSegue" sender:nil];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+    
+    [self backDefaultStyle];
 }
 
 - (void)payPalPaymentDidCancel {
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self backDefaultStyle];
 }
 
 #pragma mark - Picker Delegate

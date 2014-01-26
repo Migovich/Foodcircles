@@ -1366,7 +1366,7 @@
 				ORGANIZATIONNAME = FoodCircles;
 				TargetAttributes = {
 					63DBB620173161FD003A74CC = {
-						DevelopmentTeam = V46ME5Z7UQ;
+						DevelopmentTeam = 6H3NUKPCZ9;
 					};
 				};
 			};
@@ -1856,8 +1856,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_ENTITLEMENTS = FoodCircles/FoodCircles.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/FoodCircles",
