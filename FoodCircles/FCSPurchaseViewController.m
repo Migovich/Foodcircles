@@ -137,13 +137,15 @@
 #endif
     
     //PayPal style fix
-    _navigationBarBarTintColor = [UINavigationBar appearance].barTintColor;
-    _navigationBarTintColor = [UINavigationBar appearance].tintColor;
-    _barButtonItemTintColor = [UIBarButtonItem appearance].tintColor;
-    [[UINavigationBar appearance] setBarTintColor:nil];
-    [[UINavigationBar appearance] setTintColor:nil];
-    [[UIBarButtonItem appearance] setTintColor:nil];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+    if (IS_OS_7_OR_LATER) {
+        _navigationBarBarTintColor = [UINavigationBar appearance].barTintColor;
+        _navigationBarTintColor = [UINavigationBar appearance].tintColor;
+        _barButtonItemTintColor = [UIBarButtonItem appearance].tintColor;
+        [[UINavigationBar appearance] setBarTintColor:nil];
+        [[UINavigationBar appearance] setTintColor:nil];
+        [[UIBarButtonItem appearance] setTintColor:nil];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+    }
     
     PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:clientID receiverEmail:kReceiverEmail payerId:aPayerId payment:payment delegate:self];
 
@@ -199,10 +201,12 @@
 
 #pragma mark - Custom Methods
 -(void)backDefaultStyle {
-    [[UINavigationBar appearance] setBarTintColor:_navigationBarBarTintColor];
-    [[UINavigationBar appearance] setTintColor:_navigationBarTintColor];
-    [[UIBarButtonItem appearance] setTintColor:_barButtonItemTintColor];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    if (IS_OS_7_OR_LATER) {
+        [[UINavigationBar appearance] setBarTintColor:_navigationBarBarTintColor];
+        [[UINavigationBar appearance] setTintColor:_navigationBarTintColor];
+        [[UIBarButtonItem appearance] setTintColor:_barButtonItemTintColor];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    }
 }
 
 - (void)update:(int)value {

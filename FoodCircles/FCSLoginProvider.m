@@ -116,6 +116,7 @@ typedef enum {
                             [SSKeychain setPassword:@"Facebook" forService:@"FoodCircles" account:@"FoodCirclesType"];
                             [SSKeychain setPassword:user.username forService:@"FoodCircles" account:@"FoodCirclesFacebookUID"];
                             [SSKeychain setPassword:email forService:@"FoodCircles" account:@"FoodCirclesEmail"];
+                            
                             handler(YES);
                         }
                         else if (errorCode == FacebookErrorCodeNoAccountExists) {
