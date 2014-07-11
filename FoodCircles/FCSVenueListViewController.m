@@ -67,38 +67,7 @@ NSString *kVenueId = @"venueListViewID";
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FCSVenueCell *venueCell = [collectionView dequeueReusableCellWithReuseIdentifier:kVenueId forIndexPath:indexPath];
-    
-    venueCell.productName.text = [[[UIAppDelegate.venues objectAtIndex:[indexPath row]] objectForKey:@"name"] uppercaseString];
-    [venueCell.productImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"timeline_image"]]] placeholderImage:[UIImage imageNamed:@"transparent_box.png"]];
-    [venueCell.productImage setClipsToBounds:YES];
-    
-    NSArray *tags = [NSArray arrayWithArray:[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"tags"]];
-    
-    if (tags.count > 0) {
-        venueCell.detailTextLabel.text = [[tags objectAtIndex:0] objectForKey:@"name"];
-    } else {
-        venueCell.detailTextLabel.text = @"";
-    }
-    
-    NSString *miles = [[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"distance"];
-    [venueCell.milesLabel setText:miles];
-    
-    int leftTag = [[[UIAppDelegate.venues objectAtIndex:[indexPath row]] objectForKey:@"vouchers_available"] integerValue];
-    [venueCell.qtyLeftLabel setText:[NSString stringWithFormat:@"%d",leftTag]];
-    
-    if (leftTag == 0) {
-        [venueCell.tagImageView setImage:[UIImage imageNamed:@"tag-grey.png"]];
-        [venueCell setUserInteractionEnabled:NO];
-        [venueCell.soldOutLabel setHidden:NO];
-    } else {
-        [venueCell.tagImageView setImage:[UIImage imageNamed:@"tag-blue.png"]];
-        [venueCell setUserInteractionEnabled:YES];
-        [venueCell.soldOutLabel setHidden:YES];
-    }
-    
-    venueCell.contentView.layer.shadowOpacity = 0.1f;
-    venueCell.contentView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-    venueCell.contentView.layer.masksToBounds = NO;
+    venueCell.venue = [UIAppDelegate.venues objectAtIndex:indexPath.row];
     
     //Set LocalNotifications
     CLLocationCoordinate2D coords;

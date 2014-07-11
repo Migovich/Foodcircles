@@ -139,10 +139,6 @@
 		AF7C869817C6966F009729D1 /* FCSTimelineMonthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF7C869717C6966E009729D1 /* FCSTimelineMonthCell.xib */; };
 		AF7C869B17C69695009729D1 /* FCSTimelineMonthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7C869A17C69694009729D1 /* FCSTimelineMonthCell.m */; };
 		AF7C869E17C6AD64009729D1 /* FCSTimelineData.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7C869D17C6AD64009729D1 /* FCSTimelineData.m */; };
-		AF7C86A117C6B8D6009729D1 /* tag-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7C869F17C6B8D4009729D1 /* tag-blue.png */; };
-		AF7C86A217C6B8D6009729D1 /* tag-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7C86A017C6B8D5009729D1 /* tag-grey.png */; };
-		AF7C86A517C6B8E6009729D1 /* tag-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7C86A317C6B8E4009729D1 /* tag-blue@2x.png */; };
-		AF7C86A617C6B8E6009729D1 /* tag-grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7C86A417C6B8E5009729D1 /* tag-grey@2x.png */; };
 		AF8DBA7F1850B38F00D50A3F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8DBA7E1850B38F00D50A3F /* Foundation.framework */; };
 		AF8FEFB117BC551600A2A28B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8FEFB017BC551600A2A28B /* Parse.framework */; };
 		AF8FEFB317BC554B00A2A28B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8FEFB217BC554B00A2A28B /* CFNetwork.framework */; };
@@ -491,10 +487,6 @@
 		AF7C869A17C69694009729D1 /* FCSTimelineMonthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSTimelineMonthCell.m; sourceTree = "<group>"; };
 		AF7C869C17C6AD64009729D1 /* FCSTimelineData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSTimelineData.h; sourceTree = "<group>"; };
 		AF7C869D17C6AD64009729D1 /* FCSTimelineData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSTimelineData.m; sourceTree = "<group>"; };
-		AF7C869F17C6B8D4009729D1 /* tag-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tag-blue.png"; sourceTree = "<group>"; };
-		AF7C86A017C6B8D5009729D1 /* tag-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tag-grey.png"; sourceTree = "<group>"; };
-		AF7C86A317C6B8E4009729D1 /* tag-blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tag-blue@2x.png"; sourceTree = "<group>"; };
-		AF7C86A417C6B8E5009729D1 /* tag-grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tag-grey@2x.png"; sourceTree = "<group>"; };
 		AF8DBA7E1850B38F00D50A3F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AF8FEFB017BC551600A2A28B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = FoodCircles/Parse.framework; sourceTree = "<group>"; };
 		AF8FEFB217BC554B00A2A28B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -629,12 +621,12 @@
 				AF7622FA184AB3F4009AF016 /* CoreMedia.framework in Frameworks */,
 				AF7622F8184AB3C7009AF016 /* AudioToolbox.framework in Frameworks */,
 				D55F853817DC7DF400A27E44 /* AssetsLibrary.framework in Frameworks */,
+				AFC8D3901851020900BAB6ED /* Crashlytics.framework in Frameworks */,
 				D5B1C24B17DB91B9008EB2A5 /* libc++.dylib in Frameworks */,
 				AF76231F184ABBCF009AF016 /* libTestFlight.a in Frameworks */,
 				AF762315184ABA4D009AF016 /* libPayPalMobile.a in Frameworks */,
 				D5B1C24517DB904D008EB2A5 /* Social.framework in Frameworks */,
 				D5B1C24417DB9027008EB2A5 /* libsqlite3.dylib in Frameworks */,
-				AFC8D3901851020900BAB6ED /* Crashlytics.framework in Frameworks */,
 				D5B1C24217DB901F008EB2A5 /* Accounts.framework in Frameworks */,
 				D5B1C24117DB9002008EB2A5 /* AdSupport.framework in Frameworks */,
 				D5B1C23F17DB8FEA008EB2A5 /* Twitter.framework in Frameworks */,
@@ -773,57 +765,53 @@
 		63235729173815790068A2F5 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				D58DED9917D9989D004BC430 /* Buttons */,
 				D59B72D417D8C0E800E001F0 /* 11 Signed In Landing Page */,
+				AF7C869317C6818F009729D1 /* activity-dot.png */,
+				AF7C869417C6818F009729D1 /* activity-dot@2x.png */,
+				AFD29D4F17D7DEFF003033D2 /* arrow_button.png */,
+				AFD29D4D17D7DEF8003033D2 /* arrow_button@2x.png */,
+				D58DED9917D9989D004BC430 /* Buttons */,
 				635FE0FA174C0A8B004E8D6B /* call_button.png */,
 				635FE106174C0A96004E8D6B /* call_button@2x.png */,
 				DCF30A6B17A6D2980060BA9D /* contact_button.png */,
-				AF7C869317C6818F009729D1 /* activity-dot.png */,
-				AF7C869417C6818F009729D1 /* activity-dot@2x.png */,
-				AFD29D4D17D7DEF8003033D2 /* arrow_button@2x.png */,
-				AF7C86A317C6B8E4009729D1 /* tag-blue@2x.png */,
-				AFD29D4F17D7DEFF003033D2 /* arrow_button.png */,
-				AF7C86A417C6B8E5009729D1 /* tag-grey@2x.png */,
-				AF7C869F17C6B8D4009729D1 /* tag-blue.png */,
-				AF7C86A017C6B8D5009729D1 /* tag-grey.png */,
-				AF7C868F17C68125009729D1 /* kid-icon.png */,
-				AF7C869017C68126009729D1 /* kid-icon@2x.png */,
 				DCF30A6C17A6D2980060BA9D /* contact_button@2x.png */,
 				635FE0F0174BFF73004E8D6B /* Default-568h@2x.png */,
-				AF50399417CFF10B00F4654F /* invite-friends_button@2x.png */,
 				635FE0EE174BFF73004E8D6B /* Default.png */,
 				635FE0EF174BFF73004E8D6B /* Default@2x.png */,
 				DCA15CC117592EC800AF294B /* Dropdown.png */,
 				DCA15CC217592EC800AF294B /* Dropdown@2x.png */,
+				D53D000217DCFDDA0023290D /* email-icon.png */,
+				D53D000117DCFDDA0023290D /* email-icon@2x.png */,
 				635FE0E0174BEAFD004E8D6B /* facebook-icon.png */,
 				635FE0D8174BEAF6004E8D6B /* facebook-icon@2x.png */,
 				63520BED173D62B100D32223 /* facebook.png */,
-				D53D000117DCFDDA0023290D /* email-icon@2x.png */,
-				D53D000217DCFDDA0023290D /* email-icon.png */,
+				D5D8BAA117E231D900BF662F /* facebook@2x.png */,
 				DCF30A6D17A6D2980060BA9D /* Facebook_button.png */,
 				DCF30A6E17A6D2980060BA9D /* Facebook_button@2x.png */,
 				6301F4781747C7ED0081245A /* foodcircles logo.png */,
 				6301F4791747C7ED0081245A /* foodcircles logo@2x.png */,
-				AF50399217CFF10400F4654F /* invite-friends_button.png */,
 				DCF30A6F17A6D2980060BA9D /* fuzzy_cheer.png */,
 				6312D7EE173BD9C9009B8E6D /* heart.png */,
 				632357241738156A0068A2F5 /* Hopcat.jpg */,
 				DCA15CCB175935F500AF294B /* I.png */,
 				DCA15CCC175935F500AF294B /* I@2x.png */,
+				AF50399217CFF10400F4654F /* invite-friends_button.png */,
+				AF50399417CFF10B00F4654F /* invite-friends_button@2x.png */,
 				AF50399017CFF0FE00F4654F /* invite-friends_icon.png */,
-				63E367F1174AC82C00DA3852 /* Kids-crowd.jpg */,
-				D5EEF41E17DA554A006E4F52 /* US_Navy_050106.jpg */,
 				AF50398E17CFF0F700F4654F /* invite-friends_icon@2x.png */,
-				AFD94A8E17CD7CF700AE8B0D /* share_action-brown@2x.png */,
+				AF7C868F17C68125009729D1 /* kid-icon.png */,
+				AF7C869017C68126009729D1 /* kid-icon@2x.png */,
+				63E367F1174AC82C00DA3852 /* Kids-crowd.jpg */,
 				632357251738156A0068A2F5 /* kids.tiff */,
+				AFD94A8517CD6E7D00AE8B0D /* Paper-tear.png */,
+				AFD94A8617CD6E7D00AE8B0D /* Paper-tear@2x.png */,
 				DCA15CC51759314D00AF294B /* pip.png */,
 				DCA15CC71759349700AF294B /* Price_Window.png */,
 				DCA15CC81759349700AF294B /* Price_Window@2x.png */,
-				AFD94A8C17CD7CF300AE8B0D /* share_action-brown.png */,
-				AFD94A8517CD6E7D00AE8B0D /* Paper-tear.png */,
-				AFD94A8617CD6E7D00AE8B0D /* Paper-tear@2x.png */,
 				DCF30A7017A6D2980060BA9D /* red_button.png */,
 				DCF30A7117A6D2980060BA9D /* red_button@2x.png */,
+				AFD94A8C17CD7CF300AE8B0D /* share_action-brown.png */,
+				AFD94A8E17CD7CF700AE8B0D /* share_action-brown@2x.png */,
 				DCF30B2017A87F550060BA9D /* slider_Knob.png */,
 				D594AF7517E2F16600F3BC48 /* slider_Knob@2x.png */,
 				DCA15CD5175948EA00AF294B /* TimelineDate.png */,
@@ -845,7 +833,7 @@
 				634E79EC174AD40800114E56 /* twitter@2x.png */,
 				DCF30A7217A6D2980060BA9D /* Twitter_button.png */,
 				DCF30A7317A6D2980060BA9D /* Twitter_button@2x.png */,
-				D5D8BAA117E231D900BF662F /* facebook@2x.png */,
+				D5EEF41E17DA554A006E4F52 /* US_Navy_050106.jpg */,
 				635FE0FE174C0A8B004E8D6B /* website_icon.png */,
 				635FE10A174C0A96004E8D6B /* website_icon@2x.png */,
 				DCA15CDA17594B1A00AF294B /* YellowChild.png */,
@@ -1362,6 +1350,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = FCS;
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = FoodCircles;
 				TargetAttributes = {
@@ -1473,10 +1462,6 @@
 				AF7C869517C68190009729D1 /* activity-dot.png in Resources */,
 				AF7C869617C68190009729D1 /* activity-dot@2x.png in Resources */,
 				AF7C869817C6966F009729D1 /* FCSTimelineMonthCell.xib in Resources */,
-				AF7C86A117C6B8D6009729D1 /* tag-blue.png in Resources */,
-				AF7C86A217C6B8D6009729D1 /* tag-grey.png in Resources */,
-				AF7C86A517C6B8E6009729D1 /* tag-blue@2x.png in Resources */,
-				AF7C86A617C6B8E6009729D1 /* tag-grey@2x.png in Resources */,
 				AFD94A8717CD6E7D00AE8B0D /* Paper-tear.png in Resources */,
 				AFD94A8817CD6E7D00AE8B0D /* Paper-tear@2x.png in Resources */,
 				AFD94A8D17CD7CF300AE8B0D /* share_action-brown.png in Resources */,
@@ -1764,7 +1749,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lc++",
@@ -1793,7 +1778,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-lc++",
@@ -1820,6 +1805,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/FoodCircles",
 					/Users/bigola/Documents/Developer/FoodCircles/FoodCircles/Libs,
+					"$(PROJECT_DIR)/FoodCircles/Libs",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
@@ -1862,6 +1848,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/FoodCircles",
 					/Users/bigola/Documents/Developer/FoodCircles/FoodCircles/Libs,
+					"$(PROJECT_DIR)/FoodCircles/Libs",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
