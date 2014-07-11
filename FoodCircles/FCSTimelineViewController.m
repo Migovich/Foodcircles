@@ -102,7 +102,7 @@
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem settingsBarButtonItemWithTarget:self selector:@selector(settingsPressed:)];
     
-    self.bottomLabel.text = NSLocalizedString(@"You can feed a child\nYour network can feed a classrom", nil);
+    self.bottomLabel.text = NSLocalizedString(@"You can feed a child\nYour network can feed a classroom", nil);
 }
 - (void)settingsPressed: (id)sender {
     [self performSegueWithIdentifier:@"Settings" sender:nil];

@@ -41,7 +41,7 @@
     _shareButton.userInteractionEnabled = YES;
     [_shareButton addGestureRecognizer:tap];
     
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:@"You can feed a child but your\nnetwork can feed a classrom" attributes:@{
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:@"You can feed a child but your\nnetwork can feed a classroom" attributes:@{
                                                          NSForegroundColorAttributeName: [UIColor whiteColor]
                                        }];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];

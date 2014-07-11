@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="5a7-jK-lit">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="5a7-jK-lit">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Sign Up View Controller - FoodCircles-->
@@ -334,7 +334,7 @@
                                                 <constraint firstItem="23H-nD-A2F" firstAttribute="top" secondItem="OwO-tI-QUE" secondAttribute="top" id="tWq-cA-1gA"/>
                                             </constraints>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tag-blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZML-HT-j1r">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tag-grey" translatesAutoresizingMaskIntoConstraints="NO" id="ZML-HT-j1r">
                                             <rect key="frame" x="129" y="28" width="25" height="29"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="23" translatesAutoresizingMaskIntoConstraints="NO" id="Vwn-wg-lpt">
@@ -373,7 +373,7 @@
                                 </constraints>
                                 <size key="customSize" width="154" height="143"/>
                                 <connections>
-                                    <outlet property="contentView" destination="Kqn-Qa-q0F" id="usD-bf-EUR"/>
+                                    <outlet property="contentViewCell" destination="Kqn-Qa-q0F" id="R66-4J-nEX"/>
                                     <outlet property="detailTextLabel" destination="OwO-tI-QUE" id="WrT-I3-DPI"/>
                                     <outlet property="milesLabel" destination="23H-nD-A2F" id="gvp-MG-ZIw"/>
                                     <outlet property="productImage" destination="Wg6-UE-tkh" id="ab4-02-z0x"/>
@@ -1349,7 +1349,7 @@
             <objects>
                 <tableViewController id="iud-yo-L35" customClass="FCSAccountSettingsChildViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="1fR-fg-hsG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="403"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                         <sections>
@@ -2340,7 +2340,7 @@
         <image name="share_action-brown.png" width="48" height="37"/>
         <image name="share_action.png" width="48" height="37"/>
         <image name="swipe-arrow.png" width="35" height="10"/>
-        <image name="tag-blue.png" width="25" height="29"/>
+        <image name="tag-grey" width="25" height="29"/>
         <image name="twitter.png" width="39" height="40"/>
         <image name="website_icon.png" width="17" height="18"/>
         <image name="yelp.png" width="39" height="40"/>
@@ -2353,7 +2353,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="YC2-fE-Okr"/>
         <segue reference="1av-uJ-9vP"/>
-        <segue reference="IhY-7W-IJZ"/>
+        <segue reference="Gah-Xx-Dks"/>
         <segue reference="GkS-aB-WLb"/>
     </inferredMetricsTieBreakers>
 </document>
