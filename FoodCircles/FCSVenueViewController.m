@@ -34,17 +34,14 @@
 
 @implementation FCSVenueViewController
 
-@synthesize selectedVenueIndex;
-
-
 - (void)viewDidLoad
 {
   [super viewDidLoad];
     
-    self.title = [[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"name"];
+    self.title = [[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"name"];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem infoBarButtonItemWithTarget:self selector:@selector(infoPressed:)];
     
-    NSDictionary *venueOffer = [[[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:0];
+    NSDictionary *venueOffer = [[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:0];
     
     self.specialNameLabel.text = venueOffer[@"title"];
     
@@ -52,7 +49,7 @@
     UIFont *font = [UIFont fontWithName:@"Helvetica" size:14.0];
     UIColor *color = [FCSStyles copyTextViewTextColor];
     
-    NSMutableAttributedString *detailText = [[NSMutableAttributedString alloc] initWithString:[[[[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"details"] attributes:
+    NSMutableAttributedString *detailText = [[NSMutableAttributedString alloc] initWithString:[[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"details"] attributes:
                                              @{
                                                 NSFontAttributeName: font,
                                                 NSForegroundColorAttributeName: color
@@ -63,7 +60,7 @@
     [detailText addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, detailText.length)];
     self.specialDetailsTextView.attributedText = detailText;
     
-    [self.restaurantImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,[[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"restaurant_tile_image"]]] placeholderImage:[UIImage imageNamed:@"transparent_box.png"]];
+    [self.restaurantImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"restaurant_tile_image"]]] placeholderImage:[UIImage imageNamed:@"transparent_box.png"]];
     
     self.iWantThisButton.titleLabel.font = [self.iWantThisButton.titleLabel.font fontWithSize:21];
     
@@ -91,10 +88,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"showOptions"]) {
     FCSPurchaseViewController *destinationViewController = (FCSPurchaseViewController *)segue.destinationViewController;
-    destinationViewController.selectedVenueIndex = selectedVenueIndex;
+    destinationViewController.selectedVenueIndex = _selectedVenueIndex;
   } else if ([segue.identifier isEqualToString:@"showRestaurantDetails"]) {
     FCSRestaurantInfoViewController *destinationViewController = (FCSRestaurantInfoViewController *)segue.destinationViewController;
-    destinationViewController.selectedVenueIndex = selectedVenueIndex;
+    destinationViewController.selectedVenueIndex = _selectedVenueIndex;
   }
 }
 

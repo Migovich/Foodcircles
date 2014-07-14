@@ -13,6 +13,6 @@
 
 @interface FCSVenueViewController : FCSStyledViewController
 
-@property int selectedVenueIndex;
+@property NSInteger selectedVenueIndex;
 
 @end

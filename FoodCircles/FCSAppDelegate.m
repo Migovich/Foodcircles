@@ -227,37 +227,20 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    
     if (![notification.userInfo[@"type"] isEqualToString:@"location"]) {
         [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:kLastNotificationDateKey];
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:kLastScheduledNotificationDateKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-    
-    /*if ([notification.userInfo[@"type"] isEqualToString:@"location"]) {
-     UINavigationController *navController = ((UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController);
-     BOOL found = NO;
-     for (UIViewController *viewcontroller in navController.viewControllers) {
-     if ([viewcontroller isKindOfClass:[FCSVenueListViewController class]]) {
-     found = YES;
-     break;
-     }
-     }
-     
-     if (found) {
-     [navController popToRootViewControllerAnimated:NO];
-     FCSSignUpViewController *signUpViewController = navController.viewControllers[0];
-     [signUpViewController goToRestuarantList];
-     }
-     }
-     */
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-    for (UIViewController *viewcontroller in [((UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController) viewControllers]) {
-        if (viewcontroller.view.window && [viewcontroller isKindOfClass:[FCSVenueListViewController class]]) {
-            [(FCSVenueListViewController*)viewcontroller reloadOffers];
-            break;
+    if ([[UIApplication sharedApplication].keyWindow.rootViewController respondsToSelector:@selector(viewControllers)]) {
+        for (UIViewController *viewcontroller in [((UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController) viewControllers]) {
+            if (viewcontroller.view.window && [viewcontroller isKindOfClass:[FCSVenueListViewController class]]) {
+                [(FCSVenueListViewController*)viewcontroller reloadOffers];
+                break;
+            }
         }
     }
 }
