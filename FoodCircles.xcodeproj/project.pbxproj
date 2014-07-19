@@ -1804,7 +1804,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/FoodCircles",
-					/Users/bigola/Documents/Developer/FoodCircles/FoodCircles/Libs,
+					"$(SRCROOT)/FoodCircles/Libs",
 					"$(PROJECT_DIR)/FoodCircles/Libs",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1828,7 +1828,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1842,12 +1842,12 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_ENTITLEMENTS = FoodCircles/FoodCircles.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: FoodCircles LC (6H3NUKPCZ9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: FoodCircles LC (6H3NUKPCZ9)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/FoodCircles",
-					/Users/bigola/Documents/Developer/FoodCircles/FoodCircles/Libs,
+					"$(SRCROOT)/FoodCircles/Libs",
 					"$(PROJECT_DIR)/FoodCircles/Libs",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1867,11 +1867,11 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "A8457DF0-B886-4FA4-A4DD-5C9D2DEA8C8D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A8457DF0-B886-4FA4-A4DD-5C9D2DEA8C8D";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
