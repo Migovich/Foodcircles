@@ -71,4 +71,9 @@
     self.contentViewCell.layer.masksToBounds = NO;
 }
 
+- (void)setVenue:(NSDictionary *)venue {
+    _venue = venue;
+    [self layoutSubviews];
+}
+
 @end

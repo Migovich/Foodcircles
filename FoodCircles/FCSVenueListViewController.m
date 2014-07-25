@@ -67,15 +67,15 @@ NSString *kVenueId = @"venueListViewID";
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FCSVenueCell *venueCell = [collectionView dequeueReusableCellWithReuseIdentifier:kVenueId forIndexPath:indexPath];
-    venueCell.venue = [UIAppDelegate.venues objectAtIndex:indexPath.row];
+    NSDictionary *venue = [UIAppDelegate.venues objectAtIndex:indexPath.row];
+    venueCell.venue = venue;
     
     //Set LocalNotifications
     CLLocationCoordinate2D coords;
     coords.latitude = [[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"lat"] floatValue];
     coords.longitude= [[[UIAppDelegate.venues objectAtIndex:indexPath.row] objectForKey:@"lon"] floatValue];
     
-    NSString *restaurantName = [[UIAppDelegate.venues objectAtIndex:[indexPath row]] objectForKey:@"name"];
-    NSDictionary *venue = [UIAppDelegate.venues objectAtIndex:indexPath.row];
+    NSString *restaurantName = [venue objectForKey:@"name"];
     NSString *offerName = [[[venue objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"title"];
     
     CLRegion *region = [[CLRegion alloc] initCircularRegionWithCenter:coords radius:5.0 identifier:[NSString stringWithFormat:@"%@|%@",restaurantName,offerName]];

@@ -1,4 +1,4 @@
-#define BASE_URL @"http://staging.foodcircles.net"
+#define BASE_URL @"http://foodcircles.net"
 
 #define USER_COUNT_URL (BASE_URL @"/api/general/users")
 #define SIGN_UP_URL (BASE_URL @"/api/sessions/sign_up")
