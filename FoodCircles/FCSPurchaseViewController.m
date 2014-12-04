@@ -209,13 +209,13 @@
     }
 }
 
-- (void)update:(int)value {
-    [self.priceLabel setText:[NSString stringWithFormat:@"$%d",value]];
+- (void)update:(NSInteger)value {
+    [self.priceLabel setText:[NSString stringWithFormat:@"$%ld",(long)value]];
     
     if(value > 1)
-        self.mealsProvidedLabel.text = [NSString stringWithFormat:@"%d meals ", value];
+        self.mealsProvidedLabel.text = [NSString stringWithFormat:@"%ld meals ", (long)value];
     else
-        self.mealsProvidedLabel.text = [NSString stringWithFormat:@"%d meal ", value];
+        self.mealsProvidedLabel.text = [NSString stringWithFormat:@"%ld meal ", (long)value];
 }
 
 -(void)setPriceRule {
@@ -234,7 +234,7 @@
 }
 
 - (NSInteger)mealsProvided {
-  return (int)self.priceSlider.value;
+  return (NSInteger)self.priceSlider.value;
 }
 
 #pragma mark - PayPalPaymentDelegate methods

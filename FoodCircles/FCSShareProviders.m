@@ -25,9 +25,9 @@
     
     if (_type == 2) {
         if ([activityType isEqualToString:UIActivityTypePostToFacebook]) {
-            shareString = [NSString stringWithFormat:@"Fed %d child(ren) simply by eating out. Picked out %@ via FoodCircles. http://joinfoodcircles.org",_kidsFed,_restaurantName];
+            shareString = [NSString stringWithFormat:@"Fed %ld child(ren) simply by eating out. Picked out %@ via FoodCircles. http://joinfoodcircles.org",(long)_kidsFed,_restaurantName];
         } else if ([activityType isEqualToString:UIActivityTypePostToTwitter]) {
-            shareString = [NSString stringWithFormat:@"Fed %d child(ren) in need simply by eating out. Picked out %@ via @foodcircles. #bofo http://joinfoodcircles.org",_kidsFed,_restaurantName];
+            shareString = [NSString stringWithFormat:@"Fed %ld child(ren) in need simply by eating out. Picked out %@ via @foodcircles. #bofo http://joinfoodcircles.org",(long)_kidsFed,_restaurantName];
         }
     }
     

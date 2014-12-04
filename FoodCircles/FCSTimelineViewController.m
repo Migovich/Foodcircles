@@ -129,7 +129,7 @@
     return [_timelineData count];
 }
 
--(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 50.0;
 }
 
@@ -148,7 +148,7 @@
         [cell.textLabel setTextAlignment:NSTextAlignmentRight];
         [cell.textLabel setTextColor:[FCSStyles primaryTextColor]];
         
-        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Kids Fed %d",timelineData.total]];
+        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Kids Fed %ld",(long)timelineData.total]];
         [text addAttribute:NSForegroundColorAttributeName value:[FCSStyles blueColor] range:NSMakeRange(9, [text length]-9)];
         [cell.textLabel setAttributedText: text];
         
@@ -189,9 +189,9 @@
     [cell.restaurantNameLabel setText:[timelineData.restaurantName uppercaseString]];
     
     if (timelineData.qtyFed > 1 )
-        [cell.qtyChildrenLabel setText:[NSString stringWithFormat:@"%d children fed",timelineData.qtyFed]];
+        [cell.qtyChildrenLabel setText:[NSString stringWithFormat:@"%ld children fed",(long)timelineData.qtyFed]];
     else {
-        [cell.qtyChildrenLabel setText:[NSString stringWithFormat:@"%d child fed",timelineData.qtyFed]];
+        [cell.qtyChildrenLabel setText:[NSString stringWithFormat:@"%ld child fed",(long)timelineData.qtyFed]];
     }
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -199,7 +199,7 @@
     //Old logic
     /*NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
      NSDateComponents *comps = [cal components:NSDayCalendarUnit fromDate:timelineData.date toDate:[NSDate date] options:0];
-     int numberOfDays = [comps day];
+     NSInteger numberOfDays = [comps day];
      
      if (numberOfDays <= 30) {
      [cell.voucherDetailButton addTarget:self action:@selector(acessoryButtonTapped:withEvent:) forControlEvents:UIControlEventTouchUpInside];
@@ -236,11 +236,11 @@
     
     _voucherContent = [NSDictionary dictionaryWithObjectsAndKeys:
                        timelineData.code,@"code",
-                       [NSString stringWithFormat:@"%d",timelineData.qtyFed],@"amount",
+                       [NSString stringWithFormat:@"%ld",(long)timelineData.qtyFed],@"amount",
                        [NSString stringWithFormat:@"%@",timelineData.date],@"created_at",
                        timelineData.restaurantName,@"restaurantName",
                        timelineData.offerName,@"offerName",
-                       [NSString stringWithFormat:@"%d",timelineData.minumumDiners],@"num_diners",
+                       [NSString stringWithFormat:@"%ld",(long)timelineData.minumumDiners],@"num_diners",
                        nil];
     
     [self performSegueWithIdentifier:@"VoucherDetailSegue" sender:self];

@@ -19,10 +19,10 @@
     MBProgressHUD *HUD;
 }
 
-@property int selectedVenueIndex;
-@property int pickerType;
-@property int selectedOffer;
-@property int selectedCharity;
+@property NSInteger selectedVenueIndex;
+@property NSInteger pickerType;
+@property NSInteger selectedOffer;
+@property NSInteger selectedCharity;
 @property (strong, nonatomic) NSDictionary *voucherContent;
 
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
@@ -43,6 +43,6 @@
 - (IBAction)donationChanged:(UISwitch *)sender;
 - (IBAction)selectOffer:(id)sender;
 - (IBAction)selectCharity:(id)sender;
-- (void)update:(int)value;
+- (void)update:(NSInteger)value;
 
 @end

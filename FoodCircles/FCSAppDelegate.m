@@ -207,7 +207,7 @@
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         localNotification.alertAction = @"View details";
-        int i = arc4random() % [messages count];
+        NSInteger i = arc4random() % [messages count];
         localNotification.alertBody = [NSString stringWithFormat:@"%@",[messages objectAtIndex:i]];
         localNotification.soundName = UILocalNotificationDefaultSoundName;
         localNotification.applicationIconBadgeNumber = -1;
