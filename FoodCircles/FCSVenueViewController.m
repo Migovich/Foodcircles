@@ -102,6 +102,7 @@
 - (void)updateViewConstraints {
     [super updateViewConstraints];
     CGFloat textHeight = [self.specialDetailsTextView.text sizeWithFont:self.specialDetailsTextView.font constrainedToSize:CGSizeMake(260, MAXFLOAT)].height;
+    textHeight += 10.0;
     NSUInteger spacing = 10;
     self.detailTextViewHeightConstraint.constant = textHeight + spacing;
 }
