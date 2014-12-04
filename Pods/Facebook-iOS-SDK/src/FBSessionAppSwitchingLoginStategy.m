@@ -19,7 +19,6 @@
 #import "FBLogger.h"
 #import "FBSession+Internal.h"
 #import "FBSessionAuthLogger.h"
-#import "FBSessionFacebookAppNativeLoginStategy.h"
 #import "FBSessionFacebookAppWebLoginStategy.h"
 #import "FBSessionLoginStrategy.h"
 #import "FBSessionSafariLoginStategy.h"
@@ -27,7 +26,7 @@
 
 // A composite login strategy that tries strategies that require app switching
 // (e.g., native gdp, native web gdp, safari)
-@interface FBSessionAppSwitchingLoginStategy()
+@interface FBSessionAppSwitchingLoginStategy ()
 
 @property (copy, nonatomic, readwrite) NSString *methodName;
 
@@ -35,8 +34,8 @@
 
 @implementation FBSessionAppSwitchingLoginStategy
 
-- (id)init {
-    if ((self = [super init])){
+- (instancetype)init {
+    if ((self = [super init])) {
         self.methodName = FBSessionAuthLoggerAuthMethodFBApplicationNative;
     }
     return self;
@@ -59,16 +58,15 @@
     BOOL isURLSchemeRegistered = [session isURLSchemeRegistered];;
 
     [logger addExtrasForNextEvent:@{
-     @"isMultitaskingSupported":@(isMultitaskingSupported),
-     @"isURLSchemeRegistered":@(isURLSchemeRegistered)
-     }];
+                                    @"isMultitaskingSupported":@(isMultitaskingSupported),
+                                    @"isURLSchemeRegistered":@(isURLSchemeRegistered)
+                                    }];
 
     if (isMultitaskingSupported &&
         isURLSchemeRegistered &&
         !TEST_DISABLE_MULTITASKING_LOGIN) {
 
-        NSArray *loginStrategies = @[ [[[FBSessionFacebookAppNativeLoginStategy alloc] init] autorelease],
-                                      [[[FBSessionFacebookAppWebLoginStategy alloc] init] autorelease],
+        NSArray *loginStrategies = @[ [[[FBSessionFacebookAppWebLoginStategy alloc] init] autorelease],
                                       [[[FBSessionSafariLoginStategy alloc] init] autorelease] ];
 
         for (id<FBSessionLoginStrategy> loginStrategy in loginStrategies) {

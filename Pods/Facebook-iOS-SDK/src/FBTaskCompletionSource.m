@@ -23,11 +23,11 @@
 @end
 
 @interface FBTask (FBTaskCompletionSource)
-- (void)setResult:(id)result;
+- (void)setResult:(id<NSObject>)result;
 - (void)setError:(NSError *)error;
 - (void)setException:(NSException *)exception;
 - (void)cancel;
-- (BOOL)trySetResult:(id)result;
+- (BOOL)trySetResult:(id<NSObject>)result;
 - (BOOL)trySetError:(NSError *)error;
 - (BOOL)trySetException:(NSException *)exception;
 - (BOOL)trySetCancelled;
@@ -39,7 +39,7 @@
     return [[[FBTaskCompletionSource alloc] init] autorelease];
 }
 
-- (id)init {
+- (instancetype)init {
     if ((self = [super init])) {
         _task = [[FBTask alloc] init];
     }
@@ -52,7 +52,7 @@
     [super dealloc];
 }
 
-- (void)setResult:(id)result {
+- (void)setResult:(id<NSObject>)result {
     [self.task setResult:result];
 }
 
@@ -68,7 +68,7 @@
     [self.task cancel];
 }
 
-- (BOOL)trySetResult:(id)result {
+- (BOOL)trySetResult:(id<NSObject>)result {
     return [self.task trySetResult:result];
 }
 

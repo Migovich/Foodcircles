@@ -29,7 +29,7 @@
 
                                                                                         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
     
-                                                                                            TFLog(@"Error: %@", error.localizedDescription);
+                                                                                            //NSLog(@"Error: %@", error.localizedDescription);
                                                                                             NSString *errorMessage = [error localizedDescription];
                                                                                             
                                                                                             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"

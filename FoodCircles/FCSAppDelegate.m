@@ -8,8 +8,8 @@
 
 #import "FCSAppDelegate.h"
 #import <Parse/Parse.h>
+#import <PFFacebookUtils.h>
 #import <Crashlytics/Crashlytics.h>
-#import "TestFlight.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "constants.h"
 #import "FCSStyles.h"
@@ -35,9 +35,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [TestFlight setOptions:@{TFOptionReportCrashes:@NO}];
-    [TestFlight takeOff:@"f70b7a5b-4c79-4d6b-841c-a4b6a61a3ba6"];
-    
     [Parse setApplicationId:@"kOy6fgxIymc6fp3Z6FaYdkTaMy6F41hYX3SgAltZ"
                   clientKey:@"dq206qPaYrhf2WnFOeuA4n1gTDvKIa3PFLQ7qt3i"];
     
@@ -89,7 +86,7 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [PFFacebookUtils handleOpenURL:url];
+    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication withSession:[FBSession activeSession]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

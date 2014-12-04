@@ -52,13 +52,13 @@
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                             UIAppDelegate.user_token, @"auth_token",
                             nil];
-    TFLog(@"Calling TimeLine URL: %@ params: %@", url, params);
+    //NSLog(@"Calling TimeLine URL: %@ params: %@", url, params);
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"" parameters:params];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         [HUD hide:YES];
         
-        TFLog(@"Timeline response: %@", [JSON JSONString]);
+        //NSLog(@"Timeline response: %@", [JSON JSONString]);
         
         FCSTimelineData *tl = [[FCSTimelineData alloc] init];
         _timelineData = [tl processJSON:[JSON objectForKey:@"content"]];
@@ -73,10 +73,10 @@
         [_tableView reloadData];
         
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        TFLog(@"Timeline failed: %@", [JSON JSONString]);
+        //NSLog(@"Timeline failed: %@", [JSON JSONString]);
         [HUD hide:YES];
         
-        TFLog(@"Error: %@", error.localizedDescription);
+        //NSLog(@"Error: %@", error.localizedDescription);
         NSString *errorMessage = [error localizedDescription];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"

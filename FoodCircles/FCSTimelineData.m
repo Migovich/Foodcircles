@@ -102,7 +102,7 @@
             [returnArray addObject:data];
         }
     }
-    TFLog(@"All timeline objects %@", returnArray);
+    //NSLog(@"All timeline objects %@", returnArray);
     
     return returnArray;
 }

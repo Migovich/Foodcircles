@@ -240,7 +240,7 @@
 #pragma mark - PayPalPaymentDelegate methods
 - (void)payPalPaymentDidComplete:(PayPalPayment *)completedPayment {
     self.completedPayment = completedPayment;
-    TFLog(@"Completed Payment: %@", completedPayment);
+    //NSLog(@"Completed Payment: %@", completedPayment);
     
     if ([UIAppDelegate.user_token length] == 0) {
         FCSLoginProvider *login = [[FCSLoginProvider alloc] init];

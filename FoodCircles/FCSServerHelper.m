@@ -45,7 +45,7 @@
                              @"code": voucherContent[@"code"]
                              };
     [self getPath:DELETE_VOUCHER_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        TFLog(@"Mark voucher as used: %@", responseObject);
+        //NSLog(@"Mark voucher as used: %@", responseObject);
         if (completion) completion(nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (completion) completion(error.localizedDescription);
@@ -80,13 +80,13 @@
                             paymentDetails, @"payment",
                             nil];
     
-    TFLog(@"Calling Payment URL: %@ params: %@", PAYMENT_URL_SHORT, params);
+    //NSLog(@"Calling Payment URL: %@ params: %@", PAYMENT_URL_SHORT, params);
     
     [self postPath:PAYMENT_URL_SHORT parameters:params success:^(AFHTTPRequestOperation *operation, id JSON) {
-        TFLog(@"Voucher confirmed: %@", JSON);
+        //NSLog(@"Voucher confirmed: %@", JSON);
         completion([JSON objectForKey:@"content"], nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        TFLog(@"Voucher not confirmed: %@", error);
+        //NSLog(@"Voucher not confirmed: %@", error);
         completion(nil, error.localizedDescription);
     }];
 }
@@ -99,7 +99,7 @@
     
     [self getPath:NEWS_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        TFLog(@"news image %@", responseObject);
+        //NSLog(@"news image %@", responseObject);
         
         NSMutableArray *images = [[NSMutableArray alloc] init];
         

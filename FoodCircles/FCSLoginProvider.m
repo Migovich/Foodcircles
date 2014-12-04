@@ -12,6 +12,7 @@
 #import "AFHTTPClient.h"
 #import "FCSAppDelegate.h"
 #import "SSKeychain.h"
+#import <PFFacebookUtils.h>
 
 typedef enum {
     FacebookErrorCodeNone,
@@ -97,7 +98,7 @@ typedef enum {
             [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                 
                 if (error) {
-                    TFLog(@"%@", error.localizedDescription);
+                    NSLog(@"%@", error.localizedDescription);
                     
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     

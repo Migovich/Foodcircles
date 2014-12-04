@@ -1,8 +1,8 @@
 //
 //  TPKeyboardAvoidingCollectionView.m
 //
-//  Created by Tony Arnold on 4/08/2013.
-//  Copyright 2013 The CocoaBots. All rights reserved.
+//  Created by Michael Tyson on 30/09/2013.
+//  Copyright 2013 A Tasty Pixel & The CocoaBots. All rights reserved.
 //
 
 #import "TPKeyboardAvoidingCollectionView.h"
@@ -48,6 +48,11 @@
 }
 
 -(void)setContentSize:(CGSize)contentSize {
+    if (CGSizeEqualToSize(contentSize, self.contentSize)) {
+        // Prevent triggering contentSize when it's already the same that
+        // cause weird infinte scrolling and locking bug
+        return;
+    }
     [super setContentSize:contentSize];
     [self TPKeyboardAvoiding_updateContentInset];
 }
@@ -61,6 +66,13 @@
 }
 
 #pragma mark - Responders, events
+
+-(void)willMoveToSuperview:(UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
+    if ( !newSuperview ) {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(TPKeyboardAvoiding_assignTextDelegateForViewsBeneathView:) object:self];
+    }
+}
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [[self TPKeyboardAvoiding_findFirstResponderBeneathView:self] resignFirstResponder];
@@ -84,7 +96,8 @@
 
 -(void)layoutSubviews {
     [super layoutSubviews];
-    [self TPKeyboardAvoiding_assignTextDelegateForViewsBeneathView:self];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(TPKeyboardAvoiding_assignTextDelegateForViewsBeneathView:) object:self];
+    [self performSelector:@selector(TPKeyboardAvoiding_assignTextDelegateForViewsBeneathView:) withObject:self afterDelay:0.1];
 }
 
 @end
