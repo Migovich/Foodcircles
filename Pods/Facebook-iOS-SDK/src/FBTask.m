@@ -20,13 +20,13 @@
 
 #import "FBTaskCompletionSource.h"
 
-__attribute__ ((noinline)) void logOperationOnMainThread() {
+static __attribute__ ((noinline)) void logOperationOnMainThread() {
     NSLog(@"Warning: A long-running FBTask operation is being executed on the main thread. \n"
           " Break on logOperationOnMainThread() to debug.");
 }
 
 @interface FBTask () {
-    id _result;
+    id<NSObject> _result;
     NSError *_error;
     NSException *_exception;
     BOOL _cancelled;
@@ -40,7 +40,7 @@ __attribute__ ((noinline)) void logOperationOnMainThread() {
 
 @implementation FBTask
 
-- (id)init {
+- (instancetype)init {
     if ((self = [super init])) {
         _lock = [[NSObject alloc] init];
         _condition = [[NSCondition alloc] init];
@@ -53,11 +53,14 @@ __attribute__ ((noinline)) void logOperationOnMainThread() {
     [_lock release];
     [_condition release];
     [_callbacks release];
+    [_result release];
+    [_error release];
+    [_exception release];
 
     [super dealloc];
 }
 
-+ (FBTask *)taskWithResult:(id)result {
++ (FBTask *)taskWithResult:(id<NSObject>)result {
     FBTaskCompletionSource *tcs = [FBTaskCompletionSource taskCompletionSource];
     tcs.result = result;
     return tcs.task;
@@ -89,7 +92,7 @@ __attribute__ ((noinline)) void logOperationOnMainThread() {
 
     FBTaskCompletionSource *tcs = [FBTaskCompletionSource taskCompletionSource];
     for (FBTask *task in tasks) {
-        [task dependentTaskWithBlock:^id(FBTask *task) {
+        [task dependentTaskWithBlock:^id(FBTask *innerTask) {
             if (OSAtomicDecrement32(&total) == 0) {
                 tcs.result = nil;
             }
@@ -107,26 +110,26 @@ __attribute__ ((noinline)) void logOperationOnMainThread() {
     return tcs.task;
 }
 
-- (id)result {
+- (id<NSObject>)result {
     @synchronized (self.lock) {
         return _result;
     }
 }
 
-- (void)setResult:(id)result {
+- (void)setResult:(id<NSObject>)result {
     if (![self trySetResult:result]) {
         [NSException raise:NSInternalInconsistencyException
                     format:@"Cannot set the result on a completed task."];
     }
 }
 
-- (BOOL)trySetResult:(id)result {
+- (BOOL)trySetResult:(id<NSObject>)result {
     @synchronized (self.lock) {
         if (self.completed) {
             return NO;
         }
         self.completed = YES;
-        _result = result;
+        _result = [result retain];
         [self runContinuations];
         return YES;
     }
@@ -151,7 +154,7 @@ __attribute__ ((noinline)) void logOperationOnMainThread() {
             return NO;
         }
         self.completed = YES;
-        _error = error;
+        _error = [error retain];
         [self runContinuations];
         return YES;
     }
@@ -176,7 +179,7 @@ __attribute__ ((noinline)) void logOperationOnMainThread() {
             return NO;
         }
         self.completed = YES;
-        _exception = exception;
+        _exception = [exception retain];
         [self runContinuations];
         return YES;
     }

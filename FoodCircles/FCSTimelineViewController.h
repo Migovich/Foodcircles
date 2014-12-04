@@ -19,8 +19,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *timelineData;
-@property (assign, nonatomic) int lastMonth;
-@property (assign, nonatomic) int monthCount;
+@property (assign, nonatomic) NSInteger lastMonth;
+@property (assign, nonatomic) NSInteger monthCount;
 @property (strong, nonatomic) NSDictionary *voucherContent;
 
 - (IBAction)inviteButtonTapped:(id)sender;

@@ -10,8 +10,8 @@
 
 @interface FCSShareProviders : UIActivityItemProvider
 
-@property (assign, nonatomic) int type;
-@property (assign, nonatomic) int kidsFed;
+@property (assign, nonatomic) NSInteger type;
+@property (assign, nonatomic) NSInteger kidsFed;
 @property (strong, nonatomic) NSString *restaurantName;
 
 - (NSString*)shareStringForActivityTime: (NSString*)activityType;

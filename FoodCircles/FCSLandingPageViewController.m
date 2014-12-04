@@ -154,7 +154,7 @@
     
         self.imageIsLoading = YES;
     
-        [self.newsImageView setImageWithURL:[NSURL URLWithString:newsImage.imageUrl relativeToURL:[NSURL URLWithString:BASE_URL]] placeholderImage:nil options:-1 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+        [self.newsImageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:newsImage.imageUrl relativeToURL:[NSURL URLWithString:BASE_URL]] andPlaceholderImage:nil options:SDWebImageRefreshCached progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             self.imageIsLoading = NO;
         }];
     } completion:nil];

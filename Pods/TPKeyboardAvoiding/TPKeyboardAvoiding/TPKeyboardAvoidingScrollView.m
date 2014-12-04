@@ -1,8 +1,8 @@
 //
 //  TPKeyboardAvoidingScrollView.m
 //
-//  Created by Michael Tyson on 11/04/2011.
-//  Copyright 2011 A Tasty Pixel. All rights reserved.
+//  Created by Michael Tyson on 30/09/2013.
+//  Copyright 2013 A Tasty Pixel. All rights reserved.
 //
 
 #import "TPKeyboardAvoidingScrollView.h"
@@ -60,6 +60,13 @@
 
 #pragma mark - Responders, events
 
+-(void)willMoveToSuperview:(UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
+    if ( !newSuperview ) {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(TPKeyboardAvoiding_assignTextDelegateForViewsBeneathView:) object:self];
+    }
+}
+
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [[self TPKeyboardAvoiding_findFirstResponderBeneathView:self] resignFirstResponder];
     [super touchesEnded:touches withEvent:event];
@@ -82,7 +89,8 @@
 
 -(void)layoutSubviews {
     [super layoutSubviews];
-    [self TPKeyboardAvoiding_assignTextDelegateForViewsBeneathView:self];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(TPKeyboardAvoiding_assignTextDelegateForViewsBeneathView:) object:self];
+    [self performSelector:@selector(TPKeyboardAvoiding_assignTextDelegateForViewsBeneathView:) withObject:self afterDelay:0.1];
 }
 
 @end

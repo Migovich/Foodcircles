@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="5a7-jK-lit">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="5a7-jK-lit">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Sign Up View Controller - FoodCircles-->
+        <!--FoodCircles-->
         <scene sceneID="vSq-OF-0V7">
             <objects>
                 <viewController storyboardIdentifier="SignUpViewController" id="cnE-kN-jcW" customClass="FCSSignUpViewController" sceneMemberID="viewController">
@@ -245,7 +245,7 @@
             </objects>
             <point key="canvasLocation" x="232" y="-203"/>
         </scene>
-        <!--Venue List View Controller - Venues-->
+        <!--Venues-->
         <scene sceneID="Mtd-zK-93A">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" title="Venues" id="ANb-DE-Bvj" customClass="FCSVenueListViewController" sceneMemberID="viewController">
@@ -408,7 +408,7 @@
             </objects>
             <point key="canvasLocation" x="1013" y="515"/>
         </scene>
-        <!--Restaurant Info View Controller - More Info-->
+        <!--More Info-->
         <scene sceneID="eU8-r4-3S3">
             <objects>
                 <viewController title="More Info" id="Cl1-bB-DII" customClass="FCSRestaurantInfoViewController" sceneMemberID="viewController">
@@ -758,7 +758,7 @@
             </objects>
             <point key="canvasLocation" x="1467" y="-203"/>
         </scene>
-        <!--Timeline View Controller - Timeline-->
+        <!--Timeline-->
         <scene sceneID="iBH-jm-0hM">
             <objects>
                 <viewController title="Timeline" id="tgA-4s-OJ7" customClass="FCSTimelineViewController" sceneMemberID="viewController">
@@ -1218,7 +1218,7 @@
             </objects>
             <point key="canvasLocation" x="1246" y="1447"/>
         </scene>
-        <!--Account Settings View Controller - Account Settings-->
+        <!--Account Settings-->
         <scene sceneID="flj-gi-kCP">
             <objects>
                 <viewController title="Account Settings" id="cYi-Jm-gld" customClass="FCSAccountSettingsViewController" sceneMemberID="viewController">
@@ -1467,7 +1467,7 @@
             </objects>
             <point key="canvasLocation" x="2673" y="1262"/>
         </scene>
-        <!--Purchase View Controller - Options-->
+        <!--Options-->
         <scene sceneID="5G0-wC-c8n">
             <objects>
                 <viewController id="apv-UE-IaB" customClass="FCSPurchaseViewController" sceneMemberID="viewController">
@@ -1748,7 +1748,7 @@
             </objects>
             <point key="canvasLocation" x="1995" y="515"/>
         </scene>
-        <!--Voucher View Controller - Voucher-->
+        <!--Voucher-->
         <scene sceneID="AAh-R1-5HN">
             <objects>
                 <viewController storyboardIdentifier="voucherViewController" id="IuN-at-r6q" customClass="FCSVoucherViewController" sceneMemberID="viewController">
@@ -1958,7 +1958,7 @@
             </objects>
             <point key="canvasLocation" x="2597" y="471"/>
         </scene>
-        <!--Sign In View Controller - Sign In-->
+        <!--Sign In-->
         <scene sceneID="EUy-RB-Pci">
             <objects>
                 <viewController title="Sign In" id="4D9-v2-uO0" customClass="FCSSignInViewController" sceneMemberID="viewController">
@@ -2011,7 +2011,7 @@
                                             <action selector="clickTwitterSignIn:" destination="4D9-v2-uO0" eventType="touchUpInside" id="THG-bi-grr"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Buy One, Feed One" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Knh-oZ-bmK">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Buy One, Feed One" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Knh-oZ-bmK">
                                         <rect key="frame" x="0.0" y="156" width="320" height="20"/>
                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -2106,7 +2106,7 @@
             </objects>
             <point key="canvasLocation" x="717" y="-203"/>
         </scene>
-        <!--Landing Page View Controller - News-->
+        <!--News-->
         <scene sceneID="Oew-sD-GrV">
             <objects>
                 <viewController id="XcD-QN-USc" customClass="FCSLandingPageViewController" sceneMemberID="viewController">

@@ -39,8 +39,8 @@
     NSString *miles = [self.venue objectForKey:@"distance"];
     [self.milesLabel setText:miles];
     
-    int leftTag = [[self.venue objectForKey:@"vouchers_available"] integerValue];
-    [self.qtyLeftLabel setText:[NSString stringWithFormat:@"%d",leftTag]];
+    NSInteger leftTag = [[self.venue objectForKey:@"vouchers_available"] integerValue];
+    [self.qtyLeftLabel setText:[NSString stringWithFormat:@"%ld",(long)leftTag]];
     
     
     if (leftTag == 0) {

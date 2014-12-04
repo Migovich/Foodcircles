@@ -8,8 +8,8 @@
 
 #import "FCSTwitterButton.h"
 
-const int TWITTER_BUTTON_HEIGHT = 44;
-const int PADDING_BETWEEN_TEXT_AND_TWITTER_ICON = 5;
+const NSInteger TWITTER_BUTTON_HEIGHT = 44;
+const NSInteger PADDING_BETWEEN_TEXT_AND_TWITTER_ICON = 5;
 
 @implementation FCSTwitterButton
 

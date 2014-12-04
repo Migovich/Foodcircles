@@ -105,9 +105,9 @@
     NSLog(@"Voucher Content %@", self.voucherContent);
     self.voucherNumberLabel.text = [self.voucherContent objectForKey:@"code"];
     
-    int amount = [[self.voucherContent objectForKey:@"amount"] integerValue];
-    NSString *donatedText = [NSString stringWithFormat:@"$%d donated",amount];
-    NSString *kidsfedText = [NSString stringWithFormat:(amount > 1?@"(%d kids fed)":@"(%d kid fed)"),amount];
+    NSInteger amount = [[self.voucherContent objectForKey:@"amount"] integerValue];
+    NSString *donatedText = [NSString stringWithFormat:@"$%ld donated",(long)amount];
+    NSString *kidsfedText = [NSString stringWithFormat:(amount > 1?@"(%ld kids fed)":@"(%ld kid fed)"),(long)amount];
     
     NSString *text = [NSString stringWithFormat:@"%@ %@",donatedText,kidsfedText];
     
@@ -134,7 +134,7 @@
     //Use server's value if available, else use local value.
     NSString *minimumDiners = self.voucherContent[@"num_diners"];
     if (!minimumDiners || [minimumDiners isEqual:[NSNull null]]) {
-        minimumDiners = [NSString stringWithFormat:@"%d", self.numberOfDiners];
+        minimumDiners = [NSString stringWithFormat:@"%ld", (long)self.numberOfDiners];
     }
     NSString *minimumText = nil;
     if ([minimumDiners intValue] > 2) {

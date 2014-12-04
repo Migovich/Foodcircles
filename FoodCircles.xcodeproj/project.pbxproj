@@ -126,9 +126,6 @@
 		AF76230C184AB44D009AF016 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF76230B184AB44D009AF016 /* UIKit.framework */; };
 		AF762315184ABA4D009AF016 /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF762311184ABA4D009AF016 /* libPayPalMobile.a */; };
 		AF762317184ABB71009AF016 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF762316184ABB71009AF016 /* StoreKit.framework */; };
-		AF76231F184ABBCF009AF016 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF762319184ABBCF009AF016 /* libTestFlight.a */; };
-		AF762320184ABBCF009AF016 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AF76231A184ABBCF009AF016 /* README.md */; };
-		AF762321184ABBCF009AF016 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = AF76231B184ABBCF009AF016 /* release_notes.md */; };
 		AF762323184AC631009AF016 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF762322184AC631009AF016 /* Images.xcassets */; };
 		AF7C868C17C664B1009729D1 /* FCSTimelineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7C868B17C664B1009729D1 /* FCSTimelineTableViewCell.m */; };
 		AF7C868E17C668E3009729D1 /* FCSTimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF7C868D17C668E3009729D1 /* FCSTimelineTableViewCell.xib */; };
@@ -140,7 +137,6 @@
 		AF7C869B17C69695009729D1 /* FCSTimelineMonthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7C869A17C69694009729D1 /* FCSTimelineMonthCell.m */; };
 		AF7C869E17C6AD64009729D1 /* FCSTimelineData.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7C869D17C6AD64009729D1 /* FCSTimelineData.m */; };
 		AF8DBA7F1850B38F00D50A3F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8DBA7E1850B38F00D50A3F /* Foundation.framework */; };
-		AF8FEFB117BC551600A2A28B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8FEFB017BC551600A2A28B /* Parse.framework */; };
 		AF8FEFB317BC554B00A2A28B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8FEFB217BC554B00A2A28B /* CFNetwork.framework */; };
 		AFB4D60117C2C1E5009691F9 /* FCSLoginProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB4D60017C2C1E5009691F9 /* FCSLoginProvider.m */; };
 		AFB8287217C41E1A006FCB90 /* FCSCharity.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB8287117C41E1A006FCB90 /* FCSCharity.m */; };
@@ -270,6 +266,8 @@
 
 /* Begin PBXFileReference section */
 		157E63BFD8EC4EE796090E74 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		213DE4074ECD529293007B80 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4097C2322663223C0F4865BF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6301F4781747C7ED0081245A /* foodcircles logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foodcircles logo.png"; sourceTree = "<group>"; };
 		6301F4791747C7ED0081245A /* foodcircles logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foodcircles logo@2x.png"; sourceTree = "<group>"; };
 		6305D52D17345D1C0021482B /* FCSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSNavigationController.h; sourceTree = "<group>"; };
@@ -310,8 +308,8 @@
 		631C6D791733124300151EFA /* FCSSpecial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSSpecial.m; sourceTree = "<group>"; };
 		632357241738156A0068A2F5 /* Hopcat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Hopcat.jpg; sourceTree = "<group>"; };
 		632357251738156A0068A2F5 /* kids.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = kids.tiff; sourceTree = "<group>"; };
-		6323572A173818A20068A2F5 /* FCSPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSPurchaseViewController.h; sourceTree = "<group>"; };
-		6323572B173818A20068A2F5 /* FCSPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSPurchaseViewController.m; sourceTree = "<group>"; };
+		6323572A173818A20068A2F5 /* FCSPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FCSPurchaseViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		6323572B173818A20068A2F5 /* FCSPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FCSPurchaseViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		632357441738349A0068A2F5 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		6323574C1738507F0068A2F5 /* FCSStyledViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSStyledViewController.h; sourceTree = "<group>"; };
 		6323574D1738507F0068A2F5 /* FCSStyledViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSStyledViewController.m; sourceTree = "<group>"; };
@@ -326,7 +324,7 @@
 		63520BE7173D5D2F00D32223 /* FCSCodeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSCodeLabel.h; sourceTree = "<group>"; };
 		63520BE8173D5D2F00D32223 /* FCSCodeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSCodeLabel.m; sourceTree = "<group>"; };
 		63520BEA173D623200D32223 /* FCSVoucherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSVoucherViewController.h; sourceTree = "<group>"; };
-		63520BEB173D623200D32223 /* FCSVoucherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSVoucherViewController.m; sourceTree = "<group>"; };
+		63520BEB173D623200D32223 /* FCSVoucherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FCSVoucherViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		63520BED173D62B100D32223 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		635FE0D4174BE95D004E8D6B /* FCSOverImageSecondary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSOverImageSecondary.h; sourceTree = "<group>"; };
 		635FE0D5174BE95D004E8D6B /* FCSOverImageSecondary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSOverImageSecondary.m; sourceTree = "<group>"; };
@@ -335,15 +333,15 @@
 		635FE0E0174BEAFD004E8D6B /* facebook-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-icon.png"; sourceTree = "<group>"; };
 		635FE0E2174BEAFD004E8D6B /* twitter-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-icon.png"; sourceTree = "<group>"; };
 		635FE0E8174BEB4A004E8D6B /* FCSFacebookButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSFacebookButton.h; sourceTree = "<group>"; };
-		635FE0E9174BEB4A004E8D6B /* FCSFacebookButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSFacebookButton.m; sourceTree = "<group>"; };
+		635FE0E9174BEB4A004E8D6B /* FCSFacebookButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FCSFacebookButton.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		635FE0EB174BEB52004E8D6B /* FCSTwitterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSTwitterButton.h; sourceTree = "<group>"; };
-		635FE0EC174BEB52004E8D6B /* FCSTwitterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSTwitterButton.m; sourceTree = "<group>"; };
+		635FE0EC174BEB52004E8D6B /* FCSTwitterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FCSTwitterButton.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		635FE0EE174BFF73004E8D6B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		635FE0EF174BFF73004E8D6B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		635FE0F0174BFF73004E8D6B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		635FE0F4174C0439004E8D6B /* FCSRestaurantListTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSRestaurantListTitle.h; sourceTree = "<group>"; };
 		635FE0F5174C0439004E8D6B /* FCSRestaurantListTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSRestaurantListTitle.m; sourceTree = "<group>"; };
-		635FE0F7174C0996004E8D6B /* FCSRestaurantInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSRestaurantInfoViewController.h; sourceTree = "<group>"; };
+		635FE0F7174C0996004E8D6B /* FCSRestaurantInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FCSRestaurantInfoViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		635FE0F8174C0996004E8D6B /* FCSRestaurantInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSRestaurantInfoViewController.m; sourceTree = "<group>"; };
 		635FE0FA174C0A8B004E8D6B /* call_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call_button.png; sourceTree = "<group>"; };
 		635FE0FE174C0A8B004E8D6B /* website_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = website_icon.png; sourceTree = "<group>"; };
@@ -358,16 +356,16 @@
 		635FE11B174C0EBB004E8D6B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		635FE11D174C27D5004E8D6B /* FCSRestaurantInfoName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSRestaurantInfoName.h; sourceTree = "<group>"; };
 		635FE11E174C27D6004E8D6B /* FCSRestaurantInfoName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSRestaurantInfoName.m; sourceTree = "<group>"; };
-		635FE125174D1F31004E8D6B /* FCSTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSTimelineViewController.h; sourceTree = "<group>"; };
-		635FE126174D1F32004E8D6B /* FCSTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSTimelineViewController.m; sourceTree = "<group>"; };
+		635FE125174D1F31004E8D6B /* FCSTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FCSTimelineViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		635FE126174D1F32004E8D6B /* FCSTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FCSTimelineViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		635FE133174D612D004E8D6B /* FCSVenueAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSVenueAnnotation.h; sourceTree = "<group>"; };
 		635FE134174D612D004E8D6B /* FCSVenueAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSVenueAnnotation.m; sourceTree = "<group>"; };
 		63DB637F173D23C800B2DF41 /* FCSVenueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSVenueCell.h; sourceTree = "<group>"; };
-		63DB6380173D23C800B2DF41 /* FCSVenueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSVenueCell.m; sourceTree = "<group>"; };
+		63DB6380173D23C800B2DF41 /* FCSVenueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FCSVenueCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		63DB6383173D2DDF00B2DF41 /* FCSVenueListLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSVenueListLabel.h; sourceTree = "<group>"; };
 		63DB6384173D2DDF00B2DF41 /* FCSVenueListLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSVenueListLabel.m; sourceTree = "<group>"; };
 		63DB6386173D2EC600B2DF41 /* FCSStyles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSStyles.h; sourceTree = "<group>"; };
-		63DB6387173D2EC600B2DF41 /* FCSStyles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSStyles.m; sourceTree = "<group>"; };
+		63DB6387173D2EC600B2DF41 /* FCSStyles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FCSStyles.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		63DBB621173161FD003A74CC /* FoodCircles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodCircles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63DBB62A173161FD003A74CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		63DBB62E173161FD003A74CC /* FoodCircles-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FoodCircles-Info.plist"; sourceTree = "<group>"; };
@@ -375,7 +373,7 @@
 		63DBB632173161FD003A74CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		63DBB634173161FD003A74CC /* FoodCircles-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FoodCircles-Prefix.pch"; sourceTree = "<group>"; };
 		63DBB635173161FD003A74CC /* FCSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCSAppDelegate.h; sourceTree = "<group>"; };
-		63DBB636173161FD003A74CC /* FCSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCSAppDelegate.m; sourceTree = "<group>"; };
+		63DBB636173161FD003A74CC /* FCSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FCSAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		63DBB63F173161FD003A74CC /* FoodCircles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodCircles.xcdatamodel; sourceTree = "<group>"; };
 		63DBB646173161FE003A74CC /* FoodCirclesTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodCirclesTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63DBB647173161FE003A74CC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -397,7 +395,7 @@
 		AF3D3091184AE0B700FF8255 /* gear_button_ios7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gear_button_ios7@2x.png"; path = "Buttons/gear_button_ios7@2x.png"; sourceTree = "<group>"; };
 		AF3D3092184AE0B700FF8255 /* info_button_ios7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info_button_ios7.png; path = Buttons/info_button_ios7.png; sourceTree = "<group>"; };
 		AF3D3093184AE0B700FF8255 /* info_button_ios7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "info_button_ios7@2x.png"; path = "Buttons/info_button_ios7@2x.png"; sourceTree = "<group>"; };
-		AF50398B17CFE55100F4654F /* FCSShareProviders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSShareProviders.h; sourceTree = "<group>"; };
+		AF50398B17CFE55100F4654F /* FCSShareProviders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FCSShareProviders.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		AF50398C17CFE55100F4654F /* FCSShareProviders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSShareProviders.m; sourceTree = "<group>"; };
 		AF50398E17CFF0F700F4654F /* invite-friends_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "invite-friends_icon@2x.png"; sourceTree = "<group>"; };
 		AF50399017CFF0FE00F4654F /* invite-friends_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "invite-friends_icon.png"; sourceTree = "<group>"; };
@@ -449,8 +447,8 @@
 		AF7622D5184AA01A009AF016 /* OWSinaWeiboActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWSinaWeiboActivity.m; sourceTree = "<group>"; };
 		AF7622D6184AA01A009AF016 /* OWTwitterActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWTwitterActivity.h; sourceTree = "<group>"; };
 		AF7622D7184AA01A009AF016 /* OWTwitterActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWTwitterActivity.m; sourceTree = "<group>"; };
-		AF7622EE184AAD19009AF016 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		AF7622EF184AAD19009AF016 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		AF7622EE184AAD19009AF016 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = JSONKit.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		AF7622EF184AAD19009AF016 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = JSONKit.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		AF7622F5184AB3B7009AF016 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		AF7622F7184AB3C7009AF016 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AF7622F9184AB3F4009AF016 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -468,12 +466,6 @@
 		AF762313184ABA4D009AF016 /* PayPalPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPayment.h; sourceTree = "<group>"; };
 		AF762314184ABA4D009AF016 /* PayPalPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPaymentViewController.h; sourceTree = "<group>"; };
 		AF762316184ABB71009AF016 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		AF762319184ABBCF009AF016 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		AF76231A184ABBCF009AF016 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		AF76231B184ABBCF009AF016 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
-		AF76231C184ABBCF009AF016 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		AF76231D184ABBCF009AF016 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
-		AF76231E184ABBCF009AF016 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		AF762322184AC631009AF016 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AF7C868A17C664B1009729D1 /* FCSTimelineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSTimelineTableViewCell.h; sourceTree = "<group>"; };
 		AF7C868B17C664B1009729D1 /* FCSTimelineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSTimelineTableViewCell.m; sourceTree = "<group>"; };
@@ -485,8 +477,8 @@
 		AF7C869717C6966E009729D1 /* FCSTimelineMonthCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCSTimelineMonthCell.xib; sourceTree = "<group>"; };
 		AF7C869917C69694009729D1 /* FCSTimelineMonthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSTimelineMonthCell.h; sourceTree = "<group>"; };
 		AF7C869A17C69694009729D1 /* FCSTimelineMonthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSTimelineMonthCell.m; sourceTree = "<group>"; };
-		AF7C869C17C6AD64009729D1 /* FCSTimelineData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSTimelineData.h; sourceTree = "<group>"; };
-		AF7C869D17C6AD64009729D1 /* FCSTimelineData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSTimelineData.m; sourceTree = "<group>"; };
+		AF7C869C17C6AD64009729D1 /* FCSTimelineData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FCSTimelineData.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		AF7C869D17C6AD64009729D1 /* FCSTimelineData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FCSTimelineData.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		AF8DBA7E1850B38F00D50A3F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AF8FEFB017BC551600A2A28B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = FoodCircles/Parse.framework; sourceTree = "<group>"; };
 		AF8FEFB217BC554B00A2A28B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -507,7 +499,6 @@
 		AFD94A8A17CD751800AE8B0D /* FCSBoldShowServerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSBoldShowServerLabel.m; sourceTree = "<group>"; };
 		AFD94A8C17CD7CF300AE8B0D /* share_action-brown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_action-brown.png"; sourceTree = "<group>"; };
 		AFD94A8E17CD7CF700AE8B0D /* share_action-brown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_action-brown@2x.png"; sourceTree = "<group>"; };
-		D45E3658AC9946C3BD8D5861 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D5042E6C17DA2D2300E9A8FC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D53D000117DCFDDA0023290D /* email-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-icon@2x.png"; sourceTree = "<group>"; };
 		D53D000217DCFDDA0023290D /* email-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-icon.png"; sourceTree = "<group>"; };
@@ -623,14 +614,12 @@
 				D55F853817DC7DF400A27E44 /* AssetsLibrary.framework in Frameworks */,
 				AFC8D3901851020900BAB6ED /* Crashlytics.framework in Frameworks */,
 				D5B1C24B17DB91B9008EB2A5 /* libc++.dylib in Frameworks */,
-				AF76231F184ABBCF009AF016 /* libTestFlight.a in Frameworks */,
 				AF762315184ABA4D009AF016 /* libPayPalMobile.a in Frameworks */,
 				D5B1C24517DB904D008EB2A5 /* Social.framework in Frameworks */,
 				D5B1C24417DB9027008EB2A5 /* libsqlite3.dylib in Frameworks */,
 				D5B1C24217DB901F008EB2A5 /* Accounts.framework in Frameworks */,
 				D5B1C24117DB9002008EB2A5 /* AdSupport.framework in Frameworks */,
 				D5B1C23F17DB8FEA008EB2A5 /* Twitter.framework in Frameworks */,
-				AF8FEFB117BC551600A2A28B /* Parse.framework in Frameworks */,
 				D5042E6D17DA2D2300E9A8FC /* libz.dylib in Frameworks */,
 				635FE11C174C0EBB004E8D6B /* MapKit.framework in Frameworks */,
 				AF8FEFB317BC554B00A2A28B /* CFNetwork.framework in Frameworks */,
@@ -907,7 +896,7 @@
 				63DBB64E173161FE003A74CC /* FoodCirclesTests */,
 				63DBB623173161FD003A74CC /* Frameworks */,
 				63DBB622173161FD003A74CC /* Products */,
-				D45E3658AC9946C3BD8D5861 /* Pods.xcconfig */,
+				FA4F892A5C16F2D11B00E366 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1112,20 +1101,6 @@
 			path = FoodCircles/Libs/PayPalMobile;
 			sourceTree = "<group>";
 		};
-		AF762318184ABBCF009AF016 /* TestFlightSDK2 */ = {
-			isa = PBXGroup;
-			children = (
-				AF762319184ABBCF009AF016 /* libTestFlight.a */,
-				AF76231A184ABBCF009AF016 /* README.md */,
-				AF76231B184ABBCF009AF016 /* release_notes.md */,
-				AF76231C184ABBCF009AF016 /* TestFlight+AsyncLogging.h */,
-				AF76231D184ABBCF009AF016 /* TestFlight+ManualSessions.h */,
-				AF76231E184ABBCF009AF016 /* TestFlight.h */,
-			);
-			name = TestFlightSDK2;
-			path = FoodCircles/Libs/TestFlightSDK2;
-			sourceTree = "<group>";
-		};
 		AF7C868917C66475009729D1 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
@@ -1146,7 +1121,6 @@
 		AF8FEFA917BC471700A2A28B /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				AF762318184ABBCF009AF016 /* TestFlightSDK2 */,
 				AF762310184ABA4D009AF016 /* PayPalMobile */,
 				AF7622ED184AAD19009AF016 /* JSONKit */,
 				AF7622A6184AA01A009AF016 /* Boldify */,
@@ -1300,6 +1274,15 @@
 			path = assets;
 			sourceTree = "<group>";
 		};
+		FA4F892A5C16F2D11B00E366 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4097C2322663223C0F4865BF /* Pods.debug.xcconfig */,
+				213DE4074ECD529293007B80 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1307,12 +1290,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 63DBB659173161FE003A74CC /* Build configuration list for PBXNativeTarget "FoodCircles" */;
 			buildPhases = (
-				4B1BC8378C80458FA2AEC085 /* Check Pods Manifest.lock */,
 				63DBB61D173161FD003A74CC /* Sources */,
 				63DBB61E173161FD003A74CC /* Frameworks */,
 				63DBB61F173161FD003A74CC /* Resources */,
 				631C6D571732EAF600151EFA /* CopyFiles */,
-				9AEE2CCA0BAA47F4924A3C0A /* Copy Pods Resources */,
 				AF8DBA801850B5F200D50A3F /* ShellScript */,
 			);
 			buildRules = (
@@ -1341,7 +1322,7 @@
 			name = FoodCirclesTests;
 			productName = FoodCirclesTests;
 			productReference = 63DBB646173161FE003A74CC /* FoodCirclesTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -1350,8 +1331,8 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = FCS;
-				LastTestingUpgradeCheck = 0510;
-				LastUpgradeCheck = 0460;
+				LastTestingUpgradeCheck = 0610;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = FoodCircles;
 				TargetAttributes = {
 					63DBB620173161FD003A74CC = {
@@ -1411,8 +1392,6 @@
 				6301F47A1747C7ED0081245A /* foodcircles logo.png in Resources */,
 				6301F47B1747C7ED0081245A /* foodcircles logo@2x.png in Resources */,
 				63E367F2174AC82C00DA3852 /* Kids-crowd.jpg in Resources */,
-				AF762320184ABBCF009AF016 /* README.md in Resources */,
-				AF762321184ABBCF009AF016 /* release_notes.md in Resources */,
 				635FE0DC174BEAF6004E8D6B /* facebook-icon@2x.png in Resources */,
 				635FE0DE174BEAF6004E8D6B /* twitter-icon@2x.png in Resources */,
 				635FE0E4174BEAFD004E8D6B /* facebook-icon.png in Resources */,
@@ -1529,21 +1508,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4B1BC8378C80458FA2AEC085 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		63DBB644173161FE003A74CC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1556,21 +1520,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-		9AEE2CCA0BAA47F4924A3C0A /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		AF8DBA801850B5F200D50A3F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1792,7 +1741,7 @@
 		};
 		63DBB65A173161FE003A74CC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D45E3658AC9946C3BD8D5861 /* Pods.xcconfig */;
+			baseConfigurationReference = 4097C2322663223C0F4865BF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1813,29 +1762,26 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/FoodCircles/Libs/**";
 				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/FoodCircles/Libs/**";
-				OTHER_LDFLAGS = (
-					"-lstdc++",
-					"-ObjC",
-					"-all_load",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-lstdc++",
 					"-ObjC",
 					"-all_load",
+					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		63DBB65B173161FE003A74CC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D45E3658AC9946C3BD8D5861 /* Pods.xcconfig */;
+			baseConfigurationReference = 213DE4074ECD529293007B80 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1856,22 +1802,19 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/FoodCircles/Libs/**";
 				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/FoodCircles/Libs/**";
-				OTHER_LDFLAGS = (
-					"-lstdc++",
-					"-all_load",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-lstdc++",
 					"-ObjC",
 					"-all_load",
+					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "A8457DF0-B886-4FA4-A4DD-5C9D2DEA8C8D";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A8457DF0-B886-4FA4-A4DD-5C9D2DEA8C8D";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

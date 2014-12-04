@@ -8,8 +8,8 @@
 
 #import "FCSFacebookButton.h"
 
-const int FACEBOOK_BUTTON_HEIGHT = 44;
-const int PADDING_BETWEEN_TEXT_AND_FACEBOOK_ICON = 5;
+const NSInteger FACEBOOK_BUTTON_HEIGHT = 44;
+const NSInteger PADDING_BETWEEN_TEXT_AND_FACEBOOK_ICON = 5;
 
 @implementation FCSFacebookButton
 

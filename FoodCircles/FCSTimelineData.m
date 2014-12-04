@@ -17,9 +17,9 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     
-    int total = 0;
+    NSInteger total = 0;
     
-    for (int i = 0; i < [[JSON objectForKey:@"reservations"] count]; i++) {
+    for (NSInteger i = 0; i < [[JSON objectForKey:@"reservations"] count]; i++) {
         FCSTimelineData *data = [[FCSTimelineData alloc] init];
         data.type = 2;
         NSDictionary *row = [[JSON objectForKey:@"reservations"] objectAtIndex:i];
@@ -33,7 +33,7 @@
         data.code = @"";
         
         data.minumumDiners = [[[row objectForKey:@"offer"] objectForKey:@"minimum_diners"] integerValue];
-        int qty = [[[row objectForKey:@"offer"] objectForKey:@"minimum_diners"] integerValue];
+        NSInteger qty = [[[row objectForKey:@"offer"] objectForKey:@"minimum_diners"] integerValue];
         qty = qty/2;
         
         data.qtyFed = qty;
@@ -42,7 +42,7 @@
         [array addObject:data];
     }
     
-    for (int i = 0; i < [[JSON objectForKey:@"payments"] count]; i++) {
+    for (NSInteger i = 0; i < [[JSON objectForKey:@"payments"] count]; i++) {
         FCSTimelineData *data = [[FCSTimelineData alloc] init];
         data.type = 2;
         NSDictionary *row = [[JSON objectForKey:@"payments"] objectAtIndex:i];
@@ -57,7 +57,7 @@
         data.code = [row objectForKey:@"code"];
         data.state = [row objectForKey:@"state"];
         
-        int qty = [[row objectForKey:@"amount"] integerValue];
+        NSInteger qty = [[row objectForKey:@"amount"] integerValue];
         data.qtyFed = qty;
         total += qty;
         
@@ -76,10 +76,10 @@
         NSDateComponents *comps = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:data.date];
         [formatter setDateFormat:@"yyyy"];
         
-        int monthDif = [comps month];
-        int month = 0;
+        NSInteger monthDif = [comps month];
+        NSInteger month = 0;
         
-        for (int i = 0; i < [array count]; i++) {
+        for (NSInteger i = 0; i < [array count]; i++) {
             data = [array objectAtIndex:i];
             
             comps = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:data.date];
@@ -89,7 +89,7 @@
                 
                 FCSTimelineData *newData = [[FCSTimelineData alloc] init];
                 newData.type = 1;
-                newData.year = [NSString stringWithFormat:@"%d", [comps year]];
+                newData.year = [NSString stringWithFormat:@"%ld", (long)[comps year]];
                 
                 [formatter setDateFormat:@"MMMM"];
                 newData.month = [[formatter stringFromDate:data.date] uppercaseString];
@@ -102,12 +102,12 @@
             [returnArray addObject:data];
         }
     }
-    TFLog(@"All timeline objects %@", returnArray);
+    //NSLog(@"All timeline objects %@", returnArray);
     
     return returnArray;
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"type: %i offerName: %@, code: %@, created_at: %@", self.type, self.offerName, self.code, self.date];
+    return [NSString stringWithFormat:@"type: %li offerName: %@, code: %@, created_at: %@", (long)self.type, self.offerName, self.code, self.date];
 }
 @end
