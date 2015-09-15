@@ -124,7 +124,6 @@
 		AF762308184AB439009AF016 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF762307184AB439009AF016 /* Security.framework */; };
 		AF76230A184AB441009AF016 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF762309184AB441009AF016 /* SystemConfiguration.framework */; };
 		AF76230C184AB44D009AF016 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF76230B184AB44D009AF016 /* UIKit.framework */; };
-		AF762315184ABA4D009AF016 /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF762311184ABA4D009AF016 /* libPayPalMobile.a */; };
 		AF762317184ABB71009AF016 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF762316184ABB71009AF016 /* StoreKit.framework */; };
 		AF762323184AC631009AF016 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF762322184AC631009AF016 /* Images.xcassets */; };
 		AF7C868C17C664B1009729D1 /* FCSTimelineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7C868B17C664B1009729D1 /* FCSTimelineTableViewCell.m */; };
@@ -461,10 +460,6 @@
 		AF762307184AB439009AF016 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AF762309184AB441009AF016 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AF76230B184AB44D009AF016 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		AF762311184ABA4D009AF016 /* libPayPalMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayPalMobile.a; sourceTree = "<group>"; };
-		AF762312184ABA4D009AF016 /* PayPalMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalMobile.h; sourceTree = "<group>"; };
-		AF762313184ABA4D009AF016 /* PayPalPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPayment.h; sourceTree = "<group>"; };
-		AF762314184ABA4D009AF016 /* PayPalPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPaymentViewController.h; sourceTree = "<group>"; };
 		AF762316184ABB71009AF016 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AF762322184AC631009AF016 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AF7C868A17C664B1009729D1 /* FCSTimelineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSTimelineTableViewCell.h; sourceTree = "<group>"; };
@@ -614,7 +609,6 @@
 				D55F853817DC7DF400A27E44 /* AssetsLibrary.framework in Frameworks */,
 				AFC8D3901851020900BAB6ED /* Crashlytics.framework in Frameworks */,
 				D5B1C24B17DB91B9008EB2A5 /* libc++.dylib in Frameworks */,
-				AF762315184ABA4D009AF016 /* libPayPalMobile.a in Frameworks */,
 				D5B1C24517DB904D008EB2A5 /* Social.framework in Frameworks */,
 				D5B1C24417DB9027008EB2A5 /* libsqlite3.dylib in Frameworks */,
 				D5B1C24217DB901F008EB2A5 /* Accounts.framework in Frameworks */,
@@ -1089,18 +1083,6 @@
 			name = Purchase;
 			sourceTree = "<group>";
 		};
-		AF762310184ABA4D009AF016 /* PayPalMobile */ = {
-			isa = PBXGroup;
-			children = (
-				AF762311184ABA4D009AF016 /* libPayPalMobile.a */,
-				AF762312184ABA4D009AF016 /* PayPalMobile.h */,
-				AF762313184ABA4D009AF016 /* PayPalPayment.h */,
-				AF762314184ABA4D009AF016 /* PayPalPaymentViewController.h */,
-			);
-			name = PayPalMobile;
-			path = FoodCircles/Libs/PayPalMobile;
-			sourceTree = "<group>";
-		};
 		AF7C868917C66475009729D1 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
@@ -1121,7 +1103,6 @@
 		AF8FEFA917BC471700A2A28B /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				AF762310184ABA4D009AF016 /* PayPalMobile */,
 				AF7622ED184AAD19009AF016 /* JSONKit */,
 				AF7622A6184AA01A009AF016 /* Boldify */,
 				AF7622A9184AA01A009AF016 /* ILHTTPClient */,
@@ -1331,7 +1312,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = FCS;
-				LastTestingUpgradeCheck = 0610;
+				LastTestingUpgradeCheck = 0640;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = FoodCircles;
 				TargetAttributes = {
@@ -1747,6 +1728,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FoodCircles/FoodCircles.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1760,8 +1742,14 @@
 				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
 				INFOPLIST_FILE = "FoodCircles/FoodCircles-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/FoodCircles/Libs/**";
-				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/FoodCircles/Libs/**";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/FoodCircles/Libs/**",
+					"$(inherited)",
+				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = (
+					"$(SRCROOT)/FoodCircles/Libs/**",
+					"$(inherited)",
+				);
 				OTHER_LDFLAGS = "$(inherited)";
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-lstdc++",
@@ -1787,6 +1775,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FoodCircles/FoodCircles.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: FoodCircles LC (6H3NUKPCZ9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: FoodCircles LC (6H3NUKPCZ9)";
@@ -1800,8 +1789,14 @@
 				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
 				INFOPLIST_FILE = "FoodCircles/FoodCircles-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/FoodCircles/Libs/**";
-				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/FoodCircles/Libs/**";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/FoodCircles/Libs/**",
+					"$(inherited)",
+				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = (
+					"$(SRCROOT)/FoodCircles/Libs/**",
+					"$(inherited)",
+				);
 				OTHER_LDFLAGS = "$(inherited)";
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-lstdc++",

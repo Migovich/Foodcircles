@@ -16,3 +16,6 @@
 #define DELETE_VOUCHER_URL @"/payment/used"
 
 #define IS_OS_7_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+
+#define kTesterClientId @"AZ-lJhCFTTflkzUugWkJ2i_Q7iSpADJgPtHVAlwGj_nzOSu-Xfzo0yKnI1DW"
+#define kClientId @"ATtEOxB-eX60pOi_fHSv3K2PvAX8LRme-eyngA9l6LRSTIr9SeJHtmpaJL4M"

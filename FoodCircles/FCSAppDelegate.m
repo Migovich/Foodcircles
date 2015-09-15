@@ -14,6 +14,7 @@
 #import "constants.h"
 #import "FCSStyles.h"
 #import "FCSServerHelper.h"
+#import <PayPalMobile.h>
 
 #import "FCSVenueListViewController.h"
 #import "FCSSignUpViewController.h"
@@ -44,6 +45,9 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     [Crashlytics startWithAPIKey:@"22535ca9de8554d530b74b9a578747941edd9284"];
+    
+    [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction: kClientId,
+                                                           PayPalEnvironmentSandbox: kTesterClientId}];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UIApplication sharedApplication] setStatusBarHidden:NO];

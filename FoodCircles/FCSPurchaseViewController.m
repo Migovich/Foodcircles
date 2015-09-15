@@ -19,8 +19,6 @@
 #endif
 #endif
 
-#define kTesterClientId @"AZ-lJhCFTTflkzUugWkJ2i_Q7iSpADJgPtHVAlwGj_nzOSu-Xfzo0yKnI1DW"
-#define kClientId @"ATtEOxB-eX60pOi_fHSv3K2PvAX8LRme-eyngA9l6LRSTIr9SeJHtmpaJL4M"
 #define kReceiverEmail @"jtkumario@gmail.com"
 
 @interface FCSPurchaseViewController () <FCSPickerTableViewControllerDelegate>
@@ -79,14 +77,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-#ifdef TESTING
-    [PayPalPaymentViewController prepareForPaymentUsingClientId:kTesterClientId];
-    [PayPalPaymentViewController setEnvironment:PayPalEnvironmentSandbox];
-#else
-    [PayPalPaymentViewController prepareForPaymentUsingClientId:kClientId];
-    [PayPalPaymentViewController setEnvironment:PayPalEnvironmentProduction];
-#endif
     
     self.charitySelectorSwitch.on = NO;
     [self donationChanged:self.charitySelectorSwitch];
@@ -147,7 +137,12 @@
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
     }
     
-    PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:clientID receiverEmail:kReceiverEmail payerId:aPayerId payment:payment delegate:self];
+    //PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:clientID receiverEmail:kReceiverEmail payerId:aPayerId payment:payment delegate:self];
+    PayPalConfiguration *paypalConfig = [[PayPalConfiguration alloc] init];
+    paypalConfig.acceptCreditCards = YES;
+    paypalConfig.rememberUser = YES;
+    
+    PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithPayment:payment configuration:paypalConfig delegate:self];
 
     [self presentViewController:paymentViewController animated:YES completion:nil];
 }
@@ -254,7 +249,7 @@
     [self backDefaultStyle];
 }
 
-- (void)payPalPaymentDidCancel {
+- (void)payPalPaymentDidCancel:(PayPalPaymentViewController *)paymentViewController {
     [self dismissViewControllerAnimated:YES completion:nil];
     [self backDefaultStyle];
 }
