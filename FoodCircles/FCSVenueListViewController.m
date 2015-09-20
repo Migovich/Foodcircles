@@ -20,6 +20,7 @@
 #import "AFJSONRequestOperation.h"
 #import "FCSCharity.h"
 #import <QuartzCore/QuartzCore.h>
+#import "FCSVenueListFooterView.h"
 
 NSString *kVenueId = @"venueListViewID";
 
@@ -60,6 +61,18 @@ NSString *kVenueId = @"venueListViewID";
 
 #pragma mark -
 #pragma mark UICollectionViewDataSoure
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    
+    if (kind == UICollectionElementKindSectionFooter) {
+        FCSVenueListFooterView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView" forIndexPath:indexPath];
+        view.parentVC = self;
+        
+        return view;
+    }
+    
+    return nil;
+}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [UIAppDelegate.venues count];
@@ -167,6 +180,29 @@ NSString *kVenueId = @"venueListViewID";
     }];
     
     [operation start];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    
+    switch (result) {
+        case MFMailComposeResultSent:
+            NSLog(@"You sent the email.");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"You saved a draft of this email");
+            break;
+        case MFMailComposeResultCancelled:
+            NSLog(@"You cancelled sending this email.");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail failed:  An error occurred when trying to compose this email");
+            break;
+        default:
+            NSLog(@"An error occurred when trying to compose this email");
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end

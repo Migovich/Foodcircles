@@ -136,12 +136,12 @@
     if (!minimumDiners || [minimumDiners isEqual:[NSNull null]]) {
         minimumDiners = [NSString stringWithFormat:@"%ld", (long)self.numberOfDiners];
     }
-    NSString *minimumText = nil;
+    NSString *minimumText = @"Valid with a regular purchase of a food item or alcoholic beverage per person. ";
     if ([minimumDiners intValue] > 2) {
-        minimumText = [NSString stringWithFormat:@"(min. group %@, use by %@)",minimumDiners,[formatter stringFromDate:date]];
+        [minimumText stringByAppendingString:[NSString stringWithFormat:@"Min. group %@, use by %@",minimumDiners,[formatter stringFromDate:date]]];
     }
     else {
-        minimumText = [NSString stringWithFormat:@"(Use by %@)", [formatter stringFromDate:date]];
+        minimumText = [NSString stringWithFormat:@"Use by %@", [formatter stringFromDate:date]];
     }
     
     [self.minGroupDateLabel setText:minimumText];

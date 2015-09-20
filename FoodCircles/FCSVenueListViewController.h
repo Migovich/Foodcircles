@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
+#import <MessageUI/MessageUI.h>
 
 @class MBProgressHUD;
 
 @interface FCSVenueListViewController : UICollectionViewController
-<UICollectionViewDelegate, UICollectionViewDataSource> {
+<UICollectionViewDelegate, UICollectionViewDataSource, MFMailComposeViewControllerDelegate> {
     MBProgressHUD *HUD;
 }
 

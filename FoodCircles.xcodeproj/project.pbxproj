@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37B06B691BAF1C3D00D6BEB3 /* FCSVenueListFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B06B681BAF1C3D00D6BEB3 /* FCSVenueListFooterView.m */; };
 		6301F47A1747C7ED0081245A /* foodcircles logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6301F4781747C7ED0081245A /* foodcircles logo.png */; };
 		6301F47B1747C7ED0081245A /* foodcircles logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6301F4791747C7ED0081245A /* foodcircles logo@2x.png */; };
 		6305D52F17345D1C0021482B /* FCSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6305D52E17345D1C0021482B /* FCSNavigationController.m */; };
@@ -266,6 +267,8 @@
 /* Begin PBXFileReference section */
 		157E63BFD8EC4EE796090E74 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		213DE4074ECD529293007B80 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		37B06B671BAF1C3D00D6BEB3 /* FCSVenueListFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSVenueListFooterView.h; sourceTree = "<group>"; };
+		37B06B681BAF1C3D00D6BEB3 /* FCSVenueListFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSVenueListFooterView.m; sourceTree = "<group>"; };
 		4097C2322663223C0F4865BF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6301F4781747C7ED0081245A /* foodcircles logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foodcircles logo.png"; sourceTree = "<group>"; };
 		6301F4791747C7ED0081245A /* foodcircles logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foodcircles logo@2x.png"; sourceTree = "<group>"; };
@@ -878,6 +881,8 @@
 				631C6D2D1731E20F00151EFA /* FCSVenueListViewController.m */,
 				63DB637F173D23C800B2DF41 /* FCSVenueCell.h */,
 				63DB6380173D23C800B2DF41 /* FCSVenueCell.m */,
+				37B06B671BAF1C3D00D6BEB3 /* FCSVenueListFooterView.h */,
+				37B06B681BAF1C3D00D6BEB3 /* FCSVenueListFooterView.m */,
 			);
 			name = VenueList;
 			sourceTree = "<group>";
@@ -1539,6 +1544,7 @@
 				6323572C173818A20068A2F5 /* FCSPurchaseViewController.m in Sources */,
 				6323574E173850800068A2F5 /* FCSStyledViewController.m in Sources */,
 				6312D7E4173BCBCB009B8E6D /* FCSCopyLabel.m in Sources */,
+				37B06B691BAF1C3D00D6BEB3 /* FCSVenueListFooterView.m in Sources */,
 				6312D7E7173BCD11009B8E6D /* FCSButton.m in Sources */,
 				6312D7F2173BDE77009B8E6D /* FCSSecondaryCopyLabel.m in Sources */,
 				6312D7F5173BDFB9009B8E6D /* FCSHighlightLabel.m in Sources */,
