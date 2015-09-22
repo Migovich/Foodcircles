@@ -10,6 +10,10 @@
 
 @implementation FCSShareProviders
 
+- (id)init {
+    return [super init];
+}
+
 - (id)activityViewController:(UIActivityViewController *)activityViewController itemForActivityType:(NSString *)activityType {
     NSLog(@"%@", activityType);
     

@@ -7,14 +7,16 @@
 //
 
 #import "FCSAppDelegate.h"
-#import <Parse/Parse.h>
-#import <PFFacebookUtils.h>
+#import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
-#import <FacebookSDK/FacebookSDK.h>
 #import "constants.h"
 #import "FCSStyles.h"
 #import "FCSServerHelper.h"
 #import <PayPalMobile.h>
+
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <Parse/Parse.h>
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 
 #import "FCSVenueListViewController.h"
 #import "FCSSignUpViewController.h"
@@ -39,11 +41,13 @@
     [Parse setApplicationId:@"kOy6fgxIymc6fp3Z6FaYdkTaMy6F41hYX3SgAltZ"
                   clientKey:@"dq206qPaYrhf2WnFOeuA4n1gTDvKIa3PFLQ7qt3i"];
     
+    [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
     [PFTwitterUtils initializeWithConsumerKey:@"XmAxvWUI8aFgI7QlliTfCw"
                                consumerSecret:@"ipOQjEZ876e0qWexIOLKOV99TllNPC9LBcMEzCZ4"];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    [Fabric with:@[CrashlyticsKit]];
     [Crashlytics startWithAPIKey:@"22535ca9de8554d530b74b9a578747941edd9284"];
     
     [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction: kClientId,
@@ -85,12 +89,15 @@
     
     [self setNotification];
     
-    return YES;
+    return [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication withSession:[FBSession activeSession]];
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation
+            ];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -119,6 +126,7 @@
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

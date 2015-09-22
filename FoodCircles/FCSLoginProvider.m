@@ -12,7 +12,8 @@
 #import "AFHTTPClient.h"
 #import "FCSAppDelegate.h"
 #import "SSKeychain.h"
-#import <PFFacebookUtils.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 
 typedef enum {
     FacebookErrorCodeNone,
@@ -84,8 +85,7 @@ typedef enum {
     
     NSArray *permissionsArray = @[@"user_about_me", @"email"];
     
-    [PFFacebookUtils initializeFacebook];
-    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+    [PFFacebookUtils  logInInBackgroundWithReadPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
         if (!user) {
             #warning set messages
             if (error) {
@@ -94,9 +94,8 @@ typedef enum {
             _completionHandler(NO);
         } else {
             
-            FBRequest *request = [FBRequest requestForMe];
-            [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                
+            FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields":@"id,name,email"}];
+            [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
                 if (error) {
                     NSLog(@"%@", error.localizedDescription);
                     

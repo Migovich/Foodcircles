@@ -261,7 +261,7 @@
 }
 
 - (IBAction)inviteButtonTapped:(id)sender {
-    FCSShareProviders *shareProviders = [[FCSShareProviders alloc] init];
+    FCSShareProviders *shareProviders = [[FCSShareProviders alloc] initWithPlaceholderItem:@"Teste"];
     shareProviders.type = 1;
     
     OWFacebookActivity *facebookActivity = [[OWFacebookActivity alloc] init];

@@ -58,22 +58,26 @@
     
     //[[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"id"]
     
+    paymentDetails = @{@"paypal_charge_token": [[payment.confirmation objectForKey:@"response"] objectForKey:@"id"],
+                       @"offer_id": offerId,
+                       @"charity_id": charityId,
+                       @"amount": payment.amount};
     
-    if ([[[payment.confirmation objectForKey:@"proof_of_payment"] objectForKey:@"adaptive_payment"] count] > 0) {
-        paymentDetails = [NSDictionary dictionaryWithObjectsAndKeys:
-                          [[[payment.confirmation objectForKey:@"proof_of_payment"] objectForKey:@"adaptive_payment"] objectForKey:@"pay_key"], @"paypal_charge_token",
-                          offerId, @"offer_id",
-                          charityId, @"charity_id",
-                          [[payment.confirmation objectForKey:@"payment"] objectForKey:@"amount"], @"amount",
-                          nil];
-    } else {
-        paymentDetails = [NSDictionary dictionaryWithObjectsAndKeys:
-                          [[[payment.confirmation objectForKey:@"proof_of_payment"] objectForKey:@"rest_api"] objectForKey:@"payment_id"], @"paypal_charge_token",
-                          offerId, @"offer_id",
-                          charityId, @"charity_id",
-                          [[payment.confirmation objectForKey:@"payment"] objectForKey:@"amount"], @"amount",
-                          nil];
-    }
+//    if ([[[payment.confirmation objectForKey:@"proof_of_payment"] objectForKey:@"adaptive_payment"] count] > 0) {
+//        paymentDetails = [NSDictionary dictionaryWithObjectsAndKeys:
+//                          [[[payment.confirmation objectForKey:@"proof_of_payment"] objectForKey:@"adaptive_payment"] objectForKey:@"pay_key"], @"paypal_charge_token",
+//                          offerId, @"offer_id",
+//                          charityId, @"charity_id",
+//                          [[payment.confirmation objectForKey:@"payment"] objectForKey:@"amount"], @"amount",
+//                          nil];
+//    } else {
+//        paymentDetails = [NSDictionary dictionaryWithObjectsAndKeys:
+//                          [[[payment.confirmation objectForKey:@"proof_of_payment"] objectForKey:@"rest_api"] objectForKey:@"payment_id"], @"paypal_charge_token",
+//                          offerId, @"offer_id",
+//                          charityId, @"charity_id",
+//                          [[payment.confirmation objectForKey:@"payment"] objectForKey:@"amount"], @"amount",
+//                          nil];
+//    }
     
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                             UIAppDelegate.user_token, @"auth_token",

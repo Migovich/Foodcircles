@@ -33,16 +33,6 @@
 #import "PFSignUpViewController.h"
 #import "PFTableViewCell.h"
 #import "PFTwitterUtils.h"
-
-#if defined(__has_include)
-#if __has_include(<FacebookSDK/FacebookSDK.h>)
-#import <FacebookSDK/FacebookSDK.h>
-#import "PFFacebookUtils.h"
-#else
-#define PFFacebookUtils Please_add_the_Facebook_SDK_to_your_project
-#endif
-#endif
-
 #endif
 
 @interface Parse : NSObject

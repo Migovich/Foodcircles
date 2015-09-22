@@ -116,7 +116,7 @@
     
     [self presentViewController:activityVC animated:YES completion:nil];
      */
-    FCSShareProviders *shareProviders = [[FCSShareProviders alloc] init];
+    FCSShareProviders *shareProviders = [[FCSShareProviders alloc] initWithPlaceholderItem:@"Teste"];
     shareProviders.type = 1;
     
     OWFacebookActivity *facebookActivity = [[OWFacebookActivity alloc] init];

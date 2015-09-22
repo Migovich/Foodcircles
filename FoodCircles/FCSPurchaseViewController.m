@@ -233,9 +233,8 @@
 }
 
 #pragma mark - PayPalPaymentDelegate methods
-- (void)payPalPaymentDidComplete:(PayPalPayment *)completedPayment {
+- (void)payPalPaymentViewController:(PayPalPaymentViewController *)paymentViewController didCompletePayment:(PayPalPayment *)completedPayment {
     self.completedPayment = completedPayment;
-    //NSLog(@"Completed Payment: %@", completedPayment);
     
     if ([UIAppDelegate.user_token length] == 0) {
         FCSLoginProvider *login = [[FCSLoginProvider alloc] init];

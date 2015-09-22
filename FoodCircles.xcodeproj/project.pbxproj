@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3741858C1BB0E40300454466 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3741858B1BB0E40300454466 /* Fabric.framework */; };
+		3742825E1BB0E03F0003DBA9 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFB8B45817BD734C006162F8 /* Twitter.framework */; };
 		37B06B691BAF1C3D00D6BEB3 /* FCSVenueListFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B06B681BAF1C3D00D6BEB3 /* FCSVenueListFooterView.m */; };
 		6301F47A1747C7ED0081245A /* foodcircles logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6301F4781747C7ED0081245A /* foodcircles logo.png */; };
 		6301F47B1747C7ED0081245A /* foodcircles logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6301F4791747C7ED0081245A /* foodcircles logo@2x.png */; };
@@ -197,7 +199,6 @@
 		D59B72E917D8C0E800E001F0 /* swipe-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D59B72DF17D8C0E800E001F0 /* swipe-arrow@2x.png */; };
 		D59B72EC17D8EEC000E001F0 /* Share_Hands.png in Resources */ = {isa = PBXBuildFile; fileRef = D59B72EA17D8EEC000E001F0 /* Share_Hands.png */; };
 		D59B72ED17D8EEC000E001F0 /* Share_Hands@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D59B72EB17D8EEC000E001F0 /* Share_Hands@2x.png */; };
-		D5B1C23F17DB8FEA008EB2A5 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFB8B45817BD734C006162F8 /* Twitter.framework */; };
 		D5B1C24117DB9002008EB2A5 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B1C24017DB9002008EB2A5 /* AdSupport.framework */; };
 		D5B1C24217DB901F008EB2A5 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFB8B45A17BD7373006162F8 /* Accounts.framework */; };
 		D5B1C24417DB9027008EB2A5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B1C24317DB9027008EB2A5 /* libsqlite3.dylib */; };
@@ -267,6 +268,8 @@
 /* Begin PBXFileReference section */
 		157E63BFD8EC4EE796090E74 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		213DE4074ECD529293007B80 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		373CA31B1BB0D0A60034E159 /* libFBSDKCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKCoreKit.a; path = "Pods/../build/Debug-iphoneos/libFBSDKCoreKit.a"; sourceTree = "<group>"; };
+		3741858B1BB0E40300454466 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = FoodCircles/Libs/Fabric.framework; sourceTree = "<group>"; };
 		37B06B671BAF1C3D00D6BEB3 /* FCSVenueListFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSVenueListFooterView.h; sourceTree = "<group>"; };
 		37B06B681BAF1C3D00D6BEB3 /* FCSVenueListFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSVenueListFooterView.m; sourceTree = "<group>"; };
 		4097C2322663223C0F4865BF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -595,15 +598,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5B1C24217DB901F008EB2A5 /* Accounts.framework in Frameworks */,
+				AF762300184AB41A009AF016 /* MessageUI.framework in Frameworks */,
+				D5B1C24517DB904D008EB2A5 /* Social.framework in Frameworks */,
+				3742825E1BB0E03F0003DBA9 /* Twitter.framework in Frameworks */,
 				AF8DBA7F1850B38F00D50A3F /* Foundation.framework in Frameworks */,
 				AF762317184ABB71009AF016 /* StoreKit.framework in Frameworks */,
 				AF76230C184AB44D009AF016 /* UIKit.framework in Frameworks */,
+				3741858C1BB0E40300454466 /* Fabric.framework in Frameworks */,
 				AF76230A184AB441009AF016 /* SystemConfiguration.framework in Frameworks */,
 				AF762308184AB439009AF016 /* Security.framework in Frameworks */,
 				AF762306184AB433009AF016 /* QuartzCore.framework in Frameworks */,
 				AF762304184AB42C009AF016 /* OpenGLES.framework in Frameworks */,
 				AF762302184AB424009AF016 /* MobileCoreServices.framework in Frameworks */,
-				AF762300184AB41A009AF016 /* MessageUI.framework in Frameworks */,
 				D5042E6E17DA2D7000E9A8FC /* libxml2.dylib in Frameworks */,
 				AF7622FE184AB408009AF016 /* CoreVideo.framework in Frameworks */,
 				AF7622FC184AB3FC009AF016 /* AVFoundation.framework in Frameworks */,
@@ -612,11 +619,8 @@
 				D55F853817DC7DF400A27E44 /* AssetsLibrary.framework in Frameworks */,
 				AFC8D3901851020900BAB6ED /* Crashlytics.framework in Frameworks */,
 				D5B1C24B17DB91B9008EB2A5 /* libc++.dylib in Frameworks */,
-				D5B1C24517DB904D008EB2A5 /* Social.framework in Frameworks */,
 				D5B1C24417DB9027008EB2A5 /* libsqlite3.dylib in Frameworks */,
-				D5B1C24217DB901F008EB2A5 /* Accounts.framework in Frameworks */,
 				D5B1C24117DB9002008EB2A5 /* AdSupport.framework in Frameworks */,
-				D5B1C23F17DB8FEA008EB2A5 /* Twitter.framework in Frameworks */,
 				D5042E6D17DA2D2300E9A8FC /* libz.dylib in Frameworks */,
 				635FE11C174C0EBB004E8D6B /* MapKit.framework in Frameworks */,
 				AF8FEFB317BC554B00A2A28B /* CFNetwork.framework in Frameworks */,
@@ -911,6 +915,8 @@
 		63DBB623173161FD003A74CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3741858B1BB0E40300454466 /* Fabric.framework */,
+				373CA31B1BB0D0A60034E159 /* libFBSDKCoreKit.a */,
 				AFC8D38F1851020900BAB6ED /* Crashlytics.framework */,
 				AFB8B45A17BD7373006162F8 /* Accounts.framework */,
 				D5B1C24017DB9002008EB2A5 /* AdSupport.framework */,
@@ -1317,7 +1323,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = FCS;
-				LastTestingUpgradeCheck = 0640;
+				LastTestingUpgradeCheck = 0710;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = FoodCircles;
 				TargetAttributes = {
@@ -1685,7 +1691,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lc++",
@@ -1714,7 +1720,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-lc++",
@@ -1743,14 +1749,16 @@
 					"$(SRCROOT)/FoodCircles",
 					"$(SRCROOT)/FoodCircles/Libs",
 					"$(PROJECT_DIR)/FoodCircles/Libs",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
 				INFOPLIST_FILE = "FoodCircles/FoodCircles-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/FoodCircles/Libs/**",
 					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				"LIBRARY_SEARCH_PATHS[arch=*]" = (
 					"$(SRCROOT)/FoodCircles/Libs/**",
@@ -1759,8 +1767,6 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-lstdc++",
-					"-ObjC",
-					"-all_load",
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1783,21 +1789,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FoodCircles/FoodCircles.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: FoodCircles LC (6H3NUKPCZ9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: FoodCircles LC (6H3NUKPCZ9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/FoodCircles",
 					"$(SRCROOT)/FoodCircles/Libs",
 					"$(PROJECT_DIR)/FoodCircles/Libs",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
 				INFOPLIST_FILE = "FoodCircles/FoodCircles-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/FoodCircles/Libs/**",
 					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				"LIBRARY_SEARCH_PATHS[arch=*]" = (
 					"$(SRCROOT)/FoodCircles/Libs/**",
@@ -1806,13 +1814,11 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-lstdc++",
-					"-ObjC",
-					"-all_load",
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A8457DF0-B886-4FA4-A4DD-5C9D2DEA8C8D";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A8457DF0-B886-4FA4-A4DD-5C9D2DEA8C8D";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv7s arm64";

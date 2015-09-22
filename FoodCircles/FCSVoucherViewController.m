@@ -138,10 +138,10 @@
     }
     NSString *minimumText = @"Valid with a regular purchase of a food item or alcoholic beverage per person. ";
     if ([minimumDiners intValue] > 2) {
-        [minimumText stringByAppendingString:[NSString stringWithFormat:@"Min. group %@, use by %@",minimumDiners,[formatter stringFromDate:date]]];
+        minimumText = [minimumText stringByAppendingString:[NSString stringWithFormat:@"Min. group %@, use by %@.",minimumDiners,[formatter stringFromDate:date]]];
     }
     else {
-        minimumText = [NSString stringWithFormat:@"Use by %@", [formatter stringFromDate:date]];
+        minimumText = [minimumText stringByAppendingString:[NSString stringWithFormat:@"Use by %@.", [formatter stringFromDate:date]]];
     }
     
     [self.minGroupDateLabel setText:minimumText];
@@ -169,7 +169,7 @@
     [sheet showInView:self.view];
     */
     
-    FCSShareProviders *shareProviders = [[FCSShareProviders alloc] init];
+    FCSShareProviders *shareProviders = [[FCSShareProviders alloc] initWithPlaceholderItem:@"Teste"];
     shareProviders.type = 2;
     shareProviders.kidsFed = [[self.voucherContent objectForKey:@"amount"] integerValue];
     shareProviders.restaurantName = self.restaurantName;
