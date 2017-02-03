@@ -182,24 +182,24 @@
 
 - (IBAction)clickTwitterSignUp:(id)sender {
     [HUD show:YES];
-    [PFTwitterUtils initialize];
-    [PFTwitterUtils logInWithBlock:^(PFUser *user, NSError *error) {
-        if (!user) {
-            NSLog(@"The user cancelled the Twitter login.");
-            return;
-        } else {
-            _twitterUID = user.username;
-            FCSLoginProvider *login = [[FCSLoginProvider alloc] init];
-            [login loginWithTwitter:^(BOOL success) {
-                [HUD hide:YES];
-                if (!success) {
-                    [self activateTwitterSignUp:YES];
-                } else {
-                    [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
-                }
-            }];
-        }
-    }];
+//    [PFTwitterUtils initialize];
+//    [PFTwitterUtils logInWithBlock:^(PFUser *user, NSError *error) {
+//        if (!user) {
+//            NSLog(@"The user cancelled the Twitter login.");
+//            return;
+//        } else {
+//            _twitterUID = user.username;
+//            FCSLoginProvider *login = [[FCSLoginProvider alloc] init];
+//            [login loginWithTwitter:^(BOOL success) {
+//                [HUD hide:YES];
+//                if (!success) {
+//                    [self activateTwitterSignUp:YES];
+//                } else {
+//                    [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
+//                }
+//            }];
+//        }
+//    }];
 }
 
 - (void)goToRestuarantList {

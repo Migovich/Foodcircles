@@ -16,7 +16,7 @@
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <Parse/Parse.h>
-#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
+//#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 
 #import "FCSVenueListViewController.h"
 #import "FCSSignUpViewController.h"
@@ -41,9 +41,9 @@
     [Parse setApplicationId:@"kOy6fgxIymc6fp3Z6FaYdkTaMy6F41hYX3SgAltZ"
                   clientKey:@"dq206qPaYrhf2WnFOeuA4n1gTDvKIa3PFLQ7qt3i"];
     
-    [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
-    [PFTwitterUtils initializeWithConsumerKey:@"XmAxvWUI8aFgI7QlliTfCw"
-                               consumerSecret:@"ipOQjEZ876e0qWexIOLKOV99TllNPC9LBcMEzCZ4"];
+//    [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
+//    [PFTwitterUtils initializeWithConsumerKey:@"XmAxvWUI8aFgI7QlliTfCw"
+//                               consumerSecret:@"ipOQjEZ876e0qWexIOLKOV99TllNPC9LBcMEzCZ4"];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
