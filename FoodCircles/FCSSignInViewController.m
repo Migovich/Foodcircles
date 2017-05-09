@@ -37,7 +37,7 @@
     self.buyOneFeedOneLabel.font = font;
 }
 - (IBAction)forgotYourPasswordPressed:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.joinfoodcircles.org/users/password/new"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.joinfoodcircles.org/users/password/new"] options:@{} completionHandler:nil];
 }
 
 - (IBAction)clickSignIn:(id)sender {
@@ -75,14 +75,13 @@
             errorMessage = @"Can't connect to server.";
             errorMessage = error.localizedDescription;
         }
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign In Error"
-                                                        message:errorMessage
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        NSLog(@"%@", errorMessage);
-        [alert show];
+
+        UIAlertController *alert = [UIAlertController
+                                    alertControllerWithTitle:@"Sign In Error"
+                                    message:@"errorMessage"
+                                    preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
         
     }];
     

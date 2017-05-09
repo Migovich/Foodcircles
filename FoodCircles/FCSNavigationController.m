@@ -6,8 +6,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.navigationBar.tintColor = [FCSStyles darkRed];
-    self.navigationBar.titleTextAttributes = @{ UITextAttributeFont : [UIFont fontWithName:@"NeutrafaceSlabText-Bold" size:22],
-                                                UITextAttributeTextColor: [UIColor whiteColor]};
+    self.navigationBar.titleTextAttributes = @{ NSFontAttributeName: [UIFont fontWithName:@"NeutrafaceSlabText-Bold" size:22],
+                                                NSForegroundColorAttributeName: [UIColor whiteColor]};
     self.navigationBar.translucent = NO;
 }
 

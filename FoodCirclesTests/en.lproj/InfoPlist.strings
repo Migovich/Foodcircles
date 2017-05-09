@@ -1,2 +1,4 @@
 /* Localized versions of Info.plist keys */
 
+<key>NSPhotoLibraryUsageDescription</key>
+<string>Use Photos</string>

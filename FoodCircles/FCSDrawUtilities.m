@@ -17,7 +17,7 @@
 + (UIBarButtonItem*)infoBarButtonItemWithTarget: (id)target selector: (SEL)selector {
     if (IS_OS_7_OR_LATER) {
         UIImage *infoImage = [UIImage imageNamed:@"info_button_ios7"];
-        UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithImage:infoImage style:UIBarButtonItemStyleBordered target:target action:selector];
+        UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithImage:infoImage style:UIBarButtonItemStylePlain target:target action:selector];
         return buttonItem;
     } else {
         UIImage *infoImage = [UIImage imageNamed:@"info_button"];
@@ -31,7 +31,7 @@
 + (UIBarButtonItem*)settingsBarButtonItemWithTarget: (id)target selector: (SEL)selector {
     if (IS_OS_7_OR_LATER) {
         UIImage *infoImage = [UIImage imageNamed:@"gear_button_ios7"];
-        UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithImage:infoImage style:UIBarButtonItemStyleBordered target:target action:selector];
+        UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithImage:infoImage style:UIBarButtonItemStylePlain target:target action:selector];
         return buttonItem;
     } else {
         UIImage *infoImage = [UIImage imageNamed:@"gear_button"];

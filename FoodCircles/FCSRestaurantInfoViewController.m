@@ -78,22 +78,23 @@
 
 - (IBAction)visitWebsite:(id)sender {
     NSURL *url = [NSURL URLWithString:[[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"web"]];
-    [[UIApplication sharedApplication] openURL:url];
+    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
 }
 
 - (IBAction)getPhoneInfo:(id)sender {
-    NSString *URLString = [@"tel://" stringByAppendingString:[[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"phone"]];
-    NSURL *URL = [NSURL URLWithString:URLString];
-    [[UIApplication sharedApplication] openURL:URL];
+    NSString *urlString = [@"tel://" stringByAppendingString:[[UIAppDelegate.venues objectAtIndex:selectedVenueIndex] objectForKey:@"phone"]];
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
 }
 
 #pragma mark - Helpers
 
 - (void)openSocialUrlForKey: (NSString*)key {
     NSString *urlString = [self socialUrlForKey:key];
+    NSURL *url = [NSURL URLWithString:urlString];
     
     if (urlString) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
     }
     else {
         //Fail silently

@@ -102,27 +102,48 @@
             errorMessage = @"Can't connect to server.";
         }
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Error"
-                                                        message:errorMessage
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        NSLog(@"%@", errorMessage);
-        [alert show];
+        UIAlertController *alertController = [UIAlertController
+                                              alertControllerWithTitle:@"Sign Up Error"
+                                              message:errorMessage
+                                              preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
     }];
     
     [operation start];
 }
 
 #pragma mark - Contact us buttons
+
 - (IBAction)facebookPressed:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://facebook.com/foodcircles"]];
+    UIApplication *application = [UIApplication sharedApplication];
+    NSURL *URL = [NSURL URLWithString:@"http://facebook.com/foodcircles"];
+    [application openURL:URL options:@{} completionHandler:^(BOOL success) {
+        if (success) {
+            NSLog(@"Opened url");
+        }
+    }];
 }
 - (IBAction)twitterPressed:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://twitter.com/foodcircles"]];
+    UIApplication *application = [UIApplication sharedApplication];
+    NSURL *URL = [NSURL URLWithString:@"http://twitter.com/foodcircles"];
+    [application openURL:URL options:@{} completionHandler:^(BOOL success) {
+        if (success) {
+            NSLog(@"Opened url");
+        }
+    }];
 }
+
 - (IBAction)emailPressed:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mailto:support@foodcircles.net"]];
+    UIApplication *application = [UIApplication sharedApplication];
+    NSURL *URL = [NSURL URLWithString:@"mailto:support@foodcircles.net"];
+    [application openURL:URL options:@{} completionHandler:^(BOOL success) {
+        if (success) {
+            NSLog(@"Opened url");
+        }
+    }];
 }
 
 @end

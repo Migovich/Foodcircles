@@ -22,8 +22,13 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
+    NSMutableAttributedString *s;
+    s = [[NSMutableAttributedString alloc] initWithString:self.mainLabel.text];
+    [s addAttribute:NSKernAttributeName
+              value:[NSNull null]
+              range:NSMakeRange(0, s.length)];
+    self.mainLabel.attributedText = s;
     self.mainLabel.font = [UIFont systemFontOfSize:16];
-    self.mainLabel.adjustsLetterSpacingToFitWidth = YES;
     self.mainLabel.lineBreakMode = NSLineBreakByTruncatingTail;
 }
 

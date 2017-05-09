@@ -53,6 +53,7 @@
             void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) =
             ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
                 if (!completed && error) {
+                    
                     UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"activity.Print.error.title", @"OWActivityViewController", @"Error.")
                                                                  message:[NSString stringWithFormat:NSLocalizedStringFromTable(@"activity.Print.error.message", @"OWActivityViewController", @"An error occured while printing: %@"), error]
                                                                 delegate:nil
@@ -60,6 +61,7 @@
                                                        otherButtonTitles:nil, nil];
                     
                     [av show];
+                    
                 }
             };
             

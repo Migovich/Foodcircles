@@ -135,6 +135,7 @@
         [[UINavigationBar appearance] setTintColor:nil];
         [[UIBarButtonItem appearance] setTintColor:nil];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+    
     }
     
     //PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:clientID receiverEmail:kReceiverEmail payerId:aPayerId payment:payment delegate:self];
@@ -279,4 +280,13 @@
     RNBlurModalView *modalView = [[RNBlurModalView alloc] initWithParentView:self.view title:selectedCharityName message:selectedCharityDescription];
     [modalView show];
 }
+
+-(UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent; // your own style
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return NO; // your own visibility code
+}
+
 @end

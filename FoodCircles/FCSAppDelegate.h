@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <UserNotifications/UserNotifications.h>
 
 #define UIAppDelegate ((FCSAppDelegate *)[UIApplication sharedApplication].delegate)
 
@@ -22,6 +23,12 @@
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
+@property (strong, nonatomic) UNMutableNotificationContent *localNotification;
+
 -(void)setNotification;
+
+@end
+
+@interface UINavigationController (StatusBarStyle)
 
 @end

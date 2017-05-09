@@ -11,6 +11,8 @@
 #import "FCSSpecial.h"
 #import "FCSStyledViewController.h"
 #import "PayPalMobile.h"
+#import "PayPalConfiguration.h"
+#import "PayPalPaymentViewController.h"
 #import "MBProgressHUD.h"
 
 @class MBProgressHUD;

@@ -91,7 +91,7 @@ NSString *kVenueId = @"venueListViewID";
     NSString *restaurantName = [venue objectForKey:@"name"];
     NSString *offerName = [[[venue objectForKey:@"offers"] objectAtIndex:0] objectForKey:@"title"];
     
-    CLRegion *region = [[CLRegion alloc] initCircularRegionWithCenter:coords radius:5.0 identifier:[NSString stringWithFormat:@"%@|%@",restaurantName,offerName]];
+    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:coords radius:5.0 identifier:[NSString stringWithFormat:@"%@|%@",restaurantName,offerName]];
     
     [UIAppDelegate.locationManager stopMonitoringForRegion:region];
     [UIAppDelegate.locationManager startMonitoringForRegion:region];
@@ -170,13 +170,29 @@ NSString *kVenueId = @"venueListViewID";
         //NSLog(@"Error: %@", error.localizedDescription);
         NSString *errorMessage = [error localizedDescription];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:errorMessage
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+//                                                        message:errorMessage
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil];
+//        [alert show];
+        UIAlertController * alert = [UIAlertController
+                                     alertControllerWithTitle:@"Error"
+                                     message:errorMessage
+                                     preferredStyle:UIAlertControllerStyleAlert];
         
+        
+        
+        UIAlertAction* cancelButton = [UIAlertAction
+                                       actionWithTitle:@"OK"
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action) {
+                                           //Handle your yes please button action here
+                                       }];
+        
+        [alert addAction:cancelButton];
+        
+        [self presentViewController:alert animated:YES completion:nil];
     }];
     
     [operation start];

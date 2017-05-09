@@ -7,19 +7,24 @@
 //
 
 #import "FCSAppDelegate.h"
-#import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import "constants.h"
 #import "FCSStyles.h"
 #import "FCSServerHelper.h"
 #import <PayPalMobile.h>
 
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <Fabric/Fabric.h>
+#import <TwitterKit/TwitterKit.h>
+
 #import <Parse/Parse.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 //#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 
 #import "FCSVenueListViewController.h"
 #import "FCSSignUpViewController.h"
+
+// Notifications are independent from UIKit
+#import <UserNotifications/UserNotifications.h>
 
 #define kLastNotificationDateKey @"kLastNotificationDate"
 #define kLastScheduledNotificationDateKey @"kLastScheduledNotificationDateKey"
@@ -38,23 +43,30 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    if ([application respondsToSelector:@selector(isRegisteredForRemoteNotifications)]) { UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter]; [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound + UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        
+        // Enable or disable features based on authorization.
+    }]; // IOS8 and 9 was: /* [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]]; [application registerForRemoteNotifications]; */
+    }
+        
+        application.applicationIconBadgeNumber = 0;
+        
     [Parse setApplicationId:@"kOy6fgxIymc6fp3Z6FaYdkTaMy6F41hYX3SgAltZ"
                   clientKey:@"dq206qPaYrhf2WnFOeuA4n1gTDvKIa3PFLQ7qt3i"];
     
 //    [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
 //    [PFTwitterUtils initializeWithConsumerKey:@"XmAxvWUI8aFgI7QlliTfCw"
 //                               consumerSecret:@"ipOQjEZ876e0qWexIOLKOV99TllNPC9LBcMEzCZ4"];
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
     
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
-    [Fabric with:@[CrashlyticsKit]];
-    [Crashlytics startWithAPIKey:@"22535ca9de8554d530b74b9a578747941edd9284"];
+    [Fabric with:@[[Crashlytics class], [Twitter class]]];
+
+//    [Fabric with:@[CrashlyticsKit]];
+//    [Crashlytics startWithAPIKey:@"22535ca9de8554d530b74b9a578747941edd9284"];
     
     [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction: kClientId,
                                                            PayPalEnvironmentSandbox: kTesterClientId}];
-    
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [[UIApplication sharedApplication] setStatusBarHidden:NO];
     
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
@@ -65,7 +77,7 @@
     //Set the last notified date to a week back, the first the time app starts...
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDate *date = [NSDate date];
-    NSDateComponents *comps = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:date];
+    NSDateComponents *comps = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:date];
     NSDate *today = [calendar dateFromComponents:comps];
     NSDateComponents *components = [[NSDateComponents alloc] init];
     [components setDay:-8];
@@ -89,15 +101,20 @@
     
     [self setNotification];
     
-    return [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+    return YES;
+    //return [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                          openURL:url
-                                                sourceApplication:sourceApplication
-                                                       annotation:annotation
-            ];
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                                  openURL:url
+                                                        sourceApplication:sourceApplication
+                                                               annotation:annotation
+                    ];
+    // Add any custom logic here.
+    return handled;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -118,6 +135,7 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    application.applicationIconBadgeNumber = 0;
     //[_locationManager stopMonitoringSignificantLocationChanges];
     [_locationManager startUpdatingLocation];
 }
@@ -126,7 +144,7 @@
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-    [FBSDKAppEvents activateApp];
+    //[FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -166,18 +184,37 @@
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:kLastScheduledNotificationDateKey];
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 
-                UILocalNotification *notification = [[UILocalNotification alloc] init];
+//                UILocalNotification *notification = [[UILocalNotification alloc] init];
+//                
+//                notification.alertBody = [NSString stringWithFormat:@"You're near %@! \rGrab %@ for a buck!",[strings objectAtIndex:0],[strings objectAtIndex:1]];
+//                notification.userInfo = @{@"type": @"location"};
+//                notification.alertAction = @"View details";
+//                notification.soundName = UILocalNotificationDefaultSoundName;
+//                [[UIApplication sharedApplication] cancelAllLocalNotifications];
+//                [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+//                
+//                notification.applicationIconBadgeNumber = 1;
+//                [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
                 
+                _localNotification = [[UNMutableNotificationContent alloc] init];
+                _localNotification.body = [NSString stringWithFormat:@"You're near %@! \rGrab %@ for a buck!",[strings objectAtIndex:0],[strings objectAtIndex:1]];
+                _localNotification.userInfo = @{@"type": @"location"};
+                _localNotification.title = [NSString localizedUserNotificationStringForKey:@"View details" arguments:nil];
+                _localNotification.sound = [UNNotificationSound defaultSound];
                 
-                notification.alertBody = [NSString stringWithFormat:@"You're near %@! \rGrab %@ for a buck!",[strings objectAtIndex:0],[strings objectAtIndex:1]];
-                notification.userInfo = @{@"type": @"location"};
-                notification.alertAction = @"View details";
-                notification.soundName = UILocalNotificationDefaultSoundName;
-                [[UIApplication sharedApplication] cancelAllLocalNotifications];
-                [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+                UNTimeIntervalNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:1 repeats:NO];
                 
-                notification.applicationIconBadgeNumber = 1;
-                [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+                _localNotification.badge = @([[UIApplication sharedApplication] applicationIconBadgeNumber] + 1);
+                
+                UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"View details" content:_localNotification trigger:trigger];
+               
+                UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+                [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+                    if (!error) {
+                        NSLog(@"Add NotificationRequest succeeded!");
+                    }
+                }];
+                
                 _handlingLocationUpdate = NO;
             }
         }
@@ -213,29 +250,47 @@
         NSDate *date = [NSDate date];
         //3 days after the app opens
         date = [date dateByAddingTimeInterval:60*60*24*3];
-        
-        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+       
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        [center removeAllPendingNotificationRequests];
+//        [[UIApplication sharedApplication] cancelAllLocalNotifications];
         [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-        localNotification.timeZone = [NSTimeZone defaultTimeZone];
-        localNotification.alertAction = @"View details";
+//        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+//        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+//        localNotification.alertAction = @"View details";
+//        NSInteger i = arc4random() % [messages count];
+//        localNotification.alertBody = [NSString stringWithFormat:@"%@",[messages objectAtIndex:i]];
+//        localNotification.soundName = UILocalNotificationDefaultSoundName;
+//        localNotification.applicationIconBadgeNumber = -1;
+        
+        _localNotification = [[UNMutableNotificationContent alloc] init];
+        _localNotification.title = [NSString localizedUserNotificationStringForKey:@"View details" arguments:nil];
         NSInteger i = arc4random() % [messages count];
-        localNotification.alertBody = [NSString stringWithFormat:@"%@",[messages objectAtIndex:i]];
-        localNotification.soundName = UILocalNotificationDefaultSoundName;
-        localNotification.applicationIconBadgeNumber = -1;
+        _localNotification.body = [NSString stringWithFormat:@"%@",[messages objectAtIndex:i]];
+        _localNotification.sound = [UNNotificationSound defaultSound];
+        _localNotification.badge = @([[UIApplication sharedApplication] applicationIconBadgeNumber] - 1);
         
-        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-        NSDateComponents *comps = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
-        [comps setHour:16];
-        [comps setMinute:0];
-        date = [calendar dateFromComponents:comps];
-        localNotification.fireDate = date;
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        NSDateComponents *triggerDate = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:date];
+        [triggerDate setHour:16];
+        [triggerDate setMinute:0];
+        UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:triggerDate repeats:NO];
         
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        //date = [calendar dateFromComponents:triggerDate];
+        //_localNotification.fireDate = date;
+        
+//        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"View details" content:_localNotification trigger:trigger];
+        [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+            if (!error) {
+                NSLog(@"Add NotificationRequest succeeded!");
+            }
+        }];
+        
     }
 }
 
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UNMutableNotificationContent *)notification {
     if (![notification.userInfo[@"type"] isEqualToString:@"location"]) {
         [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:kLastNotificationDateKey];
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:kLastScheduledNotificationDateKey];
@@ -255,3 +310,16 @@
 }
 
 @end
+
+@implementation UINavigationController (StatusBarStyle)
+
+-(UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent; // your own style
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return NO; // your own visibility code
+}
+
+@end
+

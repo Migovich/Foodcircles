@@ -74,7 +74,7 @@
         _activityView.activityViewController = self;
         [self.view addSubview:_activityView];
 
-        self.contentSizeForViewInPopover = CGSizeMake(320, self.height - 60);
+        self.preferredContentSize = CGSizeMake(320.0, 600.0);
     }
     return self;
 }
@@ -201,7 +201,7 @@
 #pragma mark -
 #pragma mark Orientation
 
-- (NSUInteger)supportedInterfaceOrientations
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskAll;
 }

@@ -10,6 +10,7 @@
 		3741858C1BB0E40300454466 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3741858B1BB0E40300454466 /* Fabric.framework */; };
 		3742825E1BB0E03F0003DBA9 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFB8B45817BD734C006162F8 /* Twitter.framework */; };
 		37B06B691BAF1C3D00D6BEB3 /* FCSVenueListFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B06B681BAF1C3D00D6BEB3 /* FCSVenueListFooterView.m */; };
+		48C63112363FBF2B8F7034A3 /* libPods-FoodCircles.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AFB61EDFD698F2BE6824C20 /* libPods-FoodCircles.a */; };
 		6301F47A1747C7ED0081245A /* foodcircles logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6301F4781747C7ED0081245A /* foodcircles logo.png */; };
 		6301F47B1747C7ED0081245A /* foodcircles logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6301F4791747C7ED0081245A /* foodcircles logo@2x.png */; };
 		6305D52F17345D1C0021482B /* FCSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6305D52E17345D1C0021482B /* FCSNavigationController.m */; };
@@ -75,14 +76,12 @@
 		63DBB633173161FD003A74CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DBB632173161FD003A74CC /* main.m */; };
 		63DBB637173161FD003A74CC /* FCSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DBB636173161FD003A74CC /* FCSAppDelegate.m */; };
 		63DBB640173161FD003A74CC /* FoodCircles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63DBB63E173161FD003A74CC /* FoodCircles.xcdatamodeld */; };
-		63DBB648173161FE003A74CC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DBB647173161FE003A74CC /* SenTestingKit.framework */; };
 		63DBB64B173161FE003A74CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DBB62A173161FD003A74CC /* CoreData.framework */; };
 		63DBB653173161FE003A74CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63DBB651173161FE003A74CC /* InfoPlist.strings */; };
 		63DBB6601731634B003A74CC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63DBB65F1731634B003A74CC /* MainStoryboard.storyboard */; };
 		63DBB663173164CD003A74CC /* FCSSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DBB662173164CD003A74CC /* FCSSignUpViewController.m */; };
 		63E367F2174AC82C00DA3852 /* Kids-crowd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63E367F1174AC82C00DA3852 /* Kids-crowd.jpg */; };
 		63F89782174065FF00FB8391 /* FCSLandingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F89781174065FF00FB8391 /* FCSLandingPageViewController.m */; };
-		9A789DC1B956571D162439A9 /* libPods-FoodCircles.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF58ABE6DDDFCCF478C58CA /* libPods-FoodCircles.a */; };
 		AF06E69117E1197000BA1A65 /* FCSCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = AF06E69017E1197000BA1A65 /* FCSCustomSegue.m */; };
 		AF0FF94717E3864D0061A5A3 /* FCSFromBottomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FF94617E3864D0061A5A3 /* FCSFromBottomSegue.m */; };
 		AF0FF94A17E387E90061A5A3 /* FCSFromTopSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FF94917E387E90061A5A3 /* FCSFromTopSegue.m */; };
@@ -152,8 +151,7 @@
 		AFD94A8B17CD751800AE8B0D /* FCSBoldShowServerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD94A8A17CD751800AE8B0D /* FCSBoldShowServerLabel.m */; };
 		AFD94A8D17CD7CF300AE8B0D /* share_action-brown.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD94A8C17CD7CF300AE8B0D /* share_action-brown.png */; };
 		AFD94A8F17CD7CF700AE8B0D /* share_action-brown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD94A8E17CD7CF700AE8B0D /* share_action-brown@2x.png */; };
-		D5042E6D17DA2D2300E9A8FC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D5042E6C17DA2D2300E9A8FC /* libz.dylib */; };
-		D5042E6E17DA2D7000E9A8FC /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 631C6D68173303DE00151EFA /* libxml2.dylib */; };
+		CDAA29E31EC1D5B400ED73B5 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDAA29E21EC1D5B400ED73B5 /* UserNotifications.framework */; };
 		D53D000017DCEE880023290D /* FCSPickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D53DFFFF17DCEE880023290D /* FCSPickerTableViewController.m */; };
 		D53D000317DCFDDA0023290D /* email-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D53D000117DCFDDA0023290D /* email-icon@2x.png */; };
 		D53D000417DCFDDA0023290D /* email-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D53D000217DCFDDA0023290D /* email-icon.png */; };
@@ -202,9 +200,7 @@
 		D59B72ED17D8EEC000E001F0 /* Share_Hands@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D59B72EB17D8EEC000E001F0 /* Share_Hands@2x.png */; };
 		D5B1C24117DB9002008EB2A5 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B1C24017DB9002008EB2A5 /* AdSupport.framework */; };
 		D5B1C24217DB901F008EB2A5 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFB8B45A17BD7373006162F8 /* Accounts.framework */; };
-		D5B1C24417DB9027008EB2A5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B1C24317DB9027008EB2A5 /* libsqlite3.dylib */; };
 		D5B1C24517DB904D008EB2A5 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632357441738349A0068A2F5 /* Social.framework */; };
-		D5B1C24B17DB91B9008EB2A5 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B1C24A17DB91B9008EB2A5 /* libc++.dylib */; };
 		D5D8BAA217E231DB00BF662F /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5D8BAA117E231D900BF662F /* facebook@2x.png */; };
 		D5EEF40F17DA3723006E4F52 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D5EEF40C17DA3723006E4F52 /* Default.png */; };
 		D5EEF41D17DA5272006E4F52 /* FCSNewsImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EEF41C17DA5272006E4F52 /* FCSNewsImage.m */; };
@@ -266,7 +262,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		373CA31B1BB0D0A60034E159 /* libFBSDKCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKCoreKit.a; path = "Pods/../build/Debug-iphoneos/libFBSDKCoreKit.a"; sourceTree = "<group>"; };
+		2AFB61EDFD698F2BE6824C20 /* libPods-FoodCircles.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodCircles.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3741858B1BB0E40300454466 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = FoodCircles/Libs/Fabric.framework; sourceTree = "<group>"; };
 		37B06B671BAF1C3D00D6BEB3 /* FCSVenueListFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSVenueListFooterView.h; sourceTree = "<group>"; };
 		37B06B681BAF1C3D00D6BEB3 /* FCSVenueListFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSVenueListFooterView.m; sourceTree = "<group>"; };
@@ -305,7 +301,6 @@
 		631C6D491732B50A00151EFA /* FCSVenueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSVenueViewController.m; sourceTree = "<group>"; };
 		631C6D4E1732E77200151EFA /* FCSVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSVenue.h; sourceTree = "<group>"; };
 		631C6D4F1732E77200151EFA /* FCSVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSVenue.m; sourceTree = "<group>"; };
-		631C6D68173303DE00151EFA /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		631C6D781733124300151EFA /* FCSSpecial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSSpecial.h; sourceTree = "<group>"; };
 		631C6D791733124300151EFA /* FCSSpecial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSSpecial.m; sourceTree = "<group>"; };
 		632357241738156A0068A2F5 /* Hopcat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Hopcat.jpg; sourceTree = "<group>"; };
@@ -378,7 +373,6 @@
 		63DBB636173161FD003A74CC /* FCSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FCSAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		63DBB63F173161FD003A74CC /* FoodCircles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodCircles.xcdatamodel; sourceTree = "<group>"; };
 		63DBB646173161FE003A74CC /* FoodCirclesTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodCirclesTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		63DBB647173161FE003A74CC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		63DBB650173161FE003A74CC /* FoodCirclesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FoodCirclesTests-Info.plist"; sourceTree = "<group>"; };
 		63DBB652173161FE003A74CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		63DBB65F1731634B003A74CC /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -496,9 +490,8 @@
 		AFD94A8A17CD751800AE8B0D /* FCSBoldShowServerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSBoldShowServerLabel.m; sourceTree = "<group>"; };
 		AFD94A8C17CD7CF300AE8B0D /* share_action-brown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_action-brown.png"; sourceTree = "<group>"; };
 		AFD94A8E17CD7CF700AE8B0D /* share_action-brown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_action-brown@2x.png"; sourceTree = "<group>"; };
-		BEF58ABE6DDDFCCF478C58CA /* libPods-FoodCircles.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodCircles.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C185E0B29FE3970E4BF08C1C /* Pods-FoodCircles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodCircles.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodCircles/Pods-FoodCircles.release.xcconfig"; sourceTree = "<group>"; };
-		D5042E6C17DA2D2300E9A8FC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		CDAA29E21EC1D5B400ED73B5 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		D53D000117DCFDDA0023290D /* email-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-icon@2x.png"; sourceTree = "<group>"; };
 		D53D000217DCFDDA0023290D /* email-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-icon.png"; sourceTree = "<group>"; };
 		D53D4C6A17DB4818003EBB3B /* NeutrafaceSlabText-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NeutrafaceSlabText-Italic.ttf"; path = "Fonts/NeutrafaceSlabText-Italic.ttf"; sourceTree = "<group>"; };
@@ -544,8 +537,6 @@
 		D59B72EA17D8EEC000E001F0 /* Share_Hands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Share_Hands.png; sourceTree = "<group>"; };
 		D59B72EB17D8EEC000E001F0 /* Share_Hands@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Share_Hands@2x.png"; sourceTree = "<group>"; };
 		D5B1C24017DB9002008EB2A5 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		D5B1C24317DB9027008EB2A5 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		D5B1C24A17DB91B9008EB2A5 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		D5D8BAA117E231D900BF662F /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook@2x.png"; sourceTree = "<group>"; };
 		D5EEF40B17DA3723006E4F52 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = SOURCE_ROOT; };
 		D5EEF40C17DA3723006E4F52 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
@@ -597,6 +588,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDAA29E31EC1D5B400ED73B5 /* UserNotifications.framework in Frameworks */,
 				D5B1C24217DB901F008EB2A5 /* Accounts.framework in Frameworks */,
 				AF762300184AB41A009AF016 /* MessageUI.framework in Frameworks */,
 				D5B1C24517DB904D008EB2A5 /* Social.framework in Frameworks */,
@@ -610,21 +602,17 @@
 				AF762306184AB433009AF016 /* QuartzCore.framework in Frameworks */,
 				AF762304184AB42C009AF016 /* OpenGLES.framework in Frameworks */,
 				AF762302184AB424009AF016 /* MobileCoreServices.framework in Frameworks */,
-				D5042E6E17DA2D7000E9A8FC /* libxml2.dylib in Frameworks */,
 				AF7622FE184AB408009AF016 /* CoreVideo.framework in Frameworks */,
 				AF7622FC184AB3FC009AF016 /* AVFoundation.framework in Frameworks */,
 				AF7622FA184AB3F4009AF016 /* CoreMedia.framework in Frameworks */,
 				AF7622F8184AB3C7009AF016 /* AudioToolbox.framework in Frameworks */,
 				D55F853817DC7DF400A27E44 /* AssetsLibrary.framework in Frameworks */,
 				AFC8D3901851020900BAB6ED /* Crashlytics.framework in Frameworks */,
-				D5B1C24B17DB91B9008EB2A5 /* libc++.dylib in Frameworks */,
-				D5B1C24417DB9027008EB2A5 /* libsqlite3.dylib in Frameworks */,
 				D5B1C24117DB9002008EB2A5 /* AdSupport.framework in Frameworks */,
-				D5042E6D17DA2D2300E9A8FC /* libz.dylib in Frameworks */,
 				635FE11C174C0EBB004E8D6B /* MapKit.framework in Frameworks */,
 				AF8FEFB317BC554B00A2A28B /* CFNetwork.framework in Frameworks */,
 				63DBB62B173161FD003A74CC /* CoreData.framework in Frameworks */,
-				9A789DC1B956571D162439A9 /* libPods-FoodCircles.a in Frameworks */,
+				48C63112363FBF2B8F7034A3 /* libPods-FoodCircles.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,7 +620,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63DBB648173161FE003A74CC /* SenTestingKit.framework in Frameworks */,
 				63DBB64B173161FE003A74CC /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -914,8 +901,8 @@
 		63DBB623173161FD003A74CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CDAA29E21EC1D5B400ED73B5 /* UserNotifications.framework */,
 				3741858B1BB0E40300454466 /* Fabric.framework */,
-				373CA31B1BB0D0A60034E159 /* libFBSDKCoreKit.a */,
 				AFC8D38F1851020900BAB6ED /* Crashlytics.framework */,
 				AFB8B45A17BD7373006162F8 /* Accounts.framework */,
 				D5B1C24017DB9002008EB2A5 /* AdSupport.framework */,
@@ -928,23 +915,18 @@
 				AF7622F9184AB3F4009AF016 /* CoreMedia.framework */,
 				AF7622FD184AB408009AF016 /* CoreVideo.framework */,
 				AF8DBA7E1850B38F00D50A3F /* Foundation.framework */,
-				D5B1C24A17DB91B9008EB2A5 /* libc++.dylib */,
-				D5B1C24317DB9027008EB2A5 /* libsqlite3.dylib */,
-				631C6D68173303DE00151EFA /* libxml2.dylib */,
-				D5042E6C17DA2D2300E9A8FC /* libz.dylib */,
 				635FE11B174C0EBB004E8D6B /* MapKit.framework */,
 				AF7622FF184AB41A009AF016 /* MessageUI.framework */,
 				AF762301184AB424009AF016 /* MobileCoreServices.framework */,
 				AF762303184AB42C009AF016 /* OpenGLES.framework */,
 				AF762305184AB433009AF016 /* QuartzCore.framework */,
 				AF762307184AB439009AF016 /* Security.framework */,
-				63DBB647173161FE003A74CC /* SenTestingKit.framework */,
 				632357441738349A0068A2F5 /* Social.framework */,
 				AF762316184ABB71009AF016 /* StoreKit.framework */,
 				AF762309184AB441009AF016 /* SystemConfiguration.framework */,
 				AFB8B45817BD734C006162F8 /* Twitter.framework */,
 				AF76230B184AB44D009AF016 /* UIKit.framework */,
-				BEF58ABE6DDDFCCF478C58CA /* libPods-FoodCircles.a */,
+				2AFB61EDFD698F2BE6824C20 /* libPods-FoodCircles.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1288,6 +1270,7 @@
 				AF8DBA801850B5F200D50A3F /* ShellScript */,
 				FF5D184E3EFFED0F3761B0EA /* [CP] Embed Pods Frameworks */,
 				570D3FB31234E219326A8C1E /* [CP] Copy Pods Resources */,
+				CDAA29E11EBCC2C600ED73B5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1325,11 +1308,11 @@
 			attributes = {
 				CLASSPREFIX = FCS;
 				LastTestingUpgradeCheck = 0710;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = FoodCircles;
 				TargetAttributes = {
 					63DBB620173161FD003A74CC = {
-						DevelopmentTeam = 6H3NUKPCZ9;
+						DevelopmentTeam = JCY45QFZ9K;
 					};
 				};
 			};
@@ -1503,7 +1486,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		570D3FB31234E219326A8C1E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -1518,7 +1501,7 @@
 		};
 		5CA3294EBF8D4835D3AC41F2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -1533,19 +1516,32 @@
 		};
 		63DBB644173161FE003A74CC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
 		AF8DBA801850B5F200D50A3F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "./FoodCircles/Libs/Crashlytics.framework/run 22535ca9de8554d530b74b9a578747941edd9284";
+		};
+		CDAA29E11EBCC2C600ED73B5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -1555,11 +1551,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./FoodCircles/Libs/Crashlytics.framework/run 22535ca9de8554d530b74b9a578747941edd9284";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 2536358c1a0f5b0dc2607b67797c7b90df50b218 ed5bda82d932a9f70f308ef54f62042699e2bc6b2ca602873861c07abc1c2f46";
 		};
 		FF5D184E3EFFED0F3761B0EA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -1716,28 +1712,39 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lc++",
@@ -1752,21 +1759,31 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-lc++",
@@ -1782,7 +1799,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DA1C043817542AAE258EF361 /* Pods-FoodCircles.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1791,6 +1807,7 @@
 				CODE_SIGN_ENTITLEMENTS = FoodCircles/FoodCircles.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = JCY45QFZ9K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/FoodCircles",
@@ -1801,11 +1818,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
 				INFOPLIST_FILE = "FoodCircles/FoodCircles-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/FoodCircles/Libs/**",
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				"LIBRARY_SEARCH_PATHS[arch=*]" = (
 					"$(SRCROOT)/FoodCircles/Libs/**",
@@ -1813,6 +1829,7 @@
 				);
 				OTHER_LIBTOOLFLAGS = "$(inherited)";
 				"OTHER_LIBTOOLFLAGS[arch=*]" = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.foodcircles.foodcirclesAM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1826,7 +1843,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C185E0B29FE3970E4BF08C1C /* Pods-FoodCircles.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1835,6 +1851,7 @@
 				CODE_SIGN_ENTITLEMENTS = FoodCircles/FoodCircles.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = JCY45QFZ9K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/FoodCircles",
@@ -1845,11 +1862,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
 				INFOPLIST_FILE = "FoodCircles/FoodCircles-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/FoodCircles/Libs/**",
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				"LIBRARY_SEARCH_PATHS[arch=*]" = (
 					"$(SRCROOT)/FoodCircles/Libs/**",
@@ -1857,6 +1873,7 @@
 				);
 				OTHER_LIBTOOLFLAGS = "$(inherited)";
 				"OTHER_LIBTOOLFLAGS[arch=*]" = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.foodcircles.foodcirclesAM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1873,10 +1890,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
 				INFOPLIST_FILE = "FoodCirclesTests/FoodCirclesTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.foodcircles.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -1890,10 +1909,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoodCircles/FoodCircles-Prefix.pch";
 				INFOPLIST_FILE = "FoodCirclesTests/FoodCirclesTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.foodcircles.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;

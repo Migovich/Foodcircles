@@ -49,7 +49,7 @@
     self.receiptView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
     
     if (self.viewType == VoucherViewTypePayment) {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Timeline", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(accountButtonClicked:)];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Timeline", nil) style:UIBarButtonItemStylePlain target:self action:@selector(accountButtonClicked:)];
         self.offerName = [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"title"];
         self.restaurantName = [[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"name"];
         self.voucherNumberLabel.text = @"";
@@ -195,6 +195,7 @@
 - (IBAction)markAsUsedPressed:(id)sender {
     
     [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Are you sure?", nil) message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"Yes", nil), nil] show];
+
 }
 
 
