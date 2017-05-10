@@ -38,6 +38,9 @@
 @property (strong, nonatomic) UIColor *barButtonItemTintColor;
 
 @property (nonatomic) FPPopoverController *popOverController;
+
+@property (assign, nonatomic) bool defaultBarStyle;
+
 @end
 
 @implementation FCSPurchaseViewController
@@ -134,8 +137,8 @@
         [[UINavigationBar appearance] setBarTintColor:nil];
         [[UINavigationBar appearance] setTintColor:nil];
         [[UIBarButtonItem appearance] setTintColor:nil];
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
-    
+        _defaultBarStyle = true;
+        [self setNeedsStatusBarAppearanceUpdate];
     }
     
     //PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithClientId:clientID receiverEmail:kReceiverEmail payerId:aPayerId payment:payment delegate:self];
@@ -201,7 +204,8 @@
         [[UINavigationBar appearance] setBarTintColor:_navigationBarBarTintColor];
         [[UINavigationBar appearance] setTintColor:_navigationBarTintColor];
         [[UIBarButtonItem appearance] setTintColor:_barButtonItemTintColor];
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+        _defaultBarStyle = false;
+        [self setNeedsStatusBarAppearanceUpdate];
     }
 }
 
@@ -282,7 +286,17 @@
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent; // your own style
+    NSLog(@"PreferredStatusBarStyle");
+    if(self.defaultBarStyle)
+    {
+        NSLog(@"->UIStatusBarStyleBlackOpaque");
+        return UIStatusBarStyleDefault;
+    }
+    else
+    {
+        NSLog(@"->UIStatusBarStyleLightContent");
+        return UIStatusBarStyleLightContent;
+    }
 }
 
 - (BOOL)prefersStatusBarHidden {

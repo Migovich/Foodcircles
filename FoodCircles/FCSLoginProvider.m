@@ -117,8 +117,28 @@ typedef enum {
                           else if (errorCode == FacebookErrorCodeNoAccountExists) {
                               [self authenticateToServerWithUrl:SIGN_UP_URL uid:user email:email withCompletion:^(id JSON, NSString *error, FacebookErrorCode errorCode) {
                                   if (error) {
-                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Error" message:error delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                                      [alert show];
+//                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Error" message:error delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//                                      [alert show];
+                                      UIAlertController * alert=   [UIAlertController
+                                                                    alertControllerWithTitle:@"Sign Up Error"
+                                                                    message:error
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+                                      
+                                      UIAlertAction* ok = [UIAlertAction
+                                                           actionWithTitle:@"OK"
+                                                           style:UIAlertActionStyleDefault
+                                                           handler:^(UIAlertAction * action)
+                                                           {
+                                                               [alert dismissViewControllerAnimated:YES completion:nil];
+                                                               
+                                                           }];
+                                      [alert addAction:ok];
+                                      
+                                      UINavigationController *navigationController = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+                                      
+                                      UICollectionViewController *collectionView = (UICollectionViewController *)[navigationController visibleViewController];
+                                      
+                                      [collectionView presentViewController:alert animated:YES completion:nil];
                                       handler(NO);
                                   }
                                   else {
@@ -173,13 +193,33 @@ typedef enum {
                                                                                                     if (errorMessage == nil) {
                                                                                                         errorMessage = @"Can't connect to server.";
                                                                                                         
-                                                                                                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign In Error"
-                                                                                                                                                        message:errorMessage
-                                                                                                                                                       delegate:nil
-                                                                                                                                              cancelButtonTitle:@"OK"
-                                                                                                                                              otherButtonTitles:nil];
-                                                                                                        [alert show];
-                                                                                                    }
+//                                                                                                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign In Error"
+//                                                                                                                                                        message:errorMessage
+//                                                                                                                                                       delegate:nil
+//                                                                                                                                              cancelButtonTitle:@"OK"
+//                                                                                                                                              otherButtonTitles:nil];
+//                                                                                                        [alert show];
+                                                                                                        
+                                                                                                        UIAlertController * alert=   [UIAlertController
+                                                                                                                                      alertControllerWithTitle:@"Sign In Error"
+                                                                                                                                      message:errorMessage
+                                                                                                                                      preferredStyle:UIAlertControllerStyleAlert];
+                                                                                                        
+                                                                                                        UIAlertAction* ok = [UIAlertAction
+                                                                                                                             actionWithTitle:@"OK"
+                                                                                                                             style:UIAlertActionStyleDefault
+                                                                                                                             handler:^(UIAlertAction * action)
+                                                                                                                             {
+                                                                                                                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                                                                                                                 
+                                                                                                                             }];
+                                                                                                        [alert addAction:ok];
+                                                                                                        
+                                                                                                        UINavigationController *navigationController = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+                                                                                                        
+                                                                                                        UICollectionViewController *collectionView = (UICollectionViewController *)[navigationController visibleViewController];
+                                                                                                        
+                                                                                                        [collectionView presentViewController:alert animated:YES completion:nil];                              }
                                                                                         
                                                                                                     _completionHandler(NO);
                                                                                                 }];
@@ -212,12 +252,32 @@ typedef enum {
         if (errorMessage == nil) {
             errorMessage = @"Can't connect to server.";
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign In Error"
-                                                            message:errorMessage
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign In Error"
+//                                                            message:errorMessage
+//                                                           delegate:nil
+//                                                  cancelButtonTitle:@"OK"
+//                                                  otherButtonTitles:nil];
+//            [alert show];
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:@"Sign Up Error"
+                                          message:errorMessage
+                                          preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction
+                                 actionWithTitle:@"OK"
+                                 style:UIAlertActionStyleDefault
+                                 handler:^(UIAlertAction * action)
+                                 {
+                                     [alert dismissViewControllerAnimated:YES completion:nil];
+                                     
+                                 }];
+            [alert addAction:ok];
+            
+            UINavigationController *navigationController = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+            
+            UICollectionViewController *collectionView = (UICollectionViewController *)[navigationController visibleViewController];
+            
+            [collectionView presentViewController:alert animated:YES completion:nil];
             
         }
         

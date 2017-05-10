@@ -86,9 +86,10 @@
     
     
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"PUT" path:@"" parameters:params];
-    
+
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSLog(@"%@",JSON);
+        
         [HUD setLabelText:@"User saved"];
         [HUD setMode:MBProgressHUDModeText];
         [HUD show:YES];
