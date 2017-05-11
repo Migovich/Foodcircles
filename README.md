@@ -1,3 +1,3 @@
 # README #
 
-FoodCircles for iOS
+FoodCircles for iOS# foodcircles-ios-2
