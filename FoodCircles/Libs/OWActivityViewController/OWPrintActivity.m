@@ -53,13 +53,34 @@
             void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) =
             ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
                 if (!completed && error) {
-                    UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"activity.Print.error.title", @"OWActivityViewController", @"Error.")
-                                                                 message:[NSString stringWithFormat:NSLocalizedStringFromTable(@"activity.Print.error.message", @"OWActivityViewController", @"An error occured while printing: %@"), error]
-                                                                delegate:nil
-                                                       cancelButtonTitle:@"OK"
-                                                       otherButtonTitles:nil, nil];
                     
-                    [av show];
+//                    UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"activity.Print.error.title", @"OWActivityViewController", @"Error.")
+//                                                                 message:[NSString stringWithFormat:NSLocalizedStringFromTable(@"activity.Print.error.message", @"OWActivityViewController", @"An error occured while printing: %@"), error]
+//                                                                delegate:nil
+//                                                       cancelButtonTitle:@"OK"
+//                                                       otherButtonTitles:nil, nil];
+//                    
+//                    [av show];
+                    UIAlertController * alert=   [UIAlertController
+                                                  alertControllerWithTitle:NSLocalizedStringFromTable(@"activity.Print.error.title", @"OWActivityViewController", @"Error.")
+                                                  message:[NSString stringWithFormat:NSLocalizedStringFromTable(@"activity.Print.error.message", @"OWActivityViewController", @"An error occured while printing: %@"), error]
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    UIAlertAction* ok = [UIAlertAction
+                                         actionWithTitle:@"OK"
+                                         style:UIAlertActionStyleDefault
+                                         handler:^(UIAlertAction * action)
+                                         {
+                                             [alert dismissViewControllerAnimated:YES completion:nil];
+                                             
+                                         }];
+                    [alert addAction:ok];
+                    
+                    UINavigationController *navigationController = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+                    
+                    UICollectionViewController *collectionView = (UICollectionViewController *)[navigationController visibleViewController];
+                    
+                    [collectionView presentViewController:alert animated:YES completion:nil];
                 }
             };
             

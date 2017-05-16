@@ -19,19 +19,13 @@
 }
 
 - (IBAction)requestRestaurantTapped:(id)sender {
-    
-    if ([MFMailComposeViewController canSendMail]) {
-        MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];
-        mailVC.mailComposeDelegate = self.parentVC;
-        [mailVC setSubject:@"Another restaurant to consider"];
-        [mailVC setToRecipients:@[@"hey@joinfoodcircles.org"]];
-        mailVC.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
-        
-        [self.parentVC.navigationController presentViewController:mailVC animated:YES completion:^{
-           [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-            
-        }];
-    }
+    UIApplication *application = [UIApplication sharedApplication];
+    NSURL *URL = [NSURL URLWithString:@"mailto:hey@joinfoodcircles.org"];
+    [application openURL:URL options:@{} completionHandler:^(BOOL success) {
+        if (success) {
+            NSLog(@"Opened url");
+        }
+    }];
 }
 
 @end

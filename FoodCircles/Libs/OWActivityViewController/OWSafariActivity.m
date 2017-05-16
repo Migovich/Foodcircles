@@ -44,7 +44,7 @@
         NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
         
         if ([[userInfo objectForKey:@"url"] isKindOfClass:[NSURL class]])
-            [[UIApplication sharedApplication] openURL:[userInfo objectForKey:@"url"]];
+            [[UIApplication sharedApplication] openURL:[userInfo objectForKey:@"url"] options:@{} completionHandler:nil];
     };
     
     return self;

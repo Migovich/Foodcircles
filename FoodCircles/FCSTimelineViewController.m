@@ -78,13 +78,31 @@
         
         //NSLog(@"Error: %@", error.localizedDescription);
         NSString *errorMessage = [error localizedDescription];
+//        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+//                                                        message:errorMessage
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil];
+//        [alert show];
+//        
+        UIAlertController * alert = [UIAlertController
+                                     alertControllerWithTitle:@"Error"
+                                     message:errorMessage
+                                     preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:errorMessage
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
+        
+        
+        UIAlertAction* cancelButton = [UIAlertAction
+                                       actionWithTitle:@"OK"
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action) {
+                                           //Handle your yes please button action here
+                                       }];
+        
+        [alert addAction:cancelButton];
+        
+        [self presentViewController:alert animated:YES completion:nil];
         
     }];
     

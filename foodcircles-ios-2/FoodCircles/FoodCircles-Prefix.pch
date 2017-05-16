@@ -1,0 +1,26 @@
+//
+// Prefix header for all source files of the 'FoodCircles' target in the 'FoodCircles' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+    #import "constants.h"
+#endif
+
+#ifndef TESTING
+#define TESTING 1
+#endif
+
+#ifdef TESTING
+#pragma message("DO NOT SUBMIT BUILD TO APPLE")
+#else
+#pragma message("You can submit this build to Apple")
+#endif

@@ -54,6 +54,7 @@
                                                 NSFontAttributeName: font,
                                                 NSForegroundColorAttributeName: color
                                              }];
+    
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:0];
     [paragraphStyle setAlignment:NSTextAlignmentCenter];
@@ -66,12 +67,13 @@
     
     //Prices
     self.priceLabel.font = [UIFont fontWithName:@"NeutrafaceSlabText-Book" size:46];
-    self.oldPriceLabel.font = [UIFont fontWithName:@"NeutrafaceSlabText-Book" size:25];
+    NSDictionary *oldPriceLabelFont = @{NSFontAttributeName:[UIFont fontWithName:@"NeutrafaceSlabText-Book" size:25]};
     
     self.priceLabel.text = [NSString stringWithFormat:@"$%@", venueOffer[@"price"]];
     self.oldPriceLabel.text = [NSString stringWithFormat:@"$%@", venueOffer[@"original_price"]];
     
-    CGSize textSize = [self.oldPriceLabel.text sizeWithFont:self.oldPriceLabel.font];
+    CGSize textSize = [self.oldPriceLabel.text sizeWithAttributes: oldPriceLabelFont];
+    
     //Draw a diagonal line over the old price
     UIBezierPath *diagonalPath = [UIBezierPath bezierPath];
     [diagonalPath moveToPoint:CGPointMake(textSize.width + 4, 10)];
@@ -101,7 +103,14 @@
 
 - (void)updateViewConstraints {
     [super updateViewConstraints];
-    CGFloat textHeight = [self.specialDetailsTextView.text sizeWithFont:self.specialDetailsTextView.font constrainedToSize:CGSizeMake(260, MAXFLOAT)].height;
+  //  CGFloat textHeight = [self.specialDetailsTextView.text sizeWithFont:self.specialDetailsTextView.font constrainedToSize:CGSizeMake(260, MAXFLOAT)].height;
+    NSDictionary *font = @{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:14.0]};
+    CGSize textSize = [self.specialDetailsTextView.text
+                       boundingRectWithSize:CGSizeMake(260, MAXFLOAT)
+                       options:NSStringDrawingUsesLineFragmentOrigin
+                       attributes:font
+                       context:nil].size;
+    CGFloat textHeight = textSize.height;
     textHeight += 10.0;
     NSUInteger spacing = 10;
     self.detailTextViewHeightConstraint.constant = textHeight + spacing;

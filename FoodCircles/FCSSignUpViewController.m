@@ -20,6 +20,9 @@
 #import "FCSLoginProvider.h"
 #import "SSKeychain.h"
 
+#import <TwitterKit/TwitterKit.h>
+
+
 @interface FCSSignUpViewController ()
 @property (weak, nonatomic) IBOutlet FCSOverImageHeader *overImageHeader;
 @property (weak, nonatomic) IBOutlet FCSOverImageSecondary *overImageHeaderScondary;
@@ -34,7 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     
@@ -70,6 +73,7 @@
     
     FCSLoginProvider *login = [[FCSLoginProvider alloc] init];
     [login savedLoginWithView:self segue:@"SignUpSegue" hud:HUD];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -103,6 +107,7 @@
         params = [NSDictionary dictionaryWithObjectsAndKeys:
                   self.emailTextField.text, @"user_email",
                   self.passwordTextField.text, @"user_password",
+                  @"1", @"offer",
                   nil];
     } else {
         params = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -155,13 +160,23 @@
             errorMessage = @"Can't connect to server.";
         }
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Error"
-                                                        message:errorMessage
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
+        UIAlertController * alert = [UIAlertController
+                                     alertControllerWithTitle:@"Sign Up Error"
+                                     message:errorMessage
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        
+        
+        UIAlertAction* cancelButton = [UIAlertAction
+                                       actionWithTitle:@"OK"
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action) {
+                                           //Handle your yes please button action here
+                                       }];
+        
+        [alert addAction:cancelButton];
         NSLog(@"%@", errorMessage);
-        [alert show];
+        [self presentViewController:alert animated:YES completion:nil];
         
     }];
     
@@ -178,26 +193,27 @@
             [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
         }
     }];
+
 }
 
 - (IBAction)clickTwitterSignUp:(id)sender {
     [HUD show:YES];
-    [PFTwitterUtils initialize];
-    [PFTwitterUtils logInWithBlock:^(PFUser *user, NSError *error) {
-        if (!user) {
-            NSLog(@"The user cancelled the Twitter login.");
-            return;
+    [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
+        if (session) {
+            NSLog(@"signed in as %@", [session userName]);
+            
+            _twitterUID = session.userName;
+                        FCSLoginProvider *login = [[FCSLoginProvider alloc] init];
+                        [login loginWithTwitter:^(BOOL success) {
+                            [HUD hide:YES];
+                            if (!success) {
+                                [self activateTwitterSignUp:YES];
+                            } else {
+                                [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
+                            }
+                        }];
         } else {
-            _twitterUID = user.username;
-            FCSLoginProvider *login = [[FCSLoginProvider alloc] init];
-            [login loginWithTwitter:^(BOOL success) {
-                [HUD hide:YES];
-                if (!success) {
-                    [self activateTwitterSignUp:YES];
-                } else {
-                    [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
-                }
-            }];
+            NSLog(@"error: %@", [error localizedDescription]);
         }
     }];
 }

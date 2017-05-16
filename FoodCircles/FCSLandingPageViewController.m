@@ -135,7 +135,11 @@
         [self performSegueWithIdentifier:@"showVenueList" sender:nil];
     }
     else if (newsImage.url && ![newsImage.url isEqualToString:@""]) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:newsImage.url]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:newsImage.url] options:@{} completionHandler:^(BOOL success) {
+            if (success) {
+                NSLog(@"news Image url was opened");
+            }
+        }];
     }
     else {
         [self performSegueWithIdentifier:@"showVenueList" sender:nil];
@@ -154,7 +158,7 @@
     
         self.imageIsLoading = YES;
     
-        [self.newsImageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:newsImage.imageUrl relativeToURL:[NSURL URLWithString:BASE_URL]] andPlaceholderImage:nil options:SDWebImageRefreshCached progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [self.newsImageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:newsImage.imageUrl relativeToURL:[NSURL URLWithString:BASE_URL]] placeholderImage:nil options:SDWebImageRefreshCached progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             self.imageIsLoading = NO;
         }];
     } completion:nil];

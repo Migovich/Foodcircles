@@ -19,8 +19,8 @@
 #define TESTING 1
 #endif
 
-#ifdef TESTING
-#pragma message("DO NOT SUBMIT BUILD TO APPLE")
-#else
-#pragma message("You can submit this build to Apple")
-#endif
+//#ifdef TESTING
+//#pragma message("DO NOT SUBMIT BUILD TO APPLE")
+//#else
+//#pragma message("You can submit this build to Apple")
+//#endif

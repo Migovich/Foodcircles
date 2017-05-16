@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CA2D0EB951EDCC22C7A787A27D23864AFB393F88",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "CA2D0EB951EDCC22C7A787A27D23864AFB393F88" : 0,
+    "160ECEC1-4C90-4682-A62F-D3F105BB0E5B" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "EDF8A086-6284-4FDA-8CFF-C0F405DD94C1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "CA2D0EB951EDCC22C7A787A27D23864AFB393F88" : "foodcircles-ios\/",
+    "160ECEC1-4C90-4682-A62F-D3F105BB0E5B" : "FoodCircles"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "FoodCircles",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "FoodCircles.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/jkooms\/foodcircles-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "160ECEC1-4C90-4682-A62F-D3F105BB0E5B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/jkooms\/foodcircles-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CA2D0EB951EDCC22C7A787A27D23864AFB393F88"
+    }
+  ]
+}

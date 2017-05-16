@@ -73,7 +73,7 @@
     [returnArray addObject:data];
     
     if (array.count) {
-        NSDateComponents *comps = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:data.date];
+        NSDateComponents *comps = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:data.date];
         [formatter setDateFormat:@"yyyy"];
         
         NSInteger monthDif = [comps month];
@@ -82,7 +82,7 @@
         for (NSInteger i = 0; i < [array count]; i++) {
             data = [array objectAtIndex:i];
             
-            comps = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:data.date];
+            comps = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:data.date];
             month = [comps month];
             
             if (monthDif != month) {

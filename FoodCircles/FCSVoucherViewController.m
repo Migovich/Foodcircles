@@ -49,7 +49,7 @@
     self.receiptView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
     
     if (self.viewType == VoucherViewTypePayment) {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Timeline", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(accountButtonClicked:)];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Timeline", nil) style:UIBarButtonItemStylePlain target:self action:@selector(accountButtonClicked:)];
         self.offerName = [[[[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"offers"] objectAtIndex:_selectedOffer] objectForKey:@"title"];
         self.restaurantName = [[UIAppDelegate.venues objectAtIndex:_selectedVenueIndex] objectForKey:@"name"];
         self.voucherNumberLabel.text = @"";
@@ -87,7 +87,23 @@
         [[FCSServerHelper sharedHelper] processPayment:self.completedPayment offerId:offerId charityId:charityId withCompletion:^(NSDictionary *voucherContent, NSString *error) {
             
             if (error) {
-                [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error!", nil) message:error delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+                //[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error!", nil) message:error delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+                UIAlertController * alert=   [UIAlertController
+                                              alertControllerWithTitle:NSLocalizedString(@"Error!", nil)
+                                              message:error
+                                              preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction
+                                     actionWithTitle:NSLocalizedString(@"OK", nil)
+                                     style:UIAlertActionStyleDefault
+                                     handler:^(UIAlertAction * action)
+                                     {
+                                         [alert dismissViewControllerAnimated:YES completion:nil];
+                                         
+                                     }];
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
+                
                 [self.navigationController popViewControllerAnimated:YES];
             }
             else {
@@ -194,7 +210,33 @@
 
 - (IBAction)markAsUsedPressed:(id)sender {
     
-    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Are you sure?", nil) message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"Yes", nil), nil] show];
+    //[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Are you sure?", nil) message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"Yes", nil), nil] show];
+    UIAlertController * alert =   [UIAlertController
+                                  alertControllerWithTitle:NSLocalizedString(@"Are you sure?", nil)
+                                  message:nil
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:@"Cancel"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
+    [alert addAction:ok];
+    [alert addAction:cancel];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 

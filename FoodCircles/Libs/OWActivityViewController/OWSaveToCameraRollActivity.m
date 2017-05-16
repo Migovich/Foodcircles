@@ -25,7 +25,7 @@
 
 #import "OWSaveToCameraRollActivity.h"
 #import "OWActivityViewController.h"
-#import <AssetsLibrary/AssetsLibrary.h>
+#import <Photos/Photos.h>
 
 @implementation OWSaveToCameraRollActivity
 
@@ -44,10 +44,16 @@
         NSDictionary *userInfo = weakSelf.userInfo ? weakSelf.userInfo : activityViewController.userInfo;
         UIImage *image = [userInfo objectForKey:@"image"];
         
-        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-        [library writeImageToSavedPhotosAlbum:image.CGImage
-                                  orientation:(ALAssetOrientation)image.imageOrientation
-                              completionBlock:nil];
+        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+            [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+        } completionHandler:^(BOOL success, NSError *error) {
+            if (success) {
+                NSLog(@"Image Saved");
+            }
+            else {
+                NSLog(@"error in saving image : %@",error);
+            }
+        }];
     };
     
     return self;
